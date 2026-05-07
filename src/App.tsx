@@ -5,7 +5,7 @@ import { ProductPage } from "./ui/pages/ProductPage";
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products/:productId" element={<ProductPage />} />

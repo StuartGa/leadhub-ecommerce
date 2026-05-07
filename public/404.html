@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // SPA fallback for GitHub Pages.
+      // Inspired by https://github.com/rafgraph/spa-github-pages
+      (function () {
+        var l = window.location;
+        var repoBase = '/leadhub-ecommerce';
+        var path = l.pathname.startsWith(repoBase)
+          ? l.pathname.slice(repoBase.length)
+          : l.pathname;
+        var redirectTo =
+          repoBase +
+          '/?p=' +
+          encodeURIComponent(path + l.search + l.hash);
+        l.replace(redirectTo);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

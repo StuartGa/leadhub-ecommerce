@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { productService } from "../../application/services/productService";
+import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import type { Product } from "../../domain/types/product";
 import { ProductGrid } from "../components/catalog/ProductGrid";
 import { ContactForm } from "../components/form/ContactForm";
@@ -7,6 +8,7 @@ import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
 export function HomePage() {
+  useDocumentTitle("LeadHub — Grow Your Business with Proven Lead Generation");
   const [products] = useState<Product[]>(() => productService.getAll());
   const [preselectedProduct, setPreselectedProduct] = useState<string | null>(
     null,

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block Vite build artifacts if accidentally exposed
+Disallow: /src/
+Disallow: /.env
+
+Sitemap: https://leadhub.example.com/sitemap.xml

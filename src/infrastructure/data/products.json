@@ -1,0 +1,68 @@
+[
+  {
+    "id": "prod-001",
+    "name": "Growth Starter Kit",
+    "description": "Everything you need to launch your online presence — domain setup, hosting, and a lightweight landing page to start capturing leads from day one.",
+    "price": 299,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    "category": "Starter",
+    "inStock": true,
+    "tags": ["beginner", "landing-page", "onboarding"]
+  },
+  {
+    "id": "prod-002",
+    "name": "Pro Lead Engine",
+    "description": "A complete lead generation system with automated email sequences, CRM integration, and analytics dashboard to scale your pipeline.",
+    "price": 799,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    "category": "Professional",
+    "inStock": true,
+    "tags": ["automation", "crm", "analytics"]
+  },
+  {
+    "id": "prod-003",
+    "name": "Conversion Accelerator",
+    "description": "Advanced A/B testing, heat maps, and conversion rate optimization consulting to turn your traffic into qualified leads.",
+    "price": 1499,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
+    "category": "Enterprise",
+    "inStock": true,
+    "tags": ["cro", "testing", "consulting"]
+  },
+  {
+    "id": "prod-004",
+    "name": "Content Strategy Blueprint",
+    "description": "A 90-day content plan tailored to your audience, including SEO keyword research, editorial calendar, and copy templates.",
+    "price": 499,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop",
+    "category": "Strategy",
+    "inStock": true,
+    "tags": ["content", "seo", "strategy"]
+  },
+  {
+    "id": "prod-005",
+    "name": "Social Media Growth Pack",
+    "description": "Done-for-you social media management across three platforms with scheduled posts, community engagement, and monthly performance reports.",
+    "price": 599,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
+    "category": "Marketing",
+    "inStock": false,
+    "tags": ["social-media", "management", "reporting"]
+  },
+  {
+    "id": "prod-006",
+    "name": "Brand Identity Suite",
+    "description": "Full visual identity package including logo design, brand guidelines, color palette, typography system, and social media templates.",
+    "price": 999,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+    "category": "Branding",
+    "inStock": true,
+    "tags": ["branding", "design", "identity"]
+  }
+]

@@ -10,9 +10,30 @@ import { Header } from "../components/layout/Header";
 export function ContactPage() {
   useDocumentTitle("Contact Us — LeadHub");
   const [searchParams] = useSearchParams();
-  const preselectedProduct = searchParams.get("product");
 
   const products = useMemo(() => productService.getAll(), []);
+
+  // Normalize query params: ?products=id1,id2 (official) or ?product=id (legacy)
+  const preselectedProductIds = useMemo(() => {
+    const productsParam = searchParams.get("products");
+    const productParam = searchParams.get("product");
+
+    if (productsParam) {
+      // Official format: comma-separated IDs
+      return productsParam
+        .split(",")
+        .map((id) => id.trim())
+        .filter((id) => id.length > 0)
+        .filter((id, index, arr) => arr.indexOf(id) === index); // Remove duplicates
+    }
+
+    if (productParam) {
+      // Legacy format: single ID
+      return [productParam.trim()].filter((id) => id.length > 0);
+    }
+
+    return [];
+  }, [searchParams]);
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
@@ -90,7 +111,7 @@ export function ContactPage() {
             <div>
               <ContactForm
                 products={products}
-                preselectedProduct={preselectedProduct}
+                preselectedProductIds={preselectedProductIds}
               />
             </div>
           </div>

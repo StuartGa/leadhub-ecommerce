@@ -1,15 +1,63 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
-  --color-brand-950: #1e1b4b;
+  /* Stitch San Patric Foodservice - Color Palette */
+  /* Primary: #b12455 | Secondary: #500021 */
+  --color-brand-50: #fef2f5;
+  --color-brand-100: #fce7ed;
+  --color-brand-200: #f9cfd9;
+  --color-brand-300: #f5a7bb;
+  --color-brand-400: #ee7094;
+  --color-brand-500: #b12455; /* Primary - Rose Pink */
+  --color-brand-600: #9c1d48;
+  --color-brand-700: #7f163a;
+  --color-brand-800: #60102c;
+  --color-brand-900: #500021; /* Secondary - Burgundy Red */
+  --color-brand-950: #3a0018;
+
+  /* Material Design 3 Surface Colors */
+  --color-background: #faf9fb;
+  --color-surface: #faf9fb;
+  --color-surface-dim: #dadadc;
+  --color-surface-bright: #faf9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f3f5;
+  --color-surface-container: #eeedf0;
+  --color-surface-container-high: #e8e8ea;
+  --color-surface-container-highest: #e3e2e4;
+  --color-surface-variant: #e3e2e4;
+  
+  /* On Colors */
+  --color-on-background: #1a1c1d;
+  --color-on-surface: #1a1c1d;
+  --color-on-surface-variant: #564246;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-error: #ffffff;
+  
+  /* Outline */
+  --color-outline: #897176;
+  --color-outline-variant: #dcc0c4;
+  
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Typography - Roboto (Metropolis alternative) */
+  --font-sans: Roboto, ui-sans-serif, system-ui, sans-serif;
+  
+  /* Spacing Scale */
+  --spacing-unit: 0.5rem; /* 8px */
+  --spacing-gutter: 1.5rem; /* 24px */
+  --spacing-section-padding: 5rem; /* 80px */
+  --spacing-container-max: 75rem; /* 1200px */
+  --spacing-element-gap: 1rem; /* 16px */
+  
+  /* Border Radius */
+  --radius-sm: 0.125rem; /* 2px */
+  --radius: 0.125rem; /* 2px */
+  --radius-md: 0.25rem; /* 4px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
 }

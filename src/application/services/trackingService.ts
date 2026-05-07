@@ -60,7 +60,7 @@ export function loadMetaPixel(pixelId: string): void {
   // Initialize fbq
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fbq = function (...args: any[]) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-expressions
     (fbq as any).callMethod
       ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (fbq as any).callMethod.apply(fbq, args)

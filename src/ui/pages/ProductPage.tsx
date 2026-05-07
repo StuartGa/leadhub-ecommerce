@@ -119,7 +119,7 @@ export function ProductPage() {
                     </p>
                   </div>
                   <Link
-                    to={`/contact?product=${product.id}`}
+                    to={`/contact?products=${product.id}`}
                     className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     Inquire about this service

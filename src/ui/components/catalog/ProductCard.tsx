@@ -15,7 +15,7 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md transition-shadow hover:shadow-xl"
     >
       <div className="aspect-video overflow-hidden bg-slate-100">
         <Link to={`/products/${product.id}`} className="block">
@@ -30,22 +30,22 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
 
       <div className="flex flex-1 flex-col gap-3 p-6">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold text-slate-900">
+          <h3 className="font-sans text-xl font-normal text-slate-900">
             <Link
               to={`/products/${product.id}`}
-              className="transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
+              className="transition-colors hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40"
             >
               {product.name}
             </Link>
           </h3>
           {!product.inStock && (
-            <span className="shrink-0 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
-              Coming soon
+            <span className="shrink-0 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
+              Próximamente
             </span>
           )}
         </div>
 
-        <p className="flex-1 text-sm leading-relaxed text-slate-600">
+        <p className="flex-1 font-sans text-base font-light leading-relaxed text-slate-600">
           {product.description}
         </p>
 
@@ -53,7 +53,7 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
           {product.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700"
+              className="rounded bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700"
             >
               {tag}
             </span>
@@ -61,23 +61,23 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
         </div>
 
         <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-          <span className="text-xl font-bold text-slate-900">
+          <span className="font-sans text-xl font-semibold text-slate-900">
             ${product.price.toLocaleString()}
           </span>
           <div className="flex items-center gap-3">
             <Link
               to={`/products/${product.id}`}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+              className="font-sans text-sm font-normal text-slate-600 transition-colors hover:text-brand-500"
             >
-              Details
+              Detalles
             </Link>
             <button
               type="button"
               onClick={() => onInquire(product)}
               disabled={!product.inStock}
-              className="cursor-pointer rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              className="cursor-pointer rounded bg-brand-500 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-900 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Inquire Now
+              Cotizar
             </button>
           </div>
         </div>

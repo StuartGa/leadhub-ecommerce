@@ -1,97 +1,97 @@
-# LeadHub — Lead Generation SPA
+# San Patric Foodservice — Landing Page
 
-A modern, production-ready single-page application built with React 19, TypeScript, and Tailwind CSS v4. LeadHub is a fictional lead generation service showcase with a complete contact workflow, product catalog, and integrated tracking.
+Sitio web moderno y profesional para San Patric Foodservice, empresa 100% mexicana especializada en distribución y acondicionamiento de alimentos convenientes para el sector foodservice y retail.
 
-## Features
+## 🎯 Características
 
-- **Clean Architecture**: Layered architecture with clear separation between domain, application, infrastructure, and UI layers
-- **Product Catalog**: 14 services with detail pages, filtering, and responsive design
-- **Contact Page**: Dedicated contact page with office location, business hours, and embedded Google Maps
-- **GHL Integration**: Webhook integration for lead capture via Go High Level
-- **Tracking & Analytics**: Integrated support for Google Tag Manager, Google Analytics 4, and Meta Pixel with granular consent management
-- **Cookie Consent**: GDPR-friendly banner with Accept/Reject/Customize options
-- **SEO Optimized**: Meta tags, structured data, sitemap, and canonical URLs
-- **Security First**: DOMPurify sanitization, Zod validation, secure headers, and CSP configuration
-- **GitHub Pages Ready**: Includes SPA fallback for client-side routing
+- **Diseño Stitch Replicado**: Paleta de colores rojo/rosa (#b12455, #500021) con Material Design 3
+- **Catálogo de Productos**: 12 categorías de alimentos (Acompañantes, Proteínas, Lácteos, Repostería, etc.)
+- **Formulario de Contacto**: Integración con GHL webhook, campos específicos foodservice (Giro del negocio, Sucursales, Localidad)
+- **Secciones Completas**:
+  - Hero con CTA y diseño split-screen
+  - Sobre Nosotros con galería de imágenes
+  - Estadísticas (+35 Proveedores, +750 Clientes, +200 Productos)
+  - Temperatura de Distribución (Seco, Refrigerado, Congelado)
+  - Clientes y Testimonios
+  - Cobertura Nacional por regiones
+- **Responsive**: Menú móvil hamburguesa completamente funcional
+- **Optimizado**: Code splitting con React.lazy para mejor performance
+- **SEO**: Meta tags en español, structured data, sitemap
+- **Seguridad**: DOMPurify, Zod validation, CSP headers
 
-## Tech Stack
+## 🚀 Tech Stack
 
-- **React 19** with TypeScript
-- **Vite 8** for build and dev server
-- **Tailwind CSS v4** configured via `@theme` in CSS
-- **React Router DOM** for client-side routing
-- **React Hook Form + Zod** for form validation
-- **Framer Motion** for scroll animations
-- **DOMPurify** for XSS protection
+- **React 19** con TypeScript
+- **Vite 8** para build ultrarrápido
+- **Tailwind CSS v4** con tokens Material Design
+- **React Router DOM** con lazy loading
+- **React Hook Form + Zod** para validación
+- **Framer Motion** para animaciones
+- **DOMPurify** para protección XSS
 
-## Project Structure
+## 📁 Estructura del Proyecto
 
 ```
 src/
-  domain/         # Types & schemas (zero UI dependencies)
-    types/        # Product, GHL, and tracking interfaces
-    schemas/      # Zod validation schemas
-  application/    # Use cases & orchestration
-    hooks/        # useGHLIntegration, useTrackingConsent, usePageTracking
-    services/     # productService (sanitized reads), trackingService
-  infrastructure/ # External data sources
-    data/         # products.json (local catalog)
-  ui/             # Pure presentation
-    components/   # catalog/, form/, layout/, tracking/
+  domain/         # Tipos & esquemas (sin dependencias UI)
+    types/        # Product, GHL interfaces
+    schemas/      # Zod schemas (contactSchema con BUSINESS_TYPES, ESTADOS_MEXICO)
+  application/    # Casos de uso
+    hooks/        # useGHLIntegration, useDocumentTitle
+    services/     # productService (DOMPurify sanitization)
+  infrastructure/ # Fuentes de datos externas
+    data/         # products.json (12 productos foodservice)
+  ui/             # Presentación pura
+    components/   
+      home/       # HeroSection, AboutSection, StatsSection, etc.
+      catalog/    # ProductGrid, ProductCard
+      form/       # ContactForm (businessType, branchCount, location)
+      layout/     # Header (con menú móvil), Footer
     pages/        # HomePage, ProductPage, ContactPage
 ```
 
-## Getting Started
+## ⚙️ Instalación
 
-### Prerequisites
+### Prerequisitos
 
 - Node.js 24+
-- npm or pnpm
+- npm o pnpm
 
-### Installation
+### Setup
 
 ```bash
+# Instalar dependencias
 npm install
-```
 
-### Environment Variables
-
-Copy `.env.example` to `.env` and configure:
-
-```bash
+# Copiar variables de entorno
 cp .env.example .env
+
+# Editar .env con tu webhook de GHL
+# VITE_GHL_WEBHOOK_URL=https://rest.gohighlevel.com/v1/tu-endpoint
 ```
 
-Required variables:
-
-```
-VITE_GHL_WEBHOOK_URL=https://rest.gohighlevel.com/v1/your-webhook-endpoint
-
-# Optional tracking IDs (features work gracefully without them)
-VITE_GTM_ID=GTM-XXXXXXX
-VITE_GA4_ID=G-XXXXXXXXXX
-VITE_META_PIXEL_ID=123456789012345
-```
-
-**Security Note**: Never commit `.env` to version control. The webhook URL is bundled into the client JS (acceptable for write-only webhooks), but never use `VITE_*` for secret API keys.
-
-### Development
+### Desarrollo
 
 ```bash
 npm run dev
 ```
 
-Visit `http://localhost:5173`
+Abre `http://localhost:5173`
 
-### Build
+### Build Producción
 
 ```bash
 npm run build
 ```
 
-The build runs TypeScript checking (`tsc -b`) followed by Vite production build. Output is in `dist/`.
+Output optimizado en `dist/` con:
+- **Code splitting**: 6 chunks separados
+- **HomePage**: 134KB (43KB gzip)
+- **ContactPage**: 103KB (31KB gzip)
+- **ProductPage**: 3.8KB (1.3KB gzip)
+- **CSS total**: 29KB (5.9KB gzip)
 
-### Preview Production Build
+### Preview
 
 ```bash
 npm run preview
@@ -103,141 +103,146 @@ npm run preview
 npm run lint
 ```
 
-## Deployment
+## 🎨 Diseño y Branding
+
+### Paleta de Colores
+
+- **Primary**: `#b12455` (brand-500) - Rosa San Patric
+- **Secondary**: `#500021` (brand-900) - Burgundy
+- **Surface**: Material Design 3 tokens
+- **Logo**: SVG custom en `/public/logo.svg`
+
+### Tipografía
+
+- **Fuente**: Roboto (alternativa a Metropolis de Stitch)
+- **Weights**: 300 (light), 400 (normal), 600 (semibold)
+- **Sistema de texto**: headline-lg, display-xl, body-lg, label-caps
+
+### Espaciado
+
+- **Section padding**: 5rem (80px)
+- **Container max**: 75rem (1200px)
+- **Gutter**: 1.5rem (24px)
+- **Unit base**: 0.5rem (8px)
+
+## 📋 Formulario de Contacto
+
+### Campos Implementados
+
+1. **Giro del Negocio** (dropdown):
+   - Restaurante
+   - Hotel
+   - Cafetería
+   - Servicio de Catering
+   - Hospital
+   - Escuela
+   - Supermercado
+   - Mayorista
+   - Otro
+
+2. **Número de Sucursales** (number): 1-10,000
+
+3. **Localidad** (dropdown): 32 estados de México
+
+4. **Email** (email con validación)
+
+5. **Teléfono** (tel con formato MX)
+
+6. **Mensaje** (textarea 20-1000 caracteres)
+
+7. **Productos de Interés** (multiselect chips)
+
+### Validación
+
+- **Schema**: `src/domain/schemas/contactSchema.ts`
+- **Librería**: Zod v3 con mensajes en español
+- **Sanitización**: DOMPurify antes de enviar a GHL
+
+## 🌐 SEO
+
+### Meta Tags (index.html)
+
+- **Title**: "San Patric Foodservice — Alimentos Convenientes de Calidad Premium"
+- **Description**: Optimizada para foodservice México
+- **Locale**: `es_MX`
+- **Theme color**: `#500021`
+
+### Structured Data
+
+```json
+{
+  "@type": "Organization",
+  "name": "San Patric Foodservice",
+  "availableLanguage": ["Spanish", "English"]
+}
+```
+
+### Sitemap
+
+`public/sitemap.xml` incluye:
+- Homepage
+- Contact page
+- 12 páginas de productos
+
+## 🔒 Seguridad
+
+1. **`.env` nunca en git**: Webhook URL protegido
+2. **Zod validation**: Todo input validado antes de enviar
+3. **DOMPurify**: Sanitización de strings de productos
+4. **No `dangerouslySetInnerHTML`**: En ningún componente
+5. **CSP Headers**: Configurados en `vite.config.ts`, `_headers`, `vercel.json`
+6. **HTTP errors ocultos**: Solo mensajes genéricos al usuario
+
+## 📱 Responsive Design
+
+### Breakpoints
+
+- **Mobile**: < 768px (menú hamburguesa)
+- **Tablet**: 768px - 1024px (md:)
+- **Desktop**: > 1024px (lg:)
+
+### Features Mobile
+
+- Menú hamburguesa animado
+- Hero section apilado verticalmente
+- Grid de productos: 1 → 2 → 3 columnas
+- Footer: 1 columna en móvil
+
+## 🚢 Deployment
 
 ### GitHub Pages
 
-The project is configured for GitHub Pages deployment via GitHub Actions.
+Configurado en `.github/workflows/deploy-pages.yml`:
 
-**Workflow**: `.github/workflows/deploy-pages.yml`
+```yaml
+- Build con VITE_BASE=/leadhub-ecommerce/
+- Deploy a branch gh-pages
+- SPA routing fallback con 404.html
+```
 
-- Triggers on push to `main` or manual dispatch
-- Sets `VITE_BASE=/leadhub-ecommerce/`
-- Builds and deploys to `gh-pages` branch
-
-**SPA Routing Fallback**:
-
-- `public/404.html` redirects 404s to `/?p=<path>`
-- `src/main.tsx` reads `p` param and rewrites URL
-
-**Important**: GitHub Pages doesn't support custom headers. The CSP in `vite.config.ts` only applies to local development. The `public/_headers` file is for Netlify/Vercel, not GitHub Pages.
+URL: `https://stuartga.github.io/leadhub-ecommerce/`
 
 ### Netlify / Vercel
 
-The project includes configuration for both:
+Soporta headers de seguridad completos:
 
-- **Netlify**: `public/_headers` (security headers)
-- **Vercel**: `vercel.json` (security headers)
+- **Netlify**: `public/_headers`
+- **Vercel**: `vercel.json`
 
-Both support the full CSP and security headers in production.
+## 🎯 Próximos Pasos (Opcional)
 
-## Architecture
+- [ ] Agregar imágenes reales de productos San Patric
+- [ ] Integrar mapa interactivo de cobertura
+- [ ] Agregar logos reales de clientes
+- [ ] Implementar galería de fotos de almacenes/logística
+- [ ] Agregar página de "Quiénes Somos" completa
+- [ ] Integrar CMS para gestión de productos
+- [ ] Agregar tracking real (GTM, GA4, Meta Pixel)
 
-### Dependency Rule
+## 📄 Licencia
 
-- **`ui/`** can import from `application/` and `domain/`
-- **`application/`** imports only from `domain/` and `infrastructure/`
-- **`domain/`** imports nothing (pure types and schemas)
+Proyecto privado para San Patric Foodservice.
 
-Layer violations will break TypeScript paths. Respect folder boundaries.
+## 📞 Contacto
 
-### TypeScript Strictness
-
-`tsconfig.app.json` enforces:
-
-- `verbatimModuleSyntax: true` — type-only imports must use `import type`
-- `noUnusedLocals: true`
-- `noUnusedParameters: true`
-- `erasableSyntaxOnly: true` — no enums or namespaces
-
-Always check types with `npx tsc -b --noEmit` before committing.
-
-### Tailwind CSS v4
-
-Configured via `@theme` block in `src/index.css` (not `tailwind.config.js`).
-
-Custom design tokens:
-
-- `--color-brand-*` (Indigo scale, 50–950) → `bg-brand-500`, `text-brand-600`
-- Built-in Slate scale: `slate-50` through `slate-950`
-
-## Security
-
-1. **Environment Variables**: `VITE_GHL_WEBHOOK_URL` in `.env` only, never hardcoded
-2. **Validation**: Zod validates all form data before GHL submission
-3. **Sanitization**: `productService` runs DOMPurify on all product strings
-4. **No `dangerouslySetInnerHTML`** anywhere
-5. **HTTP Errors**: Not exposed to UI; generic messages returned
-6. **CSP**: Configured for dev (`vite.config.ts`), Netlify (`_headers`), and Vercel (`vercel.json`)
-7. **Tracking**: Only loads with user consent
-
-## Tracking & Analytics
-
-### Google Tag Manager
-
-Loaded when analytics consent is granted. Configure via `VITE_GTM_ID`.
-
-### Google Analytics 4
-
-Loaded when analytics consent is granted. Configure via `VITE_GA4_ID`.
-
-### Meta Pixel
-
-Loaded when marketing consent is granted. Configure via `VITE_META_PIXEL_ID`.
-
-### Consent Management
-
-- **Hook**: `useTrackingConsent` manages preferences in `localStorage`
-- **Banner**: `CookieConsentBanner` shows on first visit
-- **Options**: Accept All, Reject All, Customize (analytics/marketing separately)
-- **SPA Pageviews**: `usePageTracking` fires pageview events on route change
-
-## SEO
-
-- **Meta tags** in `index.html`: title, description, Open Graph, Twitter Card
-- **Structured data**: Organization and WebSite schemas
-- **Sitemap**: `public/sitemap.xml` (homepage, contact, 14 products)
-- **Robots.txt**: `public/robots.txt`
-- **Canonical URL**: Set to production GitHub Pages URL
-
-**Note**: As a client-side SPA, SEO is limited compared to SSR. For better SEO, consider migrating to Next.js or another SSR framework.
-
-## Contact Integration
-
-The contact form submits to a Go High Level webhook. Workflow:
-
-1. User fills form on `/contact` or product detail pages
-2. Form validated with Zod (`contactSchema`)
-3. Data sent to `VITE_GHL_WEBHOOK_URL` via `useGHLIntegration`
-4. Success/error state shown to user
-5. Errors are generic (no internal HTTP codes exposed)
-
-## Product Catalog
-
-- **Data Source**: `src/infrastructure/data/products.json`
-- **Service**: `productService` (sanitized reads with DOMPurify)
-- **Detail Pages**: `/products/:productId`
-- **Preselection**: Product pages link to `/contact?product=:id`
-
-## Component Conventions
-
-- **Single Responsibility**: Each component has one clear purpose
-- **Accessibility**: All form fields have labels, `aria-invalid`, `aria-describedby`, and `aria-live` for state changes
-- **Responsive**: Mobile-first with Tailwind breakpoints (`sm:`, `lg:`)
-- **Animations**: Framer Motion with `whileInView` and `viewport: { once: true }`
-
-## Contributing
-
-1. Follow the existing architecture and folder structure
-2. Run `npx tsc -b --noEmit` before committing
-3. Ensure `npm run build` passes
-4. Respect the dependency rule (domain → application → UI)
-5. Use DOMPurify for any user-generated or external content
-
-## License
-
-This is a demonstration project. Modify as needed for your use case.
-
-## Contact
-
-For questions or issues, open an issue on the GitHub repository.
+Para preguntas sobre el proyecto, contactar al equipo de desarrollo.

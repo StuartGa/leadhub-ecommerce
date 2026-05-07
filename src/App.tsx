@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { usePageTracking } from "./application/hooks/usePageTracking";
@@ -9,18 +9,37 @@ import {
   loadMetaPixel,
 } from "./application/services/trackingService";
 import { CookieConsentBanner } from "./ui/components/tracking/CookieConsentBanner";
-import { ContactPage } from "./ui/pages/ContactPage";
-import { HomePage } from "./ui/pages/HomePage";
-import { ProductPage } from "./ui/pages/ProductPage";
+
+// Lazy load pages for code splitting
+const HomePage = lazy(() =>
+  import("./ui/pages/HomePage").then((m) => ({ default: m.HomePage }))
+);
+const ProductPage = lazy(() =>
+  import("./ui/pages/ProductPage").then((m) => ({ default: m.ProductPage }))
+);
+const ContactPage = lazy(() =>
+  import("./ui/pages/ContactPage").then((m) => ({ default: m.ContactPage }))
+);
+
+// Loading fallback component
+function PageLoader() {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-brand-200 border-t-brand-500"></div>
+    </div>
+  );
+}
 
 function AppContent() {
   usePageTracking();
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/products/:productId" element={<ProductPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-    </Routes>
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products/:productId" element={<ProductPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 

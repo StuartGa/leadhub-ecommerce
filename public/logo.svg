@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="#b12455"/>
+  
+  <!-- Stylized "SP" monogram -->
+  <path d="M20 18 Q25 15 30 18 Q35 21 35 26 Q35 31 30 34 Q25 31 20 26 Q20 21 20 18 Z" fill="white"/>
+  <path d="M25 32 L25 42 L28 42 Q33 42 33 37 Q33 32 28 32 Z" fill="white"/>
+  
+  <!-- Text "San Patric" -->
+  <text x="60" y="28" font-family="sans-serif" font-size="18" font-weight="600" fill="#500021">
+    San Patric
+  </text>
+  
+  <!-- Subtitle "Foodservice" -->
+  <text x="60" y="43" font-family="sans-serif" font-size="10" font-weight="400" fill="#b12455" letter-spacing="1.5">
+    FOODSERVICE
+  </text>
+</svg>

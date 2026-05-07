@@ -27,3 +27,8 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+
+# OpenCode / Claude agent local config
+.agents/
+.claude/
+skills-lock.json

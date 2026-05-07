@@ -64,5 +64,93 @@
     "category": "Branding",
     "inStock": true,
     "tags": ["branding", "design", "identity"]
+  },
+  {
+    "id": "prod-007",
+    "name": "Email Marketing Accelerator",
+    "description": "High-converting email campaigns with audience segmentation, automated workflows, and detailed performance tracking to nurture and convert leads.",
+    "price": 699,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop",
+    "category": "Marketing",
+    "inStock": true,
+    "tags": ["email", "automation", "conversion"]
+  },
+  {
+    "id": "prod-008",
+    "name": "Video Marketing Bundle",
+    "description": "Professional video production for ads, explainer videos, and social content — scripting, filming, editing, and optimization included.",
+    "price": 1299,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1492619392277-2e00f6f9e30c?w=600&h=400&fit=crop",
+    "category": "Creative",
+    "inStock": true,
+    "tags": ["video", "production", "ads"]
+  },
+  {
+    "id": "prod-009",
+    "name": "PPC Campaign Management",
+    "description": "End-to-end paid advertising management for Google Ads and Facebook Ads, including keyword research, ad copy, budget optimization, and monthly reporting.",
+    "price": 899,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=400&fit=crop",
+    "category": "Advertising",
+    "inStock": true,
+    "tags": ["ppc", "google-ads", "facebook-ads"]
+  },
+  {
+    "id": "prod-010",
+    "name": "SEO Optimization Package",
+    "description": "Complete on-page and technical SEO audit with implementation roadmap, link-building strategy, and 3 months of performance tracking.",
+    "price": 1199,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1571677208228-85c8ea6f79c5?w=600&h=400&fit=crop",
+    "category": "SEO",
+    "inStock": true,
+    "tags": ["seo", "optimization", "audit"]
+  },
+  {
+    "id": "prod-011",
+    "name": "Webinar Funnel Builder",
+    "description": "Turnkey webinar setup with landing pages, email sequences, live streaming support, and follow-up automation to generate and nurture leads.",
+    "price": 1599,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&h=400&fit=crop",
+    "category": "Enterprise",
+    "inStock": false,
+    "tags": ["webinar", "funnel", "automation"]
+  },
+  {
+    "id": "prod-012",
+    "name": "Customer Retention System",
+    "description": "Loyalty program design, retention email campaigns, and re-engagement strategies to maximize customer lifetime value.",
+    "price": 799,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600&h=400&fit=crop",
+    "category": "Strategy",
+    "inStock": true,
+    "tags": ["retention", "loyalty", "engagement"]
+  },
+  {
+    "id": "prod-013",
+    "name": "Influencer Outreach Program",
+    "description": "Connect with micro and macro influencers in your niche — outreach, negotiation, contract management, and campaign tracking included.",
+    "price": 999,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop",
+    "category": "Marketing",
+    "inStock": true,
+    "tags": ["influencer", "outreach", "partnerships"]
+  },
+  {
+    "id": "prod-014",
+    "name": "Mobile App Marketing Launch",
+    "description": "Full go-to-market strategy for mobile apps including App Store Optimization, paid user acquisition, PR outreach, and launch event coordination.",
+    "price": 1899,
+    "currency": "USD",
+    "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+    "category": "Enterprise",
+    "inStock": true,
+    "tags": ["mobile", "app-launch", "aso"]
   }
 ]

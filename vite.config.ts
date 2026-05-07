@@ -16,11 +16,12 @@ export default defineConfig(({ mode }) => {
         "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
         "Content-Security-Policy": [
           "default-src 'self'",
-          "script-src 'self' 'unsafe-inline'", // 'unsafe-inline' needed for Vite HMR in dev
-          "style-src 'self' 'unsafe-inline'", // 'unsafe-inline' needed for Tailwind
-          "img-src 'self' https://images.unsplash.com data:",
+          "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net",
+          "style-src 'self' 'unsafe-inline'",
+          "img-src 'self' https://images.unsplash.com https://www.facebook.com https://www.google-analytics.com data:",
           "font-src 'self'",
-          "connect-src 'self' https://rest.gohighlevel.com https://*.gohighlevel.com",
+          "connect-src 'self' https://rest.gohighlevel.com https://*.gohighlevel.com https://www.googletagmanager.com https://www.google-analytics.com https://*.analytics.google.com https://www.facebook.com https://*.facebook.com https://*.facebook.net",
+          "frame-src https://www.google.com",
           "frame-ancestors 'none'",
         ].join("; "),
       },

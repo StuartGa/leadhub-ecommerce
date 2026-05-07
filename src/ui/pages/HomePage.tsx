@@ -1,25 +1,18 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
+import { Link } from "react-router-dom";
 import { productService } from "../../application/services/productService";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import type { Product } from "../../domain/types/product";
 import { ProductGrid } from "../components/catalog/ProductGrid";
-import { ContactForm } from "../components/form/ContactForm";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
 export function HomePage() {
   useDocumentTitle("LeadHub — Grow Your Business with Proven Lead Generation");
   const [products] = useState<Product[]>(() => productService.getAll());
-  const [preselectedProduct, setPreselectedProduct] = useState<string | null>(
-    null,
-  );
-  const contactRef = useRef<HTMLDivElement>(null);
 
   const handleInquire = useCallback((product: Product) => {
-    setPreselectedProduct(product.id);
-    setTimeout(() => {
-      contactRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    window.location.href = `/contact?product=${product.id}`;
   }, []);
 
   return (
@@ -53,12 +46,20 @@ export function HomePage() {
 
         <ProductGrid products={products} onInquire={handleInquire} />
 
-        <div ref={contactRef}>
-          <ContactForm
-            products={products}
-            preselectedProduct={preselectedProduct}
-          />
-        </div>
+        <section className="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Ready to Get Started?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+            Let's build a customized lead generation strategy for your business. Our team is ready to help you grow.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-8 inline-block rounded-lg bg-brand-600 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+          >
+            Contact Us Today
+          </Link>
+        </section>
       </main>
 
       <Footer />

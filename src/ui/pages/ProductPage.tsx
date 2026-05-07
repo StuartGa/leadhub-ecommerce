@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { productService } from "../../application/services/productService";
-import { ContactForm } from "../components/form/ContactForm";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
@@ -22,7 +21,6 @@ function formatPrice(price: number, currency: string) {
 export function ProductPage() {
   const { productId } = useParams();
 
-  const products = useMemo(() => productService.getAll(), []);
   const product = useMemo(
     () => (productId ? productService.getById(productId) : undefined),
     [productId],
@@ -42,7 +40,7 @@ export function ProductPage() {
               Service not found
             </p>
             <p className="mt-2 text-sm text-slate-600">
-              The service you’re looking for doesn’t exist or was moved.
+              The service you're looking for doesn't exist or was moved.
             </p>
             <Link
               to="/"
@@ -120,26 +118,23 @@ export function ProductPage() {
                       {formatPrice(product.price, product.currency)}
                     </p>
                   </div>
-                  <a
-                    href="#contact"
+                  <Link
+                    to={`/contact?product=${product.id}`}
                     className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     Inquire about this service
-                  </a>
+                  </Link>
                 </div>
                 <p className="mt-3 text-sm text-slate-600">
-                  Tell us what you need and we’ll respond within 24 hours.
+                  Tell us what you need and we'll respond within 24 hours.
                 </p>
               </div>
             </div>
           </div>
         </section>
-
-        <ContactForm products={products} preselectedProduct={product.id} />
       </main>
 
       <Footer />
     </div>
   );
 }
-

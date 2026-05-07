@@ -30,21 +30,12 @@ export function Header() {
               )}
             </li>
             <li>
-              {isHome ? (
-                <a
-                  href="#contact"
-                  className="rounded-lg bg-brand-600 px-4 py-2 text-white transition-colors hover:bg-brand-700"
-                >
-                  Get in Touch
-                </a>
-              ) : (
-                <NavLink
-                  to="/#contact"
-                  className="rounded-lg bg-brand-600 px-4 py-2 text-white transition-colors hover:bg-brand-700"
-                >
-                  Get in Touch
-                </NavLink>
-              )}
+              <NavLink
+                to="/contact"
+                className="rounded-lg bg-brand-600 px-4 py-2 text-white transition-colors hover:bg-brand-700"
+              >
+                Get in Touch
+              </NavLink>
             </li>
           </ul>
         </nav>

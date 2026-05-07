@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { useGHLIntegration } from "../../../application/hooks/useGHLIntegration";
@@ -18,18 +19,25 @@ export function ContactForm({
   products,
   preselectedProduct,
 }: ContactFormProps) {
-  const { submit, status, error, reset } = useGHLIntegration();
+  const { submit, status, error, reset: resetGHL } = useGHLIntegration();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       productInterest: preselectedProduct ?? "",
     },
   });
+
+  useEffect(() => {
+    if (preselectedProduct) {
+      reset({ productInterest: preselectedProduct });
+    }
+  }, [preselectedProduct, reset]);
 
   const onSubmit = async (data: ContactFormValues) => {
     const payload: GHLWebhookPayload = {
@@ -59,7 +67,7 @@ export function ContactForm({
           </p>
           <button
             type="button"
-            onClick={reset}
+            onClick={resetGHL}
             className="mt-6 cursor-pointer rounded-lg bg-brand-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             Send another inquiry

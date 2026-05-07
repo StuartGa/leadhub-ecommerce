@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
@@ -8,6 +10,11 @@ export function Footer() {
           </p>
           <nav aria-label="Footer links">
             <ul className="flex gap-6 text-sm text-slate-500">
+              <li>
+                <Link to="/contact" className="transition-colors hover:text-slate-700">
+                  Contact
+                </Link>
+              </li>
               <li>
                 <a href="#" className="transition-colors hover:text-slate-700">
                   Privacy Policy

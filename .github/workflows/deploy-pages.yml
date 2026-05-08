@@ -36,6 +36,10 @@ jobs:
       - name: Build
         env:
           VITE_BASE: /leadhub-ecommerce/
+          VITE_SANITY_PROJECT_ID: ${{ secrets.VITE_SANITY_PROJECT_ID }}
+          VITE_SANITY_DATASET: ${{ secrets.VITE_SANITY_DATASET }}
+          VITE_SANITY_API_VERSION: ${{ secrets.VITE_SANITY_API_VERSION }}
+          VITE_SANITY_USE_CDN: ${{ secrets.VITE_SANITY_USE_CDN }}
         run: npm run build
 
       - name: Setup Pages

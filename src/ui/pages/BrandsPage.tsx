@@ -175,14 +175,7 @@ export function BrandsPage() {
               </div>
             )}
 
-            {/* Note for client */}
-            <div className="mt-12 rounded-lg border border-blue-200 bg-blue-50 p-6 text-center">
-              <p className="text-sm text-blue-800">
-                <strong>Nota:</strong> Los logos mostrados son placeholders. Favor de proporcionar 
-                los logos reales de las marcas en formato PNG o SVG con fondo transparente para 
-                reemplazarlos.
-              </p>
-            </div>
+
           </div>
         </section>
 

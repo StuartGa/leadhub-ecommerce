@@ -5,5 +5,4 @@ Allow: /
 Disallow: /src/
 Disallow: /.env
 
-Sitemap: https://leadhub.example.com/sitemap.xml
 Sitemap: https://stuartga.github.io/leadhub-ecommerce/sitemap.xml

@@ -11,10 +11,10 @@
   Permissions-Policy: disable browser APIs not in use
   Content-Security-Policy: restrict resource loading origins
 */
-https://leadhub.example.com/*
+https://stuartga.github.io/*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com data:; font-src 'self'; connect-src 'self' https://rest.gohighlevel.com https://*.gohighlevel.com; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://cdn.sanity.io https://images.unsplash.com data:; font-src 'self'; connect-src 'self' https://api.sanity.io https://cdn.sanity.io https://*.api.sanity.io https://rest.gohighlevel.com https://*.gohighlevel.com; frame-ancestors 'none'
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

@@ -1,3 +1,62 @@
+import { useEffect, useRef, useState } from "react";
+
+interface StatItemProps {
+  target: number;
+  label: string;
+  prefix?: string;
+}
+
+function StatItem({ target, label, prefix = "+" }: StatItemProps) {
+  const [value, setValue] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node || hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry?.isIntersecting) return;
+
+        setHasAnimated(true);
+        const durationMs = 1200;
+        const start = performance.now();
+
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / durationMs, 1);
+          const eased = 1 - (1 - progress) * (1 - progress);
+          setValue(Math.round(target * eased));
+
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          }
+        };
+
+        requestAnimationFrame(tick);
+        observer.disconnect();
+      },
+      { threshold: 0.45 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [hasAnimated, target]);
+
+  return (
+    <div ref={containerRef} className="flex flex-col items-center">
+      <span className="mb-2 font-sans text-5xl font-semibold leading-tight tracking-tight">
+        {prefix}
+        {value}
+      </span>
+      <span className="font-sans text-xs font-semibold uppercase tracking-widest">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 export function StatsSection() {
   return (
     <section className="relative overflow-hidden bg-brand-500 py-12 text-white">
@@ -13,30 +72,9 @@ export function StatsSection() {
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-6 text-center md:grid-cols-3">
-        <div className="flex flex-col items-center">
-          <span className="mb-2 font-sans text-5xl font-semibold leading-tight tracking-tight">
-            +35
-          </span>
-          <span className="font-sans text-xs font-semibold uppercase tracking-widest">
-            Proveedores
-          </span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span className="mb-2 font-sans text-5xl font-semibold leading-tight tracking-tight">
-            +750
-          </span>
-          <span className="font-sans text-xs font-semibold uppercase tracking-widest">
-            Clientes Activos
-          </span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span className="mb-2 font-sans text-5xl font-semibold leading-tight tracking-tight">
-            +200
-          </span>
-          <span className="font-sans text-xs font-semibold uppercase tracking-widest">
-            Productos
-          </span>
-        </div>
+        <StatItem target={35} label="Proveedores" />
+        <StatItem target={750} label="Clientes Activos" />
+        <StatItem target={200} label="Productos" />
       </div>
     </section>
   );

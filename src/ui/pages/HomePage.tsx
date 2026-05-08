@@ -25,7 +25,7 @@ export function HomePage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
+    <div className="flex min-h-screen flex-col bg-[radial-gradient(circle_at_10%_10%,rgba(177,36,85,0.08),transparent_40%),radial-gradient(circle_at_85%_20%,rgba(80,0,33,0.06),transparent_42%),#f8fafc] text-slate-900 antialiased">
       <Header />
 
       <main className="flex-1">

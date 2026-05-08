@@ -1,6 +1,6 @@
 export function TemperatureSection() {
   return (
-    <section className="border-b border-slate-200/20 bg-white py-12">
+    <section className="border-b border-slate-200/20 bg-white/70 py-12 backdrop-blur-sm">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="mb-6 text-center">
           <p className="font-sans text-lg font-light text-slate-600">

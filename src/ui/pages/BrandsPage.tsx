@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Link, useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { brandService } from "../../application/services/brandService";
 import { Footer } from "../components/layout/Footer";
@@ -161,34 +162,94 @@ export function BrandsPage() {
         </section>
 
         {/* Categories Section */}
-        <section className="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
+        <section className="bg-slate-50/70 px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="mb-12 text-center font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
               Categorías <span className="font-normal">Disponibles</span>
             </h2>
             
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { name: "Acompañantes", icon: "🍚", temp: "Congelado" },
-                { name: "Azúcar y Endulzantes", icon: "🍯", temp: "Seco" },
-                { name: "Estuchados", icon: "📦", temp: "Seco" },
-                { name: "Papas y Botanas", icon: "🥔", temp: "Seco" },
-                { name: "Proteína", icon: "🥩", temp: "Congelado" },
-                { name: "Repostería", icon: "🍰", temp: "Congelado" },
-                { name: "Salsas y Aderezos", icon: "🧂", temp: "Refrigerado" },
-                { name: "Verduras y Leguminosas", icon: "🥦", temp: "Congelado" },
-                { name: "Quesos", icon: "🧀", temp: "Refrigerado" },
-              ].map((category) => (
-                <div
+                {
+                  name: "Acompañantes",
+                  temp: "Congelado",
+                  image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Azúcar y Endulzantes",
+                  temp: "Seco",
+                  image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Estuchados",
+                  temp: "Seco",
+                  image: "https://images.unsplash.com/photo-1607457561901-e6ec3a6d16cf?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Papas y Botanas",
+                  temp: "Seco",
+                  image: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Proteína",
+                  temp: "Congelado",
+                  image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Repostería",
+                  temp: "Congelado",
+                  image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Salsas y Aderezos",
+                  temp: "Refrigerado",
+                  image: "https://images.unsplash.com/photo-1598511757337-fe2cafc31a3c?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Verduras y Leguminosas",
+                  temp: "Congelado",
+                  image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+                {
+                  name: "Quesos",
+                  temp: "Refrigerado",
+                  image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=900&q=72&fm=webp",
+                },
+              ].map((category, index) => (
+                <motion.article
                   key={category.name}
-                  className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-brand-500"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: index * 0.06 }}
+                  className={`group relative overflow-hidden rounded-lg border border-white/45 bg-white/40 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-lg ${index === 8 ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : ""}`}
                 >
-                  <div className="mb-3 text-4xl">{category.icon}</div>
-                  <h3 className="mb-2 text-lg font-semibold text-slate-900">{category.name}</h3>
-                  <div className="inline-block rounded-full bg-brand-100 px-3 py-1 text-xs font-medium text-brand-700">
-                    {category.temp}
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    loading="lazy"
+                    decoding="async"
+                    className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${index === 8 ? "h-52" : "h-44"}`}
+                    onError={(event) => {
+                      const img = event.currentTarget;
+                      if (img.src.includes("/images/product-placeholder.webp")) return;
+                      img.src = "/images/product-placeholder.webp";
+                    }}
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/76 via-white/62 to-white/84 transition-colors duration-300 group-hover:from-white/70 group-hover:via-white/54 group-hover:to-white/76" />
+
+                  <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-5 text-center">
+                    <h3 className="text-base font-semibold text-slate-900">{category.name}</h3>
+                    <p className="text-xs font-medium uppercase tracking-wide text-slate-600">{category.temp}</p>
+                    <Link
+                      to={`/productos?category=${encodeURIComponent(category.name)}`}
+                      className="mt-1 inline-flex rounded border border-brand-300/60 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-slate-900 transition-colors hover:bg-brand-500 hover:text-white"
+                    >
+                      Ver todo
+                    </Link>
                   </div>
-                </div>
+                </motion.article>
               ))}
             </div>
           </div>

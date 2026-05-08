@@ -2,7 +2,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden border-b border-slate-200/20 bg-white py-20"
+      className="relative overflow-hidden border-b border-slate-200/20 bg-white/75 py-20 backdrop-blur-sm"
     >
       {/* Watermark Decoration */}
       <div className="absolute right-0 top-0 h-96 w-96 translate-x-1/4 -translate-y-1/4 opacity-5">

@@ -27,7 +27,7 @@ export function ProductPage() {
   );
 
   useDocumentTitle(
-    product ? `${product.name} — LeadHub` : "Service not found — LeadHub",
+    product ? `${product.name} — San Patric Foodservice` : "Producto no encontrado — San Patric Foodservice",
   );
 
   if (!product) {
@@ -37,16 +37,16 @@ export function ProductPage() {
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-20 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-sm">
             <p className="text-2xl font-semibold tracking-tight text-slate-900">
-              Service not found
+              Producto no encontrado
             </p>
             <p className="mt-2 text-sm text-slate-600">
-              The service you're looking for doesn't exist or was moved.
+              El producto que buscas no existe o fue movido.
             </p>
             <Link
-              to="/"
+              to="/productos"
               className="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
             >
-              Back to home
+              Volver al catálogo
             </Link>
           </div>
         </main>
@@ -63,10 +63,10 @@ export function ProductPage() {
         <section className="mx-auto max-w-7xl px-4 pb-10 pt-28 sm:px-6 lg:px-8">
           <div className="mb-8">
             <Link
-              to="/#catalog"
+              to="/productos"
               className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
             >
-              <span aria-hidden="true">←</span> Back to services
+              <span aria-hidden="true">←</span> Volver al catálogo
             </Link>
           </div>
 
@@ -77,6 +77,12 @@ export function ProductPage() {
                 alt={product.name}
                 className="h-full w-full object-cover"
                 loading="eager"
+                decoding="async"
+                onError={(event) => {
+                  const img = event.currentTarget;
+                  if (img.src.includes("/images/product-placeholder.webp")) return;
+                  img.src = "/images/product-placeholder.webp";
+                }}
               />
             </div>
 
@@ -91,10 +97,10 @@ export function ProductPage() {
                   </p>
                 </div>
                 {!product.inStock && (
-                  <span className="shrink-0 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">
-                    Coming soon
-                  </span>
-                )}
+                    <span className="shrink-0 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">
+                      Próximamente
+                    </span>
+                  )}
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -112,7 +118,7 @@ export function ProductPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-sm font-medium text-slate-600">
-                      Starting at
+                      Desde
                     </p>
                     <p className="mt-1 text-3xl font-extrabold tracking-tight text-slate-900">
                       {formatPrice(product.price, product.currency)}
@@ -122,11 +128,11 @@ export function ProductPage() {
                     to={`/contact?products=${product.id}`}
                     className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
-                    Inquire about this service
+                    Cotizar producto
                   </Link>
                 </div>
                 <p className="mt-3 text-sm text-slate-600">
-                  Tell us what you need and we'll respond within 24 hours.
+                  Cuéntanos lo que necesitas y responderemos en menos de 24 horas.
                 </p>
               </div>
             </div>

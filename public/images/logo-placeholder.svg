@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="256" viewBox="0 0 512 256" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#F1F5F9"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="510" height="254" rx="16" fill="url(#bg)" stroke="#CBD5E1"/>
+  <circle cx="132" cy="128" r="36" fill="#B12455" fill-opacity="0.14"/>
+  <path d="M132 95V161M99 128H165" stroke="#B12455" stroke-width="10" stroke-linecap="round"/>
+  <text x="188" y="118" fill="#334155" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="600">Logo pendiente</text>
+  <text x="188" y="148" fill="#64748B" font-family="Roboto, Arial, sans-serif" font-size="15" font-weight="400">Reemplazar con SVG/PNG real</text>
+</svg>

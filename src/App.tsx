@@ -20,11 +20,26 @@ const AboutPage = lazy(() =>
 const BrandsPage = lazy(() =>
   import("./ui/pages/BrandsPage").then((m) => ({ default: m.BrandsPage }))
 );
+const ProductsPage = lazy(() =>
+  import("./ui/pages/ProductsPage").then((m) => ({ default: m.ProductsPage }))
+);
 const ProductPage = lazy(() =>
   import("./ui/pages/ProductPage").then((m) => ({ default: m.ProductPage }))
 );
 const ContactPage = lazy(() =>
   import("./ui/pages/ContactPage").then((m) => ({ default: m.ContactPage }))
+);
+const CoveragePage = lazy(() =>
+  import("./ui/pages/CoveragePage").then((m) => ({ default: m.CoveragePage }))
+);
+const BlogPage = lazy(() =>
+  import("./ui/pages/BlogPage").then((m) => ({ default: m.BlogPage }))
+);
+const BlogPostPage = lazy(() =>
+  import("./ui/pages/BlogPostPage").then((m) => ({ default: m.BlogPostPage }))
+);
+const CareersPage = lazy(() =>
+  import("./ui/pages/CareersPage").then((m) => ({ default: m.CareersPage }))
 );
 
 // Loading fallback component
@@ -43,7 +58,12 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quienes-somos" element={<AboutPage />} />
+        <Route path="/productos" element={<ProductsPage />} />
         <Route path="/marcas" element={<BrandsPage />} />
+        <Route path="/cobertura" element={<CoveragePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/trabaja-con-nosotros" element={<CareersPage />} />
         <Route path="/products/:productId" element={<ProductPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

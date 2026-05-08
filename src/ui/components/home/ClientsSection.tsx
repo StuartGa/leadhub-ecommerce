@@ -1,12 +1,7 @@
+import { clientService } from "../../../application/services/clientService";
+
 export function ClientsSection() {
-  const clients = [
-    { name: "Hotel Marriott", logo: "🏨" },
-    { name: "Restaurante Grupo Alsea", logo: "🍽️" },
-    { name: "Hospital ABC", logo: "🏥" },
-    { name: "Universidad UNAM", logo: "🎓" },
-    { name: "Starbucks Coffee", logo: "☕" },
-    { name: "Walmart Supercenter", logo: "🛒" },
-  ];
+  const clients = clientService.getAll();
 
   return (
     <section
@@ -25,12 +20,25 @@ export function ClientsSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-          {clients.map((client, index) => (
+          {clients.map((client) => (
             <div
-              key={index}
+              key={client.id}
               className="flex flex-col items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md"
             >
-              <div className="mb-3 text-5xl">{client.logo}</div>
+              <div className="mb-3 flex h-14 w-full items-center justify-center">
+                <img
+                  src={client.logoUrl}
+                  alt={client.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-10 w-auto object-contain"
+                  onError={(event) => {
+                    const img = event.currentTarget;
+                    if (img.src.includes("/images/logo-placeholder.webp")) return;
+                    img.src = "/images/logo-placeholder.webp";
+                  }}
+                />
+              </div>
               <p className="text-center font-sans text-xs font-medium text-slate-600">
                 {client.name}
               </p>

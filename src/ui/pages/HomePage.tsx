@@ -15,7 +15,8 @@ import { CoverageSection } from "../components/home/CoverageSection";
 
 export function HomePage() {
   useDocumentTitle(
-    "San Patric Foodservice — Alimentos Convenientes de Calidad Premium"
+    "San Patric Foodservice — Alimentos Convenientes de Calidad Premium",
+    "San Patric Foodservice: distribución de alimentos convenientes premium para restaurantes, hoteles y cafeterías en México. Catálogo de +200 productos, +35 proveedores y cobertura nacional. Solicita tu cotización."
   );
   const [products] = useState<Product[]>(() => productService.getAll());
 

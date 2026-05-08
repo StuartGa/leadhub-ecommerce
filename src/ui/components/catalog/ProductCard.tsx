@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { Product } from "../../../domain/types/product";
 
@@ -9,6 +10,8 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, index, onInquire }: ProductCardProps) {
+  const [imageSrc, setImageSrc] = useState(product.imageUrl);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
@@ -20,10 +23,13 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
       <div className="aspect-video overflow-hidden bg-slate-100">
         <Link to={`/products/${product.id}`} className="block">
           <img
-            src={product.imageUrl}
+            src={imageSrc}
             alt={product.name}
             loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            onError={() => setImageSrc("/images/product-placeholder.webp")}
           />
         </Link>
       </div>

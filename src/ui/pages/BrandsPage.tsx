@@ -1,48 +1,33 @@
+import { useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { brandService } from "../../application/services/brandService";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
 export function BrandsPage() {
   useDocumentTitle("Marcas — San Patric Foodservice");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("q") ?? "";
+  const highlightedBrandId = searchParams.get("brand");
+  const brands = brandService.getAll();
 
-  // Placeholder brand logos - estas se pueden reemplazar con logos reales del cliente
-  const brands = [
-    { id: 1, name: "Marca 1", logo: "🏢" },
-    { id: 2, name: "Marca 2", logo: "🏭" },
-    { id: 3, name: "Marca 3", logo: "🏪" },
-    { id: 4, name: "Marca 4", logo: "🏬" },
-    { id: 5, name: "Marca 5", logo: "🏢" },
-    { id: 6, name: "Marca 6", logo: "🏭" },
-    { id: 7, name: "Marca 7", logo: "🏪" },
-    { id: 8, name: "Marca 8", logo: "🏬" },
-    { id: 9, name: "Marca 9", logo: "🏢" },
-    { id: 10, name: "Marca 10", logo: "🏭" },
-    { id: 11, name: "Marca 11", logo: "🏪" },
-    { id: 12, name: "Marca 12", logo: "🏬" },
-    { id: 13, name: "Marca 13", logo: "🏢" },
-    { id: 14, name: "Marca 14", logo: "🏭" },
-    { id: 15, name: "Marca 15", logo: "🏪" },
-    { id: 16, name: "Marca 16", logo: "🏬" },
-    { id: 17, name: "Marca 17", logo: "🏢" },
-    { id: 18, name: "Marca 18", logo: "🏭" },
-    { id: 19, name: "Marca 19", logo: "🏪" },
-    { id: 20, name: "Marca 20", logo: "🏬" },
-    { id: 21, name: "Marca 21", logo: "🏢" },
-    { id: 22, name: "Marca 22", logo: "🏭" },
-    { id: 23, name: "Marca 23", logo: "🏪" },
-    { id: 24, name: "Marca 24", logo: "🏬" },
-    { id: 25, name: "Marca 25", logo: "🏢" },
-    { id: 26, name: "Marca 26", logo: "🏭" },
-    { id: 27, name: "Marca 27", logo: "🏪" },
-    { id: 28, name: "Marca 28", logo: "🏬" },
-    { id: 29, name: "Marca 29", logo: "🏢" },
-    { id: 30, name: "Marca 30", logo: "🏭" },
-    { id: 31, name: "Marca 31", logo: "🏪" },
-    { id: 32, name: "Marca 32", logo: "🏬" },
-    { id: 33, name: "Marca 33", logo: "🏢" },
-    { id: 34, name: "Marca 34", logo: "🏭" },
-    { id: 35, name: "Marca 35", logo: "🏪" },
-  ];
+  const filteredBrands = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return brands;
+    return brands.filter((brand) => brand.name.toLowerCase().includes(q));
+  }, [brands, query]);
+
+  const totalCount = brands.length;
+  const currentCount = filteredBrands.length;
+
+  useEffect(() => {
+    if (!highlightedBrandId) return;
+    const element = document.getElementById(`brand-${highlightedBrandId}`);
+    if (!element) return;
+
+    element.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [highlightedBrandId, filteredBrands]);
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
@@ -89,20 +74,80 @@ export function BrandsPage() {
             <h2 className="mb-12 text-center font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
               Marcas <span className="font-normal">Asociadas</span>
             </h2>
+
+            <div className="mx-auto mb-8 max-w-2xl">
+              <div className="relative">
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(event) => {
+                    const next = new URLSearchParams(searchParams);
+                    const value = event.target.value;
+
+                    if (!value.trim()) {
+                      next.delete("q");
+                      next.delete("brand");
+                    } else {
+                      next.set("q", value);
+                    }
+
+                    setSearchParams(next, { replace: true });
+                  }}
+                  placeholder="Buscar marca..."
+                  className="w-full rounded-lg border border-slate-300 px-4 py-3 pl-11 text-slate-900 placeholder-slate-500 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+                <svg
+                  className="absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <p className="mt-3 text-sm text-slate-600">
+                Mostrando <span className="font-semibold text-slate-900">{currentCount}</span> de <span className="font-semibold text-slate-900">{totalCount}</span> marcas.
+              </p>
+            </div>
             
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {brands.map((brand) => (
+              {filteredBrands.map((brand) => (
                 <div
+                  id={`brand-${brand.id}`}
                   key={brand.id}
-                  className="group flex aspect-square items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500"
+                  className={`group flex aspect-square items-center justify-center rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500 ${highlightedBrandId === brand.id ? "border-brand-500 ring-2 ring-brand-200" : "border-slate-200"}`}
                 >
                   <div className="text-center">
-                    <div className="mb-2 text-5xl">{brand.logo}</div>
+                    <div className="mb-3 flex h-14 w-24 items-center justify-center">
+                      <img
+                        src={brand.logoUrl}
+                        alt={brand.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="max-h-12 w-auto object-contain"
+                        onError={(event) => {
+                          const img = event.currentTarget;
+                          if (img.src.includes("/images/logo-placeholder.webp")) return;
+                          img.src = "/images/logo-placeholder.webp";
+                        }}
+                      />
+                    </div>
                     <div className="text-xs font-medium text-slate-600">{brand.name}</div>
                   </div>
                 </div>
               ))}
             </div>
+
+            {filteredBrands.length === 0 && (
+              <div className="mt-8 rounded-lg border border-slate-200 bg-slate-50 p-8 text-center">
+                <p className="text-slate-700">No encontramos marcas con ese criterio de búsqueda.</p>
+              </div>
+            )}
 
             {/* Note for client */}
             <div className="mt-12 rounded-lg border border-blue-200 bg-blue-50 p-6 text-center">

@@ -1,17 +1,8 @@
 import { Link } from "react-router-dom";
+import { brandService } from "../../../application/services/brandService";
 
 export function BrandsSection() {
-  // Subset de marcas principales para mostrar en home (8 de las 35+)
-  const featuredBrands = [
-    { id: 1, name: "Marca 1", logo: "🏢" },
-    { id: 2, name: "Marca 2", logo: "🏭" },
-    { id: 3, name: "Marca 3", logo: "🏪" },
-    { id: 4, name: "Marca 4", logo: "🏬" },
-    { id: 5, name: "Marca 5", logo: "🏢" },
-    { id: 6, name: "Marca 6", logo: "🏭" },
-    { id: 7, name: "Marca 7", logo: "🏪" },
-    { id: 8, name: "Marca 8", logo: "🏬" },
-  ];
+  const featuredBrands = brandService.getFeatured().slice(0, 8);
 
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
@@ -34,7 +25,20 @@ export function BrandsSection() {
               className="group flex aspect-square items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500"
             >
               <div className="text-center">
-                <div className="mb-2 text-4xl">{brand.logo}</div>
+                <div className="mb-2 flex h-12 w-24 items-center justify-center">
+                  <img
+                    src={brand.logoUrl}
+                    alt={brand.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 w-auto object-contain"
+                    onError={(event) => {
+                      const img = event.currentTarget;
+                      if (img.src.includes("/images/logo-placeholder.webp")) return;
+                      img.src = "/images/logo-placeholder.webp";
+                    }}
+                  />
+                </div>
                 <div className="text-xs font-medium text-slate-600">{brand.name}</div>
               </div>
             </div>

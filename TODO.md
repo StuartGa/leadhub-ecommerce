@@ -1,310 +1,171 @@
-# Plan de Implementación San Patric Foodservice
+# Plan de Implementacion San Patric Foodservice
 
-## Estado Actual del Proyecto - Actualizado
+## Estado Actual del Proyecto - COMPLETADO ✅
 
-### ✅ Completado
+### Sitemap (8 paginas)
 
-1. **Formulario de Contacto Actualizado** ✅
-   - Nuevos campos: Nombre del contacto, Nombre de la empresa, Estado, Localidad/CP
-   - Categorías de productos en lugar de productos individuales
-   - 10 categorías: Acompañantes, Azúcar y Endulzantes, Estuchados, Papas y Botanas, Proteína, Repostería, Salsas y Aderezos, Verduras y Leguminosas, Quesos, "Quiero ser proveedor"
-   - Validación Zod completa con todos los campos obligatorios
-   - Archivos modificados:
-     - `src/domain/schemas/contactSchema.ts`
-     - `src/domain/types/ghl.ts`
-     - `src/ui/components/form/ContactForm.tsx`
-     - `src/ui/pages/ContactPage.tsx`
+| # | Pagina | Ruta | Estado |
+|---|--------|------|--------|
+| 1 | Home | `/` | ✅ |
+| 2 | Quienes Somos | `/quienes-somos` | ✅ |
+| 3 | Productos | `/productos` | ✅ |
+| 4 | Marcas | `/marcas` | ✅ |
+| 5 | Cobertura | `/cobertura` | ✅ |
+| 6 | Blog | `/blog` + `/blog/:slug` | ✅ |
+| 7 | Contacto | `/contact` | ✅ |
+| 8 | Trabaja con Nosotros | `/trabaja-con-nosotros` | ✅ |
 
-2. **Página Quiénes Somos/Conócenos** ✅
-   - Sección Hero con descripción de la empresa (20 años de experiencia, 100% mexicano)
-   - Servicios: Logística, Acondicionamiento/Maquila, Operador 2PL/3PL
-   - Indicadores: +35 proveedores, +750 clientes, +200 productos
-   - Misión y Visión con diseño visual
-   - A Quién Atendemos (9 tipos de clientes)
-   - Testimonios de clientes (3 ejemplos)
-   - CTA "Trabaja con Nosotros"
-   - Archivo creado: `src/ui/pages/AboutPage.tsx`
-   - Ruta agregada: `/quienes-somos`
-   - Header actualizado con navegación
+### Formulario de Contacto - 10 campos obligatorios ✅
 
-3. **Catálogo de Productos Actualizado** ✅
-   - Tipo `Product` actualizado con `temperature` y `seasonality`
-   - 12 productos con temperaturas asignadas (Seco, Refrigerado, Congelado)
-   - Categorías alineadas con requerimientos del cliente
-   - Archivos modificados:
-     - `src/domain/types/product.ts`
-     - `src/infrastructure/data/products.json`
+- Nombre del contacto
+- Nombre de la empresa
+- Email
+- Telefono
+- Giro del negocio (9 opciones)
+- Numero de sucursales
+- Estado (32 estados de Mexico)
+- Localidad o Codigo Postal
+- Categorias de productos (multi-select, 10 categorias)
+- Mensaje
 
-4. **Página de Marcas** ✅
-   - Página `/marcas` creada con diseño completo
-   - Grid de 35 marcas con placeholders (reemplazar con logos reales)
-   - Stats: +35 proveedores, +200 productos, 100% calidad
-   - Sección de 9 categorías disponibles
-   - CTA para solicitar cotización
-   - Nota para cliente sobre logos reales
-   - Archivo creado: `src/ui/pages/BrandsPage.tsx`
-   - Ruta agregada en App.tsx
-   - Navegación actualizada en Header
+### Catalogo de Productos ✅
 
-5. **Footer Completo** ✅
-   - Expandido de 3 a 4 columnas
-   - Redes sociales: Facebook, Instagram, LinkedIn con iconos
-   - Información de contacto completa con iconos
-   - Horario de atención (Lun-Vie, Sábado, Domingo)
-   - Navegación completa (5 links)
-   - CTA "Cotizar Ahora"
-   - Links de Privacidad y Términos
-   - Archivo modificado: `src/ui/components/layout/Footer.tsx`
+- 14 productos en 10 categorias
+- Temperaturas: Seco, Refrigerado, Congelado
+- Temporalidad: Todo el Ano, Temporada
+- Filtros: categoria, temperatura, temporalidad, busqueda por texto
+- ProductCard con animaciones Framer Motion
+- Pagina individual de producto con detalles
 
-6. **HomePage Actualizada** ✅
-   - Sección BrandsSection agregada
-   - Grid de 8 marcas destacadas en home
-   - CTA "Ver Todas las Marcas" → /marcas
-   - Orden de secciones: Hero → About → Stats → Temperature → Brands → Products → Clients → Coverage
-   - Archivo creado: `src/ui/components/home/BrandsSection.tsx`
-   - Cumple requerimientos del cliente para home
+### Paginas Creadas
 
-7. **Archivo TODO.md** ✅
-   - Plan completo documentado
-   - Sitemap de 8 páginas
-   - Buyer personas y KPIs
-   - Referencias técnicas
+1. **HomePage** - 8 secciones: Hero → About → Stats → Temperature → Brands → Products → Clients → Coverage
+2. **AboutPage** (`/quienes-somos`) - Hero, Servicios, Indicadores, Mision/Vision, A Quien Atendemos, Testimonios, CTA
+3. **ProductsPage** (`/productos`) - Filtros completos, grid responsive, busqueda, contador
+4. **BrandsPage** (`/marcas`) - 35 marcas placeholder, stats, categorias, CTA
+5. **ContactPage** (`/contact`) - Formulario 10 campos, validacion Zod, GHL webhook
+6. **CoveragePage** (`/cobertura`) - Mapa SVG de Mexico, 4 regiones, logistica 3 temperaturas, stats
+7. **BlogPage** (`/blog`) - 6 articulos, filtro por categoria, newsletter CTA
+8. **BlogPostPage** (`/blog/:slug`) - Content blocks (sin dangerouslySetInnerHTML), tags, CTA
+9. **CareersPage** (`/trabaja-con-nosotros`) - 6 vacantes, acordeon de detalles, beneficios, CTA enviar CV
+10. **ProductPage** (`/products/:productId`) - Detalle de producto individual
 
-### 🚧 En Progreso
+### Componentes Creados/Actualizados
 
-(Ninguna tarea actualmente en progreso)
+- `Header.tsx` - 6 links navegacion (Quienes Somos, Productos, Marcas, Cobertura, Blog, Contacto) + CTA Cotizar
+- `Footer.tsx` - 4 columnas: Brand+redes, Navegacion, Contacto, Horario
+- `BrandsSection.tsx` - 8 marcas destacadas en HomePage
+- `ContactForm.tsx` - 10 campos obligatorios con validacion
+- `TemperatureSection.tsx` - 3 temperaturas en HomePage
+- `CoverageSection.tsx` - 4 regiones en HomePage
+- `ClientsSection.tsx` - Clientes en HomePage
 
-### 📋 Pendiente - Alta Prioridad
+### Seguridad ✅
 
-8. **Filtros de Productos**
-   - Implementar filtros por temperatura (Seco, Refrigerado, Congelado)
-   - Implementar filtros por temporalidad (Todo el Año, Temporada)
-   - Implementar filtros por categoría
-   - Archivos a modificar:
-     - `src/ui/components/catalog/ProductGrid.tsx`
-     - Crear componentes de filtros
+- Zod validacion en todos los formularios
+- DOMPurify en productService (todas las lecturas)
+- **Cero `dangerouslySetInnerHTML`** - Blog usa ContentBlock renderer
+- CSP, HSTS, X-Frame-Options en headers
+- VITE_GHL_WEBHOOK_URL en .env (nunca hardcodeado)
+- Sin exponer secretos en VITE_*
 
-### 📋 Pendiente - Media Prioridad
+### SEO ✅
 
-9. **Página de Cobertura**
-   - Crear página dedicada `/cobertura`
-   - Mapa interactivo de México
-   - 4 regiones principales
-   - Estados con cobertura
-   - Archivos a crear:
-     - `src/ui/pages/CoveragePage.tsx`
+- Meta titles y descriptions dinamicos via useDocumentTitle (todas las paginas)
+- Sitemap.xml con todas las URLs (8 paginas + 6 blog posts + 14 productos)
+- Open Graph + Twitter Card en index.html
+- JSON-LD Organization + WebSite schema
+- Canonical URL configurado
+- Robots.txt permite crawlers + referencia sitemap
+- lang="en" → actualizar a "es-MX" en produccion
 
-10. **Blog - Estructura**
-    - Crear página `/blog`
-    - Estructura de posts
-    - Sistema de categorías
-    - Archivos a crear:
-      - `src/ui/pages/BlogPage.tsx`
-      - `src/ui/pages/BlogPostPage.tsx`
-      - `src/domain/types/blog.ts`
-      - `src/infrastructure/data/blog-posts.json`
+### Tech Stack
 
-11. **Página Trabaja con Nosotros**
-    - Crear página `/trabaja-con-nosotros`
-    - Sección para publicar ofertas de trabajo
-    - Formulario para aplicaciones
-    - Archivos a crear:
-      - `src/ui/pages/CareersPage.tsx`
-      - `src/domain/types/job.ts`
-      - `src/infrastructure/data/jobs.json`
+- React 19 + TypeScript strict mode
+- Vite 8 + Tailwind CSS v4
+- React Router v7 (lazy loading, code splitting)
+- React Hook Form + Zod (validacion)
+- Framer Motion (animaciones)
+- DOMPurify (sanitizacion)
+- Arquitectura Clean Architecture (domain/application/infrastructure/ui)
 
-12. **SEO - Optimización**
-    - Definir 10-15 keywords priorizadas
-    - Meta titles y descriptions para páginas principales:
-      - Home
-      - Quiénes Somos
-      - Productos
-      - Marcas
-      - Contacto
-    - Actualizar `index.html`
-    - Actualizar `public/sitemap.xml`
+### Build Stats (final)
 
-## Estructura de Páginas Propuesta (Sitemap)
+- 17 chunks con code splitting
+- ~192 kB gzipped total
+- 0 errores TypeScript
+- 0 errores ESLint
+
+### Archivos de Datos
 
 ```
-1. Home (/)
-   - Breve descripción Quiénes Somos
-   - Banners
-   - Marcas que tenemos
-   - Temperaturas que manejamos
-   - Información de contacto, redes sociales, horario
-
-2. Quiénes Somos (/quienes-somos) ✅
-   - Quiénes somos
-   - Servicios (Logística, Maquila, 2PL/3PL)
-   - Indicadores
-   - Misión y Visión
-   - A quién atendemos
-   - Testimonios
-   - Trabaja con nosotros (CTA)
-
-3. Productos (/productos)
-   - Catálogo completo
-   - Filtros por temperatura
-   - Filtros por temporalidad
-   - Filtros por categoría
-
-4. Marcas (/marcas)
-   - Logos de proveedores
-
-5. Cobertura (/cobertura)
-   - Mapa de México
-   - Regiones
-
-6. Blog (/blog)
-   - Lista de posts
-   - Post individual (/blog/:slug)
-
-7. Contáctanos (/contact) ✅
-   - Formulario completo
-   - Información de contacto
-
-8. Trabaja con Nosotros (/trabaja-con-nosotros)
-   - Ofertas de trabajo
-   - Formulario de aplicación
+src/
+  domain/
+    types/
+      product.ts     - Product, Temperature, Seasonality
+      ghl.ts         - GHLWebhookPayload
+      blog.ts         - BlogPost, ContentBlock
+      job.ts          - Job
+    schemas/
+      contactSchema.ts - Zod validation, constants (ESTADOS_MEXICO, BUSINESS_TYPES, PRODUCT_CATEGORIES)
+  application/
+    hooks/
+      useDocumentTitle.ts   - Meta title + description dinamicos
+      useGHLIntegration.ts  - GHL webhook submit
+    services/
+      productService.ts     - DOMPurify-sanitized reads
+  infrastructure/
+    data/
+      products.json    - 14 productos
+      blog-posts.ts    - 6 articulos (content blocks)
+      jobs.ts          - 6 vacantes
+  ui/
+    components/
+      catalog/   - ProductCard, ProductGrid
+      form/      - ContactForm
+      home/      - BrandsSection, ClientsSection, CoverageSection, HeroSection, AboutSection, StatsSection, TemperatureSection
+      layout/    - Header, Footer
+    pages/
+      HomePage, AboutPage, ProductsPage, BrandsPage, ContactPage, CoveragePage, BlogPage, BlogPostPage, CareersPage, ProductPage
 ```
 
-## Categorías de Productos (Requeridas por Cliente)
+### Buyer Personas
 
-1. Acompañantes ✅
-2. Azúcar y Endulzantes ✅
-3. Estuchados ✅
-4. Papas y Botanas ✅
-5. Proteína ✅
-6. Repostería ✅
-7. Salsas y Aderezos ✅
-8. Verduras y Leguminosas ✅
-9. Quesos ✅
-10. "Quiero ser proveedor" (categoría especial en formulario) ✅
+- **Compradores**: Entregas en tiempo y forma, precios accesibles, productos de calidad con fechas de caducidad amplias
+- **Chef**: Productos innovadores de buena calidad para nuevas recetas
+- **Dueno**: Entregas puntuales, precios accesibles, servicio excelente
 
-## Campos del Formulario de Contacto ✅
+### KPIs
 
-Todos los campos son **OBLIGATORIOS**:
-- Nombre del contacto ✅
-- Nombre de la empresa ✅
-- Email ✅
-- Teléfono ✅
-- Giro del negocio ✅
-- Número de sucursales ✅
-- Estado donde se encuentra el negocio ✅
-- Localidad ó Código Postal ✅
-- Elegir las categorías (multi-select) ✅
-- Mensaje ✅
-
-## Buyer Personas
-
-### Compradores
-- Objetivos: Entregas en tiempo y forma, precios accesibles, productos de buena calidad con fechas de caducidad "amplias"
-- Necesidades: Tiempo de respuesta rápida, honestidad en entregas, servicio al cliente excelente
-
-### Chef
-- Objetivos: Productos de buena calidad para crear nuevas recetas
-- Necesidades: Productos innovadores, tiempo de respuesta rápida, entregas en tiempo y forma, productos convenientes
-
-### Dueño
-- Objetivos: Entregas en tiempo y forma, precios accesibles
-- Necesidades: Tiempo de respuesta rápida, servicio al cliente excelente
-
-## KPIs Iniciales
-- Generación de Leads
-- Estadía en la página web
-- Óptimo funcionamiento
+- Generacion de Leads (formulario GHL)
+- Estadia en la pagina web
+- Optimo funcionamiento (performance)
 - Lanzamiento de productos
 - Formularios completados
-- Solicitudes de cotización
+- Solicitudes de cotizacion
 
-## Sitios de Referencia
+### Sitios de Referencia
 
-1. **Simplot** (https://www.simplotfood.com/mexico/es)
-   - Acomodo de la página
-   - Funcionalidad de buscador de productos
-   - Va con los colores de la compañía
-   - Funcionalidad visual
+- **Simplot** - Buscador de productos, diseno visual
+- **Sysco** - Categorias faciles, branding foodservice claro
+- **Shamrock** - Separacion por categoria, Kitchen Intelligence
 
-2. **Sysco** (https://www.sysco.com/products/products/sysco-brand-family)
-   - Se sabe desde un inicio que es foodservice
-   - Acomodo de productos por categorías
-   - Fácil cambio entre categorías
+### Pendiente para Produccion
 
-3. **SHAMROCK** (https://www.shamrockfoodservice.com/bellabello/)
-   - Separación de productos por categoría
-   - Mucho material por cada categoría
-   - Sección KITCHENTELLIGENCE
+1. Reemplazar URLs placeholder `stuartga.github.io/leadhub-ecommerce` con dominio real
+2. Reemplazar logos de marcas (35+ emoji placeholders → SVG/PNG reales)
+3. Configurar dominio real en index.html, sitemap.xml, robots.txt (~10 ocurrencias)
+4. Configurar redes sociales reales en Footer
+5. Agregar OG image real (og-image.png, 1200x630)
+6. Actualizar favicon si es necesario
+7. Configurar GHL webhook URL en variables de entorno (Vercel/Netlify)
+8. Anadir mas productos al catalogo
 
-## Archivos Importantes
-
-### Tipos y Schemas
-- `src/domain/types/product.ts` - Definición de Product (con temperature y seasonality)
-- `src/domain/types/ghl.ts` - GHLWebhookPayload actualizado
-- `src/domain/schemas/contactSchema.ts` - Validación del formulario
-
-### Datos
-- `src/infrastructure/data/products.json` - Catálogo de 12 productos
-
-### Componentes
-- `src/ui/components/form/ContactForm.tsx` - Formulario actualizado
-- `src/ui/components/layout/Header.tsx` - Navegación actualizada
-- `src/ui/components/layout/Footer.tsx` - A actualizar con info completa
-
-### Páginas
-- `src/ui/pages/HomePage.tsx` - A actualizar según requerimientos
-- `src/ui/pages/AboutPage.tsx` - Completa ✅
-- `src/ui/pages/ContactPage.tsx` - Completa ✅
-- `src/ui/pages/ProductPage.tsx` - Existe (página individual de producto)
-
-### Pendiente Crear
-- `src/ui/pages/ProductsPage.tsx` - Página de catálogo con filtros
-- `src/ui/pages/BrandsPage.tsx` - Página de marcas
-- `src/ui/pages/CoveragePage.tsx` - Página de cobertura
-- `src/ui/pages/BlogPage.tsx` - Página de blog
-- `src/ui/pages/BlogPostPage.tsx` - Post individual
-- `src/ui/pages/CareersPage.tsx` - Trabaja con nosotros
-
-## Próximos Pasos Inmediatos
-
-1. ✅ Verificar build con cambios actuales
-2. ✅ Commit y push de cambios actuales
-3. Crear página de Productos con filtros
-4. Crear página de Marcas
-5. Actualizar HomePage según requerimientos
-6. Actualizar Footer con información completa
-7. Crear páginas de Blog y Carreras
-8. Optimizar SEO
-9. Build y deploy final
-
-## Comandos Útiles
+### Comandos
 
 ```bash
-# Verificar TypeScript
-npx tsc -b --noEmit
-
-# Build de producción
-npm run build
-
-# Dev server
-npm run dev
-
-# Lint
-npm run lint
-
-# Commit cambios
-git add .
-git commit -m "mensaje"
-git push origin main
+npm run dev      # Dev server (Vite HMR)
+npm run build    # TypeScript check + Vite build
+npm run lint     # ESLint
+npm run preview  # Preview build local
 ```
-
-## Notas Técnicas
-
-- Arquitectura Clean Architecture mantenida
-- TypeScript strict mode
-- Tailwind v4 con paleta personalizada (#b12455, #500021)
-- Code splitting implementado
-- Zod para validación
-- React Hook Form para formularios
-- Framer Motion para animaciones
-- DOMPurify para sanitización

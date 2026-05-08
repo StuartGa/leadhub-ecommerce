@@ -17,6 +17,9 @@ const HomePage = lazy(() =>
 const AboutPage = lazy(() =>
   import("./ui/pages/AboutPage").then((m) => ({ default: m.AboutPage }))
 );
+const BrandsPage = lazy(() =>
+  import("./ui/pages/BrandsPage").then((m) => ({ default: m.BrandsPage }))
+);
 const ProductPage = lazy(() =>
   import("./ui/pages/ProductPage").then((m) => ({ default: m.ProductPage }))
 );
@@ -40,6 +43,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quienes-somos" element={<AboutPage />} />
+        <Route path="/marcas" element={<BrandsPage />} />
         <Route path="/products/:productId" element={<ProductPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

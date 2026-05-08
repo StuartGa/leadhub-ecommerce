@@ -18,8 +18,8 @@ export function Header() {
             />
           </NavLink>
         </div>
-        <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
-          <ul className="flex items-center gap-8">
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 md:flex">
+          <ul className="flex items-center gap-6">
             <li>
               <NavLink
                 to="/quienes-somos"
@@ -46,21 +46,12 @@ export function Header() {
               )}
             </li>
             <li>
-              {isHome ? (
-                <a
-                  href="#clients"
-                  className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                >
-                  Clientes
-                </a>
-              ) : (
-                <NavLink
-                  to="/#clients"
-                  className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                >
-                  Clientes
-                </NavLink>
-              )}
+              <NavLink
+                to="/marcas"
+                className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+              >
+                Marcas
+              </NavLink>
             </li>
             <li>
               {isHome ? (
@@ -176,23 +167,13 @@ export function Header() {
                 )}
               </li>
               <li>
-                {isHome ? (
-                  <a
-                    href="#clients"
-                    className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Clientes
-                  </a>
-                ) : (
-                  <NavLink
-                    to="/#clients"
-                    className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Clientes
-                  </NavLink>
-                )}
+                <NavLink
+                  to="/marcas"
+                  className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Marcas
+                </NavLink>
               </li>
               <li>
                 {isHome ? (

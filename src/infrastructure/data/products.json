@@ -4,7 +4,7 @@
     "name": "Pan Para Hot Dog Gigante",
     "slug": "pan-para-hot-dog-gigante",
     "sku": "3CAT071",
-    "description": "Producto foodservice: Pan Para Hot Dog Gigante",
+    "description": "Dogo Gigante Acción Alimenticia, Pan Gigante para Hot Dog de 20 cm de largo",
     "brand": "Acción Alimenticia",
     "category": "Pan Congelado",
     "temperature": "Seco",
@@ -19,14 +19,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 180
   },
   {
     "id": "local-PF0063-0080C",
     "name": "Bollo Brioche con Ajonjolí Negro 4.5\"",
     "slug": "bollo-brioche-con-ajonjoli-negro-4-5",
     "sku": "PF0063-0080C",
-    "description": "Producto foodservice: Bollo Brioche con Ajonjolí Negro 4.5\"",
+    "description": "Bollo Brioche Acción Alimenticia, Pan para Hamburguesa 4.5\" con Ajonjoli",
     "brand": "Acción Alimenticia",
     "category": "Pan Congelado",
     "temperature": "Seco",
@@ -41,14 +42,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 846
   },
   {
     "id": "local-PF0683-0110",
     "name": "BOLLO BRIOCHE 4.5\"",
     "slug": "bollo-brioche-4-5",
     "sku": "PF0683-0110",
-    "description": "Producto foodservice: BOLLO BRIOCHE 4.5\"",
+    "description": "Bollo Brioche Acción Alimenticia, Pan para Hamburguesa 4.5\"",
     "brand": "Acción Alimenticia",
     "category": "Pan Congelado",
     "temperature": "Seco",
@@ -63,14 +65,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 718
   },
   {
     "id": "local-00069",
     "name": "Frijol Bayo Deshidratado",
     "slug": "frijol-bayo-deshidratado",
     "sku": "00069",
-    "description": "Producto foodservice: Frijol Bayo Deshidratado",
+    "description": "Bulto de Frijol Deshidratado Bayo",
     "brand": "Al Minuto",
     "category": "Acompañantes",
     "temperature": "Seco",
@@ -85,14 +88,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 582
   },
   {
     "id": "local-46300244",
     "name": "Carne Hamburguesa Master Arrachera de 150 g Beef Pits",
     "slug": "carne-hamburguesa-master-arrachera-de-150-g-beef-pits",
     "sku": "46300244",
-    "description": "Producto foodservice: Carne Hamburguesa Master Arrachera de 150 g Beef Pits",
+    "description": "Carne Hamburguesa Master Arrachera de 150 gramos American Beef",
     "brand": "American Beef",
     "category": "Proteina",
     "temperature": "Seco",
@@ -107,14 +111,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 617
   },
   {
     "id": "local-46300245",
     "name": "Carne Hamburguesa Sirlon de 150 g Beef Pits Master",
     "slug": "carne-hamburguesa-sirlon-de-150-g-beef-pits-master",
     "sku": "46300245",
-    "description": "Producto foodservice: Carne Hamburguesa Sirlon de 150 g Beef Pits Master",
+    "description": "Carne Hamburguesa Sirlon de 150 gramos American Beef",
     "brand": "American Beef",
     "category": "Proteina",
     "temperature": "Seco",
@@ -129,14 +134,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 642
   },
   {
     "id": "local-46300246",
     "name": "Carne Hamburguesa Master Mezquite de 150 g Beef Pits Mezquite",
     "slug": "carne-hamburguesa-master-mezquite-de-150-g-beef-pits-mezquite",
     "sku": "46300246",
-    "description": "Producto foodservice: Carne Hamburguesa Master Mezquite de 150 g Beef Pits Mezquite",
+    "description": "Carne Hamburguesa Master Mezquire de 150 gramos American Beef",
     "brand": "American Beef",
     "category": "Proteina",
     "temperature": "Seco",
@@ -151,14 +157,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 617
   },
   {
     "id": "local-46300256",
     "name": "Carne Hamburguesa Beef Master de 113 g Beef Pits",
     "slug": "carne-hamburguesa-beef-master-de-113-g-beef-pits",
     "sku": "46300256",
-    "description": "Producto foodservice: Carne Hamburguesa Beef Master de 113 g Beef Pits",
+    "description": "Carne Hamburguesa Beef Master de 113 gramos American Beef",
     "brand": "American Beef",
     "category": "Proteina",
     "temperature": "Seco",
@@ -173,14 +180,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 617
   },
   {
     "id": "local-PR049",
     "name": "Carne para Hamburguesa  de Res  113 g",
     "slug": "carne-para-hamburguesa-de-res-113-g",
     "sku": "PR049",
-    "description": "Producto foodservice: Carne para Hamburguesa  de Res  113 g",
+    "description": "Carne molida de Res para hamburguesa, lista para cocinarse",
     "brand": "BACHOCO / RYC",
     "category": "Proteina",
     "temperature": "Seco",
@@ -195,14 +203,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1627
   },
   {
     "id": "local-34909",
     "name": "Galletas Marías Lara a Granel",
     "slug": "galletas-marias-lara-a-granel",
     "sku": "34909",
-    "description": "Producto foodservice: Galletas Marías Lara a Granel",
+    "description": "Galletas María Lara a Granel",
     "brand": "Bimbo",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -217,14 +226,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 252
   },
   {
     "id": "local-493572",
     "name": "Dona Base a Granel",
     "slug": "dona-base-a-granel",
     "sku": "493572",
-    "description": "Producto foodservice: Dona Base a Granel",
+    "description": "Dona Base a Granel",
     "brand": "Bimbo",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -239,14 +249,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 318
   },
   {
     "id": "local-34909MOL",
     "name": "Galletas Molida Sabor Vainilla",
     "slug": "galletas-molida-sabor-vainilla",
     "sku": "34909MOL",
-    "description": "Producto foodservice: Galletas Molida Sabor Vainilla",
+    "description": "Galletas Molida Sabor Vainilla",
     "brand": "Bimbo",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -261,14 +272,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-751909",
     "name": "Aceite de Alto Rendimiento",
     "slug": "aceite-de-alto-rendimiento",
     "sku": "751909",
-    "description": "Producto foodservice: Aceite de Alto Rendimiento",
+    "description": "Aceite de Alto Rendimiento Bag in Box Cargill 20 litros",
     "brand": "Cargill",
     "category": "Aceites y Manteca",
     "temperature": "Seco",
@@ -283,14 +295,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 892
   },
   {
     "id": "local-00431",
     "name": "Aceite de Soya Vatel Pro",
     "slug": "aceite-de-soya-vatel-pro",
     "sku": "00431",
-    "description": "Producto foodservice: Aceite de Soya Vatel Pro",
+    "description": "Aceite de Soya Vatel Cargill 20 litros",
     "brand": "Cargill",
     "category": "Aceites y Manteca",
     "temperature": "Seco",
@@ -305,14 +318,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 917
   },
   {
     "id": "local-00434",
     "name": "Aceite de Oleina Vatel",
     "slug": "aceite-de-oleina-vatel",
     "sku": "00434",
-    "description": "Producto foodservice: Aceite de Oleina Vatel",
+    "description": "Aceite de Oleina Vatel Cargill Bidón 20 litros",
     "brand": "Cargill",
     "category": "Aceites y Manteca",
     "temperature": "Seco",
@@ -327,14 +341,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1031
   },
   {
     "id": "local-004453",
     "name": "Manteca Bekery Mixta",
     "slug": "manteca-bekery-mixta",
     "sku": "004453",
-    "description": "Producto foodservice: Manteca Bekery Mixta",
+    "description": "Manteca Panaderia Mixta de Sebo y Palma Cargill 24 kilos",
     "brand": "Cargill",
     "category": "Aceites y Manteca",
     "temperature": "Seco",
@@ -349,14 +364,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1292
   },
   {
     "id": "local-06001",
     "name": "Brócoli Florete",
     "slug": "brocoli-florete",
     "sku": "06001",
-    "description": "Producto foodservice: Brócoli Florete",
+    "description": "Brócoli Florete Congelado Covemex",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -371,14 +387,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 887
   },
   {
     "id": "local-06002",
     "name": "Mezcla California",
     "slug": "mezcla-california",
     "sku": "06002",
-    "description": "Producto foodservice: Mezcla California",
+    "description": "Mezcla California Congelada zanahoria, coliflor, brócoli",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -393,14 +410,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 990
   },
   {
     "id": "local-06009",
     "name": "Mezcla Campesina",
     "slug": "mezcla-campesina",
     "sku": "06009",
-    "description": "Producto foodservice: Mezcla Campesina",
+    "description": "Mezcla Campesina Congelada zanahoria elote chicharo",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -415,14 +433,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1362
   },
   {
     "id": "local-06012",
     "name": "Chícharo con Zanahoria",
     "slug": "chicharo-con-zanahoria",
     "sku": "06012",
-    "description": "Producto foodservice: Chícharo con Zanahoria",
+    "description": "Chicharo con zanahoria covemex congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -437,14 +456,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1547
   },
   {
     "id": "local-06016",
     "name": "Chícharo",
     "slug": "chicharo",
     "sku": "06016",
-    "description": "Producto foodservice: Chícharo",
+    "description": "Chícharo covemex congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -459,14 +479,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1765
   },
   {
     "id": "local-06021",
     "name": "Colíflor",
     "slug": "coliflor",
     "sku": "06021",
-    "description": "Producto foodservice: Colíflor",
+    "description": "Coliflor Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -481,14 +502,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 896
   },
   {
     "id": "local-06028",
     "name": "Ejote",
     "slug": "ejote",
     "sku": "06028",
-    "description": "Producto foodservice: Ejote",
+    "description": "Ejote Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -503,14 +525,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1811
   },
   {
     "id": "local-06031",
     "name": "Elote Entero",
     "slug": "elote-entero",
     "sku": "06031",
-    "description": "Producto foodservice: Elote Entero",
+    "description": "Elote entero Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -525,14 +548,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1186
   },
   {
     "id": "local-06032",
     "name": "Espinaca",
     "slug": "espinaca",
     "sku": "06032",
-    "description": "Producto foodservice: Espinaca",
+    "description": "Espinaca Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -547,14 +571,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 772
   },
   {
     "id": "local-06053",
     "name": "Maíz en Grano",
     "slug": "maiz-en-grano",
     "sku": "06053",
-    "description": "Producto foodservice: Maíz en Grano",
+    "description": "Maíz en Grano Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -569,14 +594,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1262
   },
   {
     "id": "local-06068",
     "name": "Zanahoría en Cubos",
     "slug": "zanahoria-en-cubos",
     "sku": "06068",
-    "description": "Producto foodservice: Zanahoría en Cubos",
+    "description": "Zanhoría en Cubos Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -591,14 +617,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1251
   },
   {
     "id": "local-06078",
     "name": "Mezcla Bajío",
     "slug": "mezcla-bajio",
     "sku": "06078",
-    "description": "Producto foodservice: Mezcla Bajío",
+    "description": "Mezcla Bajio zanahoria elote brócoli coliflor Covemex Congelado",
     "brand": "Covemex",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -613,14 +640,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 844
   },
   {
     "id": "local-10340",
     "name": "Sal en Sobre Abal",
     "slug": "sal-en-sobre-abal",
     "sku": "10340",
-    "description": "Producto foodservice: Sal en Sobre Abal",
+    "description": "Sal en sobre Abal, Heinz caja con 3000 sobres de 1 gramo",
     "brand": "HEINZ",
     "category": "Estuchados",
     "temperature": "Seco",
@@ -635,14 +663,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 332
   },
   {
     "id": "local-10342",
     "name": "Salsa BBQ Abal",
     "slug": "salsa-bbq-abal",
     "sku": "10342",
-    "description": "Producto foodservice: Salsa BBQ Abal",
+    "description": "Salsa BBQ en Abal, Heinz Caja con 4 galones de 4 kilogramos",
     "brand": "HEINZ",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -657,14 +686,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1072
   },
   {
     "id": "local-12254",
     "name": "Ketchup Heinz Pouch 3 kg",
     "slug": "ketchup-heinz-pouch-3-kg",
     "sku": "12254",
-    "description": "Producto foodservice: Ketchup Heinz Pouch 3 kg",
+    "description": "Ketchup Heinz Pouch, caja con 6 piezas de 3 kilogramos catsup heinz. producto kosher",
     "brand": "HEINZ",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -679,14 +709,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1038
   },
   {
     "id": "local-12599",
     "name": "Jarabe de Maple Heinz® Galón",
     "slug": "jarabe-de-maple-heinz-galon",
     "sku": "12599",
-    "description": "Producto foodservice: Jarabe de Maple Heinz® Galón",
+    "description": "Jarabe de Maple Heinz Galón de 4.5 kg",
     "brand": "HEINZ",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -701,14 +732,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 215
   },
   {
     "id": "local-10121",
     "name": "Ketchup Heinz® en Sobre",
     "slug": "ketchup-heinz-en-sobre",
     "sku": "10121",
-    "description": "Producto foodservice: Ketchup Heinz® en Sobre",
+    "description": "Ketchup Heinz Caja con 1000 sobre de 9 g. Catsup en Sobre Producto Kosher",
     "brand": "HEINZ",
     "category": "Estuchados",
     "temperature": "Seco",
@@ -723,14 +755,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 699
   },
   {
     "id": "local-10419",
     "name": "Miel de Abeja Heinz® 120 piezas de 20 g",
     "slug": "miel-de-abeja-heinz-120-piezas-de-20-g",
     "sku": "10419",
-    "description": "Producto foodservice: Miel de Abeja Heinz® 120 piezas de 20 g",
+    "description": "Miel de Abeja  Heinz caja con 120 piezas de 20 gramos Miel de abeja para llevar Producto Kosher",
     "brand": "HEINZ",
     "category": "Estuchados, Reposteria y Postres",
     "temperature": "Seco",
@@ -745,14 +778,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 603
   },
   {
     "id": "local-10436",
     "name": "Mostzasa Heinz® en Sobre",
     "slug": "mostzasa-heinz-en-sobre",
     "sku": "10436",
-    "description": "Producto foodservice: Mostzasa Heinz® en Sobre",
+    "description": "Mostaza Heinz Caja con 500 sobres de 5 gramos. Mostaza Amarilla en sobre. Producto Kosher",
     "brand": "HEINZ",
     "category": "Estuchados",
     "temperature": "Seco",
@@ -767,14 +801,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 282
   },
   {
     "id": "local-10437",
     "name": "Aderezo Mayonesa Heinz® en sobre",
     "slug": "aderezo-mayonesa-heinz-en-sobre",
     "sku": "10437",
-    "description": "Producto foodservice: Aderezo Mayonesa Heinz® en sobre",
+    "description": "Aderezo Mayonesa Caja con 500 sobres de 8 gramos.  Aderezo en Sobre. Producto Kosher.",
     "brand": "HEINZ",
     "category": "Estuchados",
     "temperature": "Seco",
@@ -789,14 +824,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 391
   },
   {
     "id": "local-10464",
     "name": "Chile Quebrado en Sobre Heinz",
     "slug": "chile-quebrado-en-sobre-heinz",
     "sku": "10464",
-    "description": "Producto foodservice: Chile Quebrado en Sobre Heinz",
+    "description": "Chile Quebrado Heinz, Caja con 400 sobres de 1 gramo",
     "brand": "HEINZ",
     "category": "Estuchados",
     "temperature": "Seco",
@@ -811,14 +847,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 342
   },
   {
     "id": "local-10465",
     "name": "Jarabe de Maple Heinz® 72 piezas de 30 g",
     "slug": "jarabe-de-maple-heinz-72-piezas-de-30-g",
     "sku": "10465",
-    "description": "Producto foodservice: Jarabe de Maple Heinz® 72 piezas de 30 g",
+    "description": "Jarabe de Maple Heinz caja con 72 piezas de 30 g, para llevar",
     "brand": "HEINZ",
     "category": "Estuchados, Reposteria y Postres",
     "temperature": "Seco",
@@ -833,14 +870,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 215
   },
   {
     "id": "local-10466",
     "name": "Mermelada de Fresa Heinz® 120 piezas de 20 g",
     "slug": "mermelada-de-fresa-heinz-120-piezas-de-20-g",
     "sku": "10466",
-    "description": "Producto foodservice: Mermelada de Fresa Heinz® 120 piezas de 20 g",
+    "description": "Mermelada de Fresa Heinz caja con 120 piezas de 20 gramos para llevar",
     "brand": "HEINZ",
     "category": "Estuchados, Reposteria y Postres",
     "temperature": "Seco",
@@ -855,14 +893,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 298
   },
   {
     "id": "local-12523",
     "name": "Salsa Tabasco Roja",
     "slug": "salsa-tabasco-roja",
     "sku": "12523",
-    "description": "Producto foodservice: Salsa Tabasco Roja",
+    "description": "Salsa Tabasco Roja, caja con 24 piezas de 60 ml Heinz",
     "brand": "HEINZ",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -877,14 +916,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1700
   },
   {
     "id": "local-12524",
     "name": "Salsa Jalapeño en Sobre Heinz®",
     "slug": "salsa-jalapeno-en-sobre-heinz",
     "sku": "12524",
-    "description": "Producto foodservice: Salsa Jalapeño en Sobre Heinz®",
+    "description": "Salsa Jalapeño Heinz en sobre, caja con 500 sobres de 8 gramos. Producto Kosher",
     "brand": "HEINZ",
     "category": "Estuchados, Salsas y Aderezos",
     "temperature": "Seco",
@@ -899,14 +939,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 280
   },
   {
     "id": "local-12568",
     "name": "Ketchup Heinz®  397 g",
     "slug": "ketchup-heinz-397-g",
     "sku": "12568",
-    "description": "Producto foodservice: Ketchup Heinz®  397 g",
+    "description": "Ketchup Heinz regular roja, Ketchup 16 piezas, botella de 14 onzas, ketchup 397 g, Catsup Heinz",
     "brand": "HEINZ",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -921,14 +962,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 565
   },
   {
     "id": "local-12814",
     "name": "Mostaza Heinz® Pouch de 3 kg",
     "slug": "mostaza-heinz-pouch-de-3-kg",
     "sku": "12814",
-    "description": "Producto foodservice: Mostaza Heinz® Pouch de 3 kg",
+    "description": "Mostaza Heinz Pouch, caja con 4 piezas de 3 kilogramos. producto kosher",
     "brand": "HEINZ",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -943,14 +985,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 685
   },
   {
     "id": "local-37600",
     "name": "Salsa Para Pizza",
     "slug": "salsa-para-pizza",
     "sku": "37600",
-    "description": "Producto foodservice: Salsa Para Pizza",
+    "description": "Salsa para piza heinz",
     "brand": "HEINZ",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -965,14 +1008,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-40870",
     "name": "Mayonesa Real Sobre de 8 g Heinz®",
     "slug": "mayonesa-real-sobre-de-8-g-heinz",
     "sku": "40870",
-    "description": "Producto foodservice: Mayonesa Real Sobre de 8 g Heinz®",
+    "description": "Mayonesa Real Heinz®  caja con 500 sobres de 8 gramos. Mayonesa real Heinz con jugo de limón",
     "brand": "HEINZ",
     "category": "Estuchados, Salsas y Aderezos",
     "temperature": "Seco",
@@ -987,14 +1031,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1122
   },
   {
     "id": "local-107589",
     "name": "Queso Gouda en Barra",
     "slug": "queso-gouda-en-barra",
     "sku": "107589",
-    "description": "Producto foodservice: Queso Gouda en Barra",
+    "description": "queso maduro de sabor fuerte y excelentes propiedades de gratinado y fundido.",
     "brand": "Lactalis",
     "category": "Quesos",
     "temperature": "Seco",
@@ -1009,14 +1054,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 193
   },
   {
     "id": "local-108530",
     "name": "Queso Mozzarella Picado Galbani",
     "slug": "queso-mozzarella-picado-galbani",
     "sku": "108530",
-    "description": "Producto foodservice: Queso Mozzarella Picado Galbani",
+    "description": "Queso Mozzarella  rallado practicidad para gratinados y fundidos",
     "brand": "Lactalis",
     "category": "quesos",
     "temperature": "Seco",
@@ -1031,14 +1077,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1540
   },
   {
     "id": "local-LW2000",
     "name": "Papa Frita Crispy On Delivery 3/8\"  Lamb Weston",
     "slug": "papa-frita-crispy-on-delivery-3-8-lamb-weston",
     "sku": "LW2000",
-    "description": "Producto foodservice: Papa Frita Crispy On Delivery 3/8\"  Lamb Weston",
+    "description": "Papa Crispy on Delivery, Papa frita 3/8\" 6 bolsas de 2.268 kg. Caja de 13.608 kg. Papa congelada, Papa Congelada Lambweston, papa para llevar. Presentación Institucional.",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1053,14 +1100,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1219
   },
   {
     "id": "local-32L",
     "name": "Papa Francesa 3/8\" con Cáscara Lamb Weston",
     "slug": "papa-francesa-3-8-con-cascara-lamb-weston",
     "sku": "32L",
-    "description": "Producto foodservice: Papa Francesa 3/8\" con Cáscara Lamb Weston",
+    "description": "Papa Francesa 3/8\" con cascara, Papa francesa congelada 3/8\", papa lambweston  caja con 6 bolsas",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1075,14 +1123,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1087
   },
   {
     "id": "local-B36",
     "name": "Papa Francesa 3/8\" con Cáscara Lamb Weston",
     "slug": "papa-francesa-3-8-con-cascara-lamb-weston",
     "sku": "B36",
-    "description": "Producto foodservice: Papa Francesa 3/8\" con Cáscara Lamb Weston",
+    "description": "Papa Francesa 3/8\" con cascara, Papa francesa congelada 3/8\", papa lambweston, Lamb Weston  caja con 6 bolsas de 2.268 kg. Caja institucional",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1097,14 +1146,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1125
   },
   {
     "id": "local-C0034",
     "name": "Papa 1/4\" Recubierta Lamb Weston",
     "slug": "papa-1-4-recubierta-lamb-weston",
     "sku": "C0034",
-    "description": "Producto foodservice: Papa 1/4\" Recubierta Lamb Weston",
+    "description": "Papa Francesa 1/4\" Recubierta Papa Frita Congelada Lamb Weston, lambweston, 6 bolsas de 2.041 kg. Caja institucional",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1119,14 +1169,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1115
   },
   {
     "id": "local-G2200",
     "name": "Papa 3/8\" Recubierta Lamb Weston",
     "slug": "papa-3-8-recubierta-lamb-weston",
     "sku": "G2200",
-    "description": "Producto foodservice: Papa 3/8\" Recubierta Lamb Weston",
+    "description": "Papa frita 3/8\" Recubierta, papa francesa 3/8\", papa congelada, papa LambWeston. Presentación Institucional",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1141,14 +1192,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1163
   },
   {
     "id": "local-H21",
     "name": "Papa Francesa Económic 1/4\" Lamb Weston",
     "slug": "papa-francesa-economic-1-4-lamb-weston",
     "sku": "H21",
-    "description": "Producto foodservice: Papa Francesa Económic 1/4\" Lamb Weston",
+    "description": "Papa Francesa Económica 1/4\", papa frita congelada, Papa congelada LambWeston, Lamb Weston. 6 bolsas de 2.722. Presentación intitucional",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1163,14 +1215,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 941
   },
   {
     "id": "local-L8000",
     "name": "Papa Camote Frita Lamb Weston",
     "slug": "papa-camote-frita-lamb-weston",
     "sku": "L8000",
-    "description": "Producto foodservice: Papa Camote Frita Lamb Weston",
+    "description": "Papa Camote, Caja con 5 bolsas de 1.361 kg caja de 6.804 kg papa camote congelada Lamb Weston",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1185,14 +1238,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 868
   },
   {
     "id": "local-P38",
     "name": "Muncher Jalapeño y Queso Cheddar Chica Lamb Weston",
     "slug": "muncher-jalapeno-y-queso-cheddar-chica-lamb-weston",
     "sku": "P38",
-    "description": "Producto foodservice: Muncher Jalapeño y Queso Cheddar Chica Lamb Weston",
+    "description": "Mucher Jalapeño y Queso Cheddar Chica, Bolitas rellenas de queso cheddar y jalapeño   Caja con 6 bolsas de 1.361 kg. Presentación Intitucional.",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1207,14 +1261,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1541
   },
   {
     "id": "local-S01",
     "name": "Papa Frita Corte 3/16\" con Cáscara Lamb Weston",
     "slug": "papa-frita-corte-3-16-con-cascara-lamb-weston",
     "sku": "S01",
-    "description": "Producto foodservice: Papa Frita Corte 3/16\" con Cáscara Lamb Weston",
+    "description": "Papa Frita 3/16\" con cáscara. Papa congelada LambWeston, 6 bolsas de 1.814 kg. Caja de 10.886 kg. Presentación Institucional",
     "brand": "LAMB WESTON",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -1229,14 +1284,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 961
   },
   {
     "id": "local-S12",
     "name": "Papa Frita corte Regular Fino con Cáscara Lamb Weston",
     "slug": "papa-frita-corte-regular-fino-con-cascara-lamb-weston",
     "sku": "S12",
-    "description": "Producto foodservice: Papa Frita corte Regular Fino con Cáscara Lamb Weston",
+    "description": "Papa frita corte regular con cácara, papa corte regular skin on lamb weston, 6 bolsas de 2.268 kg. Caja de 13.608 kg. Presentación Institucional.",
     "brand": "LAMB WESTON",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -1251,14 +1307,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1210
   },
   {
     "id": "local-S15",
     "name": "Papa Waffle Natural Lamb Weston",
     "slug": "papa-waffle-natural-lamb-weston",
     "sku": "S15",
-    "description": "Producto foodservice: Papa Waffle Natural Lamb Weston",
+    "description": "Papa Waffle Natural Lamb Weston. Papa Waffle Congelada. Papa LambWeston. Caja con 6 bolsas de 2.041 Kg. Caja de 12.247 kg Presentación Institucional",
     "brand": "LAMB WESTON",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -1273,14 +1330,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1132
   },
   {
     "id": "local-S19",
     "name": "Papa Stealth 3/8\" Con Cascara Lamb Weston",
     "slug": "papa-stealth-3-8-con-cascara-lamb-weston",
     "sku": "S19",
-    "description": "Producto foodservice: Papa Stealth 3/8\" Con Cascara Lamb Weston",
+    "description": "Papa Stealth 3/8\" con Cáscara, Papa Frita congelada, papa congelada LambWeston, Lamb Weston Caja con  6 bolsas de 1.361 kg. Presentación Institucional.",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1295,14 +1353,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1200
   },
   {
     "id": "local-S34",
     "name": "Papa Frita corte  1/4\" Lamb Weston",
     "slug": "papa-frita-corte-1-4-lamb-weston",
     "sku": "S34",
-    "description": "Producto foodservice: Papa Frita corte  1/4\" Lamb Weston",
+    "description": "Papa frita Stealth Fries, shoestring. Papa corte regular sin cáscara. Lambweston.  6 bolsas de 2.041 kg. Caja de 12.247 kg. Presentación Institucional Papa Lamb Weston Congelada",
     "brand": "LAMB WESTON",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -1317,14 +1376,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1081
   },
   {
     "id": "local-S57",
     "name": "Papa con Cobertura Invisible Stealth 3/8\" Lamb Weston",
     "slug": "papa-con-cobertura-invisible-stealth-3-8-lamb-weston",
     "sku": "S57",
-    "description": "Producto foodservice: Papa con Cobertura Invisible Stealth 3/8\" Lamb Weston",
+    "description": "Papa de 3/8\" Lamb Weston con cobertura invisible Papa congelada papa prefita, papa francesa caja con 6 bolsas de 2.268 kg caja institucional",
     "brand": "LAMB WESTON",
     "category": "Papa Congelada",
     "temperature": "Seco",
@@ -1339,14 +1399,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1200
   },
   {
     "id": "local-40102",
     "name": "Atún en Agua Marina Azul",
     "slug": "atun-en-agua-marina-azul",
     "sku": "40102",
-    "description": "Producto foodservice: Atún en Agua Marina Azul",
+    "description": "Atún Marina Azul en agua Pouch \nCertificación Kosher La caja contiene 8 bolsas de 1.22 kg",
     "brand": "MARINA AZUL",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1361,14 +1422,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1755
   },
   {
     "id": "local-715820",
     "name": "Pan de Papa Martin's para Hamburguesa Martin's Potato Rolls",
     "slug": "pan-de-papa-martin-s-para-hamburguesa-martin-s-potato-rolls",
     "sku": "715820",
-    "description": "Producto foodservice: Pan de Papa Martin's para Hamburguesa Martin's Potato Rolls",
+    "description": "Sandwich Potato Rolls  Pan de Papa Martin’s para Hamburguesas. Pan de papa congelado 12 sliced Slider",
     "brand": "Martin's",
     "category": "Pan Congelado",
     "temperature": "Seco",
@@ -1383,14 +1445,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 637
   },
   {
     "id": "local-00500520",
     "name": "Pan de Papa Martin’s para Hamburguesas de 8.5cm Martin’s Potato Rolls",
     "slug": "pan-de-papa-martin-s-para-hamburguesas-de-8-5cm-martin-s-potato-rolls",
     "sku": "00500520",
-    "description": "Producto foodservice: Pan de Papa Martin’s para Hamburguesas de 8.5cm Martin’s Potato Rolls",
+    "description": "Sandwich Potato Rolls  Pan de Papa Martin’s para Hamburguesas de 8,5cm. Pan de papa congelado,",
     "brand": "Martin's",
     "category": "Pan Congelado",
     "temperature": "Seco",
@@ -1405,14 +1468,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 793
   },
   {
     "id": "local-00500528",
     "name": "Pan de Papa Martin's para Hamburguesa de 4 pulgadas",
     "slug": "pan-de-papa-martin-s-para-hamburguesa-de-4-pulgadas",
     "sku": "00500528",
-    "description": "Producto foodservice: Pan de Papa Martin's para Hamburguesa de 4 pulgadas",
+    "description": "Sandwich Potato Rolls Pan de Papa Martin's para Hamburguesa. Pan de Papa congelado 4 inches Pan de papa congelado 10 cm Pan para hamburguesa",
     "brand": "Martin's",
     "category": "Pan Congelado",
     "temperature": "Seco",
@@ -1427,14 +1491,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-51810",
     "name": "Queso Crema Philadelphia®",
     "slug": "queso-crema-philadelphia",
     "sku": "51810",
-    "description": "Producto foodservice: Queso Crema Philadelphia®",
+    "description": "Queso Crema Philadelphia de 8 kg. Presentación Institucional.",
     "brand": "Mondeléz",
     "category": "Quesos",
     "temperature": "Seco",
@@ -1449,14 +1514,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1758
   },
   {
     "id": "local-52201",
     "name": "Queso Crema Philadelphia®",
     "slug": "queso-crema-philadelphia",
     "sku": "52201",
-    "description": "Producto foodservice: Queso Crema Philadelphia®",
+    "description": "Queso Crema Philadelphia de 1.9 kg. Presentación Institucional.",
     "brand": "Mondeléz",
     "category": "Quesos",
     "temperature": "Seco",
@@ -1471,14 +1537,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2583
   },
   {
     "id": "local-83376",
     "name": "Galleta Sándwich Oreo®",
     "slug": "galleta-sandwich-oreo",
     "sku": "83376",
-    "description": "Producto foodservice: Galleta Sándwich Oreo®",
+    "description": "Galleta Oreo, Galleta Sandwich Oreo Galleta para postres. Presentación Institucional.",
     "brand": "Mondeléz",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1493,14 +1560,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 382
   },
   {
     "id": "local-9691002",
     "name": "Queso Crema Philadelphia® Creamy & Soft de 8 kg",
     "slug": "queso-crema-philadelphia-creamy-soft-de-8-kg",
     "sku": "9691002",
-    "description": "Producto foodservice: Queso Crema Philadelphia® Creamy & Soft de 8 kg",
+    "description": "Queso Crema Philadelphia Creamy And soft de 8 kg. Queso crema Suave. Presentación Institucional.",
     "brand": "Mondeléz",
     "category": "Quesos",
     "temperature": "Seco",
@@ -1515,14 +1583,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1322
   },
   {
     "id": "local-00006",
     "name": "Galleta Oreo® Base",
     "slug": "galleta-oreo-base",
     "sku": "00006",
-    "description": "Producto foodservice: Galleta Oreo® Base",
+    "description": "Galleta Oreo, Galleta base Oreo",
     "brand": "Mondeléz",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1537,14 +1606,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1050
   },
   {
     "id": "local-G030-0014MOL",
     "name": "Galleta Oreo® Molida",
     "slug": "galleta-oreo-molida",
     "sku": "G030-0014MOL",
-    "description": "Producto foodservice: Galleta Oreo® Molida",
+    "description": "Galleta Oreo, Galleta Molida Oreo, Galleta para postres, Galleta Oreo",
     "brand": "Mondeléz",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1559,14 +1629,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1324
   },
   {
     "id": "local-00035",
     "name": "Pastel Tiramisú de 12 rebanadas",
     "slug": "pastel-tiramisu-de-12-rebanadas",
     "sku": "00035",
-    "description": "Producto foodservice: Pastel Tiramisú de 12 rebanadas",
+    "description": "Pasel de Tiramisú, Pastel de tiramisú 12 rebanadas, Pastel tiramisu rebanado, pastel artesanal Tiramisú",
     "brand": "My Sweet Garden",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1581,14 +1652,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 431
   },
   {
     "id": "local-00036",
     "name": "Pastel Fresas con Crema de 12 rebanadas",
     "slug": "pastel-fresas-con-crema-de-12-rebanadas",
     "sku": "00036",
-    "description": "Producto foodservice: Pastel Fresas con Crema de 12 rebanadas",
+    "description": "Pastel de Fresas con Crema, Pastel de Fresas con Crema 12 rebanadas, Pastel fresas con crema rebanado, Pastel artesanal de fresas con crema",
     "brand": "My Sweet Garden",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1603,14 +1675,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 431
   },
   {
     "id": "local-00066",
     "name": "Pastel de Chocolate con Zarzamora de 12 rebanadas",
     "slug": "pastel-de-chocolate-con-zarzamora-de-12-rebanadas",
     "sku": "00066",
-    "description": "Producto foodservice: Pastel de Chocolate con Zarzamora de 12 rebanadas",
+    "description": "Pastel de chocolate con zarzamora, pastel de chocolate con zarzamora 12 rebanadas, pastel de chocolate con zarzamora artesanal, pastel rebanado",
     "brand": "My Sweet Garden",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1625,14 +1698,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 431
   },
   {
     "id": "local-00089",
     "name": "Pastel de Zanahoria de 12 rebanadas",
     "slug": "pastel-de-zanahoria-de-12-rebanadas",
     "sku": "00089",
-    "description": "Producto foodservice: Pastel de Zanahoria de 12 rebanadas",
+    "description": "Pastel de zanahoria, pastel de zanahoria con 12 rebanadas, pastel de zanahoria rebanado, pastel de zanahoria artesanal",
     "brand": "My Sweet Garden",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1647,14 +1721,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 431
   },
   {
     "id": "local-00090",
     "name": "Pastel de Mix de 4 sabores de 12 rebanadas",
     "slug": "pastel-de-mix-de-4-sabores-de-12-rebanadas",
     "sku": "00090",
-    "description": "Producto foodservice: Pastel de Mix de 4 sabores de 12 rebanadas",
+    "description": "Pastel de zanahoria, pastel de fresas con crema, pastel de chocolate con zarzamora, pastel rebanado, mix de pastel, Pastel con 12 rebanadas",
     "brand": "My Sweet Garden",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1669,14 +1744,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 438
   },
   {
     "id": "local-00097",
     "name": "Pastel de Cheesecake con Zarzamora de 10 rebanadas",
     "slug": "pastel-de-cheesecake-con-zarzamora-de-10-rebanadas",
     "sku": "00097",
-    "description": "Producto foodservice: Pastel de Cheesecake con Zarzamora de 10 rebanadas",
+    "description": "Pastel de cheesecake zarzamora, pastel cheescake zarzamora rebanadas, pastel de cheesecake zarzamora 10 rebanadas",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1691,14 +1767,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 462
   },
   {
     "id": "local-00098",
     "name": "Pastel de Zanahoria alto de 8 cm. con 12 rebanadas",
     "slug": "pastel-de-zanahoria-alto-de-8-cm-con-12-rebanadas",
     "sku": "00098",
-    "description": "Producto foodservice: Pastel de Zanahoria alto de 8 cm. con 12 rebanadas",
+    "description": "pastel de zanahoria alto, pastel de zanahoria rebanado, pastel de zanahoria 12 rebanadas",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1713,14 +1790,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 492
   },
   {
     "id": "local-00101",
     "name": "Cheesecake de Oreo® con 12 rebanadas",
     "slug": "cheesecake-de-oreo-con-12-rebanadas",
     "sku": "00101",
-    "description": "Producto foodservice: Cheesecake de Oreo® con 12 rebanadas",
+    "description": "Cheesecke de oreo®, cheesecake de oreo rebanado, cheesecake oreo 12 rebanadas, pay de oreo con 12 rebanadas",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1735,14 +1813,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 677
   },
   {
     "id": "local-00102",
     "name": "Pan de Elote de 10 rebanadas",
     "slug": "pan-de-elote-de-10-rebanadas",
     "sku": "00102",
-    "description": "Producto foodservice: Pan de Elote de 10 rebanadas",
+    "description": "Pan de elote, pan de elote congelado, pan de elote rebanado, pan de elote con 10 rebanadas",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1757,14 +1836,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 323
   },
   {
     "id": "local-F015",
     "name": "Pastel de Mix especial con 12 rebanadas de Pay de Oreo®, pay de Plátano, pay de Limón, Pastel de Zanahoria",
     "slug": "pastel-de-mix-especial-con-12-rebanadas-de-pay-de-oreo-pay-de-platano-pay-de-limon-pastel-de-zanahoria",
     "sku": "F015",
-    "description": "Producto foodservice: Pastel de Mix especial con 12 rebanadas de Pay de Oreo®, pay de Plátano, pay de Limón, Pastel de Zanahoria",
+    "description": "Pastel mix con 4 sabores, cheesecake oreo, pay de plátano, pay de limón, pastel de zanahoria, pastel artesanal, pastel congelado",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1779,14 +1859,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 515
   },
   {
     "id": "local-F011",
     "name": "Pay de Limón con 10 rebanadas",
     "slug": "pay-de-limon-con-10-rebanadas",
     "sku": "F011",
-    "description": "Producto foodservice: Pay de Limón con 10 rebanadas",
+    "description": "Pay de limón, pay de limón 10 rebanadas, pay de limon rebanado, pay de limon congelado,  pay de limón artesanal",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1801,14 +1882,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 446
   },
   {
     "id": "local-F012",
     "name": "Pastel de 3 leches con cobertura de chocolate conejito con 12 rebanadas",
     "slug": "pastel-de-3-leches-con-cobertura-de-chocolate-conejito-con-12-rebanadas",
     "sku": "F012",
-    "description": "Producto foodservice: Pastel de 3 leches con cobertura de chocolate conejito con 12 rebanadas",
+    "description": "Pastel de 3 leches,  pastel de 3 leches con cobertura de chocolate conejito, pastel de 3 leches artesanal, pastel 3 leches congelado",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1823,14 +1905,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 462
   },
   {
     "id": "local-F016",
     "name": "Pay de Plátano de 10 rebanadas",
     "slug": "pay-de-platano-de-10-rebanadas",
     "sku": "F016",
-    "description": "Producto foodservice: Pay de Plátano de 10 rebanadas",
+    "description": "Pay de plátano, cheesecake platano rebanado, pay de plátano 10 rebanadas, pay congelado, pay artesanal",
     "brand": "My Sweet Garden",
     "category": "reposteria y Postres",
     "temperature": "Seco",
@@ -1845,14 +1928,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 454
   },
   {
     "id": "local-179246",
     "name": "NUTELLA® Crema De Avellanas en Cubeta de 3 kg",
     "slug": "nutella-crema-de-avellanas-en-cubeta-de-3-kg",
     "sku": "179246",
-    "description": "Producto foodservice: NUTELLA® Crema De Avellanas en Cubeta de 3 kg",
+    "description": "Nutella Crema de Avellanas en Cubeta 3 kilos",
     "brand": "NUTELLA",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -1867,14 +1951,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1293
   },
   {
     "id": "local-6670",
     "name": "Hamburguesa de Pechuga de Pollo Pilgrim's",
     "slug": "hamburguesa-de-pechuga-de-pollo-pilgrim-s",
     "sku": "6670",
-    "description": "Producto foodservice: Hamburguesa de Pechuga de Pollo Pilgrim's",
+    "description": "Hamburguesa de Pechuga de Pollo Pilgrim's Foodservice, Presenatción Instiucional",
     "brand": "Pilgrim's",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1889,14 +1974,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1422
   },
   {
     "id": "local-6671",
     "name": "Nugget de Pechuga de Pollo  Pilgrim's",
     "slug": "nugget-de-pechuga-de-pollo-pilgrim-s",
     "sku": "6671",
-    "description": "Producto foodservice: Nugget de Pechuga de Pollo  Pilgrim's",
+    "description": "Nugget de Pechuga de Pollo Pilgrim's Foodservice, Presentación Institucional",
     "brand": "Pilgrim's",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1911,14 +1997,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1422
   },
   {
     "id": "local-9134",
     "name": "Boneless de Pechuga de Pollo Pilgrim's",
     "slug": "boneless-de-pechuga-de-pollo-pilgrim-s",
     "sku": "9134",
-    "description": "Producto foodservice: Boneless de Pechuga de Pollo Pilgrim's",
+    "description": "Boneless de Pechuga de Pollo Pilgrim's Foodservice. Presentación Institucional",
     "brand": "Pilgrim's",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1933,14 +2020,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2769
   },
   {
     "id": "local-9943",
     "name": "Pechuga Grill Pilgrim's",
     "slug": "pechuga-grill-pilgrim-s",
     "sku": "9943",
-    "description": "Producto foodservice: Pechuga Grill Pilgrim's",
+    "description": "Pechuga Grill Pilgrim's 6 bolsas de 2 kg. Presentación Institucional.",
     "brand": "Pilgrim's",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1955,14 +2043,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2769
   },
   {
     "id": "local-06673",
     "name": "Tender de Pollo Empanizado Pilgrim's",
     "slug": "tender-de-pollo-empanizado-pilgrim-s",
     "sku": "06673",
-    "description": "Producto foodservice: Tender de Pollo Empanizado Pilgrim's",
+    "description": "Tender de pollo Empanizado foodservice, presentación institucional. Filete de Pollo Empanizado",
     "brand": "Pilgrim's",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1977,14 +2066,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2123
   },
   {
     "id": "local-09838",
     "name": "Alitas Búfalo Pilgrim's",
     "slug": "alitas-bufalo-pilgrim-s",
     "sku": "09838",
-    "description": "Producto foodservice: Alitas Búfalo Pilgrim's",
+    "description": "Alitas Búfalo Pilgrim's foodservice. Pollo Empanizado. Presentación Institucional.",
     "brand": "Pilgrim's",
     "category": "Proteina",
     "temperature": "Seco",
@@ -1999,14 +2089,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 3046
   },
   {
     "id": "local-2903",
     "name": "Whip Topping Base Rich's 1 Kg",
     "slug": "whip-topping-base-rich-s-1-kg",
     "sku": "2903",
-    "description": "Producto foodservice: Whip Topping Base Rich's 1 Kg",
+    "description": "Whip Topping Base Rich's Litro, Crema para Batir Presentación Institucional",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2021,14 +2112,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1231
   },
   {
     "id": "local-14012",
     "name": "Crema Batida On Top  Manga de .453 g",
     "slug": "crema-batida-on-top-manga-de-453-g",
     "sku": "14012",
-    "description": "Producto foodservice: Crema Batida On Top  Manga de .453 g",
+    "description": "Crema Batida Manga on Top Rich's Presentación Institucional",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2043,14 +2135,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 14012
   },
   {
     "id": "local-15857",
     "name": "Cheesecake New York Rich's 14 rebanadas",
     "slug": "cheesecake-new-york-rich-s-14-rebanadas",
     "sku": "15857",
-    "description": "Producto foodservice: Cheesecake New York Rich's 14 rebanadas",
+    "description": "Cheesecake New York, Pay de Queso, Cheesecake NY Rich's",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2065,14 +2158,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 507
   },
   {
     "id": "local-19426",
     "name": "Crema Batida On Top Aerosol Rich's de 500 g",
     "slug": "crema-batida-on-top-aerosol-rich-s-de-500-g",
     "sku": "19426",
-    "description": "Producto foodservice: Crema Batida On Top Aerosol Rich's de 500 g",
+    "description": "Crema Batida On Top Aerosol Rich's Presentación Institucional",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2087,14 +2181,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 19426
   },
   {
     "id": "local-22885",
     "name": "Crema Versatié Láctea",
     "slug": "crema-versatie-lactea",
     "sku": "22885",
-    "description": "Producto foodservice: Crema Versatié Láctea",
+    "description": "Crema Versatié Láctea Rich's de 1 litro",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2109,14 +2204,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1280
   },
   {
     "id": "local-23530",
     "name": "Dedos de Queso",
     "slug": "dedos-de-queso",
     "sku": "23530",
-    "description": "Producto foodservice: Dedos de Queso",
+    "description": "Dedos de Queso Mozzarella Richs",
     "brand": "Rich's",
     "category": "Acompañantes, quesos",
     "temperature": "Seco",
@@ -2131,14 +2227,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2346
   },
   {
     "id": "local-07726",
     "name": "Crema Niagara Farms Cremosa",
     "slug": "crema-niagara-farms-cremosa",
     "sku": "07726",
-    "description": "Producto foodservice: Crema Niagara Farms Cremosa",
+    "description": "Crema Niagara Farms Cremosa Richs Presentación Institucional",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2153,14 +2250,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1253
   },
   {
     "id": "local-09734",
     "name": "Whip Topping Base Rich's 4kg",
     "slug": "whip-topping-base-rich-s-4kg",
     "sku": "09734",
-    "description": "Producto foodservice: Whip Topping Base Rich's 4kg",
+    "description": "Whip Topping Base Rich's 4 kg, Crema para Batir, Presentación Institucional",
     "brand": "Rich's",
     "category": "Reposteria y Postres",
     "temperature": "Seco",
@@ -2175,14 +2273,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1624
   },
   {
     "id": "local-RIC21171",
     "name": "Salsa Queso Cheddar",
     "slug": "salsa-queso-cheddar",
     "sku": "RIC21171",
-    "description": "Producto foodservice: Salsa Queso Cheddar",
+    "description": "Salsa Queso Cheddar Ricos Pouch de 3 kg",
     "brand": "RICOS",
     "category": "Quesos",
     "temperature": "Seco",
@@ -2197,14 +2296,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1234
   },
   {
     "id": "local-PR246",
     "name": "Carne Molida",
     "slug": "carne-molida",
     "sku": "PR246",
-    "description": "Producto foodservice: Carne Molida",
+    "description": "Carne Molida 4 bolsas de 5 kg, Caja de 20 kg Presentación Institucional",
     "brand": "RYC",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2219,14 +2319,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2923
   },
   {
     "id": "local-82248P",
     "name": "Pechuga Mariposa Sin Piel San Antonio",
     "slug": "pechuga-mariposa-sin-piel-san-antonio",
     "sku": "82248P",
-    "description": "Producto foodservice: Pechuga Mariposa Sin Piel San Antonio",
+    "description": "Pechuga Mariposa San Antonio, Pechuga de pollo Sin Piel, pechuga de pollo sin hueso",
     "brand": "SAN ANTONIO",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2241,14 +2342,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1538
   },
   {
     "id": "local-PT90608",
     "name": "Ala Natural 1 y 2 San Antonio",
     "slug": "ala-natural-1-y-2-san-antonio",
     "sku": "PT90608",
-    "description": "Producto foodservice: Ala Natural 1 y 2 San Antonio",
+    "description": "Ala Natural 1 y 2, Alitas, Ala Natural San Antonio",
     "brand": "SAN ANTONIO",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2263,14 +2365,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 109
   },
   {
     "id": "local-PT97189",
     "name": "Muslo Natural Deshuesado IQF",
     "slug": "muslo-natural-deshuesado-iqf",
     "sku": "PT97189",
-    "description": "Producto foodservice: Muslo Natural Deshuesado IQF",
+    "description": "Muslo Natural Deshuesado IQF, Muslo Natural de Pollo Deshuesado",
     "brand": "SAN ANTONIO",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2285,14 +2388,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 100
   },
   {
     "id": "local-PT97192",
     "name": "Bate Natural Deshuesado IQF",
     "slug": "bate-natural-deshuesado-iqf",
     "sku": "PT97192",
-    "description": "Producto foodservice: Bate Natural Deshuesado IQF",
+    "description": "Bate Natural de pollo Deshuesado IQF, Bate Natural Deshuesado",
     "brand": "SAN ANTONIO",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2307,14 +2411,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 94
   },
   {
     "id": "local-1031125",
     "name": "Aceituna Negra Rebanada",
     "slug": "aceituna-negra-rebanada",
     "sku": "1031125",
-    "description": "Producto foodservice: Aceituna Negra Rebanada",
+    "description": "Aceituna Negra Rebanada, Aceituna Negra",
     "brand": "San Patric",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -2329,14 +2434,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1288
   },
   {
     "id": "local-AC-FT-000",
     "name": "Rodajas de Chile Jalapeño",
     "slug": "rodajas-de-chile-jalapeno",
     "sku": "AC-FT-000",
-    "description": "Producto foodservice: Rodajas de Chile Jalapeño",
+    "description": "Rodajas de Chile Jalapeño, Chile Jalapeño",
     "brand": "San Patric",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -2351,14 +2457,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 395
   },
   {
     "id": "local-AC-FT-030",
     "name": "Chiles Jalapeños Picados",
     "slug": "chiles-jalapenos-picados",
     "sku": "AC-FT-030",
-    "description": "Producto foodservice: Chiles Jalapeños Picados",
+    "description": "Chiles Jalapeños Picados, Chiles Jalapeños",
     "brand": "San Patric",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -2373,14 +2480,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 423
   },
   {
     "id": "local-3452",
     "name": "Aceite de Oliva Extra Virgen Inés",
     "slug": "aceite-de-oliva-extra-virgen-ines",
     "sku": "3452",
-    "description": "Producto foodservice: Aceite de Oliva Extra Virgen Inés",
+    "description": "Aceite de Oliva Extra Virgen Inés, Aceite de oliva, aceite de oliva Inés",
     "brand": "Sesajal",
     "category": "Aceites y Manteca",
     "temperature": "Seco",
@@ -2395,14 +2503,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-1021",
     "name": "Raja de Chile Poblano",
     "slug": "raja-de-chile-poblano",
     "sku": "1021",
-    "description": "Producto foodservice: Raja de Chile Poblano",
+    "description": "Raja de Chile Poblano, Raja de Chile Poblano Simplot, Raja de Chile Poblano Congelada",
     "brand": "Simplot",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -2417,14 +2526,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1476
   },
   {
     "id": "local-27850",
     "name": "Papa Extra Larga Corte Recto con Cobertura de Cerveza Simplot",
     "slug": "papa-extra-larga-corte-recto-con-cobertura-de-cerveza-simplot",
     "sku": "27850",
-    "description": "Producto foodservice: Papa Extra Larga Corte Recto con Cobertura de Cerveza Simplot",
+    "description": "Papa Extra Larga Corte Recto con Cobertura de Cerveza Simplot, Papa congelada simplot",
     "brand": "Simplot",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -2439,14 +2549,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1230
   },
   {
     "id": "local-46165",
     "name": "Papa Gajo Corte 10",
     "slug": "papa-gajo-corte-10",
     "sku": "46165",
-    "description": "Producto foodservice: Papa Gajo Corte 10",
+    "description": "Papa de Gajo Corte 10, Papa Gajo simplot, papa gaja congelada",
     "brand": "Simplot",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -2461,14 +2572,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1103
   },
   {
     "id": "local-232100",
     "name": "Papa Francesa Premium con cáscara, Marinada con sal de mar corte delgado de 1/4\"",
     "slug": "papa-francesa-premium-con-cascara-marinada-con-sal-de-mar-corte-delgado-de-1-4",
     "sku": "232100",
-    "description": "Producto foodservice: Papa Francesa Premium con cáscara, Marinada con sal de mar corte delgado de 1/4\"",
+    "description": "Papa Francesa Premium con cáscara, Marinada con sal de mar corte delgado de 1/4\". Papa francesa congelada simplit, papa francesa.",
     "brand": "Simplot",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -2483,14 +2595,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 968
   },
   {
     "id": "local-470144",
     "name": "Papa Corte Twister 1/3\"\nSeason Crip® Delivery",
     "slug": "papa-corte-twister-1-3-season-crip-delivery",
     "sku": "470144",
-    "description": "Producto foodservice: Papa Corte Twister 1/3\"\nSeason Crip® Delivery",
+    "description": "Papa Corte Twister, Papa congelada Twister Simplot",
     "brand": "Simplot",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -2505,14 +2618,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1303
   },
   {
     "id": "local-039099",
     "name": "Pulpa de Aguacate",
     "slug": "pulpa-de-aguacate",
     "sku": "039099",
-    "description": "Producto foodservice: Pulpa de Aguacate",
+    "description": "Pulpa de aguacate, Pulpa de aguacate Hass, Pulpa de aguacte congelado",
     "brand": "Simplot",
     "category": "Verduras y Leguminosas",
     "temperature": "Seco",
@@ -2527,14 +2641,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 801
   },
   {
     "id": "local-43850",
     "name": "Papa Corte Recto 3/8\" con Cáscara",
     "slug": "papa-corte-recto-3-8-con-cascara",
     "sku": "43850",
-    "description": "Producto foodservice: Papa Corte Recto 3/8\" con Cáscara",
+    "description": "Papa Corte Recto 3/8\" con Cáscara",
     "brand": "Simplot",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -2549,14 +2664,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-9054795",
     "name": "Traditional Futbol goalz",
     "slug": "traditional-futbol-goalz",
     "sku": "9054795",
-    "description": "Producto foodservice: Traditional Futbol goalz",
+    "description": "Papas Hash Brown con forma de balón de futbol",
     "brand": "Simplot",
     "category": "papa congelada",
     "temperature": "Seco",
@@ -2571,14 +2687,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-79038634",
     "name": "Papa Hash Brown",
     "slug": "papa-hash-brown",
     "sku": "79038634",
-    "description": "Producto foodservice: Papa Hash Brown",
+    "description": "Papa Hash Brown Simplot",
     "brand": "Simplot",
     "category": "Papa congelada",
     "temperature": "Seco",
@@ -2593,14 +2710,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 696
   },
   {
     "id": "local-SP710015",
     "name": "Splenda Original de 2000 sobres",
     "slug": "splenda-original-de-2000-sobres",
     "sku": "SP710015",
-    "description": "Producto foodservice: Splenda Original de 2000 sobres",
+    "description": "Splenda Original, splenda 2000 sobres, splenda original 2000 sobres, splenda producto kosher, presentación Institucional",
     "brand": "Splenda",
     "category": "Azúcar y Endulcorantes",
     "temperature": "Seco",
@@ -2615,14 +2733,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 808
   },
   {
     "id": "local-15613",
     "name": "Full-Red® Salsa para Pizza",
     "slug": "full-red-salsa-para-pizza",
     "sku": "15613",
-    "description": "Producto foodservice: Full-Red® Salsa para Pizza",
+    "description": "Salsa para pizza completamente preparada",
     "brand": "Stanislaus",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2637,14 +2756,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1172
   },
   {
     "id": "local-025813",
     "name": "Saporito® Filetto di Pomodoro",
     "slug": "saporito-filetto-di-pomodoro",
     "sku": "025813",
-    "description": "Producto foodservice: Saporito® Filetto di Pomodoro",
+    "description": "Salsa para pomodoro con un toque de albahaca",
     "brand": "Stanislaus",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2659,14 +2779,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1047
   },
   {
     "id": "local-CPB063313",
     "name": "San Nicola®",
     "slug": "san-nicola",
     "sku": "CPB063313",
-    "description": "Producto foodservice: San Nicola®",
+    "description": "Tomates molidos listos para pizza",
     "brand": "Stanislaus",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2681,14 +2802,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1037
   },
   {
     "id": "local-REDO046013",
     "name": "Tomato Magic ® Ground Tomatoes",
     "slug": "tomato-magic-ground-tomatoes",
     "sku": "REDO046013",
-    "description": "Producto foodservice: Tomato Magic ® Ground Tomatoes",
+    "description": "Salsa con trozos de tomate",
     "brand": "Stanislaus",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2703,14 +2825,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1080
   },
   {
     "id": "local-344804",
     "name": "Boneless Wings",
     "slug": "boneless-wings",
     "sku": "344804",
-    "description": "Producto foodservice: Boneless Wings",
+    "description": "Boneless Wings, Boneless de pollo, boneles tyson, boneless congelados",
     "brand": "Tyson",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2725,14 +2848,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2829
   },
   {
     "id": "local-06501",
     "name": "Nuggets de Pechuga de Pollo Tyson",
     "slug": "nuggets-de-pechuga-de-pollo-tyson",
     "sku": "06501",
-    "description": "Producto foodservice: Nuggets de Pechuga de Pollo Tyson",
+    "description": "Nuggets de pechuga de pollo tyson, nuggets de tyson, nuggets de pollo, nuggets congelados",
     "brand": "Tyson",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2747,14 +2871,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1464
   },
   {
     "id": "local-15732-0393",
     "name": "Sliced Pepperoni Hillshire®",
     "slug": "sliced-pepperoni-hillshire",
     "sku": "15732-0393",
-    "description": "Producto foodservice: Sliced Pepperoni Hillshire®",
+    "description": "Sliced Pepperoni Hillshire, pepperoni rebanado, pepperoni congelado",
     "brand": "Tyson",
     "category": "Proteina",
     "temperature": "Seco",
@@ -2769,14 +2894,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 2587
   },
   {
     "id": "local-030010",
     "name": "Salsa Valentina Roja de sobre",
     "slug": "salsa-valentina-roja-de-sobre",
     "sku": "030010",
-    "description": "Producto foodservice: Salsa Valentina Roja de sobre",
+    "description": "Salsa Valentina roja en sobre, salsa valentina 900 sobres, salsa valetina",
     "brand": "Valentina",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -2791,14 +2917,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 495
   },
   {
     "id": "local-17716 CGS",
     "name": "Aderezo Cesar Culinaire producto kosher",
     "slug": "aderezo-cesar-culinaire-producto-kosher",
     "sku": "17716 CGS",
-    "description": "Producto foodservice: Aderezo Cesar Culinaire producto kosher",
+    "description": "aderezo cesar, aderezo classic gourmet, aderezo producto kosher",
     "brand": "Ventura Foods",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -2813,14 +2940,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1707
   },
   {
     "id": "local-23652CLV",
     "name": "Aderezo Ranch Culinaire",
     "slug": "aderezo-ranch-culinaire",
     "sku": "23652CLV",
-    "description": "Producto foodservice: Aderezo Ranch Culinaire",
+    "description": "Aderezo Ranch, aderezo ranch culinaire, aderezo ranch producto kosher",
     "brand": "Ventura Foods",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -2835,14 +2963,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1039
   },
   {
     "id": "local-23704CLV",
     "name": "Mayonesa Wilsey",
     "slug": "mayonesa-wilsey",
     "sku": "23704CLV",
-    "description": "Producto foodservice: Mayonesa Wilsey",
+    "description": "Mayonesa Wilsey, mayonesa, mayonesa ventura foods",
     "brand": "Ventura Foods",
     "category": "Salsa y Aderezo",
     "temperature": "Seco",
@@ -2857,14 +2986,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": 1154
   },
   {
     "id": "local-22933CLV",
     "name": "Aderezo Mil Islas",
     "slug": "aderezo-mil-islas",
     "sku": "22933CLV",
-    "description": "Producto foodservice: Aderezo Mil Islas",
+    "description": "Aderezo Mil Islas Culinaire Ventura Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2879,14 +3009,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-22951CLV",
     "name": "Aderezo Italiano",
     "slug": "aderezo-italiano",
     "sku": "22951CLV",
-    "description": "Producto foodservice: Aderezo Italiano",
+    "description": "Aderezo Italiano Culinaire Ventura Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2901,14 +3032,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-17687 CGS",
     "name": "Aderezo Blue Cheese",
     "slug": "aderezo-blue-cheese",
     "sku": "17687 CGS",
-    "description": "Producto foodservice: Aderezo Blue Cheese",
+    "description": "Aderezo Blue Cheese Classic Gourmet Ventura Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2923,14 +3055,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-23728CLV",
     "name": "Saslsa BBQ Base",
     "slug": "saslsa-bbq-base",
     "sku": "23728CLV",
-    "description": "Producto foodservice: Saslsa BBQ Base",
+    "description": "Aderezo BBQ Base Culinaire Ventura Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2945,14 +3078,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-22773SCR",
     "name": "Salsa de Chile Cayenne Sauce Craft",
     "slug": "salsa-de-chile-cayenne-sauce-craft",
     "sku": "22773SCR",
-    "description": "Producto foodservice: Salsa de Chile Cayenne Sauce Craft",
+    "description": "Salsa de Chile Cayenne Sauce Craft Ventura Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2967,14 +3101,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-24170SCR",
     "name": "Salsa de Mango Habanero Sauce Craft",
     "slug": "salsa-de-mango-habanero-sauce-craft",
     "sku": "24170SCR",
-    "description": "Producto foodservice: Salsa de Mango Habanero Sauce Craft",
+    "description": "",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -2989,14 +3124,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-22774SCR",
     "name": "Salsa Garlic Parmesan Sauce Craft",
     "slug": "salsa-garlic-parmesan-sauce-craft",
     "sku": "22774SCR",
-    "description": "Producto foodservice: Salsa Garlic Parmesan Sauce Craft",
+    "description": "Salsa Cgarlic Parmesan Sauce Craft Ventura Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -3011,14 +3147,15 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   },
   {
     "id": "local-24507WLX",
     "name": "Mayonesa Wilsey Regular",
     "slug": "mayonesa-wilsey-regular",
     "sku": "24507WLX",
-    "description": "Producto foodservice: Mayonesa Wilsey Regular",
+    "description": "Mayonesa Wilsey Regular Ventra Foods",
     "brand": "Ventura Foods",
     "category": "Salsas y Aderezo",
     "temperature": "Seco",
@@ -3033,6 +3170,7 @@
     ],
     "minOrderQty": 1,
     "orderStep": 1,
-    "inventoryUnit": "unidad"
+    "inventoryUnit": "unidad",
+    "price": null
   }
 ]

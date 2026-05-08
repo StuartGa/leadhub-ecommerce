@@ -49,6 +49,15 @@ const PRODUCT_QUERY = `*[_type == "product" && isActive == true] | order(name as
   brand->{name}
 }`;
 
+function extractPrice(tags?: string[]): number | undefined {
+  if (!tags) return undefined;
+  for (const tag of tags) {
+    const match = tag.match(/^precio-(\d+)$/);
+    if (match) return Number(match[1]);
+  }
+  return undefined;
+}
+
 function mapSanityProduct(doc: SanityProduct): Product {
   const fallbackSlug = doc.name
     .normalize("NFD")
@@ -81,6 +90,7 @@ function mapSanityProduct(doc: SanityProduct): Product {
     seasonality: doc.seasonality,
     inStock: doc.inStock ?? true,
     tags: doc.tags ?? [],
+    price: extractPrice(doc.tags),
   };
 }
 

@@ -59,6 +59,7 @@ function normalizeLocalProduct(product: Record<string, unknown>): Product {
         : undefined,
     inStock: typeof product.inStock === "boolean" ? product.inStock : true,
     tags: Array.isArray(product.tags) ? product.tags.filter((t): t is string => typeof t === "string") : [],
+    price: typeof product.price === "number" ? product.price : undefined,
   };
 }
 

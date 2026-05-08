@@ -23,4 +23,5 @@ export interface Product {
   seasonality?: Seasonality;
   inStock: boolean;
   tags: readonly string[];
+  price?: number;
 }

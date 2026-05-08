@@ -9,8 +9,15 @@ interface ProductCardProps {
   onInquire: (product: Product) => void;
 }
 
+function formatPrice(price?: number): string | null {
+  if (price === undefined || price === null || price === 0) return null;
+  return `$${price.toLocaleString("es-MX")} MXN`;
+}
+
 export function ProductCard({ product, index, onInquire }: ProductCardProps) {
   const [imageSrc, setImageSrc] = useState(product.imageUrl);
+
+  const priceLabel = formatPrice(product.price);
 
   return (
     <motion.article
@@ -20,15 +27,15 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="group flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md transition-shadow hover:shadow-xl"
     >
-      <div className="aspect-video overflow-hidden bg-slate-100">
-        <Link to={`/products/${product.id}`} className="block">
+      <div className="aspect-[4/3] bg-slate-50 p-4">
+        <Link to={`/products/${product.id}`} className="block h-full">
           <img
             src={imageSrc}
             alt={product.name}
             loading="lazy"
             decoding="async"
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
             onError={() => setImageSrc("/images/product-placeholder.webp")}
           />
         </Link>
@@ -56,7 +63,7 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
         </p>
 
         <div className="flex flex-wrap gap-1.5">
-          {product.tags.map((tag) => (
+          {product.tags.filter(t => !t.startsWith("precio-")).map((tag) => (
             <span
               key={tag}
               className="rounded bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700"
@@ -67,10 +74,15 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
         </div>
 
         <div className="rounded-md bg-slate-50 px-3 py-2 text-xs text-slate-600">
-          Pedido minimo: <span className="font-semibold text-slate-900">{product.minOrderQty}</span> {product.inventoryUnit}{product.minOrderQty > 1 ? "es" : ""}
+          Pedido mínimo: <span className="font-semibold text-slate-900">{product.minOrderQty}</span> {product.inventoryUnit}{product.minOrderQty > 1 ? "es" : ""}
         </div>
 
-        <div className="flex items-center justify-end border-t border-slate-100 pt-4">
+        <div className="flex items-center justify-between border-t border-slate-100 pt-4">
+          {priceLabel ? (
+            <span className="font-sans text-base font-semibold text-brand-600">{priceLabel}</span>
+          ) : (
+            <span />
+          )}
           <div className="flex items-center gap-3">
             <Link
               to={`/products/${product.id}`}

@@ -14,6 +14,9 @@ import { CookieConsentBanner } from "./ui/components/tracking/CookieConsentBanne
 const HomePage = lazy(() =>
   import("./ui/pages/HomePage").then((m) => ({ default: m.HomePage }))
 );
+const AboutPage = lazy(() =>
+  import("./ui/pages/AboutPage").then((m) => ({ default: m.AboutPage }))
+);
 const ProductPage = lazy(() =>
   import("./ui/pages/ProductPage").then((m) => ({ default: m.ProductPage }))
 );
@@ -36,6 +39,7 @@ function AppContent() {
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/quienes-somos" element={<AboutPage />} />
         <Route path="/products/:productId" element={<ProductPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

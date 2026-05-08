@@ -1,12 +1,14 @@
 export interface GHLWebhookPayload {
+  contactName: string;
+  companyName: string;
   email: string;
   phone: string;
-  message: string;
   businessType: string;
   branchCount: number;
-  location: string;
-  productInterestIds: string[];
-  productInterestNames: string[];
+  state: string;
+  locality: string;
+  categories: string[];
+  message: string;
 }
 
 export interface GHLWebhookResponse {

@@ -21,6 +21,14 @@ export function Header() {
         <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
           <ul className="flex items-center gap-8">
             <li>
+              <NavLink
+                to="/quienes-somos"
+                className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+              >
+                Quiénes Somos
+              </NavLink>
+            </li>
+            <li>
               {isHome ? (
                 <a
                   href="#catalog"
@@ -38,28 +46,38 @@ export function Header() {
               )}
             </li>
             <li>
-              <a
-                href="#about"
-                className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-              >
-                Sobre Nosotros
-              </a>
+              {isHome ? (
+                <a
+                  href="#clients"
+                  className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                >
+                  Clientes
+                </a>
+              ) : (
+                <NavLink
+                  to="/#clients"
+                  className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                >
+                  Clientes
+                </NavLink>
+              )}
             </li>
             <li>
-              <a
-                href="#clients"
-                className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-              >
-                Clientes
-              </a>
-            </li>
-            <li>
-              <a
-                href="#coverage"
-                className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-              >
-                Cobertura
-              </a>
+              {isHome ? (
+                <a
+                  href="#coverage"
+                  className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                >
+                  Cobertura
+                </a>
+              ) : (
+                <NavLink
+                  to="/#coverage"
+                  className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                >
+                  Cobertura
+                </NavLink>
+              )}
             </li>
             <li>
               <NavLink
@@ -130,6 +148,15 @@ export function Header() {
           <nav className="px-6 py-4">
             <ul className="flex flex-col gap-4">
               <li>
+                <NavLink
+                  to="/quienes-somos"
+                  className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Quiénes Somos
+                </NavLink>
+              </li>
+              <li>
                 {isHome ? (
                   <a
                     href="#catalog"
@@ -149,31 +176,42 @@ export function Header() {
                 )}
               </li>
               <li>
-                <a
-                  href="#about"
-                  className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Sobre Nosotros
-                </a>
+                {isHome ? (
+                  <a
+                    href="#clients"
+                    className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Clientes
+                  </a>
+                ) : (
+                  <NavLink
+                    to="/#clients"
+                    className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Clientes
+                  </NavLink>
+                )}
               </li>
               <li>
-                <a
-                  href="#clients"
-                  className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Clientes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#coverage"
-                  className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Cobertura
-                </a>
+                {isHome ? (
+                  <a
+                    href="#coverage"
+                    className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Cobertura
+                  </a>
+                ) : (
+                  <NavLink
+                    to="/#coverage"
+                    className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Cobertura
+                  </NavLink>
+                )}
               </li>
               <li>
                 <NavLink

@@ -9,21 +9,13 @@ import {
   contactSchema,
   BUSINESS_TYPES,
   ESTADOS_MEXICO,
+  PRODUCT_CATEGORIES,
 } from "../../../domain/schemas/contactSchema";
-import type { Product } from "../../../domain/types/product";
 
-interface ContactFormProps {
-  products: Product[];
-  preselectedProductIds?: string[];
-}
-
-export function ContactForm({
-  products,
-  preselectedProductIds = [],
-}: ContactFormProps) {
+export function ContactForm() {
   const { submit, status, error, reset: resetGHL } = useGHLIntegration();
 
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   const {
     register,
@@ -34,61 +26,39 @@ export function ContactForm({
     trigger,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      productInterestIds: preselectedProductIds,
-    },
   });
 
-  // Initialize selected IDs from preselection
+  // Sync form value when selectedCategories changes
   useEffect(() => {
-    if (preselectedProductIds.length > 0) {
-      const validIds = preselectedProductIds.filter((id) =>
-        products.some((p) => p.id === id),
-      );
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSelectedIds(validIds);
-      setValue("productInterestIds", validIds);
-      reset({
-        productInterestIds: validIds,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    setValue("categories", selectedCategories);
+    trigger("categories");
+  }, [selectedCategories, setValue, trigger]);
 
-  // Sync form value when selectedIds changes
-  useEffect(() => {
-    setValue("productInterestIds", selectedIds);
-    trigger("productInterestIds");
-  }, [selectedIds, setValue, trigger]);
-
-  const toggleProduct = (productId: string) => {
-    setSelectedIds((prev) => {
-      if (prev.includes(productId)) {
-        return prev.filter((id) => id !== productId);
+  const toggleCategory = (category: string) => {
+    setSelectedCategories((prev) => {
+      if (prev.includes(category)) {
+        return prev.filter((c) => c !== category);
       }
-      return [...prev, productId];
+      return [...prev, category];
     });
   };
 
-  const removeProduct = (productId: string) => {
-    setSelectedIds((prev) => prev.filter((id) => id !== productId));
+  const removeCategory = (category: string) => {
+    setSelectedCategories((prev) => prev.filter((c) => c !== category));
   };
 
   const onSubmit = async (data: ContactFormValues) => {
-    // Derive product names from IDs
-    const productInterestNames = data.productInterestIds
-      .map((id) => products.find((p) => p.id === id)?.name)
-      .filter((name): name is string => name !== undefined);
-
     const payload: GHLWebhookPayload = {
-      businessType: data.businessType,
-      branchCount: data.branchCount,
-      location: data.location,
+      contactName: data.contactName.trim(),
+      companyName: data.companyName.trim(),
       email: data.email.trim(),
       phone: data.phone.trim(),
+      businessType: data.businessType,
+      branchCount: data.branchCount,
+      state: data.state,
+      locality: data.locality.trim(),
+      categories: data.categories,
       message: data.message.trim(),
-      productInterestIds: data.productInterestIds,
-      productInterestNames,
     };
     await submit(payload);
   };
@@ -111,7 +81,7 @@ export function ContactForm({
             type="button"
             onClick={() => {
               resetGHL();
-              setSelectedIds([]);
+              setSelectedCategories([]);
               reset();
             }}
             className="mt-6 cursor-pointer rounded bg-brand-500 px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-900 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
@@ -141,6 +111,108 @@ export function ContactForm({
         noValidate
         className="flex flex-col gap-5 rounded-lg border border-slate-200 bg-white p-6 shadow-md sm:p-8"
       >
+        {/* Nombre del Contacto */}
+        <div>
+          <label
+            htmlFor="contactName"
+            className="mb-1.5 block text-sm font-medium text-slate-700"
+          >
+            Nombre del Contacto <span className="text-red-500">*</span>
+          </label>
+          <input
+            {...register("contactName")}
+            id="contactName"
+            type="text"
+            autoComplete="name"
+            placeholder="Ej: Juan Pérez"
+            aria-invalid={errors.contactName ? "true" : "false"}
+            aria-describedby={errors.contactName ? "contactName-error" : undefined}
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+          />
+          {errors.contactName && (
+            <p id="contactName-error" className="mt-1 text-xs text-red-600">
+              {errors.contactName.message}
+            </p>
+          )}
+        </div>
+
+        {/* Nombre de la Empresa */}
+        <div>
+          <label
+            htmlFor="companyName"
+            className="mb-1.5 block text-sm font-medium text-slate-700"
+          >
+            Nombre de la Empresa <span className="text-red-500">*</span>
+          </label>
+          <input
+            {...register("companyName")}
+            id="companyName"
+            type="text"
+            autoComplete="organization"
+            placeholder="Ej: Restaurante El Buen Sabor"
+            aria-invalid={errors.companyName ? "true" : "false"}
+            aria-describedby={errors.companyName ? "companyName-error" : undefined}
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+          />
+          {errors.companyName && (
+            <p id="companyName-error" className="mt-1 text-xs text-red-600">
+              {errors.companyName.message}
+            </p>
+          )}
+        </div>
+
+        {/* Email y Teléfono */}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor="email"
+              className="mb-1.5 block text-sm font-medium text-slate-700"
+            >
+              Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              {...register("email")}
+              id="email"
+              type="email"
+              autoComplete="email"
+              placeholder="correo@empresa.com"
+              aria-invalid={errors.email ? "true" : "false"}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+            />
+            {errors.email && (
+              <p id="email-error" className="mt-1 text-xs text-red-600">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="phone"
+              className="mb-1.5 block text-sm font-medium text-slate-700"
+            >
+              Teléfono <span className="text-red-500">*</span>
+            </label>
+            <input
+              {...register("phone")}
+              id="phone"
+              type="tel"
+              autoComplete="tel"
+              placeholder="55 1234 5678"
+              aria-invalid={errors.phone ? "true" : "false"}
+              aria-describedby={errors.phone ? "phone-error" : undefined}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+            />
+            {errors.phone && (
+              <p id="phone-error" className="mt-1 text-xs text-red-600">
+                {errors.phone.message}
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Giro del Negocio y Número de Sucursales */}
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label
@@ -172,16 +244,44 @@ export function ContactForm({
 
           <div>
             <label
-              htmlFor="location"
+              htmlFor="branchCount"
               className="mb-1.5 block text-sm font-medium text-slate-700"
             >
-              Localidad (Estado) <span className="text-red-500">*</span>
+              Número de Sucursales <span className="text-red-500">*</span>
+            </label>
+            <input
+              {...register("branchCount", { valueAsNumber: true })}
+              id="branchCount"
+              type="number"
+              min="1"
+              max="10000"
+              placeholder="Ej: 5"
+              aria-invalid={errors.branchCount ? "true" : "false"}
+              aria-describedby={errors.branchCount ? "branchCount-error" : undefined}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+            />
+            {errors.branchCount && (
+              <p id="branchCount-error" className="mt-1 text-xs text-red-600">
+                {errors.branchCount.message}
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Estado y Localidad */}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor="state"
+              className="mb-1.5 block text-sm font-medium text-slate-700"
+            >
+              Estado <span className="text-red-500">*</span>
             </label>
             <select
-              {...register("location")}
-              id="location"
-              aria-invalid={errors.location ? "true" : "false"}
-              aria-describedby={errors.location ? "location-error" : undefined}
+              {...register("state")}
+              id="state"
+              aria-invalid={errors.state ? "true" : "false"}
+              aria-describedby={errors.state ? "state-error" : undefined}
               className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
             >
               <option value="">Seleccione un estado</option>
@@ -191,149 +291,98 @@ export function ContactForm({
                 </option>
               ))}
             </select>
-            {errors.location && (
-              <p id="location-error" className="mt-1 text-xs text-red-600">
-                {errors.location.message}
+            {errors.state && (
+              <p id="state-error" className="mt-1 text-xs text-red-600">
+                {errors.state.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="locality"
+              className="mb-1.5 block text-sm font-medium text-slate-700"
+            >
+              Localidad o Código Postal <span className="text-red-500">*</span>
+            </label>
+            <input
+              {...register("locality")}
+              id="locality"
+              type="text"
+              placeholder="Ej: Guadalajara o 44100"
+              aria-invalid={errors.locality ? "true" : "false"}
+              aria-describedby={errors.locality ? "locality-error" : undefined}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+            />
+            {errors.locality && (
+              <p id="locality-error" className="mt-1 text-xs text-red-600">
+                {errors.locality.message}
               </p>
             )}
           </div>
         </div>
 
+        {/* Categorías */}
         <div>
           <label
-            htmlFor="branchCount"
+            id="categories-label"
             className="mb-1.5 block text-sm font-medium text-slate-700"
           >
-            Número de Sucursales <span className="text-red-500">*</span>
-          </label>
-          <input
-            {...register("branchCount", { valueAsNumber: true })}
-            id="branchCount"
-            type="number"
-            min="1"
-            max="10000"
-            placeholder="Ejemplo: 5"
-            aria-invalid={errors.branchCount ? "true" : "false"}
-            aria-describedby={errors.branchCount ? "branchCount-error" : undefined}
-            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
-          />
-          {errors.branchCount && (
-            <p id="branchCount-error" className="mt-1 text-xs text-red-600">
-              {errors.branchCount.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label
-            htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-slate-700"
-          >
-            Email <span className="text-red-500">*</span>
-          </label>
-          <input
-            {...register("email")}
-            id="email"
-            type="email"
-            autoComplete="email"
-            aria-invalid={errors.email ? "true" : "false"}
-            aria-describedby={errors.email ? "email-error" : undefined}
-            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
-          />
-          {errors.email && (
-            <p id="email-error" className="mt-1 text-xs text-red-600">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label
-            htmlFor="phone"
-            className="mb-1.5 block text-sm font-medium text-slate-700"
-          >
-            Teléfono <span className="text-red-500">*</span>
-          </label>
-          <input
-            {...register("phone")}
-            id="phone"
-            type="tel"
-            autoComplete="tel"
-            aria-invalid={errors.phone ? "true" : "false"}
-            aria-describedby={errors.phone ? "phone-error" : undefined}
-            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
-          />
-          {errors.phone && (
-            <p id="phone-error" className="mt-1 text-xs text-red-600">
-              {errors.phone.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label
-            id="productInterest-label"
-            className="mb-1.5 block text-sm font-medium text-slate-700"
-          >
-            Productos de Interés <span className="text-red-500">*</span>
+            Elegir Categorías <span className="text-red-500">*</span>
           </label>
 
           {/* Hidden input for form validation */}
           <input
             type="hidden"
-            {...register("productInterestIds")}
+            {...register("categories")}
           />
 
           {/* Selected chips */}
-          {selectedIds.length > 0 && (
+          {selectedCategories.length > 0 && (
             <div
               className="mb-3 flex flex-wrap gap-2"
-              aria-labelledby="productInterest-label"
+              aria-labelledby="categories-label"
             >
-              {selectedIds.map((id) => {
-                const product = products.find((p) => p.id === id);
-                if (!product) return null;
-                return (
-                  <div
-                    key={id}
-                    className="flex items-center gap-2 rounded-lg bg-brand-100 px-3 py-1.5 text-sm font-medium text-brand-800"
+              {selectedCategories.map((category) => (
+                <div
+                  key={category}
+                  className="flex items-center gap-2 rounded-lg bg-brand-100 px-3 py-1.5 text-sm font-medium text-brand-800"
+                >
+                  <span>{category}</span>
+                  <button
+                    type="button"
+                    onClick={() => removeCategory(category)}
+                    aria-label={`Eliminar ${category}`}
+                    className="rounded-full p-0.5 transition-colors hover:bg-brand-200 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
                   >
-                    <span>{product.name}</span>
-                    <button
-                      type="button"
-                      onClick={() => removeProduct(id)}
-                      aria-label={`Eliminar ${product.name}`}
-                      className="rounded-full p-0.5 transition-colors hover:bg-brand-200 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                );
-              })}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              ))}
             </div>
           )}
 
-          {/* Product selection list */}
+          {/* Category selection list */}
           <div className="max-h-64 space-y-2 overflow-y-auto rounded-lg border border-slate-300 p-3">
-            {products.map((product) => {
-              const isSelected = selectedIds.includes(product.id);
+            {PRODUCT_CATEGORIES.map((category) => {
+              const isSelected = selectedCategories.includes(category);
               return (
                 <button
-                  key={product.id}
+                  key={category}
                   type="button"
-                  onClick={() => toggleProduct(product.id)}
+                  onClick={() => toggleCategory(category)}
                   className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
                     isSelected
                       ? "bg-brand-50 text-brand-900 font-medium"
@@ -341,7 +390,7 @@ export function ContactForm({
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span>{product.name}</span>
+                    <span>{category}</span>
                     {isSelected && (
                       <svg
                         className="h-5 w-5 text-brand-600"
@@ -361,16 +410,17 @@ export function ContactForm({
             })}
           </div>
 
-          {errors.productInterestIds && (
+          {errors.categories && (
             <p
-              id="productInterest-error"
+              id="categories-error"
               className="mt-1 text-xs text-red-600"
             >
-              {errors.productInterestIds.message}
+              {errors.categories.message}
             </p>
           )}
         </div>
 
+        {/* Mensaje */}
         <div>
           <label
             htmlFor="message"
@@ -382,6 +432,7 @@ export function ContactForm({
             {...register("message")}
             id="message"
             rows={4}
+            placeholder="Cuéntanos sobre tu negocio y necesidades..."
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
             className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"

@@ -8,6 +8,7 @@ import {
   loadGTM,
   loadMetaPixel,
 } from "./application/services/trackingService";
+import { QuoteCartProvider } from "./application/contexts/QuoteCartContext";
 import { CookieConsentBanner } from "./ui/components/tracking/CookieConsentBanner";
 
 // Lazy load pages for code splitting
@@ -32,6 +33,9 @@ const ProductPage = lazy(() =>
 const ContactPage = lazy(() =>
   import("./ui/pages/ContactPage").then((m) => ({ default: m.ContactPage }))
 );
+const QuotePage = lazy(() =>
+  import("./ui/pages/QuotePage").then((m) => ({ default: m.QuotePage }))
+);
 const CoveragePage = lazy(() =>
   import("./ui/pages/CoveragePage").then((m) => ({ default: m.CoveragePage }))
 );
@@ -55,7 +59,6 @@ function PageLoader() {
 }
 
 function AppContent() {
-  usePageTracking();
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
@@ -69,10 +72,17 @@ function AppContent() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/trabaja-con-nosotros" element={<CareersPage />} />
         <Route path="/products/:productId" element={<ProductPage />} />
+        <Route path="/cotizacion" element={<QuotePage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Suspense>
   );
+}
+
+function AppShell() {
+  usePageTracking();
+
+  return <AppContent />;
 }
 
 export function App() {
@@ -102,7 +112,9 @@ export function App() {
 
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <AppContent />
+      <QuoteCartProvider>
+        <AppShell />
+      </QuoteCartProvider>
       {!hasConsent && (
         <CookieConsentBanner
           onAcceptAll={acceptAll}

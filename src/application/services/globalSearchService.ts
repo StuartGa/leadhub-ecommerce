@@ -1,6 +1,7 @@
 import type { BlogPost } from "../../domain/types/blog";
 import type { Brand } from "../../domain/types/brand";
 import type { Product } from "../../domain/types/product";
+import { slugify } from "../utils/slugify";
 
 export type SearchItemType = "producto" | "categoria" | "blog" | "marca";
 
@@ -50,9 +51,9 @@ async function getIndex(): Promise<SearchIndex> {
         import("./brandService"),
       ]);
 
-      const products = productService.getAll();
+      const products = await productService.getAll();
       const postList = blogService.getAll();
-      const brandList = brandService.getAll();
+      const brandList = await brandService.getAll();
       const productCategories = new Set(products.map((p) => p.category));
 
       const categories = Array.from(productCategories);
@@ -102,7 +103,7 @@ export async function searchAll(query: string, limit = 8): Promise<SearchItem[]>
         type: "categoria",
         label: category,
         subtitle: "Categoría de productos",
-        href: `/productos?category=${encodeURIComponent(category)}`,
+        href: `/productos/categoria/${slugify(category)}`,
         rank,
       });
     }

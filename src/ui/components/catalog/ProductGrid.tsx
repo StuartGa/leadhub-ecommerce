@@ -4,9 +4,18 @@ import { ProductCard } from "./ProductCard";
 interface ProductGridProps {
   products: Product[];
   onInquire: (product: Product) => void;
+  loading?: boolean;
 }
 
-export function ProductGrid({ products, onInquire }: ProductGridProps) {
+export function ProductGrid({ products, onInquire, loading = false }: ProductGridProps) {
+  if (loading) {
+    return (
+      <section className="px-6 py-24 text-center">
+        <p className="text-slate-500">Cargando productos...</p>
+      </section>
+    );
+  }
+
   if (products.length === 0) {
     return (
       <section className="px-6 py-24 text-center">

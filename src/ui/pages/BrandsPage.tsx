@@ -1,25 +1,36 @@
 import { useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link, useSearchParams } from "react-router-dom";
+import { useBrands } from "../../application/hooks/useBrands";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
-import { brandService } from "../../application/services/brandService";
+import { useProducts } from "../../application/hooks/useProducts";
+import { slugify } from "../../application/utils/slugify";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
-
-const categorySlug = (name: string) =>
-  name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
 
 export function BrandsPage() {
   useDocumentTitle("Marcas — San Patric Foodservice");
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const highlightedBrandId = searchParams.get("brand");
-  const brands = brandService.getAll();
+  const { brands, loading: brandsLoading } = useBrands();
+  const { products } = useProducts();
+
+  const categories = useMemo(() => {
+    const map = new Map<string, { temp: string; imageUrl: string }>();
+    for (const product of products) {
+      if (map.has(product.category)) continue;
+      map.set(product.category, {
+        temp: product.temperature,
+        imageUrl: product.imageUrl,
+      });
+    }
+    return Array.from(map.entries()).map(([name, value]) => ({
+      name,
+      temp: value.temp,
+      imageUrl: value.imageUrl,
+    }));
+  }, [products]);
 
   const filteredBrands = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -124,6 +135,12 @@ export function BrandsPage() {
               </p>
             </div>
             
+            {brandsLoading && (
+              <div className="mb-6 rounded-lg border border-slate-200 bg-slate-50 px-6 py-4 text-center text-sm text-slate-600">
+                Cargando marcas...
+              </div>
+            )}
+
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {filteredBrands.map((brand) => (
                 <div
@@ -177,67 +194,21 @@ export function BrandsPage() {
             </h2>
             
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  name: "Acompañantes",
-                  temp: "Congelado",
-                  image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Azúcar y Endulzantes",
-                  temp: "Seco",
-                  image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Estuchados",
-                  temp: "Seco",
-                  image: "https://images.unsplash.com/photo-1607457561901-e6ec3a6d16cf?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Papas y Botanas",
-                  temp: "Seco",
-                  image: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Proteína",
-                  temp: "Congelado",
-                  image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Repostería",
-                  temp: "Congelado",
-                  image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Salsas y Aderezos",
-                  temp: "Refrigerado",
-                  image: "https://images.unsplash.com/photo-1598511757337-fe2cafc31a3c?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Verduras y Leguminosas",
-                  temp: "Congelado",
-                  image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-                {
-                  name: "Quesos",
-                  temp: "Refrigerado",
-                  image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=900&q=72&fm=webp",
-                },
-              ].map((category, index) => (
+              {categories.map((category, index) => (
                 <motion.article
                   key={category.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.35, delay: index * 0.06 }}
-                  className={`group relative overflow-hidden rounded-lg border border-white/45 bg-white/40 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-lg ${index === 8 ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : ""}`}
+                  className="group relative overflow-hidden rounded-lg border border-white/45 bg-white/40 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   <img
-                    src={category.image}
+                    src={category.imageUrl}
                     alt={category.name}
                     loading="lazy"
                     decoding="async"
-                    className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${index === 8 ? "h-52" : "h-44"}`}
+                    className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(event) => {
                       const img = event.currentTarget;
                       if (img.src.includes("/images/product-placeholder.webp")) return;
@@ -251,7 +222,7 @@ export function BrandsPage() {
                     <h3 className="text-base font-semibold text-slate-900">{category.name}</h3>
                     <p className="text-xs font-medium uppercase tracking-wide text-slate-600">{category.temp}</p>
                     <Link
-                      to={`/productos/categoria/${categorySlug(category.name)}`}
+                      to={`/productos/categoria/${slugify(category.name)}`}
                       className="mt-1 inline-flex rounded border border-brand-300/60 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-slate-900 transition-colors hover:bg-brand-500 hover:text-white"
                     >
                       Ver todo

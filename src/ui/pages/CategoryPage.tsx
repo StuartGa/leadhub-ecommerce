@@ -1,25 +1,19 @@
 import { useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
-import { productService } from "../../application/services/productService";
+import { useProducts } from "../../application/hooks/useProducts";
+import { useQuoteCart } from "../../application/hooks/useQuoteCart";
+import { slugify } from "../../application/utils/slugify";
 import type { Product } from "../../domain/types/product";
 import { ProductCard } from "../components/catalog/ProductCard";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
-function slugify(value: string): string {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
 export function CategoryPage() {
   const navigate = useNavigate();
   const { categorySlug } = useParams<{ categorySlug: string }>();
-  const products = productService.getAll();
+  const { products, loading } = useProducts();
+  const { addItem } = useQuoteCart();
 
   const categoryName = useMemo(() => {
     if (!categorySlug) return undefined;
@@ -42,8 +36,23 @@ export function CategoryPage() {
   );
 
   const handleInquire = (product: Product) => {
-    navigate(`/contact?category=${encodeURIComponent(product.category)}&products=${product.id}`);
+    addItem({ product });
+    navigate("/contact");
   };
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
+        <Header />
+        <main className="mx-auto flex w-full max-w-5xl flex-1 items-center px-4 py-20 sm:px-6 lg:px-8">
+          <div className="w-full rounded-xl border border-slate-200 bg-white p-10 text-center shadow-sm">
+            <p className="text-lg font-semibold text-slate-900">Cargando categoria...</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!categoryName) {
     return (

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { brandService } from "../../../application/services/brandService";
+import { useBrands } from "../../../application/hooks/useBrands";
 
 export function BrandsSection() {
-  const featuredBrands = brandService.getFeatured().slice(0, 8);
+  const { brands } = useBrands();
+  const featuredBrands = brands.filter((brand) => brand.featured).slice(0, 8);
 
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">

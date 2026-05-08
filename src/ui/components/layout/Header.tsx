@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useQuoteCart } from "../../../application/hooks/useQuoteCart";
 import {
   getTopMatch,
   searchAll,
@@ -15,6 +16,7 @@ function resultTypeLabel(type: SearchItem["type"]) {
 
 export function Header() {
   const navigate = useNavigate();
+  const { distinctProducts } = useQuoteCart();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopSearchOpen, setDesktopSearchOpen] = useState(false);
@@ -190,6 +192,14 @@ export function Header() {
                 className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
               >
                 Contacto
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/cotizacion"
+                className="text-xs font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+              >
+                Cotizacion {distinctProducts > 0 ? `(${distinctProducts})` : ""}
               </NavLink>
             </li>
           </ul>
@@ -432,6 +442,14 @@ export function Header() {
                   className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
                 >
                   Contacto
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/cotizacion"
+                  className="block text-sm font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-200 hover:text-brand-500"
+                >
+                  Cotizacion {distinctProducts > 0 ? `(${distinctProducts})` : ""}
                 </NavLink>
               </li>
               <li className="pt-2">

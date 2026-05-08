@@ -1,9 +1,12 @@
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { ContactForm } from "../components/form/ContactForm";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
 export function ContactPage() {
+  const { distinctProducts, totalUnits } = useQuoteCart();
+
   useDocumentTitle(
     "Inicie su Cotización — San Patric Foodservice",
     "Inicie su cotización B2B para alimentos foodservice. Complete el formulario y un especialista de San Patric diseñará una propuesta a la medida para su operación."
@@ -24,6 +27,12 @@ export function ContactPage() {
               y continuamos para que nuestro equipo especializado estructure una
               propuesta a su medida.
             </p>
+
+            {distinctProducts > 0 && (
+              <div className="mt-5 inline-flex rounded border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900">
+                Carrito listo: {distinctProducts} productos · {totalUnits} unidades
+              </div>
+            )}
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[1.65fr_0.65fr] lg:items-start">

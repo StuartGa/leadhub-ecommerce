@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { useGHLIntegration } from "../../../application/hooks/useGHLIntegration";
+import { useQuoteCart } from "../../../application/hooks/useQuoteCart";
 import type { GHLWebhookPayload } from "../../../domain/types/ghl";
 import {
   type ContactFormValues,
@@ -11,6 +12,7 @@ import {
   ESTADOS_MEXICO,
   PRODUCT_CATEGORIES,
 } from "../../../domain/schemas/contactSchema";
+import { quotePayloadSchema } from "../../../domain/schemas/quoteSchema";
 
 interface ContactFormProps {
   showHeading?: boolean;
@@ -18,6 +20,7 @@ interface ContactFormProps {
 
 export function ContactForm({ showHeading = true }: ContactFormProps) {
   const { submit, status, error, reset: resetGHL } = useGHLIntegration();
+  const { items, distinctProducts, totalUnits, clearCart } = useQuoteCart();
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
@@ -52,6 +55,27 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
   };
 
   const onSubmit = async (data: ContactFormValues) => {
+    const quoteItems = items.map((item) => ({
+      productId: item.productId,
+      productSlug: item.productSlug,
+      productName: item.productName,
+      inventoryUnit: item.inventoryUnit,
+      quantity: item.quantity,
+      notes: item.notes?.trim() ? item.notes.trim() : undefined,
+    }));
+
+    const quotePayload = quotePayloadSchema.safeParse({
+      quoteItems: quoteItems.length > 0 ? quoteItems : undefined,
+      quoteSummary:
+        quoteItems.length > 0
+          ? {
+              distinctProducts,
+              totalUnits,
+              source: "web-catalog",
+            }
+          : undefined,
+    });
+
     const payload: GHLWebhookPayload = {
       contactName: data.contactName.trim(),
       companyName: data.companyName.trim(),
@@ -63,7 +87,10 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
       locality: data.locality.trim(),
       categories: data.categories,
       message: data.message.trim(),
+      quoteItems: quotePayload.success ? quotePayload.data.quoteItems : undefined,
+      quoteSummary: quotePayload.success ? quotePayload.data.quoteSummary : undefined,
     };
+
     await submit(payload);
   };
 
@@ -86,6 +113,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
             onClick={() => {
               resetGHL();
               setSelectedCategories([]);
+              clearCart();
               reset();
             }}
             className="mt-6 cursor-pointer rounded bg-brand-500 px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-900 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
@@ -115,6 +143,15 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
         noValidate
         className="flex flex-col gap-5 rounded-lg border border-slate-200 bg-white p-6 shadow-md sm:p-8"
       >
+        {items.length > 0 && (
+          <div className="rounded-lg border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">
+            <p className="font-semibold">Carrito de cotizacion incluido</p>
+            <p className="mt-1 text-brand-800">
+              {distinctProducts} productos seleccionados · {totalUnits} unidades
+            </p>
+          </div>
+        )}
+
         {/* Nombre del Contacto */}
         <div>
           <label

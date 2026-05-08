@@ -66,6 +66,10 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
           ))}
         </div>
 
+        <div className="rounded-md bg-slate-50 px-3 py-2 text-xs text-slate-600">
+          Pedido minimo: <span className="font-semibold text-slate-900">{product.minOrderQty}</span> {product.inventoryUnit}{product.minOrderQty > 1 ? "es" : ""}
+        </div>
+
         <div className="flex items-center justify-end border-t border-slate-100 pt-4">
           <div className="flex items-center gap-3">
             <Link

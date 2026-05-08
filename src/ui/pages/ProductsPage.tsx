@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useMemo } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
-import { productService } from "../../application/services/productService";
+import { useProducts } from "../../application/hooks/useProducts";
+import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import type { Product, Temperature, Seasonality } from "../../domain/types/product";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
@@ -16,7 +17,9 @@ export function ProductsPage() {
     "Catálogo completo de productos alimenticios para foodservice: acompañantes, proteínas, salsas, quesos y más. Filtra por temperatura (seco, refrigerado, congelado) y temporalidad. Calidad premium garantizada."
   );
 
-  const [products] = useState<Product[]>(() => productService.getAll());
+  const navigate = useNavigate();
+  const { products, loading, error } = useProducts();
+  const { addItem } = useQuoteCart();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCategory = searchParams.get("category") ?? "all";
@@ -76,7 +79,8 @@ export function ProductsPage() {
   };
 
   const handleInquire = (product: Product) => {
-    window.location.href = `/contact?products=${product.id}`;
+    addItem({ product });
+    navigate("/contact");
   };
 
   const resetFilters = () => {
@@ -223,21 +227,22 @@ export function ProductsPage() {
             {/* Contador de resultados */}
             <div className="mb-6 flex items-center justify-between border-b border-slate-200 pb-4">
               <p className="text-sm text-slate-600">
-                {filteredProducts.length === 0 && (
+                {!loading && filteredProducts.length === 0 && (
                   <span className="font-semibold text-slate-900">
                     No se encontraron productos
                   </span>
                 )}
-                {filteredProducts.length === 1 && (
+                {!loading && filteredProducts.length === 1 && (
                   <span>
                     <span className="font-semibold text-slate-900">1</span> producto encontrado
                   </span>
                 )}
-                {filteredProducts.length > 1 && (
+                {!loading && filteredProducts.length > 1 && (
                   <span>
                     <span className="font-semibold text-slate-900">{filteredProducts.length}</span> productos encontrados
                   </span>
                 )}
+                {loading && <span>Cargando resultados...</span>}
               </p>
 
               {hasActiveFilters && (
@@ -251,8 +256,20 @@ export function ProductsPage() {
               )}
             </div>
 
+            {loading && (
+              <div className="rounded-lg border border-slate-200 bg-slate-50 px-6 py-16 text-center">
+                <p className="text-slate-700">Cargando catálogo...</p>
+              </div>
+            )}
+
+            {error && !loading && (
+              <div className="rounded-lg border border-red-200 bg-red-50 px-6 py-16 text-center">
+                <p className="text-red-700">{error}</p>
+              </div>
+            )}
+
             {/* Grid de Productos */}
-            {filteredProducts.length > 0 ? (
+            {!loading && !error && filteredProducts.length > 0 ? (
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredProducts.map((product, index) => (
                   <ProductCard
@@ -263,7 +280,9 @@ export function ProductsPage() {
                   />
                 ))}
               </div>
-            ) : (
+            ) : null}
+
+            {!loading && !error && filteredProducts.length === 0 ? (
               <div className="rounded-lg border border-slate-200 bg-slate-50 px-6 py-16 text-center">
                 <svg
                   className="mx-auto mb-4 h-16 w-16 text-slate-300"
@@ -292,7 +311,7 @@ export function ProductsPage() {
                   Limpiar Filtros
                 </button>
               </div>
-            )}
+            ) : null}
           </div>
         </section>
 

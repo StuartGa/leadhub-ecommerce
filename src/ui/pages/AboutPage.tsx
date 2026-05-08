@@ -1,6 +1,47 @@
+import { useEffect, useRef, useState } from "react";
+import { useCountUp } from "../../application/hooks/useCountUp";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+
+interface StatCounterProps {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
+function StatCounter({ target, prefix = "", suffix = "", label }: StatCounterProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const count = useCountUp({ target, duration: 1800, enabled: visible });
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="mb-2 text-5xl font-bold tabular-nums text-white">
+        {prefix}{count}{suffix}
+      </div>
+      <div className="text-xl text-brand-50">{label}</div>
+    </div>
+  );
+}
 
 export function AboutPage() {
   useDocumentTitle("Quiénes Somos — San Patric Foodservice");
@@ -86,18 +127,9 @@ export function AboutPage() {
             </h2>
             
             <div className="grid gap-8 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mb-2 text-5xl font-bold text-white">+35</div>
-                <div className="text-xl text-brand-50">Proveedores</div>
-              </div>
-              <div className="text-center">
-                <div className="mb-2 text-5xl font-bold text-white">+750</div>
-                <div className="text-xl text-brand-50">Clientes Activos</div>
-              </div>
-              <div className="text-center">
-                <div className="mb-2 text-5xl font-bold text-white">+200</div>
-                <div className="text-xl text-brand-50">Productos</div>
-              </div>
+              <StatCounter target={35} prefix="+" label="Proveedores" />
+              <StatCounter target={750} prefix="+" label="Clientes Activos" />
+              <StatCounter target={200} prefix="+" label="Productos" />
             </div>
           </div>
         </section>

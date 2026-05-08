@@ -12,7 +12,11 @@ import {
   PRODUCT_CATEGORIES,
 } from "../../../domain/schemas/contactSchema";
 
-export function ContactForm() {
+interface ContactFormProps {
+  showHeading?: boolean;
+}
+
+export function ContactForm({ showHeading = true }: ContactFormProps) {
   const { submit, status, error, reset: resetGHL } = useGHLIntegration();
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -101,7 +105,7 @@ export function ContactForm() {
     >
       <h2
         id="contact-heading"
-        className="mb-8 text-center font-sans text-3xl font-normal uppercase tracking-wider text-slate-900 sm:text-4xl"
+        className={`text-center font-sans text-3xl font-normal uppercase tracking-wider text-slate-900 sm:text-4xl ${showHeading ? "mb-8" : "mb-4 hidden"}`}
       >
         CONTÁ<span className="font-semibold">CTANOS</span>
       </h2>

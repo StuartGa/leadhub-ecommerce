@@ -14,7 +14,7 @@ export function ContactPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-7xl px-4 pb-14 pt-28 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <h1 className="mb-4 font-sans text-4xl font-bold tracking-tight text-brand-900 sm:text-5xl">
               Inicie su Cotización
@@ -26,9 +26,13 @@ export function ContactPage() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[1.45fr_0.8fr]">
-            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-              <ContactForm />
+          <div className="grid gap-8 lg:grid-cols-[1.65fr_0.65fr] lg:items-start">
+            <div className="rounded-lg border border-brand-200/70 bg-white p-5 shadow-md shadow-brand-100/40 ring-1 ring-brand-100/70 sm:p-7">
+              <div className="mb-5 border-b border-slate-200 pb-4">
+                <h2 className="text-3xl font-bold tracking-tight text-brand-900">Cotizador B2B</h2>
+                <p className="mt-1 text-sm text-slate-600">Complete todos los campos para recibir propuesta personalizada.</p>
+              </div>
+              <ContactForm showHeading={false} />
             </div>
 
             <div className="space-y-5">

@@ -6,6 +6,14 @@ import { brandService } from "../../application/services/brandService";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
+const categorySlug = (name: string) =>
+  name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 export function BrandsPage() {
   useDocumentTitle("Marcas — San Patric Foodservice");
   const [searchParams, setSearchParams] = useSearchParams();
@@ -243,7 +251,7 @@ export function BrandsPage() {
                     <h3 className="text-base font-semibold text-slate-900">{category.name}</h3>
                     <p className="text-xs font-medium uppercase tracking-wide text-slate-600">{category.temp}</p>
                     <Link
-                      to={`/productos?category=${encodeURIComponent(category.name)}`}
+                      to={`/productos/categoria/${categorySlug(category.name)}`}
                       className="mt-1 inline-flex rounded border border-brand-300/60 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-slate-900 transition-colors hover:bg-brand-500 hover:text-white"
                     >
                       Ver todo

@@ -66,10 +66,7 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
           ))}
         </div>
 
-        <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-          <span className="font-sans text-xl font-semibold text-slate-900">
-            ${product.price.toLocaleString()}
-          </span>
+        <div className="flex items-center justify-end border-t border-slate-100 pt-4">
           <div className="flex items-center gap-3">
             <Link
               to={`/products/${product.id}`}

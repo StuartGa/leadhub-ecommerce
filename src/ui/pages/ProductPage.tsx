@@ -6,18 +6,6 @@ import { productService } from "../../application/services/productService";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 
-function formatPrice(price: number, currency: string) {
-  try {
-    return new Intl.NumberFormat(undefined, {
-      style: "currency",
-      currency,
-      maximumFractionDigits: 0,
-    }).format(price);
-  } catch {
-    return `${currency} ${price.toLocaleString()}`;
-  }
-}
-
 export function ProductPage() {
   const { productId } = useParams();
 
@@ -117,11 +105,9 @@ export function ProductPage() {
               <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-sm font-medium text-slate-600">
-                      Desde
-                    </p>
-                    <p className="mt-1 text-3xl font-extrabold tracking-tight text-slate-900">
-                      {formatPrice(product.price, product.currency)}
+                    <p className="text-sm font-medium text-slate-600">Cotización personalizada</p>
+                    <p className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900">
+                      Precio según volumen y frecuencia
                     </p>
                   </div>
                   <Link

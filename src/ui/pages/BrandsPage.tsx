@@ -8,6 +8,7 @@ import { useProducts } from "../../application/hooks/useProducts";
 import { slugify } from "../../application/utils/slugify";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { StatCounter } from "../components/common/StatCounter";
 
 export function BrandsPage() {
   useDocumentTitle("Marcas — San Patric Foodservice");
@@ -73,18 +74,9 @@ export function BrandsPage() {
         <section className="bg-brand-500 px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mb-2 text-5xl font-bold text-white">+35</div>
-                <div className="text-xl text-brand-50">Proveedores Premium</div>
-              </div>
-              <div className="text-center">
-                <div className="mb-2 text-5xl font-bold text-white">+200</div>
-                <div className="text-xl text-brand-50">Productos Diferentes</div>
-              </div>
-              <div className="text-center">
-                <div className="mb-2 text-5xl font-bold text-white">100%</div>
-                <div className="text-xl text-brand-50">Calidad Garantizada</div>
-              </div>
+              <StatCounter target={35} prefix="+" label="Proveedores Premium" dark />
+              <StatCounter target={200} prefix="+" label="Productos Diferentes" dark />
+              <StatCounter target={100} suffix="%" label="Calidad Garantizada" dark />
             </div>
           </div>
         </section>

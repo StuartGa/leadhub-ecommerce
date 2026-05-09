@@ -1,6 +1,7 @@
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { StatCounter } from "../components/common/StatCounter";
 
 interface CoverageRegion {
   name: string;
@@ -71,16 +72,27 @@ export function CoveragePage() {
         <section className="border-b border-slate-200 bg-white px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="mb-2 font-sans text-3xl font-bold text-brand-500 sm:text-4xl">
-                    {stat.value}
+              {stats.map((stat) => {
+                const numeric = parseInt(stat.value, 10);
+                if (Number.isNaN(numeric)) {
+                  return (
+                    <div key={stat.label} className="text-center">
+                      <div className="mb-2 font-sans text-3xl font-bold text-brand-500 sm:text-4xl">
+                        {stat.value}
+                      </div>
+                      <div className="font-sans text-sm font-light uppercase tracking-wide text-slate-600">
+                        {stat.label}
+                      </div>
+                    </div>
+                  );
+                }
+                const pct = stat.value.includes("%");
+                return (
+                  <div key={stat.label}>
+                    <StatCounter target={numeric} suffix={pct ? "%" : ""} label={stat.label} />
                   </div>
-                  <div className="font-sans text-sm font-light uppercase tracking-wide text-slate-600">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

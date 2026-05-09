@@ -6,6 +6,68 @@ export function CoverageSection() {
     { name: "Zona Sur", states: ["Puebla", "Oaxaca", "Veracruz"] },
   ];
 
+  const temperatures = [
+    {
+      label: "Secos",
+      desc: "Almacén a temperatura ambiente",
+      icon: (
+        <svg className="h-8 w-8" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="10" fill="currentColor" opacity="0.15" />
+          <circle cx="24" cy="24" r="5" fill="currentColor" />
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
+            const rad = (angle * Math.PI) / 180;
+            const x1 = 24 + 8 * Math.cos(rad);
+            const y1 = 24 + 8 * Math.sin(rad);
+            const x2 = 24 + 14 * Math.cos(rad);
+            const y2 = 24 + 14 * Math.sin(rad);
+            return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />;
+          })}
+        </svg>
+      ),
+    },
+    {
+      label: "Refrigerados",
+      desc: "Cadena de frío controlada 0°–4°C",
+      icon: (
+        <svg className="h-8 w-8" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" strokeWidth="2.5" />
+          <path d="M24 10v6m0 16v6M12 20h6m12 0h6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+          {[
+            { cx: 15, cy: 15 }, { cx: 33, cy: 15 },
+            { cx: 33, cy: 33 }, { cx: 15, cy: 33 },
+          ].map((p, i) => (
+            <line
+              key={i}
+              x1={p.cx - 3} y1={p.cy - 3}
+              x2={p.cx + 3} y2={p.cy + 3}
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+            />
+          ))}
+        </svg>
+      ),
+    },
+    {
+      label: "Congelados",
+      desc: "Cadena de frío -18°C o inferior",
+      icon: (
+        <svg className="h-8 w-8" viewBox="0 0 48 48" fill="none">
+          <path
+            d="M24 4L24 44M8 14L40 34M8 34L40 14M14 8L34 40M34 8L14 40"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            opacity="0.6"
+          />
+          <path
+            d="M18 12L24 18L30 12L36 18L30 24L36 30L30 36L24 30L18 36L12 30L18 24L12 18Z"
+            fill="currentColor"
+            opacity="0.85"
+          />
+        </svg>
+      ),
+    },
+  ];
+
   return (
     <section
       id="coverage"
@@ -19,6 +81,26 @@ export function CoverageSection() {
           <p className="font-sans text-lg font-light text-slate-600">
             Distribución y almacenamiento en las principales ciudades de México
           </p>
+        </div>
+
+        {/* Temperature Capability Bar */}
+        <div className="mb-10 grid gap-6 sm:grid-cols-3">
+          {temperatures.map((temp) => (
+            <div
+              key={temp.label}
+              className="flex items-center gap-4 rounded-lg border border-brand-100 bg-brand-50/60 px-5 py-4"
+            >
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
+                {temp.icon}
+              </div>
+              <div>
+                <div className="font-sans text-base font-semibold text-slate-900">
+                  {temp.label}
+                </div>
+                <div className="text-xs text-slate-600">{temp.desc}</div>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

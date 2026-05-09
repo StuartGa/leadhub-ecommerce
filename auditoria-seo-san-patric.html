@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoría SEO — San Patric Foodservice</title>
+<style>
+  :root {
+    --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+    --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+    --slate-400: #94a3b8; --slate-600: #475569; --slate-700: #334155;
+    --slate-800: #1e293b; --slate-900: #0f172a;
+    --brand-500: #4f46e5; --brand-600: #4338ca;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--slate-50); color: var(--slate-800); line-height: 1.6; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  header { background: linear-gradient(135deg, var(--brand-500), var(--brand-600)); color: #fff; padding: 48px 0; text-align: center; }
+  header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .score-circle { width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 24px auto 0; font-size: 3rem; font-weight: 800; border: 6px solid; }
+  .score-yellow { background: #fef3c7; color: #92400e; border-color: #f59e0b; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .card .number { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+  .card .label { font-size: 0.85rem; color: var(--slate-600); }
+  .card.critical .number { color: var(--red); }
+  .card.warn .number { color: var(--yellow); }
+  .card.ok .number { color: var(--green); }
+  section { margin: 40px 0; }
+  h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: var(--slate-900); border-bottom: 2px solid var(--slate-200); padding-bottom: 8px; }
+  .priority-item { background: #fff; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-left: 4px solid var(--red); }
+  .priority-item h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .priority-item .impact { font-size: 0.8rem; color: var(--slate-600); margin-bottom: 8px; }
+  .priority-item code { background: var(--slate-100); padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+  .priority-item pre { background: var(--slate-800); color: #e2e8f0; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; font-size: 0.82rem; }
+  .cat-header { display: flex; align-items: center; justify-content: space-between; background: #fff; padding: 16px 20px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .cat-header:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .cat-name { font-weight: 600; }
+  .cat-score { font-weight: 700; }
+  .bar { width: 120px; height: 8px; border-radius: 4px; background: var(--slate-200); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .bar-green { background: var(--green); }
+  .bar-yellow { background: var(--yellow); }
+  .bar-red { background: var(--red); }
+  .cat-detail { background: #fff; border-radius: 0 0 10px 10px; padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+  .cat-detail.open { max-height: 600px; padding: 16px 20px; }
+  .finding { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; font-size: 0.9rem; }
+  .finding .icon { width: 20px; flex-shrink: 0; text-align: center; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+  .tag-error { background: #fef2f2; color: #dc2626; }
+  .tag-warn { background: #fefce8; color: #ca8a04; }
+  .tag-ok { background: #f0fdf4; color: #16a34a; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  th, td { padding: 12px 16px; text-align: left; font-size: 0.9rem; }
+  th { background: var(--slate-100); font-weight: 600; }
+  tr:not(:last-child) td { border-bottom: 1px solid var(--slate-200); }
+  @media (max-width: 640px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .cat-header { flex-wrap: wrap; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Auditoría SEO Completa</h1>
+    <p>San Patric Foodservice — stuartga.github.io/leadhub-ecommerce</p>
+    <p style="font-size:0.8rem;opacity:0.7;margin-top:4px;">8 de mayo de 2026</p>
+    <div class="score-circle score-yellow">71</div>
+    <p style="margin-top:8px;font-weight:600;">Nivel Mejorable</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Resumen -->
+  <div class="cards">
+    <div class="card">
+      <div class="number" style="color:var(--yellow)">71</div>
+      <div class="label">Puntuación Global</div>
+    </div>
+    <div class="card critical">
+      <div class="number">4</div>
+      <div class="label">Problemas Críticos</div>
+    </div>
+    <div class="card warn">
+      <div class="number">5</div>
+      <div class="label">Advertencias</div>
+    </div>
+    <div class="card ok">
+      <div class="number">11</div>
+      <div class="label">Tests Aprobados</div>
+    </div>
+  </div>
+
+  <!-- Top 5 Correcciones -->
+  <section>
+    <h2>Top 5 — Correcciones Prioritarias</h2>
+
+    <div class="priority-item">
+      <h3>1. Página SPA sin SSR — contenido invisible sin JavaScript</h3>
+      <p class="impact">Impacto: Google debe renderizar JS para ver contenido. Menor indexación, penalización en velocidad.</p>
+      <p><strong>Cómo corregir:</strong> Añadir texto estático relevante en <code>&lt;noscript&gt;</code> dentro del <code>index.html</code> o migrar a SSR con Next.js/Remix para contenido crítico. Como mínimo:</p>
+      <pre>&lt;noscript&gt;
+  &lt;div style="padding:2rem;text-align:center"&gt;
+    &lt;h1&gt;San Patric Foodservice&lt;/h1&gt;
+    &lt;p&gt;Distribuidor foodservice: +200 productos, +35 proveedores.&lt;/p&gt;
+    &lt;p&gt;Activa JavaScript o contáctanos al [teléfono].&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/noscript&gt;</pre>
+    </div>
+
+    <div class="priority-item">
+      <h3>2. Imagen Open Graph no existe (404)</h3>
+      <p class="impact">Impacto: Al compartir en WhatsApp, Facebook o LinkedIn, no se muestra imagen de preview. Reduce CTR social.</p>
+      <p><strong>Cómo corregir:</strong> Crear <code>public/og-image.png</code> de 1200×630px con el logo de San Patric y texto "Alimentos Foodservice Premium".</p>
+    </div>
+
+    <div class="priority-item">
+      <h3>3. Sitemap con URLs de producto placeholder (prod-001 a prod-014)</h3>
+      <p class="impact">Impacto: Google indexa URLs con slugs artificiales que no coinciden con los slugs reales de Sanity. Inconsistencia entre sitemap y rutas reales.</p>
+      <p><strong>Cómo corregir:</strong> Actualizar <code>public/sitemap.xml</code> con los slugs reales de los 138 productos (ej: <code>/products/751909-aceite-de-alto-rendimiento</code>).</p>
+    </div>
+
+    <div class="priority-item">
+      <h3>4. Sin Schema de producto (Product) en páginas de detalle</h3>
+      <p class="impact">Impacto: No aparecen rich snippets de producto en Google (precio, disponibilidad, reviews).</p>
+      <p><strong>Cómo corregir:</strong> En <code>ProductPage.tsx</code>, inyectar JSON-LD con schema <code>Product</code> incluyendo <code>name</code>, <code>description</code>, <code>offers.price</code>, <code>brand.name</code>.</p>
+    </div>
+
+    <div class="priority-item">
+      <h3>5. Schema Organization incompleto — falta dirección y teléfono</h3>
+      <p class="impact">Impacto: Google no asocia la empresa con una ubicación física, perdiendo oportunidades de aparecer en Google Maps y búsquedas locales.</p>
+      <p><strong>Cómo corregir:</strong> Añadir <code>address</code>, <code>telephone</code>, <code>areaServed</code> y usar <code>@type: "LocalBusiness"</code> en el JSON-LD del <code>index.html</code>.</p>
+    </div>
+  </section>
+
+  <!-- Desglose por categoría -->
+  <section>
+    <h2>Desglose por Categoría</h2>
+
+    <!-- Meta Tags -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Meta Tags <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(20%)</span></span>
+      <div class="bar"><div class="bar-fill bar-green" style="width:85%"></div></div>
+      <span class="cat-score" style="color:var(--green)">85</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">✅</span><span>&lt;title&gt;: "San Patric Foodservice — Alimentos Convenientes de Calidad Premium" (63 chars — ligeramente largo pero aceptable)</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Meta description: 152 chars, descriptiva y persuasiva</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Viewport meta presente</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Meta robots: "index, follow" correcto</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Canonical URL configurada correctamente</span></div>
+      <div class="finding"><span class="icon">✅</span><span>lang="es" correcto (corregido)</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>Falta hreflang para indicar variante regional es-MX</span></div>
+    </div>
+
+    <!-- Headings -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Headings <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(15%)</span></span>
+      <div class="bar"><div class="bar-fill bar-yellow" style="width:55%"></div></div>
+      <span class="cat-score" style="color:var(--yellow)">55</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">❌</span><span><span class="tag tag-error">Crítico</span> Los headings se generan via JS (React SPA). El HTML inicial no tiene &lt;h1&gt; visible. Googlebot renderiza JS pero con retraso.</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Ya existe un &lt;noscript&gt; con h1 en el head del componente React — debería inyectarse también en index.html estático</span></div>
+    </div>
+
+    <!-- Images -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Imágenes <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(10%)</span></span>
+      <div class="bar"><div class="bar-fill bar-yellow" style="width:55%"></div></div>
+      <span class="cat-score" style="color:var(--yellow)">55</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">✅</span><span>Imágenes de producto usan atributo alt descriptivo</span></div>
+      <div class="finding"><span class="icon">✅</span><span>loading="lazy" aplicado en imágenes below the fold</span></div>
+      <div class="finding"><span class="icon">❌</span><span><span class="tag tag-error">Crítico</span> og:image apunta a og-image.png que NO existe (404)</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>No hay imágenes en el HTML inicial (renderizadas por JS)</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>Falta favicon.ico para navegadores antiguos (solo SVG)</span></div>
+    </div>
+
+    <!-- Links -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Enlaces <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(10%)</span></span>
+      <div class="bar"><div class="bar-fill bar-green" style="width:70%"></div></div>
+      <span class="cat-score" style="color:var(--yellow)">70</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">✅</span><span>SPA con rutas amigables (slug-based, no #hash)</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Enlaces internos usan textos ancla descriptivos</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>Sitemap contiene product IDs placeholder (prod-001…prod-014) que no corresponden a los slugs reales</span></div>
+    </div>
+
+    <!-- Open Graph -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Open Graph y Social <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(10%)</span></span>
+      <div class="bar"><div class="bar-fill bar-green" style="width:90%"></div></div>
+      <span class="cat-score" style="color:var(--green)">90</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">✅</span><span>og:title, og:description, og:url, og:type, og:site_name, og:locale todos presentes</span></div>
+      <div class="finding"><span class="icon">✅</span><span>og:image:width y og:image:height definidos (1200×630)</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Twitter Card completa con summary_large_image</span></div>
+      <div class="finding"><span class="icon">❌</span><span><span class="tag tag-error">Crítico</span> og:image no existe — todas las redes sociales mostrarán preview sin imagen</span></div>
+    </div>
+
+    <!-- Schema -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Schema / Datos Estructurados <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(10%)</span></span>
+      <div class="bar"><div class="bar-fill bar-yellow" style="width:70%"></div></div>
+      <span class="cat-score" style="color:var(--yellow)">70</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">✅</span><span>Organization schema presente con nombre, URL, logo, descripción, contactPoint</span></div>
+      <div class="finding"><span class="icon">✅</span><span>WebSite schema presente (habilita Sitelinks Search Box)</span></div>
+      <div class="finding"><span class="icon">❌</span><span><span class="tag tag-error">Crítico</span> Falta Product schema en páginas de detalle de producto</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>Organization debería ser LocalBusiness con address, telephone y areaServed</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>Falta BreadcrumbList schema en páginas de navegación</span></div>
+    </div>
+
+    <!-- Technical -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Técnico <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(15%)</span></span>
+      <div class="bar"><div class="bar-fill bar-green" style="width:75%"></div></div>
+      <span class="cat-score" style="color:var(--yellow)">75</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">✅</span><span>HTTPS activo (GitHub Pages)</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Tiempo de respuesta: 130ms (excelente)</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Robots.txt presente y correcto</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Sitemap.xml accesible con 36 URLs</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Security headers: X-Frame-Options, X-Content-Type-Options, CSP, HSTS</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>SPA: contenido renderizado en cliente. Google puede indexar pero con delay vs SSR</span></div>
+      <div class="finding"><span class="icon">⚠️</span><span>modulepreload y code splitting funcionando (chunks asíncronos)</span></div>
+    </div>
+
+    <!-- Content -->
+    <div class="cat-header" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span class="cat-name">Contenido <span style="color:var(--slate-400);font-weight:400;font-size:0.8rem;">(10%)</span></span>
+      <div class="bar"><div class="bar-fill bar-yellow" style="width:60%"></div></div>
+      <span class="cat-score" style="color:var(--yellow)">60</span>
+    </div>
+    <div class="cat-detail">
+      <div class="finding"><span class="icon">⚠️</span><span>Contenido textual no visible sin JS — Googlebot puede leerlo pero es penalización indirecta</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Páginas internas con contenido sustancial: Home, Quiénes Somos, Productos, Marcas, Blog</span></div>
+      <div class="finding"><span class="icon">✅</span><span>Meta description única por página (dinámica via React Helmet)</span></div>
+    </div>
+  </section>
+
+  <!-- Tabla detallada -->
+  <section>
+    <h2>Resumen de Hallazgos</h2>
+    <table>
+      <thead>
+        <tr><th>Prioridad</th><th>Categoría</th><th>Hallazgo</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="color:var(--red);font-weight:700">🔴 P1</td><td>Open Graph</td><td>og-image.png no existe (404) — no hay preview al compartir</td><td><span class="tag tag-error">Crítico</span></td></tr>
+        <tr><td style="color:var(--red);font-weight:700">🔴 P1</td><td>Schema</td><td>Falta Product schema en páginas de detalle de producto</td><td><span class="tag tag-error">Crítico</span></td></tr>
+        <tr><td style="color:var(--red);font-weight:700">🔴 P1</td><td>Sitemap</td><td>Slugs de producto en sitemap son placeholders (prod-001), no coinciden con los reales</td><td><span class="tag tag-error">Crítico</span></td></tr>
+        <tr><td style="color:var(--red);font-weight:700">🔴 P2</td><td>Técnico</td><td>SPA sin SSR: contenido invisible sin JS. Penalización indirecta en indexación</td><td><span class="tag tag-error">Crítico</span></td></tr>
+        <tr><td style="color:var(--yellow);font-weight:700">🟡 P2</td><td>Schema</td><td>Organization → debe ser LocalBusiness con dirección, teléfono y área de servicio</td><td><span class="tag tag-warn">Advertencia</span></td></tr>
+        <tr><td style="color:var(--yellow);font-weight:700">🟡 P2</td><td>Schema</td><td>Falta BreadcrumbList en páginas de categoría y producto</td><td><span class="tag tag-warn">Advertencia</span></td></tr>
+        <tr><td style="color:var(--yellow);font-weight:700">🟡 P3</td><td>Imágenes</td><td>Falta favicon.ico (solo SVG disponible)</td><td><span class="tag tag-warn">Advertencia</span></td></tr>
+        <tr><td style="color:var(--yellow);font-weight:700">🟡 P3</td><td>Meta Tags</td><td>Falta hreflang para variante regional es-MX</td><td><span class="tag tag-warn">Advertencia</span></td></tr>
+        <tr><td style="color:var(--yellow);font-weight:700">🟡 P3</td><td>Meta Tags</td><td>Title ligeramente largo (63 chars, ideal ≤60). Se corta en SERP en algunos casos</td><td><span class="tag tag-warn">Advertencia</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Resumen final -->
+  <section>
+    <h2>Recomendaciones Generales</h2>
+    <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+      <p style="margin-bottom:12px;"><strong>✅ Fortalezas:</strong> Meta tags completos, Open Graph bien configurado, Schema básico presente, robots.txt y sitemap existentes, HTTPS activo, respuesta rápida (130ms), seguridad hardening (CSP, HSTS).</p>
+      <p style="margin-bottom:12px;"><strong>❌ Debilidades:</strong> SPA sin SSR (dependencia de JS), og-image no existe, sitemap con slugs desactualizados, falta Product schema.</p>
+      <p><strong>🏆 Puntuación: 71/100 — Mejorable.</strong> Con las 5 correcciones prioritarias aplicadas, la puntuación subiría a ~85-88.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+document.querySelectorAll('.cat-header').forEach(h => { h.style.cursor = 'pointer'; });
+</script>
+</body>
+</html>

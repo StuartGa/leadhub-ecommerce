@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
@@ -135,31 +136,132 @@ export function AboutPage() {
         </section>
 
         {/* A Quién Atendemos */}
-        <section className="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
+        <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="mb-12 text-center font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
               A Quién <span className="font-normal">Atendemos</span>
             </h2>
             
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { name: "Restaurantes", icon: "🍽️" },
-                { name: "Hoteles", icon: "🏨" },
-                { name: "Cafeterías", icon: "☕" },
-                { name: "Servicios de Catering", icon: "🎉" },
-                { name: "Hospitales", icon: "🏥" },
-                { name: "Escuelas", icon: "🎓" },
-                { name: "Supermercados", icon: "🛒" },
-                { name: "Mayoristas", icon: "📦" },
-                { name: "Otros Negocios", icon: "🏢" },
-              ].map((client) => (
-                <div
+                {
+                  name: "Restaurantes",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <circle cx="32" cy="20" r="14" fill="currentColor" opacity="0.12" />
+                      <path d="M22 36v18h6v-10h8v10h6V36" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M26 16l-2 8h16l-2-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <circle cx="28" cy="12" r="2" fill="currentColor" />
+                      <circle cx="36" cy="12" r="2" fill="currentColor" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Hoteles",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <rect x="10" y="16" width="44" height="36" rx="3" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" />
+                      <path d="M16 24h6v6h-6zm10 0h6v6h-6zm10 0h6v6h-6zm10 0h6v6h-6zM16 36h6v6h-6zm10 0h6v6h-6zm10 0h6v6h-6zm10 0h6v6h-6z" fill="currentColor" opacity="0.3" />
+                      <path d="M26 52V40h12v12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Cafeterías",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <path d="M16 26h26v6a13 13 0 01-26 0v-6z" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+                      <path d="M42 26h4a6 6 0 010 12h-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="22" y1="18" x2="22" y2="26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="32" y1="18" x2="32" y2="26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M18 48h28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Servicios de Catering",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <circle cx="32" cy="48" r="2" fill="currentColor" />
+                      <path d="M32 46V28l-8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M20 40a6 6 0 018 0" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M44 28v6a12 12 0 01-6 10.4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M44 22h4a4 4 0 010 8h-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Hospitales",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <rect x="12" y="8" width="40" height="48" rx="4" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" />
+                      <line x1="32" y1="20" x2="32" y2="44" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <line x1="20" y1="32" x2="44" y2="32" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Escuelas",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <path d="M32 8L8 22l24 14 24-14L32 8z" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+                      <path d="M12 28v16l20 12 20-12V28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <line x1="32" y1="36" x2="32" y2="56" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Supermercados",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <rect x="10" y="18" width="44" height="36" rx="4" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" />
+                      <line x1="18" y1="18" x2="18" y2="8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <line x1="46" y1="18" x2="46" y2="8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <line x1="10" y1="32" x2="54" y2="32" stroke="currentColor" strokeWidth="2" />
+                      <path d="M24 44l4 4 12-12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Mayoristas",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <rect x="8" y="28" width="14" height="24" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2.5" />
+                      <rect x="25" y="22" width="14" height="30" rx="2" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="2.5" />
+                      <rect x="42" y="16" width="14" height="36" rx="2" fill="currentColor" opacity="0.25" stroke="currentColor" strokeWidth="2.5" />
+                      <line x1="15" y1="36" x2="15" y2="42" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      <line x1="32" y1="30" x2="32" y2="42" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      <line x1="49" y1="24" x2="49" y2="42" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  name: "Otros Negocios",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <rect x="8" y="14" width="48" height="38" rx="3" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" />
+                      <rect x="10" y="18" width="14" height="14" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2" />
+                      <rect x="26" y="18" width="14" height="14" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2" />
+                      <rect x="42" y="18" width="12" height="14" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2" />
+                      <rect x="10" y="36" width="14" height="12" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2" />
+                      <rect x="26" y="36" width="28" height="12" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  ),
+                },
+              ].map((client, index) => (
+                <motion.div
                   key={client.name}
-                  className="group rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="group relative overflow-hidden rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:border-brand-300"
                 >
-                  <div className="mb-3 text-4xl">{client.icon}</div>
-                  <h3 className="text-lg font-semibold text-slate-900">{client.name}</h3>
-                </div>
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-600 group-hover:text-white">
+                    {client.icon}
+                  </div>
+                  <h3 className="text-base font-semibold text-slate-900">{client.name}</h3>
+                </motion.div>
               ))}
             </div>
           </div>

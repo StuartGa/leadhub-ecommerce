@@ -9,49 +9,58 @@ export function TemperatureSection() {
             <strong className="text-slate-900">3 TEMPERATURAS</strong>
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-24">
-          {/* Seco */}
-          <div className="flex items-center gap-3 text-brand-500">
-            <svg
-              className="h-10 w-10"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-            </svg>
-            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
-              SECO
-            </span>
-          </div>
+          <div className="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-24">
+            {/* Seco */}
+            <div className="flex items-center gap-3 text-brand-600">
+              <svg className="h-10 w-10" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="10" fill="currentColor" opacity="0.15" />
+                <circle cx="24" cy="24" r="5" fill="currentColor" />
+                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
+                  const rad = (angle * Math.PI) / 180;
+                  const x1 = 24 + 8 * Math.cos(rad);
+                  const y1 = 24 + 8 * Math.sin(rad);
+                  const x2 = 24 + 14 * Math.cos(rad);
+                  const y2 = 24 + 14 * Math.sin(rad);
+                  return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />;
+                })}
+              </svg>
+              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
+                SECO
+              </span>
+            </div>
 
-          {/* Refrigerado */}
-          <div className="flex items-center gap-3 text-brand-500">
-            <svg
-              className="h-10 w-10"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z" />
-            </svg>
-            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
-              REFRIGERADO
-            </span>
-          </div>
+            {/* Refrigerado */}
+            <div className="flex items-center gap-3 text-brand-600">
+              <svg className="h-10 w-10" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" strokeWidth="2.5" />
+                <path d="M24 10v6m0 16v6M12 20h6m12 0h6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                {[{ cx: 15, cy: 15 }, { cx: 33, cy: 15 }, { cx: 33, cy: 33 }, { cx: 15, cy: 33 }].map((p, i) => (
+                  <line key={i} x1={p.cx - 3} y1={p.cy - 3} x2={p.cx + 3} y2={p.cy + 3}
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                ))}
+              </svg>
+              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
+                REFRIGERADO
+              </span>
+            </div>
 
-          {/* Congelado */}
-          <div className="flex items-center gap-3 text-brand-500">
-            <svg
-              className="h-10 w-10"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z" />
-            </svg>
-            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
-              CONGELADO
-            </span>
+            {/* Congelado */}
+            <div className="flex items-center gap-3 text-brand-600">
+              <svg className="h-10 w-10" viewBox="0 0 48 48" fill="none">
+                <path
+                  d="M24 4L24 44M8 14L40 34M8 34L40 14M14 8L34 40M34 8L14 40"
+                  stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.6"
+                />
+                <path
+                  d="M18 12L24 18L30 12L36 18L30 24L36 30L30 36L24 30L18 36L12 30L18 24L12 18Z"
+                  fill="currentColor" opacity="0.85"
+                />
+              </svg>
+              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
+                CONGELADO
+              </span>
+            </div>
           </div>
-        </div>
       </div>
     </section>
   );

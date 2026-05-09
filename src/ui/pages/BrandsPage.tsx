@@ -143,13 +143,13 @@ export function BrandsPage() {
                   className={`group flex aspect-square items-center justify-center rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500 ${highlightedBrandId === brand.id ? "border-brand-500 ring-2 ring-brand-200" : "border-slate-200"}`}
                 >
                   <div className="text-center">
-                    <div className="mb-3 flex h-20 w-full items-center justify-center">
+                    <div className="mb-4 flex h-28 w-full items-center justify-center p-2">
                       <img
                         src={brand.logoUrl}
                         alt={brand.name}
                         loading="lazy"
                         decoding="async"
-                        className="max-h-16 w-auto object-contain"
+                        className="max-h-24 w-auto object-contain"
                         onError={(event) => {
                           const img = event.currentTarget;
                           if (img.src.includes(LOGO_PLACEHOLDER)) return;
@@ -157,7 +157,7 @@ export function BrandsPage() {
                         }}
                       />
                     </div>
-                    <div className="text-sm font-medium text-slate-600">{brand.name}</div>
+                    <div className="text-base font-medium text-slate-700">{brand.name}</div>
                   </div>
                 </Link>
               ))}

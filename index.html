@@ -44,19 +44,28 @@
     <!-- Theme & Favicon -->
     <meta name="theme-color" content="#500021" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="alternate" hreflang="es-MX" href="https://stuartga.github.io/leadhub-ecommerce/" />
 
-    <!-- Structured Data: Organization -->
+    <!-- Structured Data: LocalBusiness -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "LocalBusiness",
         "name": "San Patric Foodservice",
         "url": "https://stuartga.github.io/leadhub-ecommerce/",
         "logo": "https://stuartga.github.io/leadhub-ecommerce/favicon.svg",
+        "image": "https://stuartga.github.io/leadhub-ecommerce/og-image.png",
         "description": "San Patric Foodservice ofrece soluciones de alimentos convenientes premium para restaurantes, hoteles, cafeterías y servicios de catering en México.",
+        "priceRange": "$$",
+        "currenciesAccepted": "MXN",
+        "areaServed": {
+          "@type": "Country",
+          "name": "México"
+        },
         "contactPoint": {
           "@type": "ContactPoint",
-          "contactType": "customer service",
+          "contactType": "sales",
           "availableLanguage": ["Spanish", "English"]
         }
       }
@@ -74,6 +83,18 @@
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="background:#fff;color:#0f172a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:720px;margin:60px auto;padding:40px 24px;text-align:center;border:1px solid #e2e8f0;border-radius:12px">
+        <h1 style="font-size:2rem;margin-bottom:12px">San Patric Foodservice</h1>
+        <p style="font-size:1.1rem;color:#475569;line-height:1.6;margin-bottom:20px">
+          Distribuidor de alimentos convenientes premium para la industria foodservice en México.
+          Más de 200 productos, 35 proveedores y cobertura nacional.
+        </p>
+        <p style="font-size:0.95rem;color:#64748b">
+          Para ver nuestro catálogo completo y solicitar cotización, necesitas activar JavaScript en tu navegador.
+        </p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

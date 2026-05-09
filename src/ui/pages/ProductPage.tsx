@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { Footer } from "../components/layout/Footer";
@@ -26,6 +27,46 @@ export function ProductPage() {
 
   useDocumentTitle(
     product ? `${product.name} — San Patric Foodservice` : "Producto no encontrado — San Patric Foodservice",
+  );
+
+  useJsonLd(
+    product
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.name,
+          description: product.description,
+          sku: product.sku,
+          image: product.imageUrl,
+          brand: product.brand ? { "@type": "Brand", name: product.brand } : undefined,
+          category: product.category,
+          offers: {
+            "@type": "Offer",
+            availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            price: product.price,
+            priceCurrency: "MXN",
+            eligibleQuantity: {
+              "@type": "QuantitativeValue",
+              minValue: product.minOrderQty,
+              unitText: product.inventoryUnit,
+            },
+          },
+        }
+      : null,
+  );
+
+  useJsonLd(
+    product
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: `${import.meta.env.BASE_URL || "/"}` },
+            { "@type": "ListItem", position: 2, name: "Productos", item: `${import.meta.env.BASE_URL || "/"}productos` },
+            { "@type": "ListItem", position: 3, name: product.name },
+          ],
+        }
+      : null,
   );
 
   if (!product && loading) {

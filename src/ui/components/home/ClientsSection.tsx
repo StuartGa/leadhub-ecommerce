@@ -1,5 +1,20 @@
-import { LOGO_PLACEHOLDER } from "../../../application/constants/assets";
 import { clientService } from "../../../application/services/clientService";
+
+const AVATAR_COLORS = [
+  "bg-brand-500",
+  "bg-brand-700",
+  "bg-slate-700",
+  "bg-brand-600",
+  "bg-slate-800",
+  "bg-brand-800",
+];
+
+function initial(name: string): string {
+  const words = name.split(" ");
+  return words.length > 1
+    ? words[0][0] + words[words.length - 1][0]
+    : name.slice(0, 2).toUpperCase();
+}
 
 export function ClientsSection() {
   const clients = clientService.getAll();
@@ -21,26 +36,18 @@ export function ClientsSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-          {clients.map((client) => (
+          {clients.map((client, index) => (
             <div
               key={client.id}
-              className="flex flex-col items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md"
+              className="flex flex-col items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-brand-300"
             >
-              <div className="mb-3 flex h-14 w-full items-center justify-center">
-                <img
-                  src={client.logoUrl}
-                  alt={client.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-10 w-auto object-contain"
-                  onError={(event) => {
-                    const img = event.currentTarget;
-                    if (img.src.includes(LOGO_PLACEHOLDER)) return;
-                    img.src = LOGO_PLACEHOLDER;
-                  }}
-                />
+              <div
+                className={`mb-3 flex h-16 w-16 items-center justify-center rounded-full ${AVATAR_COLORS[index % AVATAR_COLORS.length]} text-lg font-bold text-white shadow-md`}
+                aria-hidden="true"
+              >
+                {initial(client.name)}
               </div>
-              <p className="text-center font-sans text-xs font-medium text-slate-600">
+              <p className="text-center font-sans text-xs font-medium text-slate-600 leading-tight">
                 {client.name}
               </p>
             </div>

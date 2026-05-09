@@ -1,5 +1,6 @@
 import type { Brand } from "../../domain/types/brand";
 import { buildSanityImageUrl, getSanityClient } from "./sanityClient";
+import { brands as localBrands } from "../data/brands";
 
 interface SanityBrand {
   _id: string;
@@ -19,6 +20,8 @@ const BRAND_QUERY = `*[_type == "brand" && isActive == true] | order(name asc) {
   featured
 }`;
 
+const localLogoMap = new Map(localBrands.map((b) => [b.name, b.logoUrl]));
+
 export async function fetchCmsBrands(): Promise<Brand[]> {
   const client = getSanityClient();
   if (!client) {
@@ -29,7 +32,9 @@ export async function fetchCmsBrands(): Promise<Brand[]> {
   return docs.map((doc) => ({
     id: doc.slug?.current ?? doc._id,
     name: doc.name,
-    logoUrl: doc.logo ? buildSanityImageUrl(doc.logo) : "/images/logo-placeholder.webp",
+    logoUrl: doc.logo
+      ? buildSanityImageUrl(doc.logo)
+      : (localLogoMap.get(doc.name) ?? "/images/logo-placeholder.webp"),
     featured: doc.featured ?? false,
   }));
 }

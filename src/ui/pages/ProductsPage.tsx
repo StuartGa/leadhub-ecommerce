@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
+import { slugify } from "../../application/utils/slugify";
 import type { Product, Temperature, Seasonality } from "../../domain/types/product";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
@@ -25,6 +26,7 @@ export function ProductsPage() {
   const selectedCategory = searchParams.get("category") ?? "all";
   const selectedTemperature = searchParams.get("temperature") ?? "all";
   const selectedSeasonality = searchParams.get("seasonality") ?? "all";
+  const selectedBrand = searchParams.get("marca") ?? "all";
   const searchQuery = searchParams.get("q") ?? "";
 
   const categoryOptions = useMemo(() => {
@@ -52,6 +54,13 @@ export function ProductsPage() {
         }
       }
 
+      // Filtro por marca
+      if (selectedBrand !== "all") {
+        if (!product.brand || slugify(product.brand) !== selectedBrand) {
+          return false;
+        }
+      }
+
       // Filtro por búsqueda de texto
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
@@ -66,7 +75,7 @@ export function ProductsPage() {
 
       return true;
     });
-  }, [products, selectedCategory, selectedTemperature, selectedSeasonality, searchQuery]);
+  }, [products, selectedCategory, selectedTemperature, selectedSeasonality, selectedBrand, searchQuery]);
 
   const updateParam = (key: string, value: string) => {
     const next = new URLSearchParams(searchParams);
@@ -91,6 +100,7 @@ export function ProductsPage() {
     selectedCategory !== "all" || 
     selectedTemperature !== "all" || 
     selectedSeasonality !== "all" || 
+    selectedBrand !== "all" ||
     searchQuery.trim() !== "";
 
   return (

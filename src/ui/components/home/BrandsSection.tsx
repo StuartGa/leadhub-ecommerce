@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useBrands } from "../../../application/hooks/useBrands";
+import { slugify } from "../../../application/utils/slugify";
 
 export function BrandsSection() {
   const { brands } = useBrands();
@@ -18,11 +19,11 @@ export function BrandsSection() {
           </p>
         </div>
 
-        {/* Grid de marcas destacadas */}
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 md:gap-8">
           {featuredBrands.map((brand) => (
-            <div
+            <Link
               key={brand.id}
+              to={`/productos?marca=${encodeURIComponent(slugify(brand.name))}`}
               className="group flex aspect-square items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500"
             >
               <div className="text-center">
@@ -42,7 +43,7 @@ export function BrandsSection() {
                 </div>
                 <div className="text-xs font-medium text-slate-600">{brand.name}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

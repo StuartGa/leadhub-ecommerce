@@ -143,9 +143,10 @@ export function BrandsPage() {
 
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {filteredBrands.map((brand) => (
-                <div
+                <Link
                   id={`brand-${brand.id}`}
                   key={brand.id}
+                  to={`/productos?marca=${encodeURIComponent(slugify(brand.name))}`}
                   className={`group flex aspect-square items-center justify-center rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500 ${highlightedBrandId === brand.id ? "border-brand-500 ring-2 ring-brand-200" : "border-slate-200"}`}
                 >
                   <div className="text-center">
@@ -165,7 +166,7 @@ export function BrandsPage() {
                     </div>
                     <div className="text-xs font-medium text-slate-600">{brand.name}</div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 

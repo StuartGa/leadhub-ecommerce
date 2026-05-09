@@ -70,7 +70,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="/#catalog"
+                    to="/productos"
                     className="transition-colors hover:text-brand-500"
                   >
                     Productos
@@ -86,7 +86,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="/#coverage"
+                    to="/cobertura"
                     className="transition-colors hover:text-brand-500"
                   >
                     Cobertura

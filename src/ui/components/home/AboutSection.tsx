@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function AboutSection() {
   return (
     <section
@@ -37,9 +39,12 @@ export function AboutSection() {
             , brindando soluciones integrales a la industria de alimentos y
             retail en México.
           </p>
-          <button className="rounded bg-brand-500 px-8 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-brand-900">
+          <Link
+            to="/quienes-somos"
+            className="inline-block rounded bg-brand-500 px-8 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-brand-900"
+          >
             Conoce más sobre nosotros
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 gap-4">

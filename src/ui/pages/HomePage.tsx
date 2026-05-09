@@ -3,11 +3,8 @@ import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { HeroSection } from "../components/home/HeroSection";
 import { AboutSection } from "../components/home/AboutSection";
-import { StatsSection } from "../components/home/StatsSection";
 import { TemperatureSection } from "../components/home/TemperatureSection";
 import { BrandsSection } from "../components/home/BrandsSection";
-import { ClientsSection } from "../components/home/ClientsSection";
-import { CoverageSection } from "../components/home/CoverageSection";
 
 export function HomePage() {
   useDocumentTitle(
@@ -22,11 +19,8 @@ export function HomePage() {
       <main className="flex-1">
         <HeroSection />
         <AboutSection />
-        <StatsSection />
         <TemperatureSection />
         <BrandsSection />
-        <ClientsSection />
-        <CoverageSection />
       </main>
 
       <Footer />

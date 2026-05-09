@@ -28,13 +28,13 @@ export function BrandsSection() {
               className="group flex aspect-square items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500"
             >
               <div className="text-center">
-                <div className="mb-2 flex h-12 w-24 items-center justify-center">
+                <div className="mb-2 flex h-16 w-full items-center justify-center">
                   <img
                     src={brand.logoUrl}
                     alt={brand.name}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-12 w-auto object-contain"
+                    className="max-h-14 w-auto object-contain"
                     onError={(event) => {
                       const img = event.currentTarget;
                       if (img.src.includes(LOGO_PLACEHOLDER)) return;
@@ -42,7 +42,7 @@ export function BrandsSection() {
                     }}
                   />
                 </div>
-                <div className="text-xs font-medium text-slate-600">{brand.name}</div>
+                <div className="text-sm font-medium text-slate-600">{brand.name}</div>
               </div>
             </Link>
           ))}

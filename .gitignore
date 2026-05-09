@@ -33,3 +33,4 @@ dist-ssr
 .claude/
 skills-lock.json
 opencode.json
+scripts/catalog.json

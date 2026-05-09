@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
+const logoSrc = `${import.meta.env.BASE_URL}logo.svg`;
+
 import { useQuoteCart } from "../../../application/hooks/useQuoteCart";
 import {
   getTopMatch,
@@ -137,7 +140,7 @@ export function Header() {
         <div className="flex h-full items-center gap-4 py-2">
           <NavLink to="/" className="flex h-full items-center">
             <img
-              src="/logo.svg"
+              src={logoSrc}
               alt="San Patric Foodservice"
               className="h-12 w-auto"
             />

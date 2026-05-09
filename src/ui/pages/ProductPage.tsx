@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import { PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
@@ -23,7 +24,7 @@ export function ProductPage() {
 
   const activeImage = product ? activeImageByProduct[product.id] ?? 0 : 0;
   const quantity = product ? quantityByProduct[product.id] ?? product.minOrderQty : 1;
-  const gallery = product?.gallery.length ? product.gallery : [product?.imageUrl ?? "/images/product-placeholder.webp"];
+  const gallery = product?.gallery.length ? product.gallery : [product?.imageUrl ?? PRODUCT_PLACEHOLDER];
 
   useDocumentTitle(
     product ? `${product.name} — San Patric Foodservice` : "Producto no encontrado — San Patric Foodservice",
@@ -141,8 +142,8 @@ export function ProductPage() {
                   decoding="async"
                   onError={(event) => {
                     const img = event.currentTarget;
-                    if (img.src.includes("/images/product-placeholder.webp")) return;
-                    img.src = "/images/product-placeholder.webp";
+                    if (img.src.includes(PRODUCT_PLACEHOLDER)) return;
+                    img.src = PRODUCT_PLACEHOLDER;
                   }}
                 />
               </div>

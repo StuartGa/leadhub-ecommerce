@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PRODUCT_PLACEHOLDER } from "../../../application/constants/assets";
 import type { Product } from "../../../domain/types/product";
 
 interface ProductCardProps {
@@ -36,7 +37,7 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
             decoding="async"
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-            onError={() => setImageSrc("/images/product-placeholder.webp")}
+            onError={() => setImageSrc(PRODUCT_PLACEHOLDER)}
           />
         </Link>
       </div>

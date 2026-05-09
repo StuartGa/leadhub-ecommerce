@@ -2,6 +2,7 @@ import { useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link, useSearchParams } from "react-router-dom";
 import { useBrands } from "../../application/hooks/useBrands";
+import { LOGO_PLACEHOLDER, PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useProducts } from "../../application/hooks/useProducts";
 import { slugify } from "../../application/utils/slugify";
@@ -159,8 +160,8 @@ export function BrandsPage() {
                         className="max-h-12 w-auto object-contain"
                         onError={(event) => {
                           const img = event.currentTarget;
-                          if (img.src.includes("/images/logo-placeholder.webp")) return;
-                          img.src = "/images/logo-placeholder.webp";
+                          if (img.src.includes(LOGO_PLACEHOLDER)) return;
+                          img.src = LOGO_PLACEHOLDER;
                         }}
                       />
                     </div>
@@ -205,8 +206,8 @@ export function BrandsPage() {
                     className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(event) => {
                       const img = event.currentTarget;
-                      if (img.src.includes("/images/product-placeholder.webp")) return;
-                      img.src = "/images/product-placeholder.webp";
+                      if (img.src.includes(PRODUCT_PLACEHOLDER)) return;
+                      img.src = PRODUCT_PLACEHOLDER;
                     }}
                   />
 

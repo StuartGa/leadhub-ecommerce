@@ -1,4 +1,5 @@
 import type { Product, Seasonality, Temperature } from "../../domain/types/product";
+import { PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
 import { buildSanityImageUrl, getSanityClient } from "./sanityClient";
 
 interface SanityProduct {
@@ -66,7 +67,7 @@ function mapSanityProduct(doc: SanityProduct): Product {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-  const imageUrl = doc.mainImage ? buildSanityImageUrl(doc.mainImage) : "/images/product-placeholder.webp";
+  const imageUrl = doc.mainImage ? buildSanityImageUrl(doc.mainImage) : PRODUCT_PLACEHOLDER;
   const gallery = (doc.gallery ?? []).map((entry) => buildSanityImageUrl(entry));
 
   return {

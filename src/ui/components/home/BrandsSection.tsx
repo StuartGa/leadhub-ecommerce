@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { LOGO_PLACEHOLDER } from "../../../application/constants/assets";
 import { useBrands } from "../../../application/hooks/useBrands";
 import { slugify } from "../../../application/utils/slugify";
 
@@ -36,8 +37,8 @@ export function BrandsSection() {
                     className="max-h-12 w-auto object-contain"
                     onError={(event) => {
                       const img = event.currentTarget;
-                      if (img.src.includes("/images/logo-placeholder.webp")) return;
-                      img.src = "/images/logo-placeholder.webp";
+                      if (img.src.includes(LOGO_PLACEHOLDER)) return;
+                      img.src = LOGO_PLACEHOLDER;
                     }}
                   />
                 </div>

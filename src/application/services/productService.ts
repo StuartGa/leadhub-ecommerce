@@ -4,6 +4,9 @@ import type { Product } from "../../domain/types/product";
 import { fetchCmsProducts } from "../../infrastructure/cms/cmsProductRepository";
 import productsData from "../../infrastructure/data/products.json";
 
+const BASE = import.meta.env.BASE_URL;
+const PRODUCT_PLACEHOLDER = `${BASE}images/product-placeholder.webp`;
+
 let cachedProducts: Product[] | null = null;
 let inFlightLoad: Promise<Product[]> | null = null;
 
@@ -22,7 +25,7 @@ function sanitizeProduct(product: Product): Product {
 }
 
 function normalizeLocalProduct(product: Record<string, unknown>): Product {
-  const imageUrl = typeof product.imageUrl === "string" ? product.imageUrl : "/images/product-placeholder.webp";
+  const imageUrl = typeof product.imageUrl === "string" ? product.imageUrl : PRODUCT_PLACEHOLDER;
   const name = typeof product.name === "string" ? product.name : "Producto";
   const id = typeof product.id === "string" ? product.id : crypto.randomUUID();
   const slug = name

@@ -1,4 +1,5 @@
 import type { Brand } from "../../domain/types/brand";
+import { LOGO_PLACEHOLDER } from "../../application/constants/assets";
 import { buildSanityImageUrl, getSanityClient } from "./sanityClient";
 import { brands as localBrands } from "../data/brands";
 
@@ -34,7 +35,7 @@ export async function fetchCmsBrands(): Promise<Brand[]> {
     name: doc.name,
     logoUrl: doc.logo
       ? buildSanityImageUrl(doc.logo)
-      : (localLogoMap.get(doc.name) ?? "/images/logo-placeholder.webp"),
+      : (localLogoMap.get(doc.name) ?? LOGO_PLACEHOLDER),
     featured: doc.featured ?? false,
   }));
 }

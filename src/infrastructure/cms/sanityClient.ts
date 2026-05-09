@@ -1,5 +1,6 @@
 import { createClient, type SanityClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
 
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
 const dataset = import.meta.env.VITE_SANITY_DATASET;
@@ -29,7 +30,7 @@ export function getSanityClient(): SanityClient | null {
 export function buildSanityImageUrl(source: unknown): string {
   const sanityClient = getSanityClient();
   if (!sanityClient || !source) {
-    return "/images/product-placeholder.webp";
+    return PRODUCT_PLACEHOLDER;
   }
 
   return imageUrlBuilder(sanityClient).image(source).auto("format").fit("max").url();

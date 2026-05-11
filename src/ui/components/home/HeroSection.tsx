@@ -4,14 +4,13 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-white/20 bg-slate-900">
       <div className="relative min-h-[640px]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        {/* Imagen de fondo como fallback principal */}
+        <img
+          alt="Ingredientes frescos para foodservice"
+          src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1800&q=72&fm=webp"
           className="absolute inset-0 h-full w-full object-cover"
-          poster="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1800&q=72&fm=webp"
-          src="https://cdn.pixabay.com/video/2022/10/31/137428-767099819_large.mp4"
+          loading="eager"
+          decoding="async"
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/82 via-slate-900/52 to-slate-900/8" />

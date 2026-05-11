@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 
+const BASE = import.meta.env.BASE_URL || '/';
+
 const banners = [
   {
     id: 1,
-    image: "/assets/images/banners/banner-1.webp",
+    image: `${BASE}assets/images/banners/banner-1.webp`,
     alt: "Alimentos Convenientes - Servicio de distribución",
   },
   {
     id: 2,
-    image: "/assets/images/banners/banner-2.webp",
+    image: `${BASE}assets/images/banners/banner-2.webp`,
     alt: "Alimentos Convenientes - Logística especializada",
   },
 ];

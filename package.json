@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "logos:download": "node scripts/download-brand-logos.mjs"
+    "logos:download": "node scripts/download-brand-logos.mjs",
+    "products:analyze": "node scripts/analyze-product-images.mjs",
+    "products:upload": "node scripts/upload-product-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

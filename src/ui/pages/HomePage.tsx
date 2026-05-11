@@ -4,7 +4,7 @@ import { Header } from "../components/layout/Header";
 import { HeroSection } from "../components/home/HeroSection";
 import { AboutSection } from "../components/home/AboutSection";
 import { TemperatureSection } from "../components/home/TemperatureSection";
-import { BrandsSection } from "../components/home/BrandsSection";
+import { BrandCarousel } from "../components/home/BrandCarousel";
 
 export function HomePage() {
   useDocumentTitle(
@@ -20,7 +20,7 @@ export function HomePage() {
         <HeroSection />
         <AboutSection />
         <TemperatureSection />
-        <BrandsSection />
+        <BrandCarousel />
       </main>
 
       <Footer />

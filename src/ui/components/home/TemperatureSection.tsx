@@ -1,18 +1,23 @@
 export function TemperatureSection() {
   return (
-    <section className="border-b border-slate-200/20 bg-white/70 py-12 backdrop-blur-sm">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <div className="mb-6 text-center">
-          <p className="font-sans text-lg font-light text-slate-600">
-            Contamos con <strong className="text-slate-900">distribución</strong>{" "}
-            y <strong className="text-slate-900">almacenamiento</strong> en las{" "}
-            <strong className="text-slate-900">3 TEMPERATURAS</strong>
+    <section className="border-b border-slate-200/20 bg-gradient-to-b from-slate-50 to-white py-24 backdrop-blur-sm">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
+            Distribución en las <span className="font-normal">3 Temperaturas</span>
+          </h2>
+          <p className="mx-auto max-w-3xl font-sans text-lg font-light leading-relaxed text-slate-600">
+            Contamos con <strong className="text-slate-900">distribución especializada</strong>{" "}
+            y <strong className="text-slate-900">almacenamiento controlado</strong> en las{" "}
+            tres temperaturas para garantizar la calidad de tus productos.
           </p>
         </div>
-          <div className="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-24">
-            {/* Seco */}
-            <div className="flex items-center gap-3 text-brand-600">
-              <svg className="h-10 w-10" viewBox="0 0 48 48" fill="none">
+        
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Seco */}
+          <div className="group rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-brand-500 hover:shadow-lg">
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50 text-amber-600 transition-colors group-hover:bg-amber-100">
+              <svg className="h-12 w-12" viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="24" r="10" fill="currentColor" opacity="0.15" />
                 <circle cx="24" cy="24" r="5" fill="currentColor" />
                 {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
@@ -24,14 +29,20 @@ export function TemperatureSection() {
                   return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />;
                 })}
               </svg>
-              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
-                SECO
-              </span>
             </div>
+            <h3 className="mb-3 font-sans text-2xl font-bold uppercase tracking-wide text-slate-900">
+              Seco
+            </h3>
+            <p className="font-sans text-base leading-relaxed text-slate-600">
+              Almacenamiento a temperatura ambiente con control de humedad para productos no perecederos, 
+              conservas, abarrotes y alimentos de larga vida útil.
+            </p>
+          </div>
 
-            {/* Refrigerado */}
-            <div className="flex items-center gap-3 text-brand-600">
-              <svg className="h-10 w-10" viewBox="0 0 48 48" fill="none">
+          {/* Refrigerado */}
+          <div className="group rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-brand-500 hover:shadow-lg">
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-100">
+              <svg className="h-12 w-12" viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" strokeWidth="2.5" />
                 <path d="M24 10v6m0 16v6M12 20h6m12 0h6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 {[{ cx: 15, cy: 15 }, { cx: 33, cy: 15 }, { cx: 33, cy: 33 }, { cx: 15, cy: 33 }].map((p, i) => (
@@ -39,14 +50,20 @@ export function TemperatureSection() {
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 ))}
               </svg>
-              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
-                REFRIGERADO
-              </span>
             </div>
+            <h3 className="mb-3 font-sans text-2xl font-bold uppercase tracking-wide text-slate-900">
+              Refrigerado
+            </h3>
+            <p className="font-sans text-base leading-relaxed text-slate-600">
+              Cadena de frío controlada entre 0°C y 8°C para lácteos, carnes frescas, 
+              frutas, verduras y productos que requieren refrigeración constante.
+            </p>
+          </div>
 
-            {/* Congelado */}
-            <div className="flex items-center gap-3 text-brand-600">
-              <svg className="h-10 w-10" viewBox="0 0 48 48" fill="none">
+          {/* Congelado */}
+          <div className="group rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-brand-500 hover:shadow-lg">
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-cyan-50 text-cyan-600 transition-colors group-hover:bg-cyan-100">
+              <svg className="h-12 w-12" viewBox="0 0 48 48" fill="none">
                 <path
                   d="M24 4L24 44M8 14L40 34M8 34L40 14M14 8L34 40M34 8L14 40"
                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.6"
@@ -56,11 +73,38 @@ export function TemperatureSection() {
                   fill="currentColor" opacity="0.85"
                 />
               </svg>
-              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-slate-900">
-                CONGELADO
-              </span>
+            </div>
+            <h3 className="mb-3 font-sans text-2xl font-bold uppercase tracking-wide text-slate-900">
+              Congelado
+            </h3>
+            <p className="font-sans text-base leading-relaxed text-slate-600">
+              Congelación industrial a -18°C o menos para carnes, pescados, helados, 
+              productos procesados y alimentos que requieren ultra-congelación.
+            </p>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="text-center">
+            <div className="mb-2 font-sans text-4xl font-bold text-brand-600">98%</div>
+            <div className="font-sans text-sm font-semibold uppercase tracking-wide text-slate-600">
+              Efectividad de entregas
             </div>
           </div>
+          <div className="text-center">
+            <div className="mb-2 font-sans text-4xl font-bold text-brand-600">24-48h</div>
+            <div className="font-sans text-sm font-semibold uppercase tracking-wide text-slate-600">
+              Tiempo de entrega
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="mb-2 font-sans text-4xl font-bold text-brand-600">100%</div>
+            <div className="font-sans text-sm font-semibold uppercase tracking-wide text-slate-600">
+              Trazabilidad garantizada
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

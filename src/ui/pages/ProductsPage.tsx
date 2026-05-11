@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useProducts } from "../../application/hooks/useProducts";
@@ -87,10 +87,10 @@ export function ProductsPage() {
     setSearchParams(next, { replace: true });
   };
 
-  const handleInquire = (product: Product) => {
+  const handleInquire = useCallback((product: Product) => {
     addItem({ product });
     navigate("/contact");
-  };
+  }, [addItem, navigate]);
 
   const resetFilters = () => {
     setSearchParams({}, { replace: true });

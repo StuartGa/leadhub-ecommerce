@@ -17,7 +17,7 @@ export function BrandCarousel() {
   useEffect(() => {
     const scroll1 = scrollRef1.current;
     const scroll2 = scrollRef2.current;
-    if (!scroll1 || !scroll2) return;
+    if (!scroll1 || !scroll2 || brands.length === 0) return;
 
     let animationId1: number;
     let animationId2: number;
@@ -49,7 +49,7 @@ export function BrandCarousel() {
       cancelAnimationFrame(animationId1);
       cancelAnimationFrame(animationId2);
     };
-  }, []);
+  }, [brands.length]); // ✅ Agregar brands.length como dependencia
 
   const renderBrandLogo = (brand: typeof brands[0], index: number) => (
     <Link
@@ -93,10 +93,9 @@ export function BrandCarousel() {
           className="flex gap-6"
           style={{ willChange: "transform" }}
         >
-          {/* Duplicamos las marcas para crear el efecto infinito */}
+          {/* Duplicamos las marcas para crear el efecto infinito (2x es suficiente) */}
           {brandsRow1.map((brand, index) => renderBrandLogo(brand, index))}
           {brandsRow1.map((brand, index) => renderBrandLogo(brand, index + brandsRow1.length))}
-          {brandsRow1.map((brand, index) => renderBrandLogo(brand, index + brandsRow1.length * 2))}
         </div>
       </div>
 
@@ -107,10 +106,9 @@ export function BrandCarousel() {
           className="flex gap-6"
           style={{ willChange: "transform" }}
         >
-          {/* Duplicamos las marcas para crear el efecto infinito */}
+          {/* Duplicamos las marcas para crear el efecto infinito (2x es suficiente) */}
           {brandsRow2.map((brand, index) => renderBrandLogo(brand, index))}
           {brandsRow2.map((brand, index) => renderBrandLogo(brand, index + brandsRow2.length))}
-          {brandsRow2.map((brand, index) => renderBrandLogo(brand, index + brandsRow2.length * 2))}
         </div>
       </div>
 

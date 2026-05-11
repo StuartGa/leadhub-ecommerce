@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { PRODUCT_PLACEHOLDER } from "../../../application/constants/assets";
 import type { Product } from "../../../domain/types/product";
@@ -15,7 +15,7 @@ function formatPrice(price?: number): string | null {
   return `$${price.toLocaleString("es-MX")} MXN`;
 }
 
-export function ProductCard({ product, index, onInquire }: ProductCardProps) {
+export const ProductCard = memo(function ProductCard({ product, index, onInquire }: ProductCardProps) {
   const [imageSrc, setImageSrc] = useState(product.imageUrl);
 
   const priceLabel = formatPrice(product.price);
@@ -104,4 +104,4 @@ export function ProductCard({ product, index, onInquire }: ProductCardProps) {
       </div>
     </motion.article>
   );
-}
+});

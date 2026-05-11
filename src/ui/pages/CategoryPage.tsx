@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
@@ -48,10 +48,10 @@ export function CategoryPage() {
       : null,
   );
 
-  const handleInquire = (product: Product) => {
+  const handleInquire = useCallback((product: Product) => {
     addItem({ product });
     navigate("/contact");
-  };
+  }, [addItem, navigate]);
 
   if (loading) {
     return (

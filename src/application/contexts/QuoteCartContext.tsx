@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 
 import type { QuoteCartItem } from "../../domain/types/quoteCart";
@@ -47,7 +47,7 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem("leadhub.quote.cart.v1", JSON.stringify(items));
   }, [items]);
 
-  const addItem = ({ product, quantity, notes }: AddToCartInput) => {
+  const addItem = useCallback(({ product, quantity, notes }: AddToCartInput) => {
     if (!product.inStock) return;
 
     setItems((prev) => {
@@ -84,13 +84,13 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
         },
       ];
     });
-  };
+  }, []);
 
-  const removeItem = (productId: string) => {
+  const removeItem = useCallback((productId: string) => {
     setItems((prev) => prev.filter((item) => item.productId !== productId));
-  };
+  }, []);
 
-  const updateQuantity = (productId: string, quantity: number) => {
+  const updateQuantity = useCallback((productId: string, quantity: number) => {
     setItems((prev) =>
       prev.map((item) => {
         if (item.productId !== productId) return item;
@@ -100,15 +100,15 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
         };
       }),
     );
-  };
+  }, []);
 
-  const updateNotes = (productId: string, notes: string) => {
+  const updateNotes = useCallback((productId: string, notes: string) => {
     setItems((prev) => prev.map((item) => (item.productId === productId ? { ...item, notes } : item)));
-  };
+  }, []);
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setItems([]);
-  };
+  }, []);
 
   const value = useMemo<QuoteCartContextValue>(() => {
     const totalUnits = items.reduce((acc, item) => acc + item.quantity, 0);

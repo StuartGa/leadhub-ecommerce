@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
@@ -6,6 +6,7 @@ import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
+import type { Product } from "../../domain/types/product";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { ProductImageZoom } from "../components/catalog/ProductImageZoom";
@@ -26,6 +27,10 @@ export function ProductPage() {
   const activeImage = product ? activeImageByProduct[product.id] ?? 0 : 0;
   const quantity = product ? quantityByProduct[product.id] ?? product.minOrderQty : 1;
   const gallery = product?.gallery.length ? product.gallery : [product?.imageUrl ?? PRODUCT_PLACEHOLDER];
+
+  const handleInquireRelated = useCallback((p: Product) => {
+    addItem({ product: p, quantity: p.minOrderQty });
+  }, [addItem]);
 
   useDocumentTitle(
     product ? `${product.name} — San Patric Foodservice` : "Producto no encontrado — San Patric Foodservice",
@@ -277,7 +282,7 @@ export function ProductPage() {
         <RelatedProducts
           currentProduct={product}
           allProducts={products}
-          onInquire={(p) => addItem({ product: p, quantity: p.minOrderQty })}
+          onInquire={handleInquireRelated}
         />
       </main>
 

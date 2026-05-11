@@ -47,17 +47,36 @@ export function AboutSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <img
-            alt="Warehouse operations"
-            className="h-48 w-full rounded-lg object-cover shadow-md"
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop"
-          />
-          <img
-            alt="Logistics delivery"
-            className="mt-8 h-48 w-full rounded-lg object-cover shadow-md"
-            src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=400&h=300&fit=crop"
-          />
+        <div className="relative overflow-hidden rounded-xl shadow-2xl">
+          {/* Video con overlay sutil */}
+          <div className="relative aspect-video w-full">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover"
+              poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop"
+            >
+              {/* Video local - reemplazar con la ruta del video real */}
+              <source src="/assets/videos/warehouse-video.mp4" type="video/mp4" />
+              {/* Fallback a video de Pexels si no existe el local */}
+              <source src="https://cdn.pixabay.com/video/2023/10/18/184954-875350932_large.mp4" type="video/mp4" />
+            </video>
+            
+            {/* Overlay gradiente sutil para mejor legibilidad */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+            
+            {/* Badge decorativo */}
+            <div className="absolute bottom-4 right-4 rounded-lg bg-white/90 px-4 py-2 backdrop-blur-sm">
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+                <span className="text-xs font-semibold uppercase tracking-wide text-slate-900">
+                  En Vivo
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { blogService } from "../../application/services/blogService";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
@@ -12,6 +13,18 @@ export function BlogPage() {
     "Blog Foodservice — San Patric Foodservice",
     "Artículos, guías y tendencias del mundo foodservice: cadena de frío, abastecimiento inteligente, productos convenientes y más. Información práctica para restauranteros y profesionales de la industria alimentaria."
   );
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Blog Foodservice — San Patric",
+    description: "Artículos, guías y tendencias del mundo foodservice: cadena de frío, abastecimiento inteligente y productos convenientes.",
+    url: `${import.meta.env.BASE_URL || "/"}blog`,
+    publisher: {
+      "@type": "Organization",
+      name: "San Patric Foodservice",
+    },
+  });
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";

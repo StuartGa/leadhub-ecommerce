@@ -1,11 +1,27 @@
 import { motion } from "framer-motion";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { StatCounter } from "../components/common/StatCounter";
 
 export function AboutPage() {
-  useDocumentTitle("Quiénes Somos — San Patric Foodservice");
+  useDocumentTitle(
+    "Quiénes Somos — San Patric Foodservice",
+    "Distribuidor foodservice 100% mexicano con más de 20 años de experiencia. Ofrecemos logística, acondicionamiento de productos y soluciones 2PL y 3PL en CDMX, Monterrey, Guadalajara y Mérida.",
+  );
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "San Patric Foodservice",
+    url: `${import.meta.env.BASE_URL || "/"}`,
+    description: "Distribuidor foodservice 100% mexicano con más de 20 años de experiencia en logística y acondicionamiento de alimentos.",
+    areaServed: {
+      "@type": "Country",
+      name: "México",
+    },
+  });
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">

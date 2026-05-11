@@ -28,6 +28,9 @@ export function ProductPage() {
 
   useDocumentTitle(
     product ? `${product.name} — San Patric Foodservice` : "Producto no encontrado — San Patric Foodservice",
+    product
+      ? `${product.name}. ${product.description.slice(0, 140)}. Cotiza este alimento foodservice con San Patric.`
+      : "Producto no encontrado en el catálogo de San Patric Foodservice.",
   );
 
   useJsonLd(

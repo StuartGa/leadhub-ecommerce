@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { slugify } from "../../application/utils/slugify";
@@ -33,6 +34,18 @@ export function CategoryPage() {
     categoryName
       ? `Catálogo de ${categoryName} para foodservice. Solicite su cotización personalizada con San Patric Foodservice.`
       : "La categoría solicitada no fue encontrada en el catálogo de San Patric Foodservice.",
+  );
+
+  useJsonLd(
+    categoryName
+      ? {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: `${categoryName} — San Patric Foodservice`,
+          description: `Catálogo de ${categoryName} para foodservice. Productos de calidad premium para restaurantes, hoteles y cafeterías.`,
+          url: `${import.meta.env.BASE_URL || "/"}productos/categoria/${categorySlug}`,
+        }
+      : null,
   );
 
   const handleInquire = (product: Product) => {

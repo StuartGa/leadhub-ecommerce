@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useBrands } from "../../application/hooks/useBrands";
 import { LOGO_PLACEHOLDER, PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
 import { slugify } from "../../application/utils/slugify";
 import { Footer } from "../components/layout/Footer";
@@ -11,7 +12,19 @@ import { Header } from "../components/layout/Header";
 import { StatCounter } from "../components/common/StatCounter";
 
 export function BrandsPage() {
-  useDocumentTitle("Marcas — San Patric Foodservice");
+  useDocumentTitle(
+    "Marcas — San Patric Foodservice",
+    "Más de 35 marcas líderes en la industria alimentaria para foodservice. Explora nuestro catálogo de proveedores con productos en seco, refrigerado y congelado. Calidad premium garantizada.",
+  );
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Marcas Foodservice — San Patric",
+    description: "Más de 35 marcas líderes en la industria alimentaria para foodservice. Productos en seco, refrigerado y congelado.",
+    url: `${import.meta.env.BASE_URL || "/"}marcas`,
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const highlightedBrandId = searchParams.get("brand");
@@ -140,25 +153,20 @@ export function BrandsPage() {
                   id={`brand-${brand.id}`}
                   key={brand.id}
                   to={`/productos?marca=${encodeURIComponent(slugify(brand.name))}`}
-                  className={`group flex aspect-square items-center justify-center rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-brand-500 ${highlightedBrandId === brand.id ? "border-brand-500 ring-2 ring-brand-200" : "border-slate-200"}`}
+                  className={`group flex aspect-square items-center justify-center rounded-lg border bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:border-brand-500 ${highlightedBrandId === brand.id ? "border-brand-500 ring-2 ring-brand-200" : "border-slate-200"}`}
                 >
-                  <div className="text-center">
-                    <div className="mb-4 flex h-28 w-full items-center justify-center p-2">
-                      <img
-                        src={brand.logoUrl}
-                        alt={brand.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="max-h-24 w-auto object-contain"
-                        onError={(event) => {
-                          const img = event.currentTarget;
-                          if (img.src.includes(LOGO_PLACEHOLDER)) return;
-                          img.src = LOGO_PLACEHOLDER;
-                        }}
-                      />
-                    </div>
-                    <div className="text-base font-medium text-slate-700">{brand.name}</div>
-                  </div>
+                  <img
+                    src={brand.logoUrl}
+                    alt={brand.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-contain"
+                    onError={(event) => {
+                      const img = event.currentTarget;
+                      if (img.src.includes(LOGO_PLACEHOLDER)) return;
+                      img.src = LOGO_PLACEHOLDER;
+                    }}
+                  />
                 </Link>
               ))}
             </div>

@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { blogService } from "../../application/services/blogService";
 import type { ContentBlock } from "../../domain/types/blog";
 import { Header } from "../components/layout/Header";
@@ -29,7 +30,30 @@ export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? blogService.getBySlug(slug) : undefined;
 
-  useDocumentTitle(post ? `${post.title} — San Patric Foodservice` : "Artículo no encontrado — San Patric Foodservice");
+  useDocumentTitle(
+    post ? `${post.title} — San Patric Foodservice` : "Artículo no encontrado — San Patric Foodservice",
+    post
+      ? post.excerpt.slice(0, 160)
+      : "El artículo solicitado no fue encontrado en el blog de San Patric Foodservice.",
+  );
+
+  useJsonLd(
+    post
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post.title,
+          description: post.excerpt,
+          author: { "@type": "Person", name: post.author },
+          datePublished: post.publishedAt,
+          image: `${import.meta.env.BASE_URL || "/"}og-image.png`,
+          publisher: {
+            "@type": "Organization",
+            name: "San Patric Foodservice",
+          },
+        }
+      : null,
+  );
 
   if (!post) {
     return (

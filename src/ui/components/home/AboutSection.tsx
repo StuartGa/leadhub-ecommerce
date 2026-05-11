@@ -48,7 +48,6 @@ export function AboutSection() {
         </div>
 
         <div className="relative overflow-hidden rounded-xl shadow-2xl">
-          {/* Video con overlay sutil */}
           <div className="relative aspect-video w-full">
             <video
               autoPlay
@@ -66,16 +65,6 @@ export function AboutSection() {
             
             {/* Overlay gradiente sutil para mejor legibilidad */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
-            
-            {/* Badge decorativo */}
-            <div className="absolute bottom-4 right-4 rounded-lg bg-white/90 px-4 py-2 backdrop-blur-sm">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                  En Vivo
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

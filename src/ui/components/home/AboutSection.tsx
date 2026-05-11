@@ -56,12 +56,8 @@ export function AboutSection() {
               playsInline
               className="h-full w-full object-cover"
               poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop"
-            >
-              {/* Video local - reemplazar con la ruta del video real */}
-              <source src="/assets/videos/warehouse-video.mp4" type="video/mp4" />
-              {/* Fallback a video de Pexels si no existe el local */}
-              <source src="https://cdn.pixabay.com/video/2023/10/18/184954-875350932_large.mp4" type="video/mp4" />
-            </video>
+              src="https://cdn.pixabay.com/video/2023/10/18/184954-875350932_large.mp4"
+            />
             
             {/* Overlay gradiente sutil para mejor legibilidad */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />

@@ -11,12 +11,8 @@ export function HeroSection() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
           poster="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1800&q=72&fm=webp"
-        >
-          {/* Video local - reemplazar con la ruta del video real */}
-          <source src="/assets/videos/hero-video.mp4" type="video/mp4" />
-          {/* Fallback a video de alimentos/foodservice */}
-          <source src="https://cdn.pixabay.com/video/2022/10/31/137428-767099819_large.mp4" type="video/mp4" />
-        </video>
+          src="https://cdn.pixabay.com/video/2022/10/31/137428-767099819_large.mp4"
+        />
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/82 via-slate-900/52 to-slate-900/8" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(177,36,85,0.28),transparent_48%)]" />

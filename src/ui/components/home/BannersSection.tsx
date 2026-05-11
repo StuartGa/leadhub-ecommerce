@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 
-const BASE = import.meta.env.BASE_URL || '/';
-
 const banners = [
   {
     id: 1,
-    image: `${BASE}assets/images/banners/banner-1.webp`,
+    image: `${import.meta.env.BASE_URL}assets/images/banners/banner-1.webp`,
     alt: "Alimentos Convenientes - Servicio de distribución",
   },
   {
     id: 2,
-    image: `${BASE}assets/images/banners/banner-2.webp`,
+    image: `${import.meta.env.BASE_URL}assets/images/banners/banner-2.webp`,
     alt: "Alimentos Convenientes - Logística especializada",
   },
 ];
@@ -28,16 +26,6 @@ export function BannersSection() {
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
-  };
-
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? banners.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
   };
 
   return (
@@ -62,48 +50,6 @@ export function BannersSection() {
                 </div>
               ))}
             </div>
-
-            {/* Botón Anterior */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg transition-all duration-200 hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-500"
-              aria-label="Banner anterior"
-            >
-              <svg
-                className="h-6 w-6 text-slate-900"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-
-            {/* Botón Siguiente */}
-            <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg transition-all duration-200 hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-500"
-              aria-label="Banner siguiente"
-            >
-              <svg
-                className="h-6 w-6 text-slate-900"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
 
             {/* Indicadores */}
             <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3">

@@ -8,6 +8,8 @@ import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { ProductImageZoom } from "../components/catalog/ProductImageZoom";
+import { RelatedProducts } from "../components/catalog/RelatedProducts";
 
 export function ProductPage() {
   const { productId } = useParams();
@@ -15,7 +17,6 @@ export function ProductPage() {
   const { addItem } = useQuoteCart();
   const [activeImageByProduct, setActiveImageByProduct] = useState<Record<string, number>>({});
   const [quantityByProduct, setQuantityByProduct] = useState<Record<string, number>>({});
-  const [zoomOpen, setZoomOpen] = useState(false);
 
   const product = useMemo(
     () => products.find((entry) => entry.id === productId || entry.slug === productId),
@@ -129,27 +130,15 @@ export function ProductPage() {
 
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
-              <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-                <button
-                  type="button"
-                  onClick={() => setZoomOpen(true)}
-                  className="absolute right-3 top-3 z-10 rounded-md bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-white"
-                >
-                  Zoom
-                </button>
-                <img
-                  src={gallery[activeImage]}
-                  alt={product.name}
-                  className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
-                  loading="eager"
-                  decoding="async"
-                  onError={(event) => {
-                    const img = event.currentTarget;
-                    if (img.src.includes(PRODUCT_PLACEHOLDER)) return;
-                    img.src = PRODUCT_PLACEHOLDER;
-                  }}
-                />
-              </div>
+              <ProductImageZoom
+                src={gallery[activeImage]}
+                alt={product.name}
+                onError={() => {
+                  // Fallback to placeholder on error
+                  const newGallery = [...gallery];
+                  newGallery[activeImage] = PRODUCT_PLACEHOLDER;
+                }}
+              />
 
               {gallery.length > 1 && (
                 <div className="mt-3 grid grid-cols-4 gap-3">
@@ -283,30 +272,14 @@ export function ProductPage() {
             </div>
           </div>
         </section>
-      </main>
 
-      {zoomOpen && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="relative w-full max-w-5xl">
-            <button
-              type="button"
-              onClick={() => setZoomOpen(false)}
-              className="absolute right-3 top-3 rounded-md bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700"
-            >
-              Cerrar
-            </button>
-            <img
-              src={gallery[activeImage]}
-              alt={product.name}
-              className="max-h-[80vh] w-full rounded-xl object-contain"
-            />
-          </div>
-        </div>
-      )}
+        {/* Productos Relacionados */}
+        <RelatedProducts
+          currentProduct={product}
+          allProducts={products}
+          onInquire={(p) => addItem({ product: p, quantity: p.minOrderQty })}
+        />
+      </main>
 
       <Footer />
     </div>

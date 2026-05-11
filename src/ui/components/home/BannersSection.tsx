@@ -50,27 +50,22 @@ export function BannersSection() {
                 </div>
               ))}
             </div>
-
-            {/* Indicadores */}
-            <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3">
-              {banners.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-10 bg-brand-500"
-                      : "w-2.5 bg-white/60 hover:bg-white/90"
-                  }`}
-                  aria-label={`Ir al banner ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
 
-          {/* Contador de slides */}
-          <div className="mt-4 text-center text-sm text-slate-500">
-            {currentIndex + 1} / {banners.length}
+          {/* Indicadores */}
+          <div className="mt-6 flex justify-center gap-3">
+            {banners.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "w-10 bg-brand-500"
+                    : "w-2.5 bg-slate-400 hover:bg-brand-400"
+                }`}
+                aria-label={`Ir al banner ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

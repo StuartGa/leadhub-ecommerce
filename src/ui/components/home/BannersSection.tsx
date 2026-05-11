@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 const banners = [
   {
     id: 1,
-    image: "/assets/images/banners/banner-1.jpg",
+    image: "/assets/images/banners/banner-1.webp",
     alt: "Alimentos Convenientes - Servicio de distribución",
   },
   {
     id: 2,
-    image: "/assets/images/banners/banner-2.jpg",
+    image: "/assets/images/banners/banner-2.webp",
     alt: "Alimentos Convenientes - Logística especializada",
   },
 ];

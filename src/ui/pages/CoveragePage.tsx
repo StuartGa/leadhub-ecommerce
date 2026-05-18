@@ -104,59 +104,6 @@ export function CoveragePage() {
         />
         <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            {/* Mapa simplificado de México con regiones */}
-            <div className="mx-auto mb-12 max-w-2xl">
-              <svg viewBox="0 0 400 280" className="w-full" role="img" aria-label="Mapa de cobertura en México">
-                {/* Territorio base */}
-                <path
-                  d="M50,80 L60,60 L80,50 L100,45 L120,40 L155,30 L180,28 L200,30 L220,28 L250,25 L270,30 L290,35 L310,50 L330,60 L350,70 L355,85 L360,110 L355,130 L345,145 L330,155 L310,160 L290,165 L270,170 L250,175 L230,180 L210,185 L190,190 L170,195 L155,195 L140,190 L125,180 L110,170 L95,160 L80,155 L65,145 L55,130 L45,110 L40,95 Z"
-                  fill="#f1f5f9"
-                  stroke="#cbd5e1"
-                  strokeWidth="1.5"
-                />
-                {/* Zona Norte */}
-                <path
-                  d="M120,40 L155,30 L180,28 L200,30 L220,28 L250,25 L270,30 L290,35 L310,50 L300,70 L280,75 L260,78 L240,80 L220,80 L200,78 L180,80 L160,82 L140,85 L120,45 Z"
-                  fill="#475569"
-                  fillOpacity="0.3"
-                  stroke="#475569"
-                  strokeWidth="1"
-                />
-                {/* Zona Occidente */}
-                <path
-                  d="M100,80 L120,85 L140,90 L150,110 L145,130 L140,145 L125,155 L110,158 L95,150 L85,140 L80,120 L85,100 Z"
-                  fill="#d97706"
-                  fillOpacity="0.3"
-                  stroke="#d97706"
-                  strokeWidth="1"
-                />
-                {/* Zona Centro */}
-                <path
-                  d="M160,82 L180,80 L200,78 L220,80 L240,82 L250,100 L245,120 L235,135 L215,140 L195,142 L175,140 L160,135 L150,115 L155,95 Z"
-                  fill="#b12455"
-                  fillOpacity="0.3"
-                  stroke="#b12455"
-                  strokeWidth="1"
-                />
-                {/* Zona Sur-Sureste */}
-                <path
-                  d="M190,142 L210,140 L230,138 L250,145 L260,155 L270,170 L255,180 L235,182 L215,180 L200,175 L190,165 L185,155 Z"
-                  fill="#059669"
-                  fillOpacity="0.3"
-                  stroke="#059669"
-                  strokeWidth="1"
-                />
-                {/* Puntos de distribución */}
-                <circle cx="190" cy="110" r="5" fill="#b12455" stroke="#fff" strokeWidth="2" />
-                <circle cx="270" cy="55" r="5" fill="#475569" stroke="#fff" strokeWidth="2" />
-                <circle cx="130" cy="110" r="5" fill="#d97706" stroke="#fff" strokeWidth="2" />
-                <circle cx="230" cy="165" r="5" fill="#059669" stroke="#fff" strokeWidth="2" />
-              </svg>
-              <p className="mt-4 text-center text-sm text-slate-500">
-                Mapa representativo. Los centros de distribución están ubicados en CDMX, Monterrey, Guadalajara y Mérida.
-              </p>
-            </div>
-
             {/* Grid de Regiones */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {regions.map((region) => {

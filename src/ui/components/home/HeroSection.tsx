@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
+const BASE = import.meta.env.BASE_URL || "/";
+
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-white/20 bg-slate-900">
       <div className="relative min-h-[640px]">
-        {/* Imagen de fondo como fallback principal */}
         <img
-          alt="Ingredientes frescos para foodservice"
-          src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1800&q=72&fm=webp"
+          alt="San Patric Foodservice — Distribuidor Foodservice"
+          src={`${BASE}assets/images/banners/banner-home.webp`}
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
           decoding="async"

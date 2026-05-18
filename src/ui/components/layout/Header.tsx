@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const logoSrc = `${import.meta.env.BASE_URL}logo.svg`;
+const logoSrc = `${import.meta.env.BASE_URL}assets/images/sp_logo_color.webp`;
 
 import { useQuoteCart } from "../../../application/hooks/useQuoteCart";
 import {

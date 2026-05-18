@@ -93,19 +93,29 @@ export function CoveragePage() {
           </div>
         </section>
 
-        {/* Mapa SVG de México */}
-        <PageBanner
-          src="banner-mapa.webp"
-          alt="Presencia en Todo México — San Patric Foodservice"
-          title={<>Presencia en <span className="font-normal">Todo México</span></>}
-          subtitle="Nuestros centros de distribución y rutas logísticas cubren las principales ciudades del país."
-          variant="light"
-          compact
-          fit="contain"
-        />
+        {/* Mapa de Cobertura */}
+        <section className="bg-slate-50 px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-8 text-center">
+              <h2 className="mb-4 font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
+                Presencia en <span className="font-normal">Todo México</span>
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-slate-600">
+                Nuestros centros de distribución y rutas logísticas cubren las principales ciudades del país.
+              </p>
+            </div>
+            <img
+              src={`${import.meta.env.BASE_URL}assets/images/banners/banner-mapa.webp`}
+              alt="Mapa de cobertura nacional San Patric Foodservice"
+              className="mx-auto w-full max-w-5xl object-contain h-auto max-h-[600px]"
+              loading="lazy"
+            />
+          </div>
+        </section>
+
+        {/* Grid de Regiones */}
         <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            {/* Grid de Regiones */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {regions.map((region) => {
                 const colorClasses: Record<string, { border: string; bg: string; text: string; dot: string }> = {

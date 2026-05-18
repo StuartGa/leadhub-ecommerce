@@ -1,6 +1,7 @@
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { PageBanner } from "../components/common/PageBanner";
 import { StatCounter } from "../components/common/StatCounter";
 
 interface CoverageRegion {
@@ -55,18 +56,13 @@ export function CoveragePage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl text-center">
-            <h1 className="mb-4 font-sans text-4xl font-bold uppercase tracking-wider text-white sm:text-5xl lg:text-6xl">
-              Cobertura <span className="font-normal">Nacional</span>
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-white/90">
-              Distribuimos a toda la República Mexicana con 4 centros de distribución
-              estratégicamente ubicados para garantizar entregas puntuales.
-            </p>
-          </div>
-        </section>
+        <PageBanner
+          src="banner-cobertura.webp"
+          alt="Cobertura Nacional — San Patric Foodservice"
+          title={<>Cobertura <span className="font-normal">Nacional</span></>}
+          subtitle="Distribuimos a toda la República Mexicana con 4 centros de distribución estratégicamente ubicados para garantizar entregas puntuales."
+          variant="dark"
+        />
 
         {/* Stats */}
         <section className="border-b border-slate-200 bg-white px-4 py-12 sm:px-6 lg:px-8">
@@ -98,18 +94,16 @@ export function CoveragePage() {
         </section>
 
         {/* Mapa SVG de México */}
+        <PageBanner
+          src="banner-mapa.webp"
+          alt="Presencia en Todo México — San Patric Foodservice"
+          title={<>Presencia en <span className="font-normal">Todo México</span></>}
+          subtitle="Nuestros centros de distribución y rutas logísticas cubren las principales ciudades del país."
+          variant="light"
+          compact
+        />
         <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
-                Presencia en <span className="font-normal">Todo México</span>
-              </h2>
-              <p className="mx-auto max-w-2xl text-lg text-slate-600">
-                Nuestros centros de distribución y rutas logísticas cubren las principales
-                ciudades del país.
-              </p>
-            </div>
-
             {/* Mapa simplificado de México con regiones */}
             <div className="mx-auto mb-12 max-w-2xl">
               <svg viewBox="0 0 400 280" className="w-full" role="img" aria-label="Mapa de cobertura en México">
@@ -259,15 +253,16 @@ export function CoveragePage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-brand-500 px-4 py-16 sm:px-6 lg:px-8">
+        <PageBanner
+          src="banner-zona.webp"
+          alt="¿Necesitas Cobertura en tu Zona? — San Patric Foodservice"
+          title={<>¿Necesitas <span className="font-normal">Cobertura</span> en tu Zona?</>}
+          subtitle="Contáctanos para verificar disponibilidad en tu localidad y recibe una cotización personalizada para tu negocio."
+          variant="dark"
+          compact
+        />
+        <section className="bg-brand-500 px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 font-sans text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
-              ¿Necesitas <span className="font-normal">Cobertura</span> en tu Zona?
-            </h2>
-            <p className="mb-8 text-lg text-white/90">
-              Contáctanos para verificar disponibilidad en tu localidad y recibe una cotización
-              personalizada para tu negocio.
-            </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <a
                 href="/contact"

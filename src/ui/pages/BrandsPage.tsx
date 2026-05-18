@@ -9,6 +9,7 @@ import { useProducts } from "../../application/hooks/useProducts";
 import { slugify } from "../../application/utils/slugify";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { PageBanner } from "../components/common/PageBanner";
 import { StatCounter } from "../components/common/StatCounter";
 
 export function BrandsPage() {
@@ -69,19 +70,13 @@ export function BrandsPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-brand-50 to-white px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 font-sans text-4xl font-bold uppercase tracking-wider text-slate-900 sm:text-5xl">
-              Nuestras <span className="font-normal">Marcas</span>
-            </h1>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-700">
-              Trabajamos con más de 35 proveedores líderes en la industria alimentaria 
-              para ofrecerte los mejores productos en las tres temperaturas: secos, 
-              refrigerados y congelados.
-            </p>
-          </div>
-        </section>
+        <PageBanner
+          src="banner-marcas.webp"
+          alt="Nuestras Marcas — San Patric Foodservice"
+          title={<>Nuestras <span className="font-normal">Marcas</span></>}
+          subtitle="Trabajamos con más de 35 proveedores líderes en la industria alimentaria para ofrecerte los mejores productos en las tres temperaturas: secos, refrigerados y congelados."
+          variant="light"
+        />
 
         {/* Stats Section */}
         <section className="bg-brand-500 px-4 py-12 sm:px-6 lg:px-8">

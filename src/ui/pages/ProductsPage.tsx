@@ -7,6 +7,7 @@ import { slugify } from "../../application/utils/slugify";
 import type { Product, Temperature, Seasonality } from "../../domain/types/product";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { PageBanner } from "../components/common/PageBanner";
 import { ProductCard } from "../components/catalog/ProductCard";
 
 const TEMPERATURES: Temperature[] = ["Seco", "Refrigerado", "Congelado"];
@@ -108,18 +109,13 @@ export function ProductsPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl text-center">
-            <h1 className="mb-4 font-sans text-4xl font-bold uppercase tracking-wider text-white sm:text-5xl lg:text-6xl">
-              Nuestros <span className="font-normal">Productos</span>
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-white/90">
-              Explora nuestro catálogo completo de productos alimenticios de calidad premium
-              para tu negocio foodservice.
-            </p>
-          </div>
-        </section>
+        <PageBanner
+          src="banner-productos.webp"
+          alt="Nuestros Productos — San Patric Foodservice"
+          title={<>Nuestros <span className="font-normal">Productos</span></>}
+          subtitle="Explora nuestro catálogo completo de productos alimenticios de calidad premium para tu negocio foodservice."
+          variant="dark"
+        />
 
         {/* Filtros y Catálogo */}
         <section className="px-4 py-12 sm:px-6 lg:px-8">

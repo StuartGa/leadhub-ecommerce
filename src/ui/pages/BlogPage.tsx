@@ -5,6 +5,7 @@ import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { blogService } from "../../application/services/blogService";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { PageBanner } from "../components/common/PageBanner";
 
 const CATEGORIES = ["Todas", "Tendencias", "Guías", "Operación"];
 
@@ -63,18 +64,13 @@ export function BlogPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl text-center">
-            <h1 className="mb-4 font-sans text-4xl font-bold uppercase tracking-wider text-white sm:text-5xl lg:text-6xl">
-              Blog <span className="font-normal">Foodservice</span>
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-white/90">
-              Artículos, guías y tendencias del mundo foodservice para ayudar
-              a tu negocio a crecer.
-            </p>
-          </div>
-        </section>
+        <PageBanner
+          src="banner-blog.webp"
+          alt="Blog Foodservice — San Patric Foodservice"
+          title={<>Blog <span className="font-normal">Foodservice</span></>}
+          subtitle="Artículos, guías y tendencias del mundo foodservice para ayudar a tu negocio a crecer."
+          variant="dark"
+        />
 
         {/* Filtros por categoría */}
         <section className="border-b border-slate-200 bg-white px-4 py-6 sm:px-6 lg:px-8">

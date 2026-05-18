@@ -9,6 +9,7 @@ import type { Product } from "../../domain/types/product";
 import { ProductCard } from "../components/catalog/ProductCard";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { PageBanner } from "../components/common/PageBanner";
 
 export function CategoryPage() {
   const navigate = useNavigate();
@@ -93,16 +94,12 @@ export function CategoryPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-14 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Categoría</p>
-            <h1 className="mb-3 font-sans text-4xl font-bold text-white sm:text-5xl">{categoryName}</h1>
-            <p className="max-w-2xl text-white/90">
-              Productos seleccionados para operaciones foodservice. Cotización personalizada
-              de acuerdo con volumen y frecuencia de compra.
-            </p>
-          </div>
-        </section>
+        <PageBanner
+          src="banner-especificos.webp"
+          alt={`${categoryName} — San Patric Foodservice`}
+          title={<span className="font-bold uppercase">{categoryName}</span>}
+          variant="dark"
+        />
 
         <section className="px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">

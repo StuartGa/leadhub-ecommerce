@@ -3,6 +3,7 @@ import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { ContactForm } from "../components/form/ContactForm";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { PageBanner } from "../components/common/PageBanner";
 
 export function ContactPage() {
   const { distinctProducts, totalUnits } = useQuoteCart();
@@ -17,23 +18,20 @@ export function ContactPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-          <div className="mb-10 max-w-3xl">
-            <h1 className="mb-4 font-sans text-4xl font-bold tracking-tight text-brand-900 sm:text-5xl">
-              Inicie su Cotización
-            </h1>
-            <p className="text-lg leading-relaxed text-slate-600">
-              Precisión gastronómica para su negocio. Complete el formulario detallado
-              y continuamos para que nuestro equipo especializado estructure una
-              propuesta a su medida.
-            </p>
+        <PageBanner
+          src="banner-contacto.webp"
+          alt="Inicie su Cotización — San Patric Foodservice"
+          title={<>Inicie su <span className="font-normal">Cotización</span></>}
+          subtitle="Precisión gastronómica para su negocio. Complete el formulario detallado y continuamos para que nuestro equipo especializado estructure una propuesta a su medida."
+          variant="light"
+        />
 
-            {distinctProducts > 0 && (
-              <div className="mt-5 inline-flex rounded border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900">
-                Carrito listo: {distinctProducts} productos · {totalUnits} unidades
-              </div>
-            )}
-          </div>
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          {distinctProducts > 0 && (
+            <div className="mb-8 inline-flex rounded border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-900">
+              Carrito listo: {distinctProducts} productos · {totalUnits} unidades
+            </div>
+          )}
 
           <div className="grid gap-8 lg:grid-cols-[1.65fr_0.65fr] lg:items-start">
             <div className="rounded-lg border border-brand-200/70 bg-white p-5 shadow-md shadow-brand-100/40 ring-1 ring-brand-100/70 sm:p-7">

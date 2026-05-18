@@ -3,6 +3,7 @@ import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { PageBanner } from "../components/common/PageBanner";
 import { StatCounter } from "../components/common/StatCounter";
 
 export function AboutPage() {
@@ -28,20 +29,13 @@ export function AboutPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-brand-50 to-white px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 font-sans text-4xl font-bold uppercase tracking-wider text-slate-900 sm:text-5xl">
-              Quié<span className="font-normal">nes Somos</span>
-            </h1>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-700">
-              Somos un Distribuidor Foodservice, 100% mexicano y con más de 20 años de experiencia 
-              en la industria de la alimentación. Nuestra pasión y razón de ser es garantizar la 
-              satisfacción total de nuestros clientes a través de la distribución y acondicionamiento 
-              de alimentos congelados, refrigerados y secos de la más alta calidad.
-            </p>
-          </div>
-        </section>
+        <PageBanner
+          src="banner-quienes-somos.webp"
+          alt="Quiénes Somos — San Patric Foodservice"
+          title={<>Quié<span className="font-normal">nes Somos</span></>}
+          subtitle="Somos un Distribuidor Foodservice, 100% mexicano y con más de 20 años de experiencia en la industria de la alimentación. Nuestra pasión y razón de ser es garantizar la satisfacción total de nuestros clientes a través de la distribución y acondicionamiento de alimentos congelados, refrigerados y secos de la más alta calidad."
+          variant="light"
+        />
 
         {/* Servicios */}
         <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
@@ -97,12 +91,15 @@ export function AboutPage() {
         </section>
 
         {/* Indicadores */}
+        <PageBanner
+          src="banner-indicadores.webp"
+          alt="Nuestros Indicadores — San Patric Foodservice"
+          title={<>Nuestros <span className="font-normal">Indicadores</span></>}
+          variant="dark"
+          compact
+        />
         <section className="bg-brand-500 px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="mb-12 text-center font-sans text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
-              Nuestros <span className="font-normal">Indicadores</span>
-            </h2>
-            
             <div className="grid gap-8 md:grid-cols-3">
               <StatCounter target={35} prefix="+" label="Proveedores" dark />
               <StatCounter target={750} prefix="+" label="Clientes Activos" dark />
@@ -349,15 +346,16 @@ export function AboutPage() {
         </section>
 
         {/* Trabaja con Nosotros CTA */}
-        <section className="bg-gradient-to-br from-brand-500 to-brand-900 px-4 py-20 sm:px-6 lg:px-8">
+        <PageBanner
+          src="banner-equipo.webp"
+          alt="Únete a Nuestro Equipo — San Patric Foodservice"
+          title={<>Únete a <span className="font-normal">Nuestro Equipo</span></>}
+          subtitle="¿Te apasiona la industria foodservice? Estamos buscando talento comprometido para formar parte de nuestra familia."
+          variant="dark"
+          compact
+        />
+        <section className="bg-gradient-to-br from-brand-500 to-brand-900 px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-6 font-sans text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
-              Únete a <span className="font-normal">Nuestro Equipo</span>
-            </h2>
-            <p className="mb-8 text-lg leading-relaxed text-brand-50">
-              ¿Te apasiona la industria foodservice? Estamos buscando talento comprometido 
-              para formar parte de nuestra familia.
-            </p>
             <a
               href="/trabaja-con-nosotros"
               className="inline-block rounded bg-white px-8 py-4 text-sm font-semibold uppercase tracking-widest text-brand-600 transition-all hover:bg-slate-50 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600 focus-visible:outline-none"

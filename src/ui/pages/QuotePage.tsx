@@ -4,6 +4,7 @@ import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
+import { PageBanner } from "../components/common/PageBanner";
 
 export function QuotePage() {
   useDocumentTitle(
@@ -18,15 +19,18 @@ export function QuotePage() {
       <Header />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-7xl px-4 pb-14 pt-28 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h1 className="text-4xl font-bold tracking-tight text-brand-900 sm:text-5xl">Carrito de Cotizacion</h1>
-              <p className="mt-2 text-sm text-slate-600">
-                {distinctProducts} productos seleccionados · {totalUnits} unidades totales
-              </p>
-            </div>
-            {items.length > 0 && (
+        <PageBanner
+          src="banner-cotizacion.webp"
+          alt="Carrito de Cotización — San Patric Foodservice"
+          title={<>Carrito de <span className="font-normal">Cotización</span></>}
+          subtitle={`${distinctProducts} productos seleccionados · ${totalUnits} unidades totales`}
+          variant="light"
+          className="mb-8"
+        />
+
+        <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+          {items.length > 0 && (
+            <div className="mb-8 flex justify-end">
               <button
                 type="button"
                 onClick={clearCart}
@@ -34,8 +38,8 @@ export function QuotePage() {
               >
                 Vaciar carrito
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {items.length === 0 ? (
             <div className="rounded-lg border border-slate-200 bg-white p-10 text-center shadow-sm">

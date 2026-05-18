@@ -101,6 +101,7 @@ export function CoveragePage() {
           subtitle="Nuestros centros de distribución y rutas logísticas cubren las principales ciudades del país."
           variant="light"
           compact
+          fit="contain"
         />
         <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">

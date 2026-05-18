@@ -7,12 +7,13 @@ interface PageBannerProps {
   subtitle?: string;
   variant?: "light" | "dark";
   compact?: boolean;
+  fit?: "cover" | "contain";
   className?: string;
 }
 
 const BASE = import.meta.env.BASE_URL || "/";
 
-export function PageBanner({ src, alt, title, subtitle, variant = "light", compact = false, className = "" }: PageBannerProps) {
+export function PageBanner({ src, alt, title, subtitle, variant = "light", compact = false, fit = "cover", className = "" }: PageBannerProps) {
   const overlayClass = variant === "dark"
     ? "bg-black/50"
     : "bg-white/40";
@@ -35,7 +36,7 @@ export function PageBanner({ src, alt, title, subtitle, variant = "light", compa
       <img
         src={`${BASE}assets/images/banners/${src}`}
         alt={alt}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         loading="eager"
       />
       <div className={`absolute inset-0 ${overlayClass}`} />

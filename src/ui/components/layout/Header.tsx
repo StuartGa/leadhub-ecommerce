@@ -228,7 +228,7 @@ export function Header() {
           </button>
 
           <NavLink
-            to="/contact"
+            to="/productos"
             className="items-center gap-2 rounded bg-brand-500 px-6 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-brand-900 md:inline-flex"
           >
             Cotizar
@@ -457,7 +457,7 @@ export function Header() {
               </li>
               <li className="pt-2">
                 <NavLink
-                  to="/contact"
+                  to="/productos"
                   className="flex items-center justify-center gap-2 rounded bg-brand-500 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-brand-900"
                 >
                   Cotizar

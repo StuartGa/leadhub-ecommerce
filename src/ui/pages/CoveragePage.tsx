@@ -65,45 +65,90 @@ export function CoveragePage() {
 
             <div className="grid gap-8 md:grid-cols-3">
               {/* Seco */}
-              <div className="rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <svg className="h-8 w-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              <div className="flex flex-col rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50 text-amber-600">
+                  <svg className="h-12 w-12" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="10" fill="currentColor" opacity="0.15" />
+                    <circle cx="24" cy="24" r="5" fill="currentColor" />
+                    {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
+                      const rad = (angle * Math.PI) / 180;
+                      const x1 = 24 + 8 * Math.cos(rad);
+                      const y1 = 24 + 8 * Math.sin(rad);
+                      const x2 = 24 + 14 * Math.cos(rad);
+                      const y2 = 24 + 14 * Math.sin(rad);
+                      return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />;
+                    })}
                   </svg>
                 </div>
                 <h3 className="mb-2 font-sans text-xl font-semibold text-slate-900">Producto Seco</h3>
-                <p className="font-sans text-sm font-light leading-relaxed text-slate-600">
+                <p className="flex-1 font-sans text-sm font-light leading-relaxed text-slate-600">
                   Almacenamiento a temperatura ambiente en bodegas climatizadas con control de humedad.
                 </p>
+                <a
+                  href="/products?temperature=Seco"
+                  className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-900"
+                >
+                  Ver Productos
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
               </div>
 
               {/* Refrigerado */}
-              <div className="rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-sky-100">
-                  <svg className="h-8 w-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <div className="flex flex-col rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                  <svg className="h-12 w-12" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" strokeWidth="2.5" />
+                    <path d="M24 10v6m0 16v6M12 20h6m12 0h6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    {[{ cx: 15, cy: 15 }, { cx: 33, cy: 15 }, { cx: 33, cy: 33 }, { cx: 15, cy: 33 }].map((p, i) => (
+                      <line key={i} x1={p.cx - 3} y1={p.cy - 3} x2={p.cx + 3} y2={p.cy + 3}
+                        stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    ))}
                   </svg>
                 </div>
                 <h3 className="mb-2 font-sans text-xl font-semibold text-slate-900">Refrigerado</h3>
-                <p className="font-sans text-sm font-light leading-relaxed text-slate-600">
+                <p className="flex-1 font-sans text-sm font-light leading-relaxed text-slate-600">
                   Cadena de frío controlada de 0°C a 4°C con monitoreo constante de temperatura.
                 </p>
+                <a
+                  href="/products?temperature=Refrigerado"
+                  className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-900"
+                >
+                  Ver Productos
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
               </div>
 
               {/* Congelado */}
-              <div className="rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-100">
-                  <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              <div className="flex flex-col rounded-lg border border-slate-200 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-cyan-50 text-cyan-600">
+                  <svg className="h-12 w-12" viewBox="0 0 48 48" fill="none">
+                    <path
+                      d="M24 4L24 44M8 14L40 34M8 34L40 14M14 8L34 40M34 8L14 40"
+                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.6"
+                    />
+                    <path
+                      d="M18 12L24 18L30 12L36 18L30 24L36 30L30 36L24 30L18 36L12 30L18 24L12 18Z"
+                      fill="currentColor" opacity="0.85"
+                    />
                   </svg>
                 </div>
                 <h3 className="mb-2 font-sans text-xl font-semibold text-slate-900">Congelado</h3>
-                <p className="font-sans text-sm font-light leading-relaxed text-slate-600">
+                <p className="flex-1 font-sans text-sm font-light leading-relaxed text-slate-600">
                   Ultracongelación a -18°C con transporte refrigerado especializado para mantener la cadena de frío.
                 </p>
+                <a
+                  href="/products?temperature=Congelado"
+                  className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-900"
+                >
+                  Ver Productos
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>

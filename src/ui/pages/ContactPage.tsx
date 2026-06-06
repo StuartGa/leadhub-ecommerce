@@ -49,26 +49,32 @@ export function ContactPage() {
                 </h2>
                 <div className="space-y-4 text-sm text-slate-700">
                   <div>
-                    <p className="font-semibold text-slate-900">Dirección Principal</p>
-                    <p>Av. Gastronomía 1045, Parque Industrial,</p>
-                    <p>Ciudad de México, CDMX 02300</p>
+                    <p className="font-semibold text-slate-900">Oficinas</p>
+                    <p>Certificados 20, Col Postal</p>
+                    <p>Benito Juárez, CDMX 03410</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Almacén</p>
+                    <p>Calle Campesinos 122, Col Granjas Esmeralda</p>
+                    <p>Iztapalapa, CDMX 09810</p>
                   </div>
                 </div>
 
                 <div className="mt-4 space-y-2 text-sm text-slate-700">
-                  <p><strong>Teléfono Corporativo</strong></p>
-                  <a href="tel:+525550000000" className="text-brand-700 hover:text-brand-900">+52 (55) 5000-0000</a>
-                  <p className="pt-2"><strong>Ventas Corporativas</strong></p>
-                  <a href="mailto:cotizaciones@sanpatric.com" className="text-brand-700 hover:text-brand-900">cotizaciones@sanpatric.com</a>
+                  <p><strong>Teléfono</strong></p>
+                  <a href="tel:+525585905780" className="text-brand-700 hover:text-brand-900">(55) 85 90 57 80</a>
+                  <p className="pt-2"><strong>Correo</strong></p>
+                  <a href="mailto:info@alimentosconvenientes.com.mx" className="text-brand-700 hover:text-brand-900">info@alimentosconvenientes.com.mx</a>
                   <p className="pt-2"><strong>Horario de Atención</strong></p>
-                  <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                  <p>Lunes a Viernes: 8:30 – 17:00</p>
+                  <p>Sábado: 9:00 – 13:00</p>
                 </div>
               </div>
 
               <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                 <iframe
                   title="Ubicación San Patric Foodservice"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.8!2d-103.3496092!3d20.6736778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDQwJzI1LjIiTiAxMDPCsDIwJzU4LjYiVw!5e0!3m2!1sen!2smx!4v1234567890123!5m2!1sen!2smx"
+                  src="https://maps.google.com/maps?q=Certificados+20,+Colonia+Postal,+Benito+Juarez,+Ciudad+de+Mexico+03410&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="170"
                   style={{ border: 0 }}

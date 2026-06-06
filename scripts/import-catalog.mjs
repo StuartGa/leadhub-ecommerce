@@ -116,7 +116,20 @@ const BRAND_MAP = {
   "Ventura Foods": "Ventura Foods",
 };
 
-// ─── Temperatura por categoría ────────────────────────────────────────────────
+// ─── Normalización de segmentos ──────────────────────────────────────────────
+const SEGMENT_MAP = {
+  "Restaurantes}": "Restaurantes",
+  "Respostería": "Reposterías",
+  "Comedores Industriales": "Comedor Industrial",
+  "Comedor industrial": "Comedor Industrial",
+  "Hotel": "Hoteles",
+  "Restaurante": "Restaurantes",
+  "Hospital": "Hospitales",
+  "Panadería": "Panaderías",
+  "Repostería": "Reposterías",
+};
+
+// ─── Temperatura por categoría (fallback) ───────────────────────────────────
 function guessTemperature(category) {
   const c = category.toLowerCase();
   if (c.includes("congelad") || c.includes("papa congelada") || c.includes("pan congelado"))
@@ -124,6 +137,40 @@ function guessTemperature(category) {
   if (c.includes("proteína") || c.includes("proteina")) return "Congelado";
   if (c.includes("queso") || c.includes("lácteo")) return "Refrigerado";
   return "Seco";
+}
+
+// ─── Normalizar texto a tag slug ─────────────────────────────────────────────
+function toTagSlug(str) {
+  return String(str)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+// ─── Parsear seasonality text → tags ────────────────────────────────────────
+function parseSeasonalityTags(raw) {
+  if (!raw) return [];
+  return raw
+    .split(",")
+    .map((s) => toTagSlug(s))
+    .filter((s) => s && s.length > 1 && s !== "-")
+    .map((s) => `temporada-${s}`);
+}
+
+// ─── Parsear segment text → tags ────────────────────────────────────────────
+function parseSegmentTags(raw) {
+  if (!raw) return [];
+  return raw
+    .split(",")
+    .map((s) => {
+      const trimmed = s.trim();
+      const normalized = SEGMENT_MAP[trimmed] ?? trimmed;
+      return toTagSlug(normalized);
+    })
+    .filter((s) => s && s.length > 1)
+    .map((s) => `segmento-${s}`);
 }
 
 // ─── Slug generator ───────────────────────────────────────────────────────────
@@ -150,6 +197,15 @@ const products = JSON.parse(readFileSync(CATALOG_JSON, "utf-8"));
 // ─── Upsert helpers ───────────────────────────────────────────────────────────
 async function upsertDoc(doc) {
   return client.createOrReplace(doc);
+}
+
+async function upsertProduct(doc) {
+  const existing = await client.getDocument(doc._id).catch(() => null);
+  if (existing) {
+    // Patch — preserves existing media fields (mainImage, gallery)
+    return client.patch(doc._id).set(doc).commit();
+  }
+  return client.create(doc);
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
@@ -215,7 +271,22 @@ async function main() {
     const slug = toSlug(`${sku}-${name}`);
     const shortDesc = String(p.shortDesc ?? "").trim().slice(0, 240);
     const longDesc = String(p.longDesc ?? "").trim().slice(0, 2000);
-    const temperature = guessTemperature(normCat);
+    const rawTemp = String(p.temperature ?? "").trim();
+    const temperature = ["Congelado", "Refrigerado", "Seco"].includes(rawTemp)
+      ? rawTemp
+      : guessTemperature(normCat);
+    const rawSeasonality = String(p.seasonality ?? "").trim();
+    const seasonality = rawSeasonality ? "Temporada" : "Todo el Año";
+
+    // Build tags
+    const tags = [];
+    if (p.price && !isNaN(Number(p.price))) {
+      tags.push(`precio-${p.price}`);
+    }
+    tags.push(...parseSeasonalityTags(rawSeasonality));
+    tags.push(...parseSegmentTags(String(p.segment ?? "").trim()));
+    // Deduplicate and limit to 12
+    const uniqueTags = [...new Set(tags)].slice(0, 12);
 
     const doc = {
       _id: `product-${toSlug(sku)}`,
@@ -226,7 +297,7 @@ async function main() {
       shortDescription: shortDesc || name,
       longDescription: longDesc || undefined,
       temperature,
-      seasonality: "Todo el Año",
+      seasonality,
       inventoryUnit: "unidad",
       minOrderQty: 1,
       orderStep: 1,
@@ -235,15 +306,10 @@ async function main() {
       editorialStatus: "published",
       category: { _type: "reference", _ref: catId },
       brand: { _type: "reference", _ref: brandId },
-      tags: [],
+      tags: uniqueTags,
     };
 
-    // Precio como tag si existe
-    if (p.price && !isNaN(Number(p.price))) {
-      doc.tags = [`precio-${p.price}`];
-    }
-
-    await upsertDoc(doc);
+    await upsertProduct(doc);
     console.log(`    ✅  [${sku}] ${name}`);
     ok++;
   }

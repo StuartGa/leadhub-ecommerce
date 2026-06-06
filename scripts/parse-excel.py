@@ -12,7 +12,7 @@ except ImportError:
     import openpyxl
 
 EXCEL_PATH = os.path.expanduser(
-    "~/Downloads/yectic- Alimentos Convenientes San Patric/Archivos/Productos página web Abril 2026.xlsx"
+    "~/Downloads/Productos página web Abril 2026 (3).xlsx"
 )
 
 OUT_PATH = os.path.join(os.path.dirname(__file__), "catalog.json")
@@ -32,19 +32,22 @@ def main():
         if not sku or not name:
             continue
         products.append({
-            "sku":       str(sku).strip(),
-            "name":      str(name).strip(),
-            "price":     row[2],
-            "shortDesc": str(row[3]).strip() if row[3] else "",
-            "foto1":     row[4],
-            "foto2":     row[5],
-            "foto3":     row[6],
-            "foto4":     row[7],
-            "longDesc":  str(row[8]).strip() if row[8] else "",
-            "category":  str(row[9]).strip() if row[9] else "",
-            "brand":     str(row[10]).strip() if row[10] else "",
-            "weight":    str(row[11]).strip() if row[11] else "",
-            "related":   str(row[12]).strip() if row[12] else "",
+            "sku":         str(sku).strip(),
+            "name":        str(name).strip(),
+            "price":       row[2],
+            "shortDesc":   str(row[3]).strip() if row[3] else "",
+            "foto1":       row[4],
+            "foto2":       row[5],
+            "foto3":       row[6],
+            "foto4":       row[7],
+            "longDesc":    str(row[8]).strip() if row[8] else "",
+            "category":    str(row[9]).strip() if row[9] else "",
+            "brand":       str(row[10]).strip() if row[10] else "",
+            "weight":      str(row[11]).strip() if row[11] else "",
+            "related":     str(row[12]).strip() if row[12] else "",
+            "temperature": str(row[13]).strip() if row[13] else "",
+            "seasonality": str(row[14]).strip() if row[14] else "",
+            "segment":     str(row[15]).strip() if row[15] else "",
         })
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:

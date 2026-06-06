@@ -249,6 +249,19 @@ export function AboutPage() {
                   ),
                 },
                 {
+                  name: "Comedor Industrial",
+                  icon: (
+                    <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
+                      <rect x="8" y="30" width="48" height="24" rx="2" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2.5" />
+                      <path d="M8 30l12-14v14M20 30l12-14v14M32 30l12-14v14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <rect x="14" y="38" width="8" height="16" rx="1" fill="currentColor" opacity="0.2" />
+                      <rect x="42" y="38" width="8" height="16" rx="1" fill="currentColor" opacity="0.2" />
+                      <rect x="28" y="38" width="8" height="10" rx="1" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="8" y1="54" x2="56" y2="54" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
                   name: "Otros Negocios",
                   icon: (
                     <svg className="h-12 w-12" viewBox="0 0 64 64" fill="none">
@@ -276,6 +289,18 @@ export function AboutPage() {
                   <h3 className="text-base font-semibold text-slate-900">{client.name}</h3>
                 </motion.div>
               ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <a
+                href="/products"
+                className="inline-flex items-center gap-2 rounded bg-brand-500 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+              >
+                Ver Productos
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
             </div>
           </div>
         </section>

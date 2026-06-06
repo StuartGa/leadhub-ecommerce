@@ -4,52 +4,11 @@ import { Footer } from "../components/layout/Footer";
 import { PageBanner } from "../components/common/PageBanner";
 import { StatCounter } from "../components/common/StatCounter";
 
-interface CoverageRegion {
-  name: string;
-  color: string;
-  states: string[];
-  description: string;
-}
-
 export function CoveragePage() {
   useDocumentTitle(
     "Cobertura Nacional — San Patric Foodservice",
-    "Cobertura nacional en México con centros de distribución en CDMX, Monterrey, Guadalajara y Mérida. Entregas en 24-48h con 98% de efectividad. Logística especializada en seco, refrigerado y congelado."
+    "Cobertura en 9 estados de México: CDMX, Estado de México, Morelos, Puebla, Veracruz, Querétaro, Jalisco, Guanajuato y Tlaxcala. 98% de efectividad. Logística especializada en seco, refrigerado y congelado."
   );
-
-  const regions: CoverageRegion[] = [
-    {
-      name: "Zona Centro",
-      color: "brand",
-      states: ["Ciudad de México", "México", "Morelos", "Hidalgo", "Puebla", "Tlaxcala", "Querétaro"],
-      description: "Centro de operaciones principal con almacén y centro de distribución en CDMX",
-    },
-    {
-      name: "Zona Norte",
-      color: "slate",
-      states: ["Nuevo León", "Coahuila", "Chihuahua", "Sonora", "Tamaulipas", "Baja California"],
-      description: "Red de distribución consolidada cubriendo la franja fronteriza",
-    },
-    {
-      name: "Zona Occidente",
-      color: "amber",
-      states: ["Jalisco", "Guanajuato", "Michoacán", "Colima", "Aguascalientes", "Nayarit", "Zacatecas", "San Luis Potosí"],
-      description: "Presencia estratégica en el Bajío y corredor industrial",
-    },
-    {
-      name: "Zona Sur-Sureste",
-      color: "emerald",
-      states: ["Veracruz", "Oaxaca", "Chiapas", "Tabasco", "Campeche", "Quintana Roo", "Yucatán", "Guerrero"],
-      description: "Cobertura en expansión para la región sur y península",
-    },
-  ];
-
-  const stats = [
-    { value: "32", label: "Estados" },
-    { value: "4", label: "Regiones" },
-    { value: "24-48h", label: "Tiempo de Entrega" },
-    { value: "98%", label: "Efectividad" },
-  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
@@ -60,35 +19,16 @@ export function CoveragePage() {
           src="banner-cobertura.webp"
           alt="Cobertura Nacional — San Patric Foodservice"
           title={<>Cobertura <span className="font-normal">Nacional</span></>}
-          subtitle="Distribuimos a toda la República Mexicana con 4 centros de distribución estratégicamente ubicados para garantizar entregas puntuales."
+          subtitle="Distribuimos a 9 estados de México con infraestructura especializada para garantizar entregas puntuales y cadena de frío confiable."
           variant="dark"
         />
 
         {/* Stats */}
         <section className="border-b border-slate-200 bg-white px-4 py-12 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-              {stats.map((stat) => {
-                const numeric = parseInt(stat.value, 10);
-                if (Number.isNaN(numeric)) {
-                  return (
-                    <div key={stat.label} className="text-center">
-                      <div className="mb-2 font-sans text-3xl font-bold text-brand-500 sm:text-4xl">
-                        {stat.value}
-                      </div>
-                      <div className="font-sans text-sm font-light uppercase tracking-wide text-slate-600">
-                        {stat.label}
-                      </div>
-                    </div>
-                  );
-                }
-                const pct = stat.value.includes("%");
-                return (
-                  <div key={stat.label}>
-                    <StatCounter target={numeric} suffix={pct ? "%" : ""} label={stat.label} />
-                  </div>
-                );
-              })}
+          <div className="mx-auto max-w-xl">
+            <div className="grid grid-cols-2 gap-6">
+              <StatCounter target={9} label="Estados" />
+              <StatCounter target={98} suffix="%" label="Efectividad" />
             </div>
           </div>
         </section>
@@ -103,42 +43,11 @@ export function CoveragePage() {
           />
         </section>
 
-        {/* Grid de Regiones */}
-        <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {regions.map((region) => {
-                const colorClasses: Record<string, { border: string; bg: string; text: string; dot: string }> = {
-                  brand: { border: "border-l-brand-500", bg: "bg-brand-50", text: "text-brand-700", dot: "bg-brand-500" },
-                  slate: { border: "border-l-slate-500", bg: "bg-slate-50", text: "text-slate-700", dot: "bg-slate-500" },
-                  amber: { border: "border-l-amber-500", bg: "bg-amber-50", text: "text-amber-700", dot: "bg-amber-500" },
-                  emerald: { border: "border-l-emerald-500", bg: "bg-emerald-50", text: "text-emerald-700", dot: "bg-emerald-500" },
-                };
-                const c = colorClasses[region.color];
-
-                return (
-                  <div
-                    key={region.name}
-                    className={`rounded-lg border border-slate-200 border-l-4 bg-white p-6 shadow-sm transition-all hover:shadow-md ${c?.border ?? "border-l-brand-500"}`}
-                  >
-                    <h3 className="mb-2 font-sans text-lg font-semibold text-slate-900">
-                      {region.name}
-                    </h3>
-                    <p className="mb-4 font-sans text-sm font-light text-slate-600">
-                      {region.description}
-                    </p>
-                    <div className="space-y-1.5">
-                      {region.states.map((state) => (
-                        <div key={state} className="flex items-center gap-2 font-sans text-xs text-slate-600">
-                          <span className={`h-2 w-2 rounded-full ${c?.dot ?? "bg-brand-500"}`} />
-                          {state}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        {/* Notas de cobertura */}
+        <section className="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl space-y-3 text-center text-sm text-slate-600">
+            <p>Días de entrega podrán estar sujetos a cambios.</p>
+            <p>Contamos con alianzas con transportistas para llegar a otros destinos, pregunta por ellos.</p>
           </div>
         </section>
 
@@ -222,7 +131,7 @@ export function CoveragePage() {
                 </svg>
               </a>
               <a
-                href="tel:+525512345678"
+                href="tel:+525585905780"
                 className="inline-flex items-center justify-center gap-2 rounded border-2 border-white/30 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-500"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

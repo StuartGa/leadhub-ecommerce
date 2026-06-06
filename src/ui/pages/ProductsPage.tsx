@@ -1,17 +1,46 @@
 import { useCallback, useMemo } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { slugify } from "../../application/utils/slugify";
-import type { Product, Temperature, Seasonality } from "../../domain/types/product";
+import type { Product, Temperature } from "../../domain/types/product";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { PageBanner } from "../components/common/PageBanner";
 import { ProductCard } from "../components/catalog/ProductCard";
 
 const TEMPERATURES: Temperature[] = ["Seco", "Refrigerado", "Congelado"];
-const SEASONALITIES: Seasonality[] = ["Todo el Año", "Temporada"];
+
+const TEMPORALITY_OPTIONS: { label: string; tags: string[] }[] = [
+  { label: "Cuaresma / Semana Santa", tags: ["cuaresma", "semana-santa-cuaresma", "cuaresma-semana-santa"] },
+  { label: "Día de la Madre", tags: ["dia-de-la-madre", "dia-del-madre"] },
+  { label: "Día del Niño", tags: ["dia-del-nino"] },
+  { label: "Día del Padre", tags: ["dia-del-padre"] },
+  { label: "Día del Amor y la Amistad", tags: ["dia-del-amor-y-la-amistad", "dia-del-amor-y-la-amsitad", "dia-del-amor-y-san-valentin"] },
+  { label: "Fin de Año", tags: ["fin-de-ano"] },
+  { label: "Día de Reyes", tags: ["dia-de-reyes"] },
+  { label: "Día de Muertos", tags: ["dia-de-muertos"] },
+  { label: "Vacaciones de Verano", tags: ["vacaciones-de-verano"] },
+  { label: "Día de la Independencia", tags: ["dia-de-la-independencia"] },
+  { label: "Día de la Hamburguesa", tags: ["dia-de-la-hamburguesa"] },
+  { label: "Día de la Pizza", tags: ["dia-de-la-pizza"] },
+  { label: "F1", tags: ["f1", "f2", "f3"] },
+];
+
+const SEGMENT_OPTIONS: { label: string; tags: string[] }[] = [
+  { label: "Restaurantes", tags: ["restaurantes"] },
+  { label: "Hoteles", tags: ["hoteles"] },
+  { label: "Cafeterías", tags: ["cafeterias"] },
+  { label: "Centros de Entretenimiento", tags: ["centros-de-entretenimiento"] },
+  { label: "Escuelas", tags: ["escuelas"] },
+  { label: "Hospitales", tags: ["hospitales"] },
+  { label: "Fast Food", tags: ["fast-food"] },
+  { label: "Delivery", tags: ["delivery"] },
+  { label: "Bares", tags: ["bares"] },
+  { label: "Panadería / Repostería", tags: ["panaderias", "reposterias"] },
+  { label: "Comedor Industrial", tags: ["comedor-industrial"] },
+];
 
 export function ProductsPage() {
   useDocumentTitle(
@@ -19,14 +48,14 @@ export function ProductsPage() {
     "Catálogo completo de productos alimenticios para foodservice: acompañantes, proteínas, salsas, quesos y más. Filtra por temperatura (seco, refrigerado, congelado) y temporalidad. Calidad premium garantizada."
   );
 
-  const navigate = useNavigate();
   const { products, loading, error } = useProducts();
   const { addItem } = useQuoteCart();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCategory = searchParams.get("category") ?? "all";
   const selectedTemperature = searchParams.get("temperature") ?? "all";
-  const selectedSeasonality = searchParams.get("seasonality") ?? "all";
+  const selectedTemporality = searchParams.get("temporality") ?? "all";
+  const selectedSegment = searchParams.get("segment") ?? "all";
   const selectedBrand = searchParams.get("marca") ?? "all";
   const searchQuery = searchParams.get("q") ?? "";
 
@@ -48,11 +77,18 @@ export function ProductsPage() {
         return false;
       }
 
-      // Filtro por temporalidad
-      if (selectedSeasonality !== "all") {
-        if (!product.seasonality || product.seasonality !== selectedSeasonality) {
-          return false;
-        }
+      // Filtro por temporalidad (eventos específicos via tags)
+      if (selectedTemporality !== "all") {
+        const opt = TEMPORALITY_OPTIONS.find((o) => o.tags[0] === selectedTemporality);
+        const tagSet = opt?.tags ?? [selectedTemporality];
+        if (!product.tags.some((t) => tagSet.includes(t))) return false;
+      }
+
+      // Filtro por segmento (tipo de negocio via tags)
+      if (selectedSegment !== "all") {
+        const opt = SEGMENT_OPTIONS.find((o) => o.tags[0] === selectedSegment);
+        const tagSet = opt?.tags ?? [selectedSegment];
+        if (!product.tags.some((t) => tagSet.includes(t))) return false;
       }
 
       // Filtro por marca
@@ -76,7 +112,7 @@ export function ProductsPage() {
 
       return true;
     });
-  }, [products, selectedCategory, selectedTemperature, selectedSeasonality, selectedBrand, searchQuery]);
+  }, [products, selectedCategory, selectedTemperature, selectedTemporality, selectedSegment, selectedBrand, searchQuery]);
 
   const updateParam = (key: string, value: string) => {
     const next = new URLSearchParams(searchParams);
@@ -90,8 +126,7 @@ export function ProductsPage() {
 
   const handleInquire = useCallback((product: Product) => {
     addItem({ product });
-    navigate("/contact");
-  }, [addItem, navigate]);
+  }, [addItem]);
 
   const resetFilters = () => {
     setSearchParams({}, { replace: true });
@@ -100,7 +135,8 @@ export function ProductsPage() {
   const hasActiveFilters = 
     selectedCategory !== "all" || 
     selectedTemperature !== "all" || 
-    selectedSeasonality !== "all" || 
+    selectedTemporality !== "all" || 
+    selectedSegment !== "all" ||
     selectedBrand !== "all" ||
     searchQuery.trim() !== "";
 
@@ -147,7 +183,7 @@ export function ProductsPage() {
             </div>
 
             {/* Filtros en Grid */}
-            <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {/* Filtro por Categoría */}
               <div>
                 <label
@@ -197,21 +233,44 @@ export function ProductsPage() {
               {/* Filtro por Temporalidad */}
               <div>
                 <label
-                  htmlFor="seasonality-filter"
+                  htmlFor="temporality-filter"
                   className="mb-2 block text-sm font-semibold uppercase tracking-wide text-slate-700"
                 >
                   Temporalidad
                 </label>
                 <select
-                  id="seasonality-filter"
-                  value={selectedSeasonality}
-                  onChange={(event) => updateParam("seasonality", event.target.value)}
+                  id="temporality-filter"
+                  value={selectedTemporality}
+                  onChange={(event) => updateParam("temporality", event.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                   <option value="all">Todas las Temporalidades</option>
-                  {SEASONALITIES.map((season) => (
-                    <option key={season} value={season}>
-                      {season}
+                  {TEMPORALITY_OPTIONS.map((opt) => (
+                    <option key={opt.tags[0]} value={opt.tags[0]}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Filtro por Segmento */}
+              <div>
+                <label
+                  htmlFor="segment-filter"
+                  className="mb-2 block text-sm font-semibold uppercase tracking-wide text-slate-700"
+                >
+                  Por Negocio
+                </label>
+                <select
+                  id="segment-filter"
+                  value={selectedSegment}
+                  onChange={(event) => updateParam("segment", event.target.value)}
+                  className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                >
+                  <option value="all">Todos los Negocios</option>
+                  {SEGMENT_OPTIONS.map((opt) => (
+                    <option key={opt.tags[0]} value={opt.tags[0]}>
+                      {opt.label}
                     </option>
                   ))}
                 </select>

@@ -10,15 +10,15 @@ interface ProductCardProps {
   onInquire: (product: Product) => void;
 }
 
-function formatPrice(price?: number): string | null {
-  if (price === undefined || price === null || price === 0) return null;
-  return `$${price.toLocaleString("es-MX")} MXN`;
-}
+// Tags internos del sistema — no se muestran al usuario
+const HIDDEN_TAG_PREFIXES = ["precio-", "temporada-", "segmento-"];
 
 export const ProductCard = memo(function ProductCard({ product, index, onInquire }: ProductCardProps) {
   const [imageSrc, setImageSrc] = useState(product.imageUrl);
 
-  const priceLabel = formatPrice(product.price);
+  const visibleTags = product.tags.filter(
+    (t) => !HIDDEN_TAG_PREFIXES.some((prefix) => t.startsWith(prefix))
+  );
 
   return (
     <motion.article
@@ -64,7 +64,7 @@ export const ProductCard = memo(function ProductCard({ product, index, onInquire
         </p>
 
         <div className="flex flex-wrap gap-1.5">
-          {product.tags.filter(t => !t.startsWith("precio-")).map((tag) => (
+          {visibleTags.map((tag) => (
             <span
               key={tag}
               className="rounded bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700"
@@ -78,12 +78,7 @@ export const ProductCard = memo(function ProductCard({ product, index, onInquire
           Pedido mínimo: <span className="font-semibold text-slate-900">{product.minOrderQty}</span> {product.inventoryUnit}{product.minOrderQty > 1 ? "es" : ""}
         </div>
 
-        <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-          {priceLabel ? (
-            <span className="font-sans text-base font-semibold text-brand-600">{priceLabel}</span>
-          ) : (
-            <span />
-          )}
+        <div className="flex items-center justify-end border-t border-slate-100 pt-4">
           <div className="flex items-center gap-3">
             <Link
               to={`/products/${product.id}`}

@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { blogService } from "../../application/services/blogService";
@@ -12,7 +13,8 @@ const CATEGORIES = ["Todas", "Tendencias", "Guías", "Operación"];
 export function BlogPage() {
   useDocumentTitle(
     "Blog Foodservice — San Patric Foodservice",
-    "Artículos, guías y tendencias del mundo foodservice: cadena de frío, abastecimiento inteligente, productos convenientes y más. Información práctica para restauranteros y profesionales de la industria alimentaria."
+    "Artículos, guías y tendencias del mundo foodservice: cadena de frío, abastecimiento inteligente, productos convenientes y más. Información práctica para restauranteros y profesionales de la industria alimentaria.",
+    "/blog",
   );
 
   useJsonLd({
@@ -25,6 +27,15 @@ export function BlogPage() {
       "@type": "Organization",
       name: "San Patric Foodservice",
     },
+  });
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${CANONICAL_BASE}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${CANONICAL_BASE}/blog` },
+    ],
   });
 
   const [searchParams, setSearchParams] = useSearchParams();

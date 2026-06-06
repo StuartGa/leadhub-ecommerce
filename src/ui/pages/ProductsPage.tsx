@@ -1,6 +1,8 @@
 import { useCallback, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import { slugify } from "../../application/utils/slugify";
@@ -45,8 +47,18 @@ const SEGMENT_OPTIONS: { label: string; tags: string[] }[] = [
 export function ProductsPage() {
   useDocumentTitle(
     "Productos Foodservice — San Patric Foodservice",
-    "Catálogo completo de productos alimenticios para foodservice: acompañantes, proteínas, salsas, quesos y más. Filtra por temperatura (seco, refrigerado, congelado) y temporalidad. Calidad premium garantizada."
+    "Catálogo completo de productos alimenticios para foodservice: acompañantes, proteínas, salsas, quesos y más. Filtra por temperatura (seco, refrigerado, congelado) y temporalidad. Calidad premium garantizada.",
+    "/productos",
   );
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${CANONICAL_BASE}/` },
+      { "@type": "ListItem", position: 2, name: "Productos", item: `${CANONICAL_BASE}/productos` },
+    ],
+  });
 
   const { products, loading, error } = useProducts();
   const { addItem } = useQuoteCart();

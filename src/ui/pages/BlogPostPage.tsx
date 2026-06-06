@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { blogService } from "../../application/services/blogService";
@@ -35,6 +36,7 @@ export function BlogPostPage() {
     post
       ? post.excerpt.slice(0, 160)
       : "El artículo solicitado no fue encontrado en el blog de San Patric Foodservice.",
+    post && slug ? `/blog/${slug}` : undefined,
   );
 
   useJsonLd(
@@ -51,6 +53,20 @@ export function BlogPostPage() {
             "@type": "Organization",
             name: "San Patric Foodservice",
           },
+        }
+      : null,
+  );
+
+  useJsonLd(
+    post && slug
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: `${CANONICAL_BASE}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${CANONICAL_BASE}/blog` },
+            { "@type": "ListItem", position: 3, name: post.title, item: `${CANONICAL_BASE}/blog/${slug}` },
+          ],
         }
       : null,
   );

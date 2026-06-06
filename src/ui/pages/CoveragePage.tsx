@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
+import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { PageBanner } from "../components/common/PageBanner";
@@ -8,8 +10,18 @@ import { StatCounter } from "../components/common/StatCounter";
 export function CoveragePage() {
   useDocumentTitle(
     "Cobertura Nacional — San Patric Foodservice",
-    "Cobertura en 9 estados de México: CDMX, Estado de México, Morelos, Puebla, Veracruz, Querétaro, Jalisco, Guanajuato y Tlaxcala. 98% de efectividad. Logística especializada en seco, refrigerado y congelado."
+    "Cobertura en 9 estados de México: CDMX, Estado de México, Morelos, Puebla, Veracruz, Querétaro, Jalisco, Guanajuato y Tlaxcala. 98% de efectividad. Logística especializada en seco, refrigerado y congelado.",
+    "/cobertura",
   );
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${CANONICAL_BASE}/` },
+      { "@type": "ListItem", position: 2, name: "Cobertura", item: `${CANONICAL_BASE}/cobertura` },
+    ],
+  });
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">

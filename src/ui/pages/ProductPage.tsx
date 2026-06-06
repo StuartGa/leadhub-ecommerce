@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
@@ -37,6 +38,7 @@ export function ProductPage() {
     product
       ? `${product.name}. ${product.description.slice(0, 140)}. Cotiza este alimento foodservice con San Patric.`
       : "Producto no encontrado en el catálogo de San Patric Foodservice.",
+    product ? `/products/${product.slug ?? product.id}` : undefined,
   );
 
   useJsonLd(
@@ -71,9 +73,9 @@ export function ProductPage() {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Inicio", item: `${import.meta.env.BASE_URL || "/"}` },
-            { "@type": "ListItem", position: 2, name: "Productos", item: `${import.meta.env.BASE_URL || "/"}productos` },
-            { "@type": "ListItem", position: 3, name: product.name },
+            { "@type": "ListItem", position: 1, name: "Inicio", item: `${CANONICAL_BASE}/` },
+            { "@type": "ListItem", position: 2, name: "Productos", item: `${CANONICAL_BASE}/productos` },
+            { "@type": "ListItem", position: 3, name: product.name, item: `${CANONICAL_BASE}/products/${product.slug ?? product.id}` },
           ],
         }
       : null,

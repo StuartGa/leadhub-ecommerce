@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { Footer } from "../components/layout/Footer";
@@ -11,6 +12,7 @@ export function AboutPage() {
   useDocumentTitle(
     "Quiénes Somos — San Patric Foodservice",
     "Distribuidor foodservice 100% mexicano con más de 20 años de experiencia. Ofrecemos logística, acondicionamiento de productos y soluciones 2PL y 3PL en CDMX, Monterrey, Guadalajara y Mérida.",
+    "/quienes-somos",
   );
 
   useJsonLd({
@@ -23,6 +25,15 @@ export function AboutPage() {
       "@type": "Country",
       name: "México",
     },
+  });
+
+  useJsonLd({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${CANONICAL_BASE}/` },
+      { "@type": "ListItem", position: 2, name: "Quiénes Somos", item: `${CANONICAL_BASE}/quienes-somos` },
+    ],
   });
 
   return (

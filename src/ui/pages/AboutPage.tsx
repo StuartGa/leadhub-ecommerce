@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { Footer } from "../components/layout/Footer";
@@ -292,15 +293,15 @@ export function AboutPage() {
             </div>
 
             <div className="mt-10 text-center">
-              <a
-                href="/products"
+              <Link
+                to="/productos"
                 className="inline-flex items-center gap-2 rounded bg-brand-500 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
               >
                 Ver Productos
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -381,12 +382,12 @@ export function AboutPage() {
         />
         <section className="bg-gradient-to-br from-brand-500 to-brand-900 px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <a
-              href="/trabaja-con-nosotros"
+            <Link
+              to="/trabaja-con-nosotros"
               className="inline-block rounded bg-white px-8 py-4 text-sm font-semibold uppercase tracking-widest text-brand-600 transition-all hover:bg-slate-50 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600 focus-visible:outline-none"
             >
               Ver Vacantes
-            </a>
+            </Link>
           </div>
         </section>
       </main>

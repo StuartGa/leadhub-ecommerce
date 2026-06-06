@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
@@ -84,15 +85,15 @@ export function CoveragePage() {
                 <p className="flex-1 font-sans text-sm font-light leading-relaxed text-slate-600">
                   Almacenamiento a temperatura ambiente en bodegas climatizadas con control de humedad.
                 </p>
-                <a
-                  href="/products?temperature=Seco"
+                <Link
+                  to="/productos?temperature=Seco"
                   className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-900"
                 >
                   Ver Productos
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Refrigerado */}
@@ -111,15 +112,15 @@ export function CoveragePage() {
                 <p className="flex-1 font-sans text-sm font-light leading-relaxed text-slate-600">
                   Cadena de frío controlada de 0°C a 4°C con monitoreo constante de temperatura.
                 </p>
-                <a
-                  href="/products?temperature=Refrigerado"
+                <Link
+                  to="/productos?temperature=Refrigerado"
                   className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-900"
                 >
                   Ver Productos
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Congelado */}
@@ -140,15 +141,15 @@ export function CoveragePage() {
                 <p className="flex-1 font-sans text-sm font-light leading-relaxed text-slate-600">
                   Ultracongelación a -18°C con transporte refrigerado especializado para mantener la cadena de frío.
                 </p>
-                <a
-                  href="/products?temperature=Congelado"
+                <Link
+                  to="/productos?temperature=Congelado"
                   className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-900"
                 >
                   Ver Productos
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -166,15 +167,15 @@ export function CoveragePage() {
         <section className="bg-brand-500 px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded bg-white px-8 py-3 text-sm font-semibold uppercase tracking-widest text-brand-900 transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-500"
               >
                 Solicitar Cotización
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </a>
+              </Link>
               <a
                 href="tel:+525585905780"
                 className="inline-flex items-center justify-center gap-2 rounded border-2 border-white/30 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-500"

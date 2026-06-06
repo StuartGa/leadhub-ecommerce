@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useProducts } from "../../application/hooks/useProducts";
 import { useQuoteCart } from "../../application/hooks/useQuoteCart";
@@ -48,7 +48,6 @@ export function ProductsPage() {
     "Catálogo completo de productos alimenticios para foodservice: acompañantes, proteínas, salsas, quesos y más. Filtra por temperatura (seco, refrigerado, congelado) y temporalidad. Calidad premium garantizada."
   );
 
-  const navigate = useNavigate();
   const { products, loading, error } = useProducts();
   const { addItem } = useQuoteCart();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -127,8 +126,7 @@ export function ProductsPage() {
 
   const handleInquire = useCallback((product: Product) => {
     addItem({ product });
-    navigate("/contact");
-  }, [addItem, navigate]);
+  }, [addItem]);
 
   const resetFilters = () => {
     setSearchParams({}, { replace: true });

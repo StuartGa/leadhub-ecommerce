@@ -1,13 +1,33 @@
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
+
+/** GitHub Pages serves static files only — copy SPA shell for direct deep links. */
+function githubPagesSpaFallbacks(routes: string[]) {
+  return {
+    name: "github-pages-spa-fallbacks",
+    closeBundle() {
+      const dist = join(process.cwd(), "dist");
+      const indexHtml = readFileSync(join(dist, "index.html"), "utf8");
+
+      for (const route of routes) {
+        const dir = join(dist, route);
+        mkdirSync(dir, { recursive: true });
+        writeFileSync(join(dir, "index.html"), indexHtml);
+      }
+    },
+  };
+}
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
     base: env.VITE_BASE ?? "/",
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), githubPagesSpaFallbacks(["horeca"])],
     server: {
       headers: {
         "X-Content-Type-Options": "nosniff",

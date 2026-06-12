@@ -22,5 +22,23 @@
       })();
     </script>
   </head>
-  <body></body>
+  <body>
+    <p style="font-family: system-ui, sans-serif; padding: 2rem; text-align: center">
+      Redirigiendo…
+      <a id="spa-fallback" href="/leadhub-ecommerce/">Continuar al sitio</a>
+    </p>
+    <script>
+      (function () {
+        var l = window.location;
+        var repoBase = "/leadhub-ecommerce";
+        var path = l.pathname.startsWith(repoBase)
+          ? l.pathname.slice(repoBase.length)
+          : l.pathname;
+        var redirectTo =
+          repoBase + "/?p=" + encodeURIComponent(path + l.search + l.hash);
+        var link = document.getElementById("spa-fallback");
+        if (link) link.href = redirectTo;
+      })();
+    </script>
+  </body>
 </html>

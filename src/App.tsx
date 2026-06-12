@@ -49,6 +49,11 @@ const BlogPostPage = lazy(() =>
 const CareersPage = lazy(() =>
   import("./ui/pages/CareersPage").then((m) => ({ default: m.CareersPage }))
 );
+const HorecaLandingPage = lazy(() =>
+  import("./ui/pages/HorecaLandingPage").then((m) => ({
+    default: m.HorecaLandingPage,
+  }))
+);
 
 // Loading fallback component
 function PageLoader() {
@@ -75,6 +80,7 @@ function AppContent() {
         <Route path="/products/:productId" element={<ProductPage />} />
         <Route path="/cotizacion" element={<QuotePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/horeca" element={<HorecaLandingPage />} />
       </Routes>
     </Suspense>
   );

@@ -46,6 +46,7 @@
 
   /* Typography - Roboto (Metropolis alternative) */
   --font-sans: Roboto, ui-sans-serif, system-ui, sans-serif;
+  --font-brand-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
   
   /* Spacing Scale */
   --spacing-unit: 0.5rem; /* 8px */

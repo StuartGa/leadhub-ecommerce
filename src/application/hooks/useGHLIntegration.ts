@@ -8,8 +8,8 @@ export function useGHLIntegration() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
 
-  const submit = useCallback(async (payload: GHLWebhookPayload) => {
-    const webhookUrl = import.meta.env.VITE_GHL_WEBHOOK_URL;
+  const submit = useCallback(async (payload: GHLWebhookPayload, webhookUrlOverride?: string) => {
+    const webhookUrl = webhookUrlOverride ?? import.meta.env.VITE_GHL_WEBHOOK_URL;
 
     if (!webhookUrl) {
       setStatus("error");

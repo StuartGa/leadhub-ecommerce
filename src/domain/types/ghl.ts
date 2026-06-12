@@ -26,6 +26,7 @@ export interface GHLWebhookPayload {
   locality: string;
   categories: string[];
   message: string;
+  leadSource?: string;
   quoteItems?: GHLQuoteItem[];
   quoteSummary?: GHLQuoteSummary;
 }

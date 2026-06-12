@@ -74,11 +74,11 @@ export function LandingCoverageSection() {
               ))}
             </ul>
 
-            <div className="mt-10 pt-2">
-              <p className="text-lg font-bold text-brand-800">
+            <div className="mt-10 space-y-3 pt-2">
+              <p className="text-2xl font-bold text-brand-800 sm:text-[1.75rem]">
                 Alimentos Convenientes San Patric
               </p>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="max-w-md text-sm leading-relaxed text-slate-600 sm:text-base">
                 Ingredientes que inspiran, resultados que se notan.
               </p>
             </div>

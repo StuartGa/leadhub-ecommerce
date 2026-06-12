@@ -24,13 +24,13 @@ export function LandingBrandsStrip() {
           <img
             src={LANDING_BRAND_LOGOS.stanislaus}
             alt="Stanislaus"
-            className="h-24 w-auto max-w-[240px] object-contain sm:h-28 lg:h-[7.5rem]"
+            className="h-28 w-auto max-w-[280px] object-contain sm:h-32 lg:h-36"
             loading="lazy"
           />
           <img
             src={LANDING_BRAND_LOGOS.simplot}
             alt="Simplot"
-            className="h-20 w-auto max-w-[220px] object-contain sm:h-24 lg:h-28"
+            className="h-24 w-auto max-w-[260px] object-contain sm:h-28 lg:h-32"
             loading="lazy"
           />
         </div>

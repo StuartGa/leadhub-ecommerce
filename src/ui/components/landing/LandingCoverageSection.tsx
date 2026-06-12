@@ -64,7 +64,7 @@ export function LandingCoverageSection() {
                 <img
                   src={LANDING_ASSETS.coverageMap}
                   alt="Mapa de México con estados de cobertura resaltados"
-                  className="h-auto w-full max-w-[300px] object-contain lg:max-w-[360px]"
+                  className="h-auto w-full max-w-[340px] object-contain lg:max-w-[420px]"
                   loading="lazy"
                 />
               </div>

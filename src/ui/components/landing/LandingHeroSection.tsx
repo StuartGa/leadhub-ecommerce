@@ -21,7 +21,7 @@ export function LandingHeroSection() {
           <img
             src={LOGO_COLOR}
             alt="Alimentos Convenientes san patric"
-            className="h-12 w-auto sm:h-14"
+            className="h-16 w-auto sm:h-20 lg:h-[5.5rem]"
           />
         </Link>
 

@@ -1,4 +1,3 @@
-import { LANDING_ASSETS } from "../../../application/constants/landingAssets";
 import { CheckItem } from "./IdealForGrid";
 
 const COVERAGE_STATES_LEFT = [
@@ -54,20 +53,9 @@ export function LandingCoverageSection() {
               </span>
             </div>
 
-            <div className="mt-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-              <div className="grid shrink-0 grid-cols-2 gap-x-10 gap-y-0">
-                <StateColumn states={COVERAGE_STATES_LEFT} />
-                <StateColumn states={COVERAGE_STATES_RIGHT} />
-              </div>
-
-              <div className="flex flex-1 items-center justify-center sm:justify-end">
-                <img
-                  src={LANDING_ASSETS.coverageMap}
-                  alt="Mapa de México con estados de cobertura resaltados"
-                  className="h-auto w-full max-w-[340px] object-contain lg:max-w-[420px]"
-                  loading="lazy"
-                />
-              </div>
+            <div className="mt-8 grid max-w-md grid-cols-2 gap-x-10 gap-y-0">
+              <StateColumn states={COVERAGE_STATES_LEFT} />
+              <StateColumn states={COVERAGE_STATES_RIGHT} />
             </div>
           </div>
 

@@ -6,7 +6,6 @@ export const LANDING_ASSETS = {
   stanislausProducts: `${BASE}landing/stanislaus-products.png`,
   simplotFries: `${BASE}landing/simplot-fries.png`,
   testimonialsBg: `${BASE}landing/testimonials-tomatoes.jpg`,
-  coverageMap: `${BASE}landing/coverage-map.png`,
 } as const;
 
 export const LANDING_BRAND_LOGOS = {

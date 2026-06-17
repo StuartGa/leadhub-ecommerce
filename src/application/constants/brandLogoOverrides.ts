@@ -6,6 +6,7 @@ const BASE = import.meta.env.BASE_URL;
  */
 const BRAND_LOGO_OVERRIDES: Readonly<Record<string, string>> = {
   "Acción Alimenticia": `${BASE}assets/brands/logos/accion.png`,
+  "Custom Culinary": `${BASE}assets/brands/logos/custom-culinary.svg`,
   "Ventura Foods": `${BASE}assets/brands/logos/ventura-foods.png`,
   "San Patric": `${BASE}logo.svg`,
 };

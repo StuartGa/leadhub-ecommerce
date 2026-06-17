@@ -1,15 +1,16 @@
 import { useEffect, useMemo } from "react";
+import { motion } from "framer-motion";
 import { Link, useSearchParams } from "react-router-dom";
 import { useBrands } from "../../application/hooks/useBrands";
-import { LOGO_PLACEHOLDER } from "../../application/constants/assets";
+import { LOGO_PLACEHOLDER, PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
+import { useProducts } from "../../application/hooks/useProducts";
 import { slugify } from "../../application/utils/slugify";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { PageBanner } from "../components/common/PageBanner";
 import { StatCounter } from "../components/common/StatCounter";
-import { CategoriesSection } from "../components/home/CategoriesSection";
 
 export function BrandsPage() {
   useDocumentTitle(
@@ -29,6 +30,23 @@ export function BrandsPage() {
   const query = searchParams.get("q") ?? "";
   const highlightedBrandId = searchParams.get("brand");
   const { brands, loading: brandsLoading } = useBrands();
+  const { products } = useProducts();
+
+  const categories = useMemo(() => {
+    const map = new Map<string, { temp: string; imageUrl: string }>();
+    for (const product of products) {
+      if (map.has(product.category)) continue;
+      map.set(product.category, {
+        temp: product.temperature,
+        imageUrl: product.imageUrl,
+      });
+    }
+    return Array.from(map.entries()).map(([name, value]) => ({
+      name,
+      temp: value.temp,
+      imageUrl: value.imageUrl,
+    }));
+  }, [products]);
 
   const filteredBrands = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -158,7 +176,53 @@ export function BrandsPage() {
           </div>
         </section>
 
-        <CategoriesSection />
+        {/* Categories Section */}
+        <section className="bg-slate-50/70 px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <h2 className="mb-12 text-center font-sans text-3xl font-bold uppercase tracking-wider text-slate-900 sm:text-4xl">
+              Categorías <span className="font-normal">Disponibles</span>
+            </h2>
+            
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {categories.map((category, index) => (
+                <motion.article
+                  key={category.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: index * 0.06 }}
+                  className="group relative overflow-hidden rounded-lg border border-white/45 bg-white/40 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <img
+                    src={category.imageUrl}
+                    alt={category.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(event) => {
+                      const img = event.currentTarget;
+                      if (img.src.includes(PRODUCT_PLACEHOLDER)) return;
+                      img.src = PRODUCT_PLACEHOLDER;
+                    }}
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/76 via-white/62 to-white/84 transition-colors duration-300 group-hover:from-white/70 group-hover:via-white/54 group-hover:to-white/76" />
+
+                  <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-5 text-center">
+                    <h3 className="text-base font-semibold text-slate-900">{category.name}</h3>
+                    <p className="text-xs font-medium uppercase tracking-wide text-slate-600">{category.temp}</p>
+                    <Link
+                      to={`/productos/categoria/${slugify(category.name)}`}
+                      className="mt-1 inline-flex rounded border border-brand-300/60 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-slate-900 transition-colors hover:bg-brand-500 hover:text-white"
+                    >
+                      Ver todo
+                    </Link>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="bg-gradient-to-br from-brand-500 to-brand-900 px-4 py-20 sm:px-6 lg:px-8">

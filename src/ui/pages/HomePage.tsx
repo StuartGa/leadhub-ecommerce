@@ -5,6 +5,7 @@ import { HeroSection } from "../components/home/HeroSection";
 import { AboutBriefSection } from "../components/home/AboutBriefSection";
 import { BannersSection } from "../components/home/BannersSection";
 import { BrandCarousel } from "../components/home/BrandCarousel";
+import { CategoriesSection } from "../components/home/CategoriesSection";
 import { TemperatureSection } from "../components/home/TemperatureSection";
 
 export function HomePage() {
@@ -22,6 +23,7 @@ export function HomePage() {
         <AboutBriefSection />
         <BannersSection />
         <BrandCarousel />
+        <CategoriesSection />
         <TemperatureSection />
       </main>
 

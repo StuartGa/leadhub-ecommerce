@@ -29,7 +29,7 @@ const BRAND_LOGO_MAP = {
   "Rich's": "richs.png",
   Ricos: "ricos.png",
   "San Antonio": "san-antonio.png",
-  "San Patric": "san-patric.png",
+  "San Patric": "san-patric.svg",
   Sesajal: "sesajal.png",
   Simplot: "simplot.png",
   Splenda: "splenda.png",

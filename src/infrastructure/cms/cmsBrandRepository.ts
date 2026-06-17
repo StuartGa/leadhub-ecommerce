@@ -1,5 +1,6 @@
 import type { Brand } from "../../domain/types/brand";
 import { LOGO_PLACEHOLDER } from "../../application/constants/assets";
+import { resolveBrandLogoUrl } from "../../application/constants/brandLogoOverrides";
 import { buildSanityImageUrl, getSanityClient } from "./sanityClient";
 import { brands as localBrands } from "../data/brands";
 
@@ -30,12 +31,16 @@ export async function fetchCmsBrands(): Promise<Brand[]> {
   }
 
   const docs = await client.fetch<SanityBrand[]>(BRAND_QUERY);
-  return docs.map((doc) => ({
-    id: doc.slug?.current ?? doc._id,
-    name: doc.name,
-    logoUrl: doc.logo
+  return docs.map((doc) => {
+    const fallbackLogoUrl = doc.logo
       ? buildSanityImageUrl(doc.logo)
-      : (localLogoMap.get(doc.name) ?? LOGO_PLACEHOLDER),
-    featured: doc.featured ?? false,
-  }));
+      : (localLogoMap.get(doc.name) ?? LOGO_PLACEHOLDER);
+
+    return {
+      id: doc.slug?.current ?? doc._id,
+      name: doc.name,
+      logoUrl: resolveBrandLogoUrl(doc.name, fallbackLogoUrl),
+      featured: doc.featured ?? false,
+    };
+  });
 }

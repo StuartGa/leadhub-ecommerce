@@ -24,7 +24,7 @@ export const brands: Brand[] = [
   { id: "brand-my-sweet-garden",     name: "My Sweet Garden",    logoUrl: `${BASE}assets/brands/logos/my-sweet-garden.png`,     featured: false },
   { id: "brand-ricos",               name: "Ricos",              logoUrl: `${BASE}assets/brands/logos/ricos.png`,               featured: false },
   { id: "brand-san-antonio",         name: "San Antonio",        logoUrl: `${BASE}assets/brands/logos/san-antonio.png`,         featured: false },
-  { id: "brand-san-patric",          name: "San Patric",         logoUrl: `${BASE}assets/brands/logos/san-patric.png`,          featured: false },
+  { id: "brand-san-patric",          name: "San Patric",         logoUrl: `${BASE}logo.svg`,                                    featured: false },
   { id: "brand-sesajal",             name: "Sesajal",            logoUrl: `${BASE}assets/brands/logos/sesajal.png`,             featured: false },
   { id: "brand-splenda",             name: "Splenda",            logoUrl: `${BASE}assets/brands/logos/splenda.png`,             featured: false },
   { id: "brand-stanislaus",          name: "Stanislaus",         logoUrl: `${BASE}assets/brands/logos/stanislaus.png`,          featured: false },

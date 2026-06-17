@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import { PRODUCT_PLACEHOLDER } from "../../../application/constants/assets";
 import { audienceShowcaseItems } from "../../../infrastructure/data/audienceShowcase";
 import { AudienceIcon } from "./AudienceIcon";
 
@@ -27,29 +28,38 @@ export function AudienceSection() {
           {audienceShowcaseItems.map((item) => (
             <article
               key={item.name}
-              className="group relative aspect-square overflow-hidden rounded-xl bg-slate-200"
+              className="group relative aspect-square overflow-hidden rounded-xl bg-slate-300 shadow-sm"
               aria-label={item.name}
             >
               <img
                 src={item.imageUrl}
-                alt=""
+                alt={item.name}
                 loading="lazy"
                 decoding="async"
                 width={600}
                 height={600}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                onError={(event) => {
+                  const img = event.currentTarget;
+                  if (img.src.includes(PRODUCT_PLACEHOLDER)) return;
+                  img.src = PRODUCT_PLACEHOLDER;
+                }}
               />
 
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"
                 aria-hidden="true"
               />
 
-              <div className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-800 shadow-md transition-transform duration-300 group-hover:scale-105 sm:bottom-4 sm:left-4 sm:h-12 sm:w-12">
-                <AudienceIcon id={item.icon} className="h-5 w-5 sm:h-6 sm:w-6" />
+              <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-800 shadow-md sm:bottom-4 sm:left-4 sm:h-11 sm:w-11">
+                <AudienceIcon id={item.icon} className="h-5 w-5" />
               </div>
 
-              <span className="sr-only">{item.name}</span>
+              <div className="absolute inset-x-0 bottom-0 p-3 pt-10 sm:p-4 sm:pt-12">
+                <p className="text-center text-xs font-semibold leading-tight text-white sm:text-sm">
+                  {item.name}
+                </p>
+              </div>
             </article>
           ))}
         </div>

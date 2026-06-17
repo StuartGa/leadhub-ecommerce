@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { COVERAGE_MAP } from "../../application/constants/assets";
 import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
@@ -47,12 +48,15 @@ export function CoveragePage() {
         </section>
 
         {/* Mapa de Cobertura */}
-        <section className="bg-slate-50">
+        <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
           <img
-            src={`${import.meta.env.BASE_URL}assets/images/banners/banner-mapa.webp`}
-            alt="Mapa de cobertura nacional San Patric Foodservice"
-            className="mx-auto w-full max-w-6xl object-contain h-auto max-h-[800px]"
+            src={COVERAGE_MAP}
+            alt="Mapa de cobertura San Patric Foodservice en Jalisco, Querétaro, Estado de México, CDMX, Morelos, Tlaxcala, Puebla y Veracruz"
+            className="mx-auto h-auto w-full max-w-5xl object-contain"
+            width={1200}
+            height={900}
             loading="lazy"
+            decoding="async"
           />
         </section>
 

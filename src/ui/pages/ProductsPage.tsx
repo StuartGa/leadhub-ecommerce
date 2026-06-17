@@ -10,39 +10,15 @@ import type { Product, Temperature } from "../../domain/types/product";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { PageBanner } from "../components/common/PageBanner";
+import {
+  productMatchesFilterTags,
+  resolveFilterOption,
+  SEGMENT_OPTIONS,
+  TEMPORALITY_OPTIONS,
+} from "../../application/constants/productFilters";
 import { ProductCard } from "../components/catalog/ProductCard";
 
 const TEMPERATURES: Temperature[] = ["Seco", "Refrigerado", "Congelado"];
-
-const TEMPORALITY_OPTIONS: { label: string; tags: string[] }[] = [
-  { label: "Cuaresma / Semana Santa", tags: ["cuaresma", "semana-santa-cuaresma", "cuaresma-semana-santa"] },
-  { label: "Día de la Madre", tags: ["dia-de-la-madre", "dia-del-madre"] },
-  { label: "Día del Niño", tags: ["dia-del-nino"] },
-  { label: "Día del Padre", tags: ["dia-del-padre"] },
-  { label: "Día del Amor y la Amistad", tags: ["dia-del-amor-y-la-amistad", "dia-del-amor-y-la-amsitad", "dia-del-amor-y-san-valentin"] },
-  { label: "Fin de Año", tags: ["fin-de-ano"] },
-  { label: "Día de Reyes", tags: ["dia-de-reyes"] },
-  { label: "Día de Muertos", tags: ["dia-de-muertos"] },
-  { label: "Vacaciones de Verano", tags: ["vacaciones-de-verano"] },
-  { label: "Día de la Independencia", tags: ["dia-de-la-independencia"] },
-  { label: "Día de la Hamburguesa", tags: ["dia-de-la-hamburguesa"] },
-  { label: "Día de la Pizza", tags: ["dia-de-la-pizza"] },
-  { label: "F1", tags: ["f1", "f2", "f3"] },
-];
-
-const SEGMENT_OPTIONS: { label: string; tags: string[] }[] = [
-  { label: "Restaurantes", tags: ["restaurantes"] },
-  { label: "Hoteles", tags: ["hoteles"] },
-  { label: "Cafeterías", tags: ["cafeterias"] },
-  { label: "Centros de Entretenimiento", tags: ["centros-de-entretenimiento"] },
-  { label: "Escuelas", tags: ["escuelas"] },
-  { label: "Hospitales", tags: ["hospitales"] },
-  { label: "Fast Food", tags: ["fast-food"] },
-  { label: "Delivery", tags: ["delivery"] },
-  { label: "Bares", tags: ["bares"] },
-  { label: "Panadería / Repostería", tags: ["panaderias", "reposterias"] },
-  { label: "Comedor Industrial", tags: ["comedor-industrial"] },
-];
 
 export function ProductsPage() {
   useDocumentTitle(
@@ -91,16 +67,16 @@ export function ProductsPage() {
 
       // Filtro por temporalidad (eventos específicos via tags)
       if (selectedTemporality !== "all") {
-        const opt = TEMPORALITY_OPTIONS.find((o) => o.tags[0] === selectedTemporality);
-        const tagSet = opt?.tags ?? [selectedTemporality];
-        if (!product.tags.some((t) => tagSet.includes(t))) return false;
+        const opt = resolveFilterOption(TEMPORALITY_OPTIONS, selectedTemporality);
+        const tagSet = opt?.tags ?? [`temporada-${selectedTemporality}`, selectedTemporality];
+        if (!productMatchesFilterTags(product.tags, tagSet)) return false;
       }
 
       // Filtro por segmento (tipo de negocio via tags)
       if (selectedSegment !== "all") {
-        const opt = SEGMENT_OPTIONS.find((o) => o.tags[0] === selectedSegment);
-        const tagSet = opt?.tags ?? [selectedSegment];
-        if (!product.tags.some((t) => tagSet.includes(t))) return false;
+        const opt = resolveFilterOption(SEGMENT_OPTIONS, selectedSegment);
+        const tagSet = opt?.tags ?? [`segmento-${selectedSegment}`, selectedSegment];
+        if (!productMatchesFilterTags(product.tags, tagSet)) return false;
       }
 
       // Filtro por marca
@@ -258,7 +234,7 @@ export function ProductsPage() {
                 >
                   <option value="all">Todas las Temporalidades</option>
                   {TEMPORALITY_OPTIONS.map((opt) => (
-                    <option key={opt.tags[0]} value={opt.tags[0]}>
+                    <option key={opt.id} value={opt.id}>
                       {opt.label}
                     </option>
                   ))}
@@ -281,7 +257,7 @@ export function ProductsPage() {
                 >
                   <option value="all">Todos los Negocios</option>
                   {SEGMENT_OPTIONS.map((opt) => (
-                    <option key={opt.tags[0]} value={opt.tags[0]}>
+                    <option key={opt.id} value={opt.id}>
                       {opt.label}
                     </option>
                   ))}

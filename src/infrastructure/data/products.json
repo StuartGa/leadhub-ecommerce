@@ -11,7 +11,14 @@
     "inStock": true,
     "tags": [
       "Pan Congelado",
-      "Acción Alimenticia"
+      "Acción Alimenticia",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -34,7 +41,15 @@
     "inStock": true,
     "tags": [
       "Pan Congelado",
-      "Acción Alimenticia"
+      "Acción Alimenticia",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -57,7 +72,14 @@
     "inStock": true,
     "tags": [
       "Pan Congelado",
-      "Acción Alimenticia"
+      "Acción Alimenticia",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -80,7 +102,14 @@
     "inStock": true,
     "tags": [
       "Acompañantes",
-      "Al Minuto"
+      "Al Minuto",
+      "temporada-dia-de-la-independencia",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-comedor-industrial",
+      "segmento-hospitales",
+      "segmento-escuelas"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -103,7 +132,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "American Beef"
+      "American Beef",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-escuelas",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -126,7 +164,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "American Beef"
+      "American Beef",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-escuelas",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -149,7 +196,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "American Beef"
+      "American Beef",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-escuelas",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -172,7 +228,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "American Beef"
+      "American Beef",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-escuelas",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -195,7 +260,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "BACHOCO / RYC"
+      "BACHOCO / RYC",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-escuelas",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -218,7 +292,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Bimbo"
+      "Bimbo",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -241,7 +321,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Bimbo"
+      "Bimbo",
+      "temporada-dia-del-amor-y-la-amistad",
+      "temporada-dia-de-reyes",
+      "temporada-dia-del-nino",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -264,7 +350,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Bimbo"
+      "Bimbo",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -287,7 +379,14 @@
     "inStock": true,
     "tags": [
       "Aceites y Manteca",
-      "Cargill"
+      "Cargill",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-comedor-industrial",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -310,7 +409,14 @@
     "inStock": true,
     "tags": [
       "Aceites y Manteca",
-      "Cargill"
+      "Cargill",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-comedor-industrial",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -333,7 +439,14 @@
     "inStock": true,
     "tags": [
       "Aceites y Manteca",
-      "Cargill"
+      "Cargill",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-comedor-industrial",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -356,7 +469,13 @@
     "inStock": true,
     "tags": [
       "Aceites y Manteca",
-      "Cargill"
+      "Cargill",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-del-amor-y-la-amistad",
+      "temporada-dia-del-nino",
+      "temporada-dia-de-muertos",
+      "segmento-panaderias",
+      "segmento-reposterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -379,7 +498,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -402,7 +529,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -425,7 +560,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -448,7 +591,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -471,7 +622,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -494,7 +653,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -517,7 +684,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -540,7 +715,17 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "temporada-dia-del-padre",
+      "temporada-dia-de-la-hamburguesa",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -563,7 +748,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -586,7 +779,16 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "temporada-dia-de-la-independencia",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -609,7 +811,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -632,7 +842,15 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Covemex"
+      "Covemex",
+      "temporada-cuaresma",
+      "temporada-fin-de-ano",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -655,7 +873,14 @@
     "inStock": true,
     "tags": [
       "Estuchados",
-      "HEINZ"
+      "HEINZ",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -678,7 +903,14 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -701,7 +933,14 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "HEINZ"
+      "HEINZ",
+      "segmento-comedor-industrial",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales",
+      "segmento-escuelas",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -724,7 +963,15 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-san-valentin",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-reposterias",
+      "segmento-panaderias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -747,7 +994,11 @@
     "inStock": true,
     "tags": [
       "Estuchados",
-      "HEINZ"
+      "HEINZ",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -770,7 +1021,11 @@
     "inStock": true,
     "tags": [
       "Estuchados, Reposteria y Postres",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -793,7 +1048,11 @@
     "inStock": true,
     "tags": [
       "Estuchados",
-      "HEINZ"
+      "HEINZ",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -816,7 +1075,12 @@
     "inStock": true,
     "tags": [
       "Estuchados",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-de-la-pizza",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -839,7 +1103,12 @@
     "inStock": true,
     "tags": [
       "Estuchados",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-de-la-pizza",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-escuelas",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -862,7 +1131,10 @@
     "inStock": true,
     "tags": [
       "Estuchados, Reposteria y Postres",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -885,7 +1157,10 @@
     "inStock": true,
     "tags": [
       "Estuchados, Reposteria y Postres",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -908,7 +1183,9 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "HEINZ"
+      "HEINZ",
+      "segmento-hoteles",
+      "segmento-restaurantes"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -931,7 +1208,11 @@
     "inStock": true,
     "tags": [
       "Estuchados, Salsas y Aderezos",
-      "HEINZ"
+      "HEINZ",
+      "segmento-hoteles",
+      "segmento-delivery",
+      "segmento-fast-food",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -954,7 +1235,14 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -977,7 +1265,13 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "HEINZ"
+      "HEINZ",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-bares",
+      "segmento-comedor-industrial",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1000,7 +1294,13 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "HEINZ"
+      "HEINZ",
+      "temporada-dia-de-la-pizza",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1023,7 +1323,13 @@
     "inStock": true,
     "tags": [
       "Estuchados, Salsas y Aderezos",
-      "HEINZ"
+      "HEINZ",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-bares",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1046,7 +1352,15 @@
     "inStock": true,
     "tags": [
       "Quesos",
-      "Lactalis"
+      "Lactalis",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-dia-de-la-pizza",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1069,7 +1383,15 @@
     "inStock": true,
     "tags": [
       "quesos",
-      "Lactalis"
+      "Lactalis",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-dia-de-la-pizza",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1092,7 +1414,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1115,7 +1447,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1138,7 +1480,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1161,7 +1513,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1184,7 +1546,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1207,7 +1579,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1230,7 +1612,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1253,7 +1645,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1276,7 +1678,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1299,7 +1711,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1322,7 +1744,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1345,7 +1777,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1368,7 +1810,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1391,7 +1843,17 @@
     "inStock": true,
     "tags": [
       "Papa Congelada",
-      "LAMB WESTON"
+      "LAMB WESTON",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-cuaresma-semana-santa",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1414,7 +1876,12 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "MARINA AZUL"
+      "MARINA AZUL",
+      "temporada-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-panaderias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1437,7 +1904,15 @@
     "inStock": true,
     "tags": [
       "Pan Congelado",
-      "Martin's"
+      "Martin's",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1460,7 +1935,15 @@
     "inStock": true,
     "tags": [
       "Pan Congelado",
-      "Martin's"
+      "Martin's",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f2",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1483,7 +1966,15 @@
     "inStock": true,
     "tags": [
       "Pan Congelado",
-      "Martin's"
+      "Martin's",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-dia-del-padre",
+      "temporada-f3",
+      "segmento-fast-food",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1506,7 +1997,16 @@
     "inStock": true,
     "tags": [
       "Quesos",
-      "Mondeléz"
+      "Mondeléz",
+      "temporada-dia-del-amor-y-la-amistad",
+      "temporada-dia-de-reyes",
+      "temporada-dia-del-nino",
+      "temporada-dia-de-muertos",
+      "temporada-dia-de-la-independencia",
+      "temporada-cuaresma",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-restaurantes"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1529,7 +2029,11 @@
     "inStock": true,
     "tags": [
       "Quesos",
-      "Mondeléz"
+      "Mondeléz",
+      "temporada-cuaresma",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-restaurantes"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1552,7 +2056,11 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Mondeléz"
+      "Mondeléz",
+      "temporada-dia-del-nino",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1575,7 +2083,11 @@
     "inStock": true,
     "tags": [
       "Quesos",
-      "Mondeléz"
+      "Mondeléz",
+      "temporada-cuaresma",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-restaurantes"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1598,7 +2110,12 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Mondeléz"
+      "Mondeléz",
+      "temporada-dia-del-amor-y-la-amistad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1621,7 +2138,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Mondeléz"
+      "Mondeléz",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1644,7 +2167,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1667,7 +2196,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1690,7 +2225,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1713,7 +2254,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1736,7 +2283,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1759,7 +2312,13 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1782,7 +2341,13 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1805,7 +2370,14 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1828,7 +2400,13 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1851,7 +2429,13 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1874,7 +2458,13 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1897,7 +2487,14 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1920,7 +2517,14 @@
     "inStock": true,
     "tags": [
       "reposteria y Postres",
-      "My Sweet Garden"
+      "My Sweet Garden",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1943,7 +2547,12 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "NUTELLA"
+      "NUTELLA",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amistad",
+      "segmento-cafeterias",
+      "segmento-panaderias",
+      "segmento-reposterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1966,7 +2575,15 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Pilgrim's"
+      "Pilgrim's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -1989,7 +2606,14 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Pilgrim's"
+      "Pilgrim's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2012,7 +2636,14 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Pilgrim's"
+      "Pilgrim's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2035,7 +2666,14 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Pilgrim's"
+      "Pilgrim's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2058,7 +2696,14 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Pilgrim's"
+      "Pilgrim's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2081,7 +2726,14 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Pilgrim's"
+      "Pilgrim's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2104,7 +2756,12 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2127,7 +2784,12 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2150,7 +2812,15 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-cafeterias",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2173,7 +2843,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2196,7 +2872,16 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-comedor-industrial"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2219,7 +2904,12 @@
     "inStock": true,
     "tags": [
       "Acompañantes, quesos",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2242,7 +2932,12 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-del-amor-y-la-amistad",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2265,7 +2960,13 @@
     "inStock": true,
     "tags": [
       "Reposteria y Postres",
-      "Rich's"
+      "Rich's",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-amor-y-la-amsitad",
+      "temporada-dia-de-la-madre",
+      "segmento-panaderias",
+      "segmento-reposterias",
+      "segmento-cafeterias"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2288,7 +2989,14 @@
     "inStock": true,
     "tags": [
       "Quesos",
-      "RICOS"
+      "RICOS",
+      "temporada-dia-del-nino",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2311,7 +3019,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "RYC"
+      "RYC",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2334,7 +3051,17 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "SAN ANTONIO"
+      "SAN ANTONIO",
+      "temporada-dia-del-nino",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2357,7 +3084,16 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "SAN ANTONIO"
+      "SAN ANTONIO",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento",
+      "segmento-escuelas",
+      "segmento-hospitales"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2380,7 +3116,17 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "SAN ANTONIO"
+      "SAN ANTONIO",
+      "temporada-dia-del-nino",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2403,7 +3149,17 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "SAN ANTONIO"
+      "SAN ANTONIO",
+      "temporada-dia-del-nino",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-madre",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2426,7 +3182,13 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "San Patric"
+      "San Patric",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2449,7 +3211,14 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "San Patric"
+      "San Patric",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2472,7 +3241,14 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "San Patric"
+      "San Patric",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares",
+      "segmento-centros-de-entretenimiento"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2495,7 +3271,13 @@
     "inStock": true,
     "tags": [
       "Aceites y Manteca",
-      "Sesajal"
+      "Sesajal",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-hospitales"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2518,7 +3300,13 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-de-la-independencia",
+      "temporada-fin-de-ano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2541,7 +3329,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2564,7 +3362,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2587,7 +3395,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2610,7 +3428,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2633,7 +3461,17 @@
     "inStock": true,
     "tags": [
       "Verduras y Leguminosas",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2656,7 +3494,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2679,7 +3527,17 @@
     "inStock": true,
     "tags": [
       "papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2702,7 +3560,17 @@
     "inStock": true,
     "tags": [
       "Papa congelada",
-      "Simplot"
+      "Simplot",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-semana-santa-cuaresma",
+      "segmento-delivery",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2725,7 +3593,11 @@
     "inStock": true,
     "tags": [
       "Azúcar y Endulcorantes",
-      "Splenda"
+      "Splenda",
+      "segmento-cafeterias",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2748,7 +3620,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Stanislaus"
+      "Stanislaus",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2771,7 +3653,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Stanislaus"
+      "Stanislaus",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2794,7 +3686,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Stanislaus"
+      "Stanislaus",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2817,7 +3719,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Stanislaus"
+      "Stanislaus",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2840,7 +3752,17 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Tyson"
+      "Tyson",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2863,7 +3785,17 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Tyson"
+      "Tyson",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2886,7 +3818,17 @@
     "inStock": true,
     "tags": [
       "Proteina",
-      "Tyson"
+      "Tyson",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2909,7 +3851,17 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "Valentina"
+      "Valentina",
+      "temporada-dia-de-la-pizza",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2932,7 +3884,17 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-dia-de-la-madre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2955,7 +3917,17 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-dia-de-la-madre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -2978,7 +3950,17 @@
     "inStock": true,
     "tags": [
       "Salsa y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-fin-de-ano",
+      "temporada-dia-del-padre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3001,7 +3983,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-dia-de-la-madre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3024,7 +4016,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-madre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3047,7 +4049,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-dia-del-madre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3070,7 +4082,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-padre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares",
+      "segmento-comedor-industrial"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3093,7 +4115,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa",
+      "temporada-dia-de-la-pizza",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3116,7 +4148,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-padre",
+      "temporada-f1",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3139,7 +4181,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-dia-de-la-madre",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food",
+      "segmento-delivery",
+      "segmento-bares"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [
@@ -3162,7 +4214,17 @@
     "inStock": true,
     "tags": [
       "Salsas y Aderezo",
-      "Ventura Foods"
+      "Ventura Foods",
+      "temporada-dia-del-nino",
+      "temporada-vacaciones-de-verano",
+      "temporada-semana-santa-cuaresma",
+      "temporada-dia-de-la-hamburguesa",
+      "temporada-fin-de-ano",
+      "temporada-dia-del-padre",
+      "segmento-hoteles",
+      "segmento-restaurantes",
+      "segmento-centros-de-entretenimiento",
+      "segmento-fast-food"
     ],
     "imageUrl": "/images/product-placeholder.webp",
     "gallery": [

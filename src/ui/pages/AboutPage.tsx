@@ -19,7 +19,7 @@ export function AboutPage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "San Patric Foodservice",
-    url: `${import.meta.env.BASE_URL || "/"}`,
+    url: `${CANONICAL_BASE}/`,
     description: "Distribuidor foodservice 100% mexicano con más de 20 años de experiencia en logística y acondicionamiento de alimentos.",
     areaServed: {
       "@type": "Country",

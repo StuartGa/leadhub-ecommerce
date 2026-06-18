@@ -8,8 +8,10 @@ import { PageBanner } from "../components/common/PageBanner";
 
 export function QuotePage() {
   useDocumentTitle(
-    "Carrito de Cotizacion — San Patric Foodservice",
-    "Revise su carrito de cotizacion B2B por unidades y envie su solicitud de propuesta personalizada.",
+    "Carrito de Cotización — San Patric Foodservice",
+    "Revise su carrito de cotización B2B por unidades y envíe su solicitud de propuesta personalizada.",
+    "/cotizacion",
+    { robots: "noindex, follow" },
   );
 
   const { items, totalUnits, distinctProducts, updateQuantity, updateNotes, removeItem, clearCart } = useQuoteCart();

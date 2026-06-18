@@ -23,6 +23,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
   const { items, distinctProducts, totalUnits, clearCart } = useQuoteCart();
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [honeypot, setHoneypot] = useState("");
 
   const {
     register,
@@ -91,7 +92,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
       quoteSummary: quotePayload.success ? quotePayload.data.quoteSummary : undefined,
     };
 
-    await submit(payload);
+    await submit(payload, "contact", honeypot);
   };
 
   if (status === "success") {
@@ -143,6 +144,16 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
         noValidate
         className="flex flex-col gap-5 rounded-lg border border-slate-200 bg-white p-6 shadow-md sm:p-8"
       >
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute -left-[9999px] h-px w-px opacity-0"
+        />
         {items.length > 0 && (
           <div className="rounded-lg border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">
             <p className="font-semibold">Carrito de cotizacion incluido</p>

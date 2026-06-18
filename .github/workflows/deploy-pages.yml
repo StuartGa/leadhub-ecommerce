@@ -33,9 +33,14 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
       - name: Build
         env:
           VITE_BASE: /leadhub-ecommerce/
+          VITE_LEAD_API_URL: ${{ secrets.VITE_LEAD_API_URL }}
           VITE_SANITY_PROJECT_ID: ${{ secrets.VITE_SANITY_PROJECT_ID }}
           VITE_SANITY_DATASET: ${{ secrets.VITE_SANITY_DATASET }}
           VITE_SANITY_API_VERSION: ${{ secrets.VITE_SANITY_API_VERSION }}

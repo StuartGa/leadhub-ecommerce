@@ -7,7 +7,8 @@ import { useState } from "react";
 export function CareersPage() {
   useDocumentTitle(
     "Trabaja con Nosotros — San Patric Foodservice",
-    "Únete al equipo de San Patric Foodservice. Vacantes en ventas, logística, almacén, calidad y marketing. Empresa 100% mexicana con +20 años en foodservice. Prestaciones superiores a la ley y plan de carrera."
+    "Únete al equipo de San Patric Foodservice. Vacantes en ventas, logística, almacén, calidad y marketing. Empresa 100% mexicana con +20 años en foodservice. Prestaciones superiores a la ley y plan de carrera.",
+    "/trabaja-con-nosotros",
   );
 
   const [openJob, setOpenJob] = useState<string | null>(null);

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 
+import { quoteCartSchema } from "../../domain/schemas/quoteCartSchema";
 import type { QuoteCartItem } from "../../domain/types/quoteCart";
 import { QuoteCartContext, type AddToCartInput, type QuoteCartContextValue } from "./quoteCartContextInstance";
 
@@ -28,8 +29,13 @@ function getInitialItems(): QuoteCartItem[] {
   }
 
   try {
-    const parsed = JSON.parse(raw) as QuoteCartItem[];
-    return Array.isArray(parsed) ? parsed : [];
+    const parsed = JSON.parse(raw) as unknown;
+    const result = quoteCartSchema.safeParse(parsed);
+    if (!result.success) {
+      window.localStorage.removeItem("leadhub.quote.cart.v1");
+      return [];
+    }
+    return result.data as QuoteCartItem[];
   } catch {
     window.localStorage.removeItem("leadhub.quote.cart.v1");
     return [];

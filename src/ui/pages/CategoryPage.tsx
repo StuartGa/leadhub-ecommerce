@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
@@ -35,6 +36,8 @@ export function CategoryPage() {
     categoryName
       ? `Catálogo de ${categoryName} para foodservice. Solicite su cotización personalizada con San Patric Foodservice.`
       : "La categoría solicitada no fue encontrada en el catálogo de San Patric Foodservice.",
+    categorySlug ? `/productos/categoria/${categorySlug}` : undefined,
+    categoryName ? undefined : { robots: "noindex, nofollow" },
   );
 
   useJsonLd(
@@ -44,7 +47,7 @@ export function CategoryPage() {
           "@type": "CollectionPage",
           name: `${categoryName} — San Patric Foodservice`,
           description: `Catálogo de ${categoryName} para foodservice. Productos de calidad premium para restaurantes, hoteles y cafeterías.`,
-          url: `${import.meta.env.BASE_URL || "/"}productos/categoria/${categorySlug}`,
+          url: `${CANONICAL_BASE}/productos/categoria/${categorySlug}`,
         }
       : null,
   );

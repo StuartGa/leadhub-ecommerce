@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link, useSearchParams } from "react-router-dom";
 import { useBrands } from "../../application/hooks/useBrands";
 import { LOGO_PLACEHOLDER, PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
+import { CANONICAL_BASE } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
@@ -16,6 +17,7 @@ export function BrandsPage() {
   useDocumentTitle(
     "Marcas — San Patric Foodservice",
     "Más de 35 marcas líderes en la industria alimentaria para foodservice. Explora nuestro catálogo de proveedores con productos en seco, refrigerado y congelado. Calidad premium garantizada.",
+    "/marcas",
   );
 
   useJsonLd({
@@ -23,7 +25,7 @@ export function BrandsPage() {
     "@type": "CollectionPage",
     name: "Marcas Foodservice — San Patric",
     description: "Más de 35 marcas líderes en la industria alimentaria para foodservice. Productos en seco, refrigerado y congelado.",
-    url: `${import.meta.env.BASE_URL || "/"}marcas`,
+    url: `${CANONICAL_BASE}/marcas`,
   });
 
   const [searchParams, setSearchParams] = useSearchParams();

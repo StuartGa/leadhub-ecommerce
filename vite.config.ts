@@ -27,7 +27,21 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: env.VITE_BASE ?? "/",
-    plugins: [react(), tailwindcss(), githubPagesSpaFallbacks(["horeca"])],
+    plugins: [
+      react(),
+      tailwindcss(),
+      githubPagesSpaFallbacks([
+        "horeca",
+        "quienes-somos",
+        "productos",
+        "marcas",
+        "cobertura",
+        "blog",
+        "trabaja-con-nosotros",
+        "contact",
+        "cotizacion",
+      ]),
+    ],
     server: {
       headers: {
         "X-Content-Type-Options": "nosniff",
@@ -40,7 +54,7 @@ export default defineConfig(({ mode }) => {
           "style-src 'self' 'unsafe-inline'",
           "img-src 'self' https://cdn.sanity.io https://images.unsplash.com https://www.facebook.com https://www.google-analytics.com data:",
           "font-src 'self'",
-          "connect-src 'self' https://api.sanity.io https://cdn.sanity.io https://*.api.sanity.io https://rest.gohighlevel.com https://*.gohighlevel.com https://www.googletagmanager.com https://www.google-analytics.com https://*.analytics.google.com https://www.facebook.com https://*.facebook.com https://*.facebook.net",
+          "connect-src 'self' https://api.sanity.io https://cdn.sanity.io https://*.api.sanity.io https://*.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://*.analytics.google.com https://www.facebook.com https://*.facebook.com https://*.facebook.net",
           "frame-src https://www.google.com",
           "frame-ancestors 'none'",
         ].join("; "),

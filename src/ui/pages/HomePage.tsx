@@ -10,7 +10,8 @@ import { TemperatureSection } from "../components/home/TemperatureSection";
 export function HomePage() {
   useDocumentTitle(
     "San Patric Foodservice — Alimentos Premium para Foodservice",
-    "San Patric Foodservice: distribución de alimentos convenientes premium para restaurantes, hoteles y cafeterías en México. Catálogo de +200 productos, +35 proveedores y cobertura nacional. Solicita tu cotización."
+    "San Patric Foodservice: distribución de alimentos convenientes premium para restaurantes, hoteles y cafeterías en México. Catálogo de +200 productos, +35 proveedores y cobertura nacional. Solicita tu cotización.",
+    "/",
   );
 
   return (

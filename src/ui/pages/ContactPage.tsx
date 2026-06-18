@@ -10,7 +10,8 @@ export function ContactPage() {
 
   useDocumentTitle(
     "Inicie su Cotización — San Patric Foodservice",
-    "Inicie su cotización B2B para alimentos foodservice. Complete el formulario y un especialista de San Patric diseñará una propuesta a la medida para su operación."
+    "Inicie su cotización B2B para alimentos foodservice. Complete el formulario y un especialista de San Patric diseñará una propuesta a la medida para su operación.",
+    "/contact",
   );
 
   return (

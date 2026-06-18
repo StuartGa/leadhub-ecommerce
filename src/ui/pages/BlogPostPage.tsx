@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { CANONICAL_BASE } from "../../application/constants/seo";
+import { CANONICAL_BASE, absoluteUrl } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { blogService } from "../../application/services/blogService";
@@ -37,18 +37,20 @@ export function BlogPostPage() {
       ? post.excerpt.slice(0, 160)
       : "El artículo solicitado no fue encontrado en el blog de San Patric Foodservice.",
     post && slug ? `/blog/${slug}` : undefined,
+    post ? undefined : { robots: "noindex, nofollow" },
   );
 
   useJsonLd(
-    post
+    post && slug
       ? {
           "@context": "https://schema.org",
           "@type": "Article",
           headline: post.title,
           description: post.excerpt,
+          url: `${CANONICAL_BASE}/blog/${slug}`,
           author: { "@type": "Person", name: post.author },
           datePublished: post.publishedAt,
-          image: `${import.meta.env.BASE_URL || "/"}og-image.png`,
+          image: absoluteUrl(post.imageUrl),
           publisher: {
             "@type": "Organization",
             name: "San Patric Foodservice",

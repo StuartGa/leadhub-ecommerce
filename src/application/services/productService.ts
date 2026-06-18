@@ -1,5 +1,7 @@
 import DOMPurify from "dompurify";
 
+import { toSafeHttpsUrl } from "../utils/safeUrl";
+
 import type { Product } from "../../domain/types/product";
 import { fetchCmsProducts } from "../../infrastructure/cms/cmsProductRepository";
 import productsData from "../../infrastructure/data/products.json";
@@ -21,6 +23,7 @@ function sanitizeProduct(product: Product): Product {
     brand: product.brand ? DOMPurify.sanitize(product.brand) : undefined,
     category: DOMPurify.sanitize(product.category),
     tags: product.tags.map((t) => DOMPurify.sanitize(t)),
+    specSheetUrl: toSafeHttpsUrl(product.specSheetUrl),
   };
 }
 
@@ -50,7 +53,7 @@ function normalizeLocalProduct(product: Record<string, unknown>): Product {
     inventoryUnit: "unidad",
     imageUrl,
     gallery: [imageUrl],
-    specSheetUrl: typeof product.specSheetUrl === "string" ? product.specSheetUrl : undefined,
+    specSheetUrl: toSafeHttpsUrl(typeof product.specSheetUrl === "string" ? product.specSheetUrl : undefined),
     category: typeof product.category === "string" ? product.category : "Sin categoría",
     temperature:
       product.temperature === "Refrigerado" || product.temperature === "Congelado"

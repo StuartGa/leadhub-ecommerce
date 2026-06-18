@@ -18,10 +18,3 @@ export function mapLeadToGHLPayload(data: LeadFormValues): GHLWebhookPayload {
     leadSource: LANDING_LEAD_SOURCE,
   };
 }
-
-export function getLandingWebhookUrl(): string | undefined {
-  return (
-    import.meta.env.VITE_GHL_LANDING_WEBHOOK_URL ||
-    import.meta.env.VITE_GHL_WEBHOOK_URL
-  );
-}

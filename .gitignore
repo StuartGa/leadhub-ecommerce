@@ -26,6 +26,9 @@ dist-ssr
 # Environment variables
 .env
 .env.local
+.env.development
+.env.production
+.env.test
 .env.*.local
 
 # OpenCode / Claude agent local config

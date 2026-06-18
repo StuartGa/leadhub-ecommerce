@@ -22,7 +22,7 @@ export function BlogPage() {
     "@type": "Blog",
     name: "Blog Foodservice — San Patric",
     description: "Artículos, guías y tendencias del mundo foodservice: cadena de frío, abastecimiento inteligente y productos convenientes.",
-    url: `${import.meta.env.BASE_URL || "/"}blog`,
+    url: `${CANONICAL_BASE}/blog`,
     publisher: {
       "@type": "Organization",
       name: "San Patric Foodservice",

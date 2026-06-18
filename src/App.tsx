@@ -54,6 +54,9 @@ const HorecaLandingPage = lazy(() =>
     default: m.HorecaLandingPage,
   }))
 );
+const NotFoundPage = lazy(() =>
+  import("./ui/pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage }))
+);
 
 // Loading fallback component
 function PageLoader() {
@@ -81,6 +84,7 @@ function AppContent() {
         <Route path="/cotizacion" element={<QuotePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/horeca" element={<HorecaLandingPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

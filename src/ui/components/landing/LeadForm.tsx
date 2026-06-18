@@ -1,11 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { useGHLIntegration } from "../../../application/hooks/useGHLIntegration";
-import {
-  getLandingWebhookUrl,
-  mapLeadToGHLPayload,
-} from "../../../application/services/leadService";
+import { mapLeadToGHLPayload } from "../../../application/services/leadService";
 import {
   type LeadFormValues,
   leadSchema,
@@ -23,6 +21,7 @@ const labelClass = "mb-1 block text-xs font-medium text-slate-600";
 
 export function LeadForm() {
   const { submit, status, error, reset: resetGHL } = useGHLIntegration();
+  const [honeypot, setHoneypot] = useState("");
 
   const {
     register,
@@ -38,8 +37,7 @@ export function LeadForm() {
 
   const onSubmit = async (data: LeadFormValues) => {
     const payload = mapLeadToGHLPayload(data);
-    const webhookUrl = getLandingWebhookUrl();
-    await submit(payload, webhookUrl);
+    await submit(payload, "landing-horeca", honeypot);
   };
 
   if (status === "success") {
@@ -97,6 +95,16 @@ export function LeadForm() {
         noValidate
         className="mt-5 flex flex-col gap-3.5"
       >
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute -left-[9999px] h-px w-px opacity-0"
+        />
         <div>
           <label htmlFor="lead-contactName" className={labelClass}>
             Nombre completo <span className="text-red-500">*</span>

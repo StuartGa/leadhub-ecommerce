@@ -1,52 +1,79 @@
 import { useEffect } from "react";
-import { CANONICAL_BASE } from "../constants/seo";
+import { CANONICAL_BASE, DEFAULT_OG_IMAGE } from "../constants/seo";
+
+export type PageSeoOptions = {
+  /** Meta robots directive. Defaults to indexable when omitted. */
+  robots?: "index, follow" | "noindex, nofollow" | "noindex, follow";
+  /** Absolute or site-relative OG/Twitter image URL. */
+  ogImage?: string;
+};
+
+function resolveOgImage(ogImage?: string): string {
+  if (!ogImage) return DEFAULT_OG_IMAGE;
+  if (ogImage.startsWith("http://") || ogImage.startsWith("https://")) return ogImage;
+  const normalized = ogImage.startsWith("/") ? ogImage : `/${ogImage}`;
+  return `${CANONICAL_BASE}${normalized}`;
+}
 
 /**
  * Updates document.title, meta description, OG/Twitter meta tags,
- * og:url, and injects/updates the per-page canonical <link> on every
- * client-side navigation.
- *
- * @param title          Full page title (shown in tab + og:title + twitter:title)
- * @param description    Meta description (og:description + twitter:description)
- * @param canonicalPath  Path relative to CANONICAL_BASE (e.g. "/productos").
- *                       Omit for pages that should not override the root canonical.
+ * og:url, robots, og:image, and injects/updates the per-page canonical
+ * <link> on every client-side navigation.
  */
 export function useDocumentTitle(
   title: string,
   description?: string,
   canonicalPath?: string,
+  options?: PageSeoOptions,
 ): void {
+  const robots = options?.robots;
+  const ogImage = resolveOgImage(options?.ogImage);
+
   useEffect(() => {
-    // --- document.title ---
     const prevTitle = document.title;
     document.title = title;
 
-    // --- meta[name="description"] ---
     const descEl = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     const prevDesc = descEl?.content;
     if (descEl && description !== undefined) descEl.content = description;
 
-    // --- og:title ---
     const ogTitleEl = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
     const prevOgTitle = ogTitleEl?.content;
     if (ogTitleEl) ogTitleEl.content = title;
 
-    // --- og:description ---
     const ogDescEl = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
     const prevOgDesc = ogDescEl?.content;
     if (ogDescEl && description !== undefined) ogDescEl.content = description;
 
-    // --- twitter:title ---
     const twTitleEl = document.querySelector<HTMLMetaElement>('meta[name="twitter:title"]');
     const prevTwTitle = twTitleEl?.content;
     if (twTitleEl) twTitleEl.content = title;
 
-    // --- twitter:description ---
     const twDescEl = document.querySelector<HTMLMetaElement>('meta[name="twitter:description"]');
     const prevTwDesc = twDescEl?.content;
     if (twDescEl && description !== undefined) twDescEl.content = description;
 
-    // --- og:url + canonical ---
+    const ogImageEl = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
+    const prevOgImage = ogImageEl?.content;
+    if (ogImageEl) ogImageEl.content = ogImage;
+
+    const twImageEl = document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]');
+    const prevTwImage = twImageEl?.content;
+    if (twImageEl) twImageEl.content = ogImage;
+
+    let robotsEl = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const prevRobots = robotsEl?.content;
+    let robotsCreated = false;
+    if (robots) {
+      if (!robotsEl) {
+        robotsEl = document.createElement("meta");
+        robotsEl.name = "robots";
+        document.head.appendChild(robotsEl);
+        robotsCreated = true;
+      }
+      robotsEl.content = robots;
+    }
+
     const ogUrlEl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
     const prevOgUrl = ogUrlEl?.content;
 
@@ -66,9 +93,10 @@ export function useDocumentTitle(
       canonicalEl.href = fullUrl;
     }
 
-    // Capture mutable refs for cleanup closure
     const capturedCanonical = canonicalEl;
     const capturedCreated = canonicalCreated;
+    const capturedRobots = robotsEl;
+    const capturedRobotsCreated = robotsCreated;
 
     return () => {
       document.title = prevTitle;
@@ -77,6 +105,8 @@ export function useDocumentTitle(
       if (ogDescEl && prevOgDesc !== undefined) ogDescEl.content = prevOgDesc;
       if (twTitleEl && prevTwTitle !== undefined) twTitleEl.content = prevTwTitle;
       if (twDescEl && prevTwDesc !== undefined) twDescEl.content = prevTwDesc;
+      if (ogImageEl && prevOgImage !== undefined) ogImageEl.content = prevOgImage;
+      if (twImageEl && prevTwImage !== undefined) twImageEl.content = prevTwImage;
       if (ogUrlEl && prevOgUrl !== undefined) ogUrlEl.content = prevOgUrl;
       if (capturedCanonical) {
         if (capturedCreated) {
@@ -85,6 +115,13 @@ export function useDocumentTitle(
           capturedCanonical.href = prevCanonicalHref;
         }
       }
+      if (capturedRobots) {
+        if (capturedRobotsCreated) {
+          capturedRobots.parentNode?.removeChild(capturedRobots);
+        } else if (prevRobots !== undefined) {
+          capturedRobots.content = prevRobots;
+        }
+      }
     };
-  }, [title, description, canonicalPath]);
+  }, [title, description, canonicalPath, robots, ogImage]);
 }

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { PRODUCT_PLACEHOLDER } from "../../application/constants/assets";
-import { CANONICAL_BASE } from "../../application/constants/seo";
+import { CANONICAL_BASE, absoluteUrl } from "../../application/constants/seo";
 import { useDocumentTitle } from "../../application/hooks/useDocumentTitle";
 import { useJsonLd } from "../../application/hooks/useJsonLd";
 import { useProducts } from "../../application/hooks/useProducts";
@@ -11,6 +11,7 @@ import type { Product } from "../../domain/types/product";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { ProductImageZoom } from "../components/catalog/ProductImageZoom";
+import { toSafeHttpsUrl } from "../../application/utils/safeUrl";
 import { RelatedProducts } from "../components/catalog/RelatedProducts";
 
 export function ProductPage() {
@@ -28,6 +29,10 @@ export function ProductPage() {
   const activeImage = product ? activeImageByProduct[product.id] ?? 0 : 0;
   const quantity = product ? quantityByProduct[product.id] ?? product.minOrderQty : 1;
   const gallery = product?.gallery.length ? product.gallery : [product?.imageUrl ?? PRODUCT_PLACEHOLDER];
+  const safeSpecSheetUrl = useMemo(
+    () => (product ? toSafeHttpsUrl(product.specSheetUrl) : undefined),
+    [product],
+  );
 
   const handleInquireRelated = useCallback((p: Product) => {
     addItem({ product: p, quantity: p.minOrderQty });
@@ -39,6 +44,9 @@ export function ProductPage() {
       ? `${product.name}. ${product.description.slice(0, 140)}. Cotiza este alimento foodservice con San Patric.`
       : "Producto no encontrado en el catálogo de San Patric Foodservice.",
     product ? `/products/${product.slug ?? product.id}` : undefined,
+    product
+      ? { ogImage: absoluteUrl(product.imageUrl) }
+      : { robots: "noindex, nofollow" },
   );
 
   useJsonLd(
@@ -49,7 +57,7 @@ export function ProductPage() {
           name: product.name,
           description: product.description,
           sku: product.sku,
-          image: product.imageUrl,
+          image: absoluteUrl(product.imageUrl),
           brand: product.brand ? { "@type": "Brand", name: product.brand } : undefined,
           category: product.category,
           offers: {
@@ -101,9 +109,9 @@ export function ProductPage() {
         <Header />
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-20 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-sm">
-            <p className="text-2xl font-semibold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
               Producto no encontrado
-            </p>
+            </h1>
             <p className="mt-2 text-sm text-slate-600">
               El producto que buscas no existe o fue movido.
             </p>
@@ -265,9 +273,9 @@ export function ProductPage() {
                 {product.packaging && (
                   <p className="mt-2 text-sm text-slate-600">Empaque: {product.packaging}</p>
                 )}
-                {product.specSheetUrl && (
+                {safeSpecSheetUrl && (
                   <a
-                    href={product.specSheetUrl}
+                    href={safeSpecSheetUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:text-brand-900"

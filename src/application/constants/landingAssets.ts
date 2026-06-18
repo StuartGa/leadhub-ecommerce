@@ -113,7 +113,6 @@ export type LandingStripBrand = {
   name: string;
   logo: string;
   href?: string;
-  highlight?: string;
 };
 
 /** Marcas mostradas en la franja «Marcas líderes» de la landing HORECA. */
@@ -125,20 +124,17 @@ export const LANDING_STRIP_BRANDS: LandingStripBrand[] = [
     name: "Ventura Foods",
     logo: LANDING_BRAND_LOGOS.venturaFoods,
     href: "/productos?marca=ventura-foods",
-    highlight: "Aderezos",
   },
   {
     id: "richs",
     name: "Rich's",
     logo: LANDING_BRAND_LOGOS.richs,
     href: "/products/product-23530",
-    highlight: "Dedos de Queso",
   },
   {
     id: "ricos",
     name: "Ricos",
     logo: LANDING_BRAND_LOGOS.ricos,
     href: "/productos?marca=ricos",
-    highlight: "Queso Cheddar",
   },
 ];

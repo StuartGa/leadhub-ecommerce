@@ -3,7 +3,7 @@ import {
   LANDING_SIMPLOT_PRODUCTS,
 } from "../../../application/constants/landingAssets";
 import { IdealForGrid } from "./IdealForGrid";
-import { LandingProductGrid, LandingSectionCta } from "./LandingProductGrid";
+import { LandingProductShowcase, LandingSectionCta } from "./LandingProductGrid";
 import { SIMPLOT_IDEAL_FOR } from "./idealForData";
 
 const FEATURES = [
@@ -47,10 +47,12 @@ const FEATURES = [
 
 export function LandingSimplotSection() {
   return (
-    <section className="bg-[#f7f3ee] pb-0 pt-16 sm:pt-20">
+    <section className="bg-gradient-to-br from-amber-50/50 via-[#f7f3ee] to-[#faf8f5] pb-0 pt-16 sm:pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
-          <LandingProductGrid products={LANDING_SIMPLOT_PRODUCTS} columns={2} />
+          <div className="rounded-2xl border border-amber-100/80 bg-white/70 p-4 shadow-sm backdrop-blur-sm sm:p-6">
+            <LandingProductShowcase products={LANDING_SIMPLOT_PRODUCTS} columns={2} />
+          </div>
 
           <div>
             <img

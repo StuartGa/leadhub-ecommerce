@@ -1,4 +1,3 @@
-import { useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import type { LandingFeaturedProduct } from "../../../application/constants/landingAssets";
@@ -46,65 +45,24 @@ export function LandingProductGrid({ products, columns = 2 }: LandingProductGrid
 }
 
 const CAROUSEL_CARD_CLASS =
-  "w-[min(100%,280px)] shrink-0 snap-start sm:w-[min(48%,300px)] lg:w-[min(32%,280px)]";
-
-function CarouselButton({
-  direction,
-  onClick,
-  label,
-}: {
-  direction: "prev" | "next";
-  onClick: () => void;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-    >
-      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        {direction === "prev" ? (
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        ) : (
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        )}
-      </svg>
-    </button>
-  );
-}
+  "w-[240px] shrink-0 sm:w-[260px] lg:w-[280px]";
 
 export function LandingProductCarousel({ products }: { products: LandingFeaturedProduct[] }) {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const scroll = useCallback((direction: "prev" | "next") => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const firstCard = track.querySelector<HTMLElement>("[data-carousel-card]");
-    const gap = 16;
-    const amount = firstCard ? firstCard.offsetWidth + gap : track.clientWidth * 0.85;
-
-    track.scrollBy({
-      left: direction === "next" ? amount : -amount,
-      behavior: "smooth",
-    });
-  }, []);
+  const loop = [...products, ...products];
+  const durationSeconds = Math.max(products.length * 5, 24);
 
   return (
-    <div className="relative">
-      <div className="mb-4 flex items-center justify-end gap-2 sm:absolute sm:top-0 sm:right-0 sm:z-10 sm:-mt-14">
-        <CarouselButton direction="prev" onClick={() => scroll("prev")} label="Producto anterior" />
-        <CarouselButton direction="next" onClick={() => scroll("next")} label="Siguiente producto" />
-      </div>
-
+    <div
+      className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]"
+      aria-label="Productos destacados"
+      role="region"
+    >
       <div
-        ref={trackRef}
-        className="-mx-1 flex gap-4 overflow-x-auto scroll-smooth px-1 pb-2 [scrollbar-width:none] snap-x snap-mandatory sm:gap-5 [&::-webkit-scrollbar]:hidden"
+        className="landing-marquee-track flex w-max gap-4 animate-landing-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] sm:gap-5"
+        style={{ animationDuration: `${durationSeconds}s` }}
       >
-        {products.map((product) => (
-          <div key={product.id} data-carousel-card className={CAROUSEL_CARD_CLASS}>
+        {loop.map((product, index) => (
+          <div key={`${product.id}-${index}`} className={CAROUSEL_CARD_CLASS}>
             <LandingProductCard product={product} />
           </div>
         ))}

@@ -61,4 +61,21 @@
   --radius-md: 0.25rem; /* 4px */
   --radius-lg: 0.5rem; /* 8px */
   --radius-xl: 0.75rem; /* 12px */
+
+  --animate-landing-marquee: landing-marquee 30s linear infinite;
+}
+
+@keyframes landing-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-marquee-track {
+    animation: none !important;
+  }
 }

@@ -10,6 +10,7 @@ export const LANDING_BRAND_LOGOS = {
   stanislaus: `${BASE}assets/brands/logos/stanislaus.png`,
   simplot: `${BASE}assets/brands/logos/simplot.png`,
   venturaFoods: `${BASE}assets/brands/logos/ventura-foods.png`,
+  venturaFoodsMexico: `${BASE}landing/ventura/ventura-foods-mexico.png`,
   richs: `${BASE}assets/brands/logos/richs.png`,
   ricos: `${BASE}assets/brands/logos/ricos.png`,
 } as const;

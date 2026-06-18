@@ -4,6 +4,7 @@ import {
 } from "../../../application/constants/landingAssets";
 import { CheckList } from "./IdealForGrid";
 import { LandingProductShowcase, LandingSectionCta } from "./LandingProductGrid";
+import { LandingTintedLogo } from "./LandingTintedLogo";
 
 const FEATURES = [
   "Aderezos y salsas listos para servir",
@@ -17,11 +18,11 @@ export function LandingVenturaFoodsSection() {
     <section className="bg-gradient-to-b from-slate-100/80 via-slate-50/40 to-white pb-0 pt-16 sm:pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="max-w-3xl">
-          <img
-            src={LANDING_BRAND_LOGOS.venturaFoods}
-            alt="Ventura Foods"
-            className="mb-6 h-20 w-auto max-w-[240px] object-contain sm:h-24"
-            loading="lazy"
+          <LandingTintedLogo
+            src={LANDING_BRAND_LOGOS.venturaFoodsMexico}
+            alt="Ventura Foods México"
+            tintClassName="bg-slate-900"
+            className="mb-6 h-16 w-[min(100%,300px)] sm:h-20 sm:w-[min(100%,360px)]"
           />
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
             Aderezos y salsas Ventura Foods

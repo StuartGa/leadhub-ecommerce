@@ -6,11 +6,12 @@ import { LandingHeroSection } from "../components/landing/LandingHeroSection";
 import { LandingSimplotSection } from "../components/landing/LandingSimplotSection";
 import { LandingStanislausSection } from "../components/landing/LandingStanislausSection";
 import { LandingTestimonialsSection } from "../components/landing/LandingTestimonialsSection";
+import { LandingVenturaFoodsSection } from "../components/landing/LandingVenturaFoodsSection";
 
 export function HorecaLandingPage() {
   useDocumentTitle(
-    "San Patric — Soluciones HORECA | Stanislaus & Simplot",
-    "Ingredientes confiables para restaurantes, hoteles y catering. Tomates Stanislaus y papas Simplot Megacrunch con cobertura en México. Solicita información."
+    "San Patric — Soluciones HORECA | Stanislaus, Simplot y Ventura Foods",
+    "Ingredientes confiables para restaurantes, hoteles y catering. Tomates Stanislaus, papas Simplot y aderezos Ventura Foods con cobertura en México. Solicita información."
   );
 
   return (
@@ -20,6 +21,7 @@ export function HorecaLandingPage() {
         <LandingBrandsStrip />
         <LandingStanislausSection />
         <LandingSimplotSection />
+        <LandingVenturaFoodsSection />
         <LandingTestimonialsSection />
         <LandingCoverageSection />
       </main>

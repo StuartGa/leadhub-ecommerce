@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-
 import {
-  LANDING_ASSETS,
   LANDING_BRAND_LOGOS,
+  LANDING_STANISLAUS_PRODUCTS,
 } from "../../../application/constants/landingAssets";
 import { CheckList, IdealForGrid } from "./IdealForGrid";
+import { LandingProductGrid, LandingSectionCta } from "./LandingProductGrid";
 import { STANISLAUS_IDEAL_FOR } from "./idealForData";
 
 const FEATURES = [
@@ -18,7 +17,7 @@ export function LandingStanislausSection() {
   return (
     <section className="bg-white pb-0 pt-16 sm:pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="mb-6 flex items-center gap-4 sm:gap-5">
               <img
@@ -46,24 +45,10 @@ export function LandingStanislausSection() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center lg:justify-end">
-            <img
-              src={LANDING_ASSETS.stanislausProducts}
-              alt="Línea Stanislaus — Alta Cucina, Saporito, Valoroso, 7/11, Tomato Magic y San Nicola"
-              className="h-auto w-full max-w-xl object-contain"
-              loading="lazy"
-            />
-          </div>
+          <LandingProductGrid products={LANDING_STANISLAUS_PRODUCTS} columns={2} />
         </div>
 
-        <div className="mt-10 pb-2 text-center sm:mt-12">
-          <Link
-            to="/marcas"
-            className="inline-flex items-center justify-center rounded-full bg-brand-600 px-14 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-          >
-            Ver más
-          </Link>
-        </div>
+        <LandingSectionCta href="/productos?marca=stanislaus" label="Ver más" />
       </div>
 
       <IdealForGrid items={STANISLAUS_IDEAL_FOR} variant="grey" />

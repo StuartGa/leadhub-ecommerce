@@ -4,7 +4,6 @@ const COVERAGE_STATES_LEFT = [
   "CDMX",
   "Estado de México",
   "Jalisco",
-  "Nuevo León",
 ];
 
 const COVERAGE_STATES_RIGHT = [

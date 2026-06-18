@@ -1,8 +1,9 @@
 import {
-  LANDING_ASSETS,
   LANDING_BRAND_LOGOS,
+  LANDING_SIMPLOT_PRODUCTS,
 } from "../../../application/constants/landingAssets";
 import { IdealForGrid } from "./IdealForGrid";
+import { LandingProductGrid, LandingSectionCta } from "./LandingProductGrid";
 import { SIMPLOT_IDEAL_FOR } from "./idealForData";
 
 const FEATURES = [
@@ -48,17 +49,10 @@ export function LandingSimplotSection() {
   return (
     <section className="bg-[#f7f3ee] pb-0 pt-16 sm:pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-          <div className="order-2 flex items-center justify-center lg:order-1 lg:justify-start">
-            <img
-              src={LANDING_ASSETS.simplotFries}
-              alt="Papas fritas Simplot Megacrunch en canasta con catsup"
-              className="h-auto w-full max-w-md object-contain"
-              loading="lazy"
-            />
-          </div>
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
+          <LandingProductGrid products={LANDING_SIMPLOT_PRODUCTS} columns={2} />
 
-          <div className="order-1 lg:order-2">
+          <div>
             <img
               src={LANDING_BRAND_LOGOS.simplot}
               alt="Simplot"
@@ -94,6 +88,8 @@ export function LandingSimplotSection() {
             </div>
           </div>
         </div>
+
+        <LandingSectionCta href="/productos?marca=simplot" label="Ver más" />
       </div>
 
       <IdealForGrid items={SIMPLOT_IDEAL_FOR} variant="white" />

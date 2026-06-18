@@ -8,7 +8,7 @@ const BRAND_LOGO_OVERRIDES: Readonly<Record<string, string>> = {
   "Acción Alimenticia": `${BASE}assets/brands/logos/accion.png`,
   "Custom Culinary": `${BASE}assets/brands/logos/custom-culinary.svg`,
   "Ventura Foods": `${BASE}assets/brands/logos/ventura-foods.png`,
-  "San Patric": `${BASE}logo.svg`,
+  "San Patric": `${BASE}assets/images/sp_logo_color.webp`,
 };
 
 export function resolveBrandLogoUrl(

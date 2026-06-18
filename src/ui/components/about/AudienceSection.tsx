@@ -4,6 +4,11 @@ import { PRODUCT_PLACEHOLDER } from "../../../application/constants/assets";
 import { audienceShowcaseItems } from "../../../infrastructure/data/audienceShowcase";
 import { AudienceIcon } from "./AudienceIcon";
 
+function audienceProductsHref(segmentId?: string): string {
+  if (!segmentId) return "/productos";
+  return `/productos?segment=${segmentId}`;
+}
+
 export function AudienceSection() {
   return (
     <section
@@ -59,6 +64,14 @@ export function AudienceSection() {
                 <p className="text-center text-xs font-semibold leading-tight text-white sm:text-sm">
                   {item.name}
                 </p>
+                <div className="mt-2 flex justify-center">
+                  <Link
+                    to={audienceProductsHref(item.segmentId)}
+                    className="inline-flex items-center justify-center rounded bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-700 shadow-sm transition-colors hover:bg-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 focus-visible:outline-none sm:px-3 sm:py-1.5 sm:text-xs"
+                  >
+                    Ver productos
+                  </Link>
+                </div>
               </div>
             </article>
           ))}

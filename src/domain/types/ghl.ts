@@ -29,6 +29,9 @@ export interface GHLWebhookPayload {
   leadSource?: string;
   quoteItems?: GHLQuoteItem[];
   quoteSummary?: GHLQuoteSummary;
+  quoteNumber?: string;
+  quoteSubject?: string;
+  quoteDeadline?: string;
 }
 
 export interface GHLWebhookResponse {

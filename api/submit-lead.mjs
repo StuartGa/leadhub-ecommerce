@@ -1,3 +1,6 @@
+import { buildQuoteRequestHtml, buildQuoteRequestMeta } from "./lib/quote-request-html.mjs";
+import { sendQuoteRequestEmail } from "./lib/send-quote-email.mjs";
+
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 8;
 const rateLimit = new Map();
@@ -133,11 +136,27 @@ export default async function handler(req, res) {
     return;
   }
 
+  const quoteMeta = buildQuoteRequestMeta();
+  const sitePublicUrl = process.env.SITE_PUBLIC_URL ?? "https://stuartga.github.io/leadhub-ecommerce";
+  const quoteHtml = buildQuoteRequestHtml({
+    applicant: sanitized,
+    items: sanitized.quoteItems,
+    logoUrl: `${sitePublicUrl.replace(/\/$/, "")}/brands/logos/san-patric.svg`,
+  });
+
+  const enrichedPayload = {
+    ...sanitized,
+    quoteNumber: quoteMeta.quoteNumber,
+    quoteSubject: quoteMeta.subject,
+    quoteDeadline: quoteMeta.deadlineDate,
+    quoteRequestUrl: undefined,
+  };
+
   try {
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(sanitized),
+      body: JSON.stringify(enrichedPayload),
     });
 
     if (!response.ok) {
@@ -145,7 +164,25 @@ export default async function handler(req, res) {
       return;
     }
 
-    res.status(200).json({ success: true });
+    let emailSent = false;
+    if (sanitized.quoteItems?.length) {
+      try {
+        const emailResult = await sendQuoteRequestEmail({
+          subject: quoteMeta.subject,
+          html: quoteHtml,
+          replyTo: sanitized.email,
+        });
+        emailSent = emailResult.sent;
+      } catch {
+        // Lead already reached GHL; email failure should not block success.
+      }
+    }
+
+    res.status(200).json({
+      success: true,
+      quoteNumber: quoteMeta.quoteNumber,
+      emailSent,
+    });
   } catch {
     res.status(502).json({ success: false, message: "Upstream error" });
   }

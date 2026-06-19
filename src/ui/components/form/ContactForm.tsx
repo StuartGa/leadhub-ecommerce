@@ -13,6 +13,7 @@ import {
   PRODUCT_CATEGORIES,
 } from "../../../domain/schemas/contactSchema";
 import { quotePayloadSchema } from "../../../domain/schemas/quoteSchema";
+import { QuoteRequestPreview } from "../quote/QuoteRequestPreview";
 
 interface ContactFormProps {
   showHeading?: boolean;
@@ -24,6 +25,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [honeypot, setHoneypot] = useState("");
+  const [showPreview, setShowPreview] = useState(false);
 
   const {
     register,
@@ -32,6 +34,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
     reset,
     setValue,
     trigger,
+    watch,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
   });
@@ -41,6 +44,17 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
     setValue("categories", selectedCategories);
     trigger("categories");
   }, [selectedCategories, setValue, trigger]);
+
+  const watchedValues = watch();
+
+  const previewItems = items.map((item) => ({
+    productId: item.productId,
+    productSlug: item.productSlug,
+    productName: item.productName,
+    inventoryUnit: item.inventoryUnit,
+    quantity: item.quantity,
+    notes: item.notes,
+  }));
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) => {
@@ -502,6 +516,32 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
             className="rounded border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
           >
             {error}
+          </div>
+        )}
+
+        {items.length > 0 && (
+          <div className="space-y-3">
+            <button
+              type="button"
+              onClick={() => setShowPreview((current) => !current)}
+              className="w-full rounded border border-brand-300 bg-brand-50 px-4 py-2.5 text-xs font-semibold uppercase tracking-widest text-brand-900 transition-colors hover:bg-brand-100"
+            >
+              {showPreview ? "Ocultar vista previa" : "Ver solicitud de cotización"}
+            </button>
+            {showPreview && (
+              <QuoteRequestPreview
+                applicant={{
+                  contactName: watchedValues.contactName,
+                  companyName: watchedValues.companyName,
+                  email: watchedValues.email,
+                  phone: watchedValues.phone,
+                  state: watchedValues.state,
+                  locality: watchedValues.locality,
+                  message: watchedValues.message,
+                }}
+                items={previewItems}
+              />
+            )}
           </div>
         )}
 

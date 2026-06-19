@@ -4,6 +4,10 @@ export interface GHLQuoteItem {
   productId: string;
   productSlug: string;
   productName: string;
+  sku?: string;
+  productDescription?: string;
+  packaging?: string;
+  technicalInfo?: string;
   inventoryUnit: InventoryUnit;
   quantity: number;
   notes?: string;

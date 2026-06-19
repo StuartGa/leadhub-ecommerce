@@ -22,6 +22,10 @@ export function sanitizeGHLPayload(payload: GHLWebhookPayload): GHLWebhookPayloa
     quoteItems: payload.quoteItems?.map((item) => ({
       ...item,
       productName: sanitizeText(item.productName),
+      sku: item.sku ? sanitizeText(item.sku) : undefined,
+      productDescription: item.productDescription ? sanitizeText(item.productDescription) : undefined,
+      packaging: item.packaging ? sanitizeText(item.packaging) : undefined,
+      technicalInfo: item.technicalInfo ? sanitizeText(item.technicalInfo) : undefined,
       notes: item.notes ? sanitizeText(item.notes) : undefined,
     })),
   };

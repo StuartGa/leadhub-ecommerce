@@ -4,6 +4,10 @@ export interface QuoteCartItem {
   productId: string;
   productSlug: string;
   productName: string;
+  sku?: string;
+  productDescription?: string;
+  packaging?: string;
+  technicalInfo?: string;
   imageUrl: string;
   quantity: number;
   inventoryUnit: InventoryUnit;

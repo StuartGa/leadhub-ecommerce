@@ -58,6 +58,12 @@ function sanitizePayload(payload) {
           productId: stripHtml(item.productId).slice(0, 80),
           productSlug: stripHtml(item.productSlug).slice(0, 120),
           productName: stripHtml(item.productName).slice(0, 200),
+          sku: item.sku ? stripHtml(item.sku).slice(0, 80) : undefined,
+          productDescription: item.productDescription
+            ? stripHtml(item.productDescription).slice(0, 500)
+            : undefined,
+          packaging: item.packaging ? stripHtml(item.packaging).slice(0, 300) : undefined,
+          technicalInfo: item.technicalInfo ? stripHtml(item.technicalInfo).slice(0, 2000) : undefined,
           inventoryUnit: item.inventoryUnit === "unidad" ? "unidad" : "unidad",
           quantity: Number.isFinite(item.quantity) ? Math.min(Math.max(1, item.quantity), 9999) : 1,
           notes: item.notes ? stripHtml(item.notes).slice(0, 300) : undefined,

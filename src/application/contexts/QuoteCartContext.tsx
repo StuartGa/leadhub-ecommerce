@@ -69,6 +69,10 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
             ? {
                 ...item,
                 quantity: nextQuantity,
+                sku: product.sku ?? item.sku,
+                productDescription: product.description || item.productDescription,
+                packaging: product.packaging ?? item.packaging,
+                technicalInfo: product.technicalInfo ?? item.technicalInfo,
                 notes: notes ?? item.notes,
               }
             : item,
@@ -81,6 +85,10 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
           productId: product.id,
           productSlug: product.slug,
           productName: product.name,
+          sku: product.sku,
+          productDescription: product.description,
+          packaging: product.packaging,
+          technicalInfo: product.technicalInfo,
           imageUrl: product.imageUrl,
           quantity: incoming,
           inventoryUnit: product.inventoryUnit,

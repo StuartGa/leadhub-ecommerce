@@ -1,5 +1,5 @@
 // Keep in sync with src/application/services/quoteRequestDocument.ts
-const QUOTE_LOGO_PATH = "/assets/images/sp_logo_color.webp";
+const QUOTE_LOGO_PATH = "/assets/images/sp_logo_color.png";
 const BRAND_PRIMARY = "#b12455";
 const BRAND_SECONDARY = "#500021";
 const QUOTE_VALIDITY_DAYS = 7;
@@ -51,23 +51,30 @@ export function resolveQuoteLogoUrl(sitePublicUrl) {
   return `${sitePublicUrl.replace(/\/$/, "")}${QUOTE_LOGO_PATH}`;
 }
 
+function resolveQuoteSku(item) {
+  if (item.sku?.trim()) return item.sku.trim();
+  const idMatch = item.productId?.match(/[-_]([\w-]+)$/);
+  if (idMatch?.[1] && !idMatch[1].startsWith("local")) return idMatch[1];
+  return item.productId ?? "—";
+}
+
 function renderSpecs(item) {
   const lines = [];
 
-  if (item.sku) {
-    lines.push(`SKU: ${item.sku}`);
+  if (item.packaging?.trim()) {
+    lines.push(`Presentación: ${item.packaging.trim()}`);
   }
 
-  if (item.inventoryUnit) {
-    lines.push(`Unidad: ${item.inventoryUnit}`);
+  if (item.technicalInfo?.trim()) {
+    for (const line of item.technicalInfo.trim().split("\n")) {
+      if (line.trim()) lines.push(line.trim());
+    }
+  } else if (item.productDescription?.trim()) {
+    lines.push(item.productDescription.trim());
   }
 
-  if (item.notes) {
-    lines.push(`Notas: ${item.notes}`);
-  }
-
-  if (item.technicalInfo) {
-    lines.push(item.technicalInfo);
+  if (item.notes?.trim()) {
+    lines.push(`Notas: ${item.notes.trim()}`);
   }
 
   if (lines.length === 0) {
@@ -93,7 +100,7 @@ function renderProductRows(items) {
       (item, index) => `
       <tr>
         <td style="padding:10px 12px;border:1px solid #e2e8f0;text-align:center;">${index + 1}</td>
-        <td style="padding:10px 12px;border:1px solid #e2e8f0;">${escapeHtml(item.sku || item.productId || "—")}</td>
+        <td style="padding:10px 12px;border:1px solid #e2e8f0;">${escapeHtml(resolveQuoteSku(item))}</td>
         <td style="padding:10px 12px;border:1px solid #e2e8f0;">${escapeHtml(item.productName)}</td>
         <td style="padding:10px 12px;border:1px solid #e2e8f0;text-align:center;">${escapeHtml(String(item.quantity))}</td>
         <td style="padding:10px 12px;border:1px solid #e2e8f0;font-size:13px;line-height:1.5;">${renderSpecs(item)}</td>
@@ -142,7 +149,7 @@ export function buildQuoteRequestHtml(input) {
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
             <tr>
               <td style="vertical-align:top;width:55%;">
-                <img src="${escapeHtml(logoUrl)}" alt="San Patric Foodservice" height="48" style="display:block;max-width:220px;height:auto;" />
+                <img src="${escapeHtml(logoUrl)}" alt="Alimentos Convenientes San Patric" width="186" style="display:block;width:186px;max-width:100%;height:auto;border:0;" />
               </td>
               <td style="vertical-align:top;text-align:right;">
                 <div style="font-size:28px;font-weight:700;color:${BRAND_SECONDARY};letter-spacing:0.04em;">SOLICITUD DE COTIZACIÓN</div>

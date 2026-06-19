@@ -1,3 +1,5 @@
+import { Resend } from "resend";
+
 /**
  * Optional Resend integration for formatted quote-request notifications.
  * Requires RESEND_API_KEY and QUOTE_NOTIFICATION_EMAIL in Vercel env.
@@ -12,25 +14,19 @@ export async function sendQuoteRequestEmail({ subject, html, replyTo }) {
     return { sent: false, reason: "email_not_configured" };
   }
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      subject,
-      html,
-      reply_to: replyTo,
-    }),
+  const resend = new Resend(apiKey);
+
+  const { data, error } = await resend.emails.send({
+    from,
+    to,
+    subject,
+    html,
+    replyTo,
   });
 
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Resend error (${response.status}): ${detail.slice(0, 300)}`);
+  if (error) {
+    throw new Error(`Resend error: ${error.message ?? JSON.stringify(error)}`);
   }
 
-  return { sent: true };
+  return { sent: true, id: data?.id };
 }

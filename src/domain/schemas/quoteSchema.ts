@@ -6,6 +6,7 @@ export const quoteItemSchema = z.object({
   productName: z.string().min(1),
   sku: z.string().max(80).optional(),
   productDescription: z.string().max(500).optional(),
+  longDescription: z.string().max(2000).optional(),
   packaging: z.string().max(300).optional(),
   technicalInfo: z.string().max(2000).optional(),
   inventoryUnit: z.literal("unidad"),

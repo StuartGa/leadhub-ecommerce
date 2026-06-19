@@ -69,6 +69,10 @@ function renderSpecs(item) {
     for (const line of item.technicalInfo.trim().split("\n")) {
       if (line.trim()) lines.push(line.trim());
     }
+  } else if (item.longDescription?.trim()) {
+    for (const line of item.longDescription.trim().split("\n")) {
+      if (line.trim()) lines.push(line.trim());
+    }
   } else if (item.productDescription?.trim()) {
     lines.push(item.productDescription.trim());
   }

@@ -1,4 +1,5 @@
 import { buildQuoteRequestHtml, buildQuoteRequestMeta, resolveQuoteLogoUrl } from "./lib/quote-request-html.mjs";
+import { enrichQuoteItems } from "./lib/enrich-quote-items.mjs";
 import { sendQuoteRequestEmail } from "./lib/send-quote-email.mjs";
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -61,6 +62,9 @@ function sanitizePayload(payload) {
           sku: item.sku ? stripHtml(item.sku).slice(0, 80) : undefined,
           productDescription: item.productDescription
             ? stripHtml(item.productDescription).slice(0, 500)
+            : undefined,
+          longDescription: item.longDescription
+            ? stripHtml(item.longDescription).slice(0, 2000)
             : undefined,
           packaging: item.packaging ? stripHtml(item.packaging).slice(0, 300) : undefined,
           technicalInfo: item.technicalInfo ? stripHtml(item.technicalInfo).slice(0, 2000) : undefined,
@@ -141,9 +145,10 @@ export default async function handler(req, res) {
 
   const quoteMeta = buildQuoteRequestMeta();
   const sitePublicUrl = process.env.SITE_PUBLIC_URL ?? "https://stuartga.github.io/leadhub-ecommerce";
+  const quoteItems = await enrichQuoteItems(sanitized.quoteItems);
   const quoteHtml = buildQuoteRequestHtml({
     applicant: sanitized,
-    items: sanitized.quoteItems,
+    items: quoteItems,
     logoUrl: resolveQuoteLogoUrl(sitePublicUrl),
   });
 
@@ -180,7 +185,7 @@ export default async function handler(req, res) {
   }
 
   let emailSent = false;
-  if (sanitized.quoteItems?.length) {
+  if (quoteItems?.length) {
     try {
       const emailResult = await sendQuoteRequestEmail({
         subject: quoteMeta.subject,

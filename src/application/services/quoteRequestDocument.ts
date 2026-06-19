@@ -31,6 +31,7 @@ export interface QuoteRequestItem {
   quantity: number;
   notes?: string;
   productDescription?: string;
+  longDescription?: string;
   packaging?: string;
   technicalInfo?: string;
 }
@@ -111,6 +112,10 @@ function renderSpecs(item: QuoteRequestItem): string {
 
   if (item.technicalInfo?.trim()) {
     for (const line of item.technicalInfo.trim().split("\n")) {
+      if (line.trim()) lines.push(line.trim());
+    }
+  } else if (item.longDescription?.trim()) {
+    for (const line of item.longDescription.trim().split("\n")) {
       if (line.trim()) lines.push(line.trim());
     }
   } else if (item.productDescription?.trim()) {

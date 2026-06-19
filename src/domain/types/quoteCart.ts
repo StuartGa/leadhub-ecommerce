@@ -6,6 +6,7 @@ export interface QuoteCartItem {
   productName: string;
   sku?: string;
   productDescription?: string;
+  longDescription?: string;
   packaging?: string;
   technicalInfo?: string;
   imageUrl: string;

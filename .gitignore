@@ -37,3 +37,4 @@ dist-ssr
 skills-lock.json
 opencode.json
 scripts/catalog.json
+.vercel

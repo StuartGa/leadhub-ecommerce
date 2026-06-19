@@ -124,11 +124,8 @@ export default async function handler(req, res) {
     return;
   }
 
-  const webhookUrl = resolveWebhookUrl(source);
-  if (!webhookUrl) {
-    res.status(503).json({ success: false, message: "Lead service unavailable" });
-    return;
-  }
+  const webhookUrl = resolveWebhookUrl(source)?.trim() || "";
+  const skipGhl = process.env.LEAD_SKIP_GHL === "true";
 
   const sanitized = sanitizePayload(payload);
   if (!sanitized) {
@@ -152,38 +149,63 @@ export default async function handler(req, res) {
     quoteRequestUrl: undefined,
   };
 
-  try {
-    const response = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(enrichedPayload),
-    });
+  let ghlSent = false;
 
-    if (!response.ok) {
-      res.status(502).json({ success: false, message: "Upstream error" });
-      return;
-    }
+  if (webhookUrl) {
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(enrichedPayload),
+      });
 
-    let emailSent = false;
-    if (sanitized.quoteItems?.length) {
-      try {
-        const emailResult = await sendQuoteRequestEmail({
-          subject: quoteMeta.subject,
-          html: quoteHtml,
-          replyTo: sanitized.email,
-        });
-        emailSent = emailResult.sent;
-      } catch {
-        // Lead already reached GHL; email failure should not block success.
+      if (response.ok) {
+        ghlSent = true;
+      } else if (!skipGhl) {
+        res.status(502).json({ success: false, message: "Upstream error" });
+        return;
+      }
+    } catch {
+      if (!skipGhl) {
+        res.status(502).json({ success: false, message: "Upstream error" });
+        return;
       }
     }
-
-    res.status(200).json({
-      success: true,
-      quoteNumber: quoteMeta.quoteNumber,
-      emailSent,
-    });
-  } catch {
-    res.status(502).json({ success: false, message: "Upstream error" });
   }
+
+  let emailSent = false;
+  if (sanitized.quoteItems?.length) {
+    try {
+      const emailResult = await sendQuoteRequestEmail({
+        subject: quoteMeta.subject,
+        html: quoteHtml,
+        replyTo: sanitized.email,
+      });
+      emailSent = emailResult.sent;
+    } catch {
+      if (ghlSent) {
+        // Lead already reached GHL; email failure should not block success.
+      } else {
+        res.status(502).json({ success: false, message: "Email delivery failed" });
+        return;
+      }
+    }
+  }
+
+  if (!ghlSent && !emailSent) {
+    res.status(503).json({
+      success: false,
+      message: webhookUrl
+        ? "Lead service unavailable"
+        : "Configure GHL_WEBHOOK_URL or submit a quote with products in cart",
+    });
+    return;
+  }
+
+  res.status(200).json({
+    success: true,
+    quoteNumber: quoteMeta.quoteNumber,
+    emailSent,
+    ghlSent,
+  });
 }

@@ -1,5 +1,6 @@
 import { absoluteUrl } from "../constants/seo";
 
+const QUOTE_LOGO_PATH = "/assets/images/sp_logo_color.webp";
 const BRAND_PRIMARY = "#b12455";
 const BRAND_SECONDARY = "#500021";
 const QUOTE_VALIDITY_DAYS = 7;
@@ -137,7 +138,7 @@ export function buildQuoteRequestHtml(input: BuildQuoteRequestHtmlInput): string
   const meta = buildQuoteRequestMeta(input.generatedAt ?? new Date());
   const applicant = input.applicant ?? {};
   const delivery = input.delivery ?? {};
-  const logoUrl = input.logoUrl ?? absoluteUrl("/brands/logos/san-patric.svg");
+  const logoUrl = input.logoUrl ?? absoluteUrl(QUOTE_LOGO_PATH);
 
   const deliveryAddress = delivery.address?.trim() || "A convenir";
   const deliveryDate = delivery.requiredDate?.trim() || "A convenir";
@@ -273,6 +274,6 @@ export function buildQuoteRequestPreviewInput(
     applicant,
     delivery,
     items,
-    logoUrl: absoluteUrl("/brands/logos/san-patric.svg"),
+    logoUrl: absoluteUrl(QUOTE_LOGO_PATH),
   };
 }

@@ -1,4 +1,4 @@
-import { buildQuoteRequestHtml, buildQuoteRequestMeta } from "./lib/quote-request-html.mjs";
+import { buildQuoteRequestHtml, buildQuoteRequestMeta, resolveQuoteLogoUrl } from "./lib/quote-request-html.mjs";
 import { sendQuoteRequestEmail } from "./lib/send-quote-email.mjs";
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -138,7 +138,7 @@ export default async function handler(req, res) {
   const quoteHtml = buildQuoteRequestHtml({
     applicant: sanitized,
     items: sanitized.quoteItems,
-    logoUrl: `${sitePublicUrl.replace(/\/$/, "")}/brands/logos/san-patric.svg`,
+    logoUrl: resolveQuoteLogoUrl(sitePublicUrl),
   });
 
   const enrichedPayload = {

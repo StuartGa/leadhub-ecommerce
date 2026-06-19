@@ -1,4 +1,5 @@
 // Keep in sync with src/application/services/quoteRequestDocument.ts
+const QUOTE_LOGO_PATH = "/assets/images/sp_logo_color.webp";
 const BRAND_PRIMARY = "#b12455";
 const BRAND_SECONDARY = "#500021";
 const QUOTE_VALIDITY_DAYS = 7;
@@ -44,6 +45,10 @@ export function buildQuoteRequestMeta(date = new Date()) {
     subject: `Cotización - Sitio Web - No. ${quoteNumber}`,
     replyToEmail: "info@alimentosconvenientes.com.mx",
   };
+}
+
+export function resolveQuoteLogoUrl(sitePublicUrl) {
+  return `${sitePublicUrl.replace(/\/$/, "")}${QUOTE_LOGO_PATH}`;
 }
 
 function renderSpecs(item) {
@@ -112,7 +117,9 @@ export function buildQuoteRequestHtml(input) {
   const delivery = input.delivery ?? {};
   const logoUrl =
     input.logoUrl ??
-    "https://stuartga.github.io/leadhub-ecommerce/brands/logos/san-patric.svg";
+    resolveQuoteLogoUrl(
+      process.env.SITE_PUBLIC_URL ?? "https://stuartga.github.io/leadhub-ecommerce",
+    );
 
   const deliveryAddress = delivery.address?.trim() || "A convenir";
   const deliveryDate = delivery.requiredDate?.trim() || "A convenir";

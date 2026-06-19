@@ -2,6 +2,13 @@ import type { Brand } from "../../domain/types/brand";
 import { fetchCmsBrands } from "../../infrastructure/cms/cmsBrandRepository";
 import { brands } from "../../infrastructure/data/brands";
 
+/** Brands hidden from the public catalog (removed from local data but may still exist in CMS). */
+const EXCLUDED_BRAND_NAMES = new Set(["Custom Culinary"]);
+
+function filterVisibleBrands(allBrands: Brand[]): Brand[] {
+  return allBrands.filter((brand) => !EXCLUDED_BRAND_NAMES.has(brand.name));
+}
+
 let cachedBrands: Brand[] | null = null;
 let inFlightBrands: Promise<Brand[]> | null = null;
 
@@ -16,14 +23,14 @@ export const brandService = {
         try {
           const cmsBrands = await fetchCmsBrands();
           if (cmsBrands.length > 0) {
-            cachedBrands = cmsBrands;
+            cachedBrands = filterVisibleBrands(cmsBrands);
             return cachedBrands;
           }
         } catch {
           // Ignore and fallback to local dataset.
         }
 
-        cachedBrands = brands;
+        cachedBrands = filterVisibleBrands(brands);
         return cachedBrands;
       })().finally(() => {
         inFlightBrands = null;

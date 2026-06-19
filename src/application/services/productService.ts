@@ -9,6 +9,14 @@ import productsData from "../../infrastructure/data/products.json";
 const BASE = import.meta.env.BASE_URL;
 const PRODUCT_PLACEHOLDER = `${BASE}images/product-placeholder.webp`;
 
+function resolveLocalAsset(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+  const normalized = path.startsWith("/") ? path.slice(1) : path;
+  return `${BASE}${normalized}`;
+}
+
 let cachedProducts: Product[] | null = null;
 let inFlightLoad: Promise<Product[]> | null = null;
 
@@ -28,7 +36,12 @@ function sanitizeProduct(product: Product): Product {
 }
 
 function normalizeLocalProduct(product: Record<string, unknown>): Product {
-  const imageUrl = typeof product.imageUrl === "string" ? product.imageUrl : PRODUCT_PLACEHOLDER;
+  const rawImageUrl = typeof product.imageUrl === "string" ? product.imageUrl : PRODUCT_PLACEHOLDER;
+  const imageUrl = resolveLocalAsset(rawImageUrl);
+  const rawGallery = Array.isArray(product.gallery)
+    ? product.gallery.filter((entry): entry is string => typeof entry === "string").slice(0, 3)
+    : [];
+  const gallery = rawGallery.length > 0 ? rawGallery.map(resolveLocalAsset) : [imageUrl];
   const name = typeof product.name === "string" ? product.name : "Producto";
   const id = typeof product.id === "string" ? product.id : crypto.randomUUID();
   const slug = name
@@ -52,7 +65,7 @@ function normalizeLocalProduct(product: Record<string, unknown>): Product {
     orderStep: typeof product.orderStep === "number" ? product.orderStep : 1,
     inventoryUnit: "unidad",
     imageUrl,
-    gallery: [imageUrl],
+    gallery,
     specSheetUrl: toSafeHttpsUrl(typeof product.specSheetUrl === "string" ? product.specSheetUrl : undefined),
     category: typeof product.category === "string" ? product.category : "Sin categoría",
     temperature:

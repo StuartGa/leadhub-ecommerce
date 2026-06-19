@@ -31,14 +31,15 @@ export function AudienceSection() {
 
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
           {audienceShowcaseItems.map((item) => (
-            <article
+            <Link
               key={item.name}
-              className="group relative aspect-square overflow-hidden rounded-xl bg-slate-300 shadow-sm"
-              aria-label={item.name}
+              to={audienceProductsHref(item.segmentId)}
+              aria-label={`Ver productos para ${item.name}`}
+              className="group relative aspect-square overflow-hidden rounded-xl bg-slate-300 shadow-sm transition-shadow hover:shadow-md focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               <img
                 src={item.imageUrl}
-                alt={item.name}
+                alt=""
                 loading="lazy"
                 decoding="async"
                 width={600}
@@ -52,28 +53,20 @@ export function AudienceSection() {
               />
 
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent transition-colors group-hover:from-black/75"
                 aria-hidden="true"
               />
 
-              <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-800 shadow-md sm:bottom-4 sm:left-4 sm:h-11 sm:w-11">
+              <div className="pointer-events-none absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-800 shadow-md sm:bottom-4 sm:left-4 sm:h-11 sm:w-11">
                 <AudienceIcon id={item.icon} className="h-5 w-5" />
               </div>
 
-              <div className="absolute inset-x-0 bottom-0 p-3 pt-10 sm:p-4 sm:pt-12">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3 pt-10 sm:p-4 sm:pt-12">
                 <p className="text-center text-xs font-semibold leading-tight text-white sm:text-sm">
                   {item.name}
                 </p>
-                <div className="mt-2 flex justify-center">
-                  <Link
-                    to={audienceProductsHref(item.segmentId)}
-                    className="inline-flex items-center justify-center rounded bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-700 shadow-sm transition-colors hover:bg-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 focus-visible:outline-none sm:px-3 sm:py-1.5 sm:text-xs"
-                  >
-                    Ver productos
-                  </Link>
-                </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 

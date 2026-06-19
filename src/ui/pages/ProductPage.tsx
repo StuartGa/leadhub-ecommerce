@@ -10,7 +10,7 @@ import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import type { Product } from "../../domain/types/product";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
-import { ProductImageZoom } from "../components/catalog/ProductImageZoom";
+import { ProductImageGallery } from "../components/catalog/ProductImageGallery";
 import { toSafeHttpsUrl } from "../../application/utils/safeUrl";
 import { RelatedProducts } from "../components/catalog/RelatedProducts";
 
@@ -18,7 +18,6 @@ export function ProductPage() {
   const { productId } = useParams();
   const { products, loading } = useProducts();
   const { addItem } = useQuoteCart();
-  const [activeImageByProduct, setActiveImageByProduct] = useState<Record<string, number>>({});
   const [quantityByProduct, setQuantityByProduct] = useState<Record<string, number>>({});
 
   const product = useMemo(
@@ -26,9 +25,10 @@ export function ProductPage() {
     [productId, products],
   );
 
-  const activeImage = product ? activeImageByProduct[product.id] ?? 0 : 0;
   const quantity = product ? quantityByProduct[product.id] ?? product.minOrderQty : 1;
-  const gallery = product?.gallery.length ? product.gallery : [product?.imageUrl ?? PRODUCT_PLACEHOLDER];
+  const gallery = product?.gallery.length
+    ? product.gallery.slice(0, 3)
+    : [product?.imageUrl ?? PRODUCT_PLACEHOLDER];
   const safeSpecSheetUrl = useMemo(
     () => (product ? toSafeHttpsUrl(product.specSheetUrl) : undefined),
     [product],
@@ -57,7 +57,7 @@ export function ProductPage() {
           name: product.name,
           description: product.description,
           sku: product.sku,
-          image: absoluteUrl(product.imageUrl),
+          image: gallery.map((url) => absoluteUrl(url)),
           brand: product.brand ? { "@type": "Brand", name: product.brand } : undefined,
           category: product.category,
           offers: {
@@ -145,41 +145,11 @@ export function ProductPage() {
 
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
-              <ProductImageZoom
-                src={gallery[activeImage]}
+              <ProductImageGallery
+                images={gallery}
                 alt={product.name}
-                onError={() => {
-                  // Fallback to placeholder on error
-                  const newGallery = [...gallery];
-                  newGallery[activeImage] = PRODUCT_PLACEHOLDER;
-                }}
+                placeholder={PRODUCT_PLACEHOLDER}
               />
-
-              {gallery.length > 1 && (
-                <div className="mt-3 grid grid-cols-4 gap-3">
-                  {gallery.map((image, index) => (
-                    <button
-                      key={image}
-                      type="button"
-                      onClick={() => {
-                        setActiveImageByProduct((prev) => ({
-                          ...prev,
-                          [product.id]: index,
-                        }));
-                      }}
-                      className={`overflow-hidden rounded-lg border ${activeImage === index ? "border-brand-500" : "border-slate-200"}`}
-                    >
-                      <img
-                        src={image}
-                        alt={`${product.name} vista ${index + 1}`}
-                        className="h-20 w-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             <div>

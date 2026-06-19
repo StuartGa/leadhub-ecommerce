@@ -17,7 +17,6 @@ export const brands: Brand[] = [
   { id: "brand-bimbo",               name: "Bimbo",              logoUrl: `${BASE}assets/brands/logos/bimbo.png`,               featured: false },
   { id: "brand-cargill",             name: "Cargill",            logoUrl: `${BASE}assets/brands/logos/cargill.png`,             featured: false },
   { id: "brand-covemex",             name: "Covemex",            logoUrl: `${BASE}assets/brands/logos/covemex.png`,             featured: false },
-  { id: "brand-custom-culinary",     name: "Custom Culinary",    logoUrl: `${BASE}assets/brands/logos/custom-culinary.svg`,     featured: false },
   { id: "brand-lactalis",            name: "Lactalis",           logoUrl: `${BASE}assets/brands/logos/lactalis.png`,            featured: false },
   { id: "brand-marina-azul",         name: "Marina Azul",        logoUrl: `${BASE}assets/brands/logos/marina-azul.png`,         featured: false },
   { id: "brand-martins",             name: "Martin's",           logoUrl: `${BASE}assets/brands/logos/martins.png`,             featured: false },

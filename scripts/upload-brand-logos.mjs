@@ -16,7 +16,6 @@ const BRAND_LOGO_MAP = {
   Bimbo: "bimbo.png",
   Cargill: "cargill.png",
   Covemex: "covemex.png",
-  "Custom Culinary": "custom-culinary.svg",
   Heinz: "heinz.png",
   Lactalis: "lactalis.png",
   "Lamb Weston": "lamb-weston.png",

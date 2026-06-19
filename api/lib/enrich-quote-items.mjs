@@ -1,3 +1,7 @@
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 function normalizeSku(value) {
   return String(value ?? "")
     .trim()
@@ -11,10 +15,30 @@ function resolveItemSku(item) {
   return undefined;
 }
 
+let bundledSpecsCache = null;
+
+function getBundledSpecsBySku() {
+  if (bundledSpecsCache) return bundledSpecsCache;
+
+  bundledSpecsCache = new Map();
+  try {
+    const filePath = join(dirname(fileURLToPath(import.meta.url)), "../data/product-specs-by-sku.json");
+    const raw = JSON.parse(readFileSync(filePath, "utf8"));
+    for (const [sku, doc] of Object.entries(raw)) {
+      bundledSpecsCache.set(normalizeSku(sku), doc);
+    }
+  } catch {
+    // Bundled catalog unavailable.
+  }
+
+  return bundledSpecsCache;
+}
+
 async function fetchSanitySpecsBySku(skus) {
   const projectId = process.env.VITE_SANITY_PROJECT_ID ?? process.env.SANITY_PROJECT_ID ?? "44oltazw";
   const dataset = process.env.VITE_SANITY_DATASET ?? process.env.SANITY_DATASET ?? "production";
   const apiVersion = process.env.VITE_SANITY_API_VERSION ?? "2026-05-01";
+  const normalizedSkus = [...new Set(skus.map(normalizeSku))];
 
   const response = await fetch(
     `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}`,
@@ -22,25 +46,22 @@ async function fetchSanitySpecsBySku(skus) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        query: `*[_type == "product" && sku in $skus]{
+        query: `*[_type == "product" && defined(sku) && upper(sku) in $skus]{
           sku,
           shortDescription,
           longDescription,
           technicalInfo,
           packaging
         }`,
-        params: { skus },
+        params: { skus: normalizedSkus },
       }),
     },
   );
 
-  if (!response.ok) {
-    return new Map();
-  }
+  const map = new Map();
+  if (!response.ok) return map;
 
   const payload = await response.json();
-  const map = new Map();
-
   for (const doc of payload.result ?? []) {
     if (doc.sku) {
       map.set(normalizeSku(doc.sku), doc);
@@ -50,52 +71,42 @@ async function fetchSanitySpecsBySku(skus) {
   return map;
 }
 
+function pickSpecDoc(sku, sanityMap, bundledMap) {
+  const key = normalizeSku(sku);
+  return sanityMap.get(key) ?? bundledMap.get(key);
+}
+
+function mergeItemSpecs(item, doc) {
+  if (!doc) return item;
+
+  const shortDescription = doc.shortDescription ?? "";
+  const longDescription = doc.longDescription ?? shortDescription;
+
+  return {
+    ...item,
+    sku: item.sku ?? doc.sku,
+    productDescription: item.productDescription?.trim() || shortDescription || item.productDescription,
+    longDescription: item.longDescription?.trim() || longDescription || item.longDescription,
+    technicalInfo: item.technicalInfo?.trim() || doc.technicalInfo || item.technicalInfo,
+    packaging: item.packaging?.trim() || doc.packaging || item.packaging,
+  };
+}
+
 /**
- * Fills missing quote line specs from Sanity when the cart payload is stale.
+ * Fills quote line specs from bundled catalog + Sanity by SKU (case-insensitive).
  */
 export async function enrichQuoteItems(items) {
   if (!items?.length) return items ?? [];
 
-  const needsLookup = items.filter(
-    (item) =>
-      !item.productDescription?.trim() &&
-      !item.longDescription?.trim() &&
-      !item.technicalInfo?.trim() &&
-      !item.packaging?.trim(),
-  );
+  const skus = [...new Set(items.map(resolveItemSku).filter(Boolean))];
+  if (skus.length === 0) return items;
 
-  if (needsLookup.length === 0) {
-    return items;
-  }
-
-  const skus = [...new Set(needsLookup.map(resolveItemSku).filter(Boolean))];
-  if (skus.length === 0) {
-    return items;
-  }
-
-  const specsBySku = await fetchSanitySpecsBySku(skus);
+  const bundledMap = getBundledSpecsBySku();
+  const sanityMap = await fetchSanitySpecsBySku(skus);
 
   return items.map((item) => {
-    if (
-      item.productDescription?.trim() ||
-      item.longDescription?.trim() ||
-      item.technicalInfo?.trim() ||
-      item.packaging?.trim()
-    ) {
-      return item;
-    }
-
     const sku = resolveItemSku(item);
-    const doc = sku ? specsBySku.get(normalizeSku(sku)) : undefined;
-    if (!doc) return item;
-
-    return {
-      ...item,
-      sku: item.sku ?? doc.sku,
-      productDescription: doc.shortDescription ?? item.productDescription,
-      longDescription: doc.longDescription ?? item.longDescription,
-      technicalInfo: doc.technicalInfo ?? item.technicalInfo,
-      packaging: doc.packaging ?? item.packaging,
-    };
+    if (!sku) return item;
+    return mergeItemSpecs(item, pickSpecDoc(sku, sanityMap, bundledMap));
   });
 }

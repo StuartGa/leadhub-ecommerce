@@ -2,8 +2,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { enrichQuoteCartItems } from "../../../application/services/enrichQuoteCartItems";
 import { useGHLIntegration } from "../../../application/hooks/useGHLIntegration";
 import { useQuoteCart } from "../../../application/hooks/useQuoteCart";
+import type { QuoteRequestItem } from "../../../application/services/quoteRequestDocument";
 import type { GHLWebhookPayload } from "../../../domain/types/ghl";
 import {
   type ContactFormValues,
@@ -26,6 +28,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [honeypot, setHoneypot] = useState("");
   const [showPreview, setShowPreview] = useState(false);
+  const [previewItems, setPreviewItems] = useState<QuoteRequestItem[]>([]);
 
   const {
     register,
@@ -47,19 +50,21 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
 
   const watchedValues = watch();
 
-  const previewItems = items.map((item) => ({
-    productId: item.productId,
-    productSlug: item.productSlug,
-    productName: item.productName,
-    sku: item.sku,
-    productDescription: item.productDescription,
-    longDescription: item.longDescription,
-    packaging: item.packaging,
-    technicalInfo: item.technicalInfo,
-    inventoryUnit: item.inventoryUnit,
-    quantity: item.quantity,
-    notes: item.notes,
-  }));
+  useEffect(() => {
+    if (!showPreview || items.length === 0) {
+      setPreviewItems([]);
+      return;
+    }
+
+    let cancelled = false;
+    enrichQuoteCartItems(items).then((enriched) => {
+      if (!cancelled) setPreviewItems(enriched);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [items, showPreview]);
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) => {

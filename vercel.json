@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/submit-lead.mjs": {
+      "includeFiles": "api/data/product-specs-by-sku.json"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",

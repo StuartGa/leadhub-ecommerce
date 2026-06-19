@@ -86,6 +86,63 @@ function getLocalProducts(): Product[] {
   return (productsData as Record<string, unknown>[]).map(normalizeLocalProduct).map(sanitizeProduct);
 }
 
+function isPlaceholderImage(url: string): boolean {
+  return url.includes("product-placeholder");
+}
+
+function normalizeSku(sku: string | undefined): string | undefined {
+  if (!sku) return undefined;
+  const trimmed = sku.trim().toUpperCase();
+  const withoutLeadingZeros = trimmed.replace(/^0+/, "");
+  return withoutLeadingZeros || "0";
+}
+
+type ProductMedia = Pick<Product, "imageUrl" | "gallery">;
+
+function buildLocalMediaIndex(localProducts: Product[]): Map<string, ProductMedia> {
+  const index = new Map<string, ProductMedia>();
+
+  for (const product of localProducts) {
+    const media: ProductMedia = {
+      imageUrl: product.imageUrl,
+      gallery: product.gallery,
+    };
+    const sku = normalizeSku(product.sku);
+    if (sku) index.set(`sku:${sku}`, media);
+    index.set(`slug:${product.slug}`, media);
+  }
+
+  return index;
+}
+
+function findLocalMedia(product: Product, index: Map<string, ProductMedia>): ProductMedia | undefined {
+  const sku = normalizeSku(product.sku);
+  if (sku && index.has(`sku:${sku}`)) return index.get(`sku:${sku}`);
+  if (index.has(`slug:${product.slug}`)) return index.get(`slug:${product.slug}`);
+  return undefined;
+}
+
+/** When Sanity has no image, use the static catalog assets from products.json. */
+function mergeCmsWithLocalMedia(cmsProducts: Product[], localProducts: Product[]): Product[] {
+  const localMediaIndex = buildLocalMediaIndex(localProducts);
+
+  return cmsProducts.map((cmsProduct) => {
+    const localMedia = findLocalMedia(cmsProduct, localMediaIndex);
+    if (!localMedia || isPlaceholderImage(localMedia.imageUrl)) {
+      return cmsProduct;
+    }
+    if (!isPlaceholderImage(cmsProduct.imageUrl)) {
+      return cmsProduct;
+    }
+
+    return {
+      ...cmsProduct,
+      imageUrl: localMedia.imageUrl,
+      gallery: localMedia.gallery.length > 0 ? localMedia.gallery : [localMedia.imageUrl],
+    };
+  });
+}
+
 async function getAll(): Promise<Product[]> {
   if (cachedProducts) {
     return cachedProducts;
@@ -93,17 +150,19 @@ async function getAll(): Promise<Product[]> {
 
   if (!inFlightLoad) {
     inFlightLoad = (async () => {
+      const localProducts = getLocalProducts();
+
       try {
         const cmsProducts = await fetchCmsProducts();
         if (cmsProducts.length > 0) {
-          cachedProducts = cmsProducts.map(sanitizeProduct);
+          cachedProducts = mergeCmsWithLocalMedia(cmsProducts, localProducts).map(sanitizeProduct);
           return cachedProducts;
         }
       } catch {
         // Ignore and fallback to local data.
       }
 
-      cachedProducts = getLocalProducts();
+      cachedProducts = localProducts;
       return cachedProducts;
     })().finally(() => {
       inFlightLoad = null;

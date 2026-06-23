@@ -158,6 +158,16 @@ export function ProductPage() {
                   <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
                     {product.name}
                   </h1>
+                  {product.sku && (
+                    <p className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="rounded-md bg-brand-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-widest text-brand-700">
+                        Código / SKU
+                      </span>
+                      <span className="font-mono text-sm font-semibold tracking-wide text-brand-900">
+                        {product.sku}
+                      </span>
+                    </p>
+                  )}
                   <p className="mt-3 text-base leading-relaxed text-slate-600">
                     {product.description}
                   </p>

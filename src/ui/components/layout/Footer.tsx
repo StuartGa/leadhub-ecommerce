@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {
   OFFICE_PHONE_DISPLAY,
   OFFICE_PHONE_E164,
-  WHATSAPP_PHONE_DISPLAY,
   WHATSAPP_URL,
 } from "../../../application/constants/contact";
 
@@ -111,7 +110,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[#25D366]"
                 >
-                  WhatsApp {WHATSAPP_PHONE_DISPLAY}
+                  WhatsApp
                 </a>
               </li>
               <li className="flex items-start gap-2">

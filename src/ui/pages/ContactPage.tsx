@@ -3,7 +3,6 @@ import { useQuoteCart } from "../../application/hooks/useQuoteCart";
 import {
   OFFICE_PHONE_DISPLAY,
   OFFICE_PHONE_E164,
-  WHATSAPP_PHONE_DISPLAY,
   WHATSAPP_URL,
 } from "../../application/constants/contact";
 import { ContactForm } from "../components/form/ContactForm";
@@ -70,15 +69,16 @@ export function ContactPage() {
                 <div className="mt-4 space-y-2 text-sm text-slate-700">
                   <p><strong>Teléfono</strong></p>
                   <a href={`tel:${OFFICE_PHONE_E164}`} className="text-brand-700 hover:text-brand-900">{OFFICE_PHONE_DISPLAY}</a>
-                  <p className="pt-2"><strong>WhatsApp</strong></p>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-700 hover:text-brand-900"
-                  >
-                    {WHATSAPP_PHONE_DISPLAY}
-                  </a>
+                  <p className="pt-2">
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-brand-700 hover:text-brand-900"
+                    >
+                      WhatsApp
+                    </a>
+                  </p>
                   <p className="pt-2"><strong>Correo</strong></p>
                   <a href="mailto:info@alimentosconvenientes.com.mx" className="text-brand-700 hover:text-brand-900">info@alimentosconvenientes.com.mx</a>
                   <p className="pt-2"><strong>Horario de Atención</strong></p>

@@ -15,8 +15,8 @@ function BrandLogo({ name, logo, decorative = false }: { name: string; logo: str
 
 export function LandingBrandsStrip() {
   return (
-    <section className="border-b border-slate-100 bg-gradient-to-b from-white to-slate-50/60 py-12 sm:py-14">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+    <section className="-mt-2 border-b border-slate-100 bg-gradient-to-b from-white to-slate-50/60 py-8 sm:py-10">
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-8 px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
         <div className="max-w-lg text-center lg:text-left">
           <h2 className="text-2xl font-bold text-brand-800 sm:text-[1.75rem]">
             Marcas líderes. Resultados comprobados.

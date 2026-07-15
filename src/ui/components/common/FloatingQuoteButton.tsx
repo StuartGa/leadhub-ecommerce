@@ -12,7 +12,7 @@ export function FloatingQuoteButton() {
       initial={{ opacity: 0, scale: 0.5, y: 16 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 400, damping: 20 }}
-      className="fixed bottom-1/3 right-6 z-50"
+      className="fixed bottom-24 right-6 z-50"
     >
       <Link
         to="/cotizacion"

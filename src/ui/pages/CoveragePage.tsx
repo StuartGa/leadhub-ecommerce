@@ -11,7 +11,7 @@ import { StatCounter } from "../components/common/StatCounter";
 export function CoveragePage() {
   useDocumentTitle(
     "Cobertura Nacional — San Patric Foodservice",
-    "Cobertura en 9 estados de México: CDMX, Estado de México, Morelos, Puebla, Veracruz, Querétaro, Jalisco, Guanajuato y Tlaxcala. 98% de efectividad. Logística especializada en seco, refrigerado y congelado.",
+    "Cobertura en 10 estados de México: CDMX, Estado de México, Morelos, Puebla, Veracruz, Querétaro, Jalisco, Guanajuato, Tlaxcala y Pachuca. 98% de efectividad. Logística especializada en seco, refrigerado y congelado.",
     "/cobertura",
   );
 
@@ -33,7 +33,7 @@ export function CoveragePage() {
           src="banner-cobertura.webp"
           alt="Cobertura Nacional — San Patric Foodservice"
           title={<>Cobertura <span className="font-normal">Nacional</span></>}
-          subtitle="Distribuimos a 9 estados de México con infraestructura especializada para garantizar entregas puntuales y cadena de frío confiable."
+          subtitle="Distribuimos a 10 estados de México con infraestructura especializada para garantizar entregas puntuales y cadena de frío confiable."
           variant="dark"
         />
 
@@ -41,7 +41,7 @@ export function CoveragePage() {
         <section className="border-b border-slate-200 bg-white px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl">
             <div className="grid grid-cols-2 gap-6">
-              <StatCounter target={9} label="Estados" />
+              <StatCounter target={10} label="Estados" />
               <StatCounter target={98} suffix="%" label="Efectividad" />
             </div>
           </div>
@@ -51,7 +51,7 @@ export function CoveragePage() {
         <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
           <img
             src={COVERAGE_MAP}
-            alt="Mapa de cobertura San Patric Foodservice en Jalisco, Querétaro, Estado de México, CDMX, Morelos, Tlaxcala, Puebla y Veracruz"
+            alt="Mapa de cobertura San Patric Foodservice en Jalisco, Guanajuato, Querétaro, Estado de México, CDMX, Morelos, Tlaxcala, Puebla, Veracruz y Pachuca"
             className="mx-auto h-auto w-full max-w-5xl object-contain"
             width={1200}
             height={900}

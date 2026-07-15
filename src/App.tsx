@@ -11,6 +11,7 @@ import {
 import { QuoteCartProvider } from "./application/contexts/QuoteCartContext";
 import { CookieConsentBanner } from "./ui/components/tracking/CookieConsentBanner";
 import { FloatingQuoteButton } from "./ui/components/common/FloatingQuoteButton";
+import { FloatingWhatsAppButton } from "./ui/components/common/FloatingWhatsAppButton";
 
 // Lazy load pages for code splitting
 const HomePage = lazy(() =>
@@ -125,6 +126,7 @@ export function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <QuoteCartProvider>
         <AppShell />
+        <FloatingWhatsAppButton />
         <FloatingQuoteButton />
       </QuoteCartProvider>
       {!hasConsent && (

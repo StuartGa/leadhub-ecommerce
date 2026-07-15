@@ -4,6 +4,8 @@ const COVERAGE_STATES_LEFT = [
   "CDMX",
   "Estado de México",
   "Jalisco",
+  "Guanajuato",
+  "Pachuca",
 ];
 
 const COVERAGE_STATES_RIGHT = [
@@ -11,6 +13,7 @@ const COVERAGE_STATES_RIGHT = [
   "Querétaro",
   "Morelos",
   "Veracruz",
+  "Tlaxcala",
 ];
 
 const CONTACT_BENEFITS = [

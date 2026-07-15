@@ -1,18 +1,24 @@
 import { Link } from "react-router-dom";
 
 const BASE = import.meta.env.BASE_URL || "/";
+const HERO_VIDEO = `${BASE}assets/videos/hero-banner.mp4`;
+const HERO_POSTER = `${BASE}assets/images/banners/banner-home.webp`;
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-white/20 bg-slate-900">
       <div className="relative min-h-[640px]">
-        <img
-          alt="San Patric Foodservice — Distribuidor Foodservice"
-          src={`${BASE}assets/images/banners/banner-home.webp`}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={HERO_POSTER}
+          aria-label="San Patric Foodservice — Distribuidor Foodservice"
           className="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
-          decoding="async"
-        />
+        >
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/82 via-slate-900/52 to-slate-900/8" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(177,36,85,0.28),transparent_48%)]" />

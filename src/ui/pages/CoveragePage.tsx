@@ -51,10 +51,10 @@ export function CoveragePage() {
         <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
           <img
             src={COVERAGE_MAP}
-            alt="Mapa de cobertura San Patric Foodservice en Jalisco, Guanajuato, Querétaro, Estado de México, CDMX, Morelos, Tlaxcala, Puebla, Veracruz y Pachuca"
+            alt="Mapa de presencia en México: Guadalajara, Guanajuato, Querétaro, Estado de México, CDMX, Morelos, Tlaxcala, Puebla, Pachuca y Veracruz"
             className="mx-auto h-auto w-full max-w-5xl object-contain"
-            width={1200}
-            height={900}
+            width={1024}
+            height={1024}
             loading="lazy"
             decoding="async"
           />

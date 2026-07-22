@@ -1,6 +1,7 @@
-import { lazy, Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { lazyWithRetry } from "./application/utils/lazyWithRetry";
 import { usePageTracking } from "./application/hooks/usePageTracking";
 import { useTrackingConsent } from "./application/hooks/useTrackingConsent";
 import {
@@ -12,89 +13,96 @@ import { QuoteCartProvider } from "./application/contexts/QuoteCartContext";
 import { CookieConsentBanner } from "./ui/components/tracking/CookieConsentBanner";
 import { FloatingQuoteButton } from "./ui/components/common/FloatingQuoteButton";
 import { FloatingWhatsAppButton } from "./ui/components/common/FloatingWhatsAppButton";
+import { RouteErrorBoundary } from "./ui/components/common/RouteErrorBoundary";
+import { ScrollToTop } from "./ui/components/common/ScrollToTop";
 
-// Lazy load pages for code splitting
-const HomePage = lazy(() =>
-  import("./ui/pages/HomePage").then((m) => ({ default: m.HomePage }))
+const HomePage = lazyWithRetry(() =>
+  import("./ui/pages/HomePage").then((m) => ({ default: m.HomePage })),
 );
-const AboutPage = lazy(() =>
-  import("./ui/pages/AboutPage").then((m) => ({ default: m.AboutPage }))
+const AboutPage = lazyWithRetry(() =>
+  import("./ui/pages/AboutPage").then((m) => ({ default: m.AboutPage })),
 );
-const BrandsPage = lazy(() =>
-  import("./ui/pages/BrandsPage").then((m) => ({ default: m.BrandsPage }))
+const BrandsPage = lazyWithRetry(() =>
+  import("./ui/pages/BrandsPage").then((m) => ({ default: m.BrandsPage })),
 );
-const ProductsPage = lazy(() =>
-  import("./ui/pages/ProductsPage").then((m) => ({ default: m.ProductsPage }))
+const ProductsPage = lazyWithRetry(() =>
+  import("./ui/pages/ProductsPage").then((m) => ({ default: m.ProductsPage })),
 );
-const CategoryPage = lazy(() =>
-  import("./ui/pages/CategoryPage").then((m) => ({ default: m.CategoryPage }))
+const CategoryPage = lazyWithRetry(() =>
+  import("./ui/pages/CategoryPage").then((m) => ({ default: m.CategoryPage })),
 );
-const ProductPage = lazy(() =>
-  import("./ui/pages/ProductPage").then((m) => ({ default: m.ProductPage }))
+const ProductPage = lazyWithRetry(() =>
+  import("./ui/pages/ProductPage").then((m) => ({ default: m.ProductPage })),
 );
-const ContactPage = lazy(() =>
-  import("./ui/pages/ContactPage").then((m) => ({ default: m.ContactPage }))
+const ContactPage = lazyWithRetry(() =>
+  import("./ui/pages/ContactPage").then((m) => ({ default: m.ContactPage })),
 );
-const QuotePage = lazy(() =>
-  import("./ui/pages/QuotePage").then((m) => ({ default: m.QuotePage }))
+const QuotePage = lazyWithRetry(() =>
+  import("./ui/pages/QuotePage").then((m) => ({ default: m.QuotePage })),
 );
-const CoveragePage = lazy(() =>
-  import("./ui/pages/CoveragePage").then((m) => ({ default: m.CoveragePage }))
+const CoveragePage = lazyWithRetry(() =>
+  import("./ui/pages/CoveragePage").then((m) => ({ default: m.CoveragePage })),
 );
-const BlogPage = lazy(() =>
-  import("./ui/pages/BlogPage").then((m) => ({ default: m.BlogPage }))
+const BlogPage = lazyWithRetry(() =>
+  import("./ui/pages/BlogPage").then((m) => ({ default: m.BlogPage })),
 );
-const BlogPostPage = lazy(() =>
-  import("./ui/pages/BlogPostPage").then((m) => ({ default: m.BlogPostPage }))
+const BlogPostPage = lazyWithRetry(() =>
+  import("./ui/pages/BlogPostPage").then((m) => ({ default: m.BlogPostPage })),
 );
-const CareersPage = lazy(() =>
-  import("./ui/pages/CareersPage").then((m) => ({ default: m.CareersPage }))
+const CareersPage = lazyWithRetry(() =>
+  import("./ui/pages/CareersPage").then((m) => ({ default: m.CareersPage })),
 );
-const HorecaLandingPage = lazy(() =>
+const HorecaLandingPage = lazyWithRetry(() =>
   import("./ui/pages/HorecaLandingPage").then((m) => ({
     default: m.HorecaLandingPage,
-  }))
+  })),
 );
-const NotFoundPage = lazy(() =>
-  import("./ui/pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage }))
+const NotFoundPage = lazyWithRetry(() =>
+  import("./ui/pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })),
 );
 
-// Loading fallback component
 function PageLoader() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="h-12 w-12 animate-spin rounded-full border-4 border-brand-200 border-t-brand-500"></div>
+    <div className="flex min-h-screen items-center justify-center bg-white">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-brand-200 border-t-brand-500" />
     </div>
   );
 }
 
 function AppContent() {
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/quienes-somos" element={<AboutPage />} />
-        <Route path="/productos" element={<ProductsPage />} />
-        <Route path="/productos/categoria/:categorySlug" element={<CategoryPage />} />
-        <Route path="/marcas" element={<BrandsPage />} />
-        <Route path="/cobertura" element={<CoveragePage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
-        <Route path="/trabaja-con-nosotros" element={<CareersPage />} />
-        <Route path="/products/:productId" element={<ProductPage />} />
-        <Route path="/cotizacion" element={<QuotePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/horeca" element={<HorecaLandingPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
+    <RouteErrorBoundary>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/quienes-somos" element={<AboutPage />} />
+          <Route path="/productos" element={<ProductsPage />} />
+          <Route path="/productos/categoria/:categorySlug" element={<CategoryPage />} />
+          <Route path="/marcas" element={<BrandsPage />} />
+          <Route path="/cobertura" element={<CoveragePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/trabaja-con-nosotros" element={<CareersPage />} />
+          <Route path="/products/:productId" element={<ProductPage />} />
+          <Route path="/cotizacion" element={<QuotePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/horeca" element={<HorecaLandingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+    </RouteErrorBoundary>
   );
 }
 
 function AppShell() {
   usePageTracking();
 
-  return <AppContent />;
+  return (
+    <>
+      <ScrollToTop />
+      <AppContent />
+    </>
+  );
 }
 
 export function App() {

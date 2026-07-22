@@ -5,6 +5,7 @@ import { LandingBrandsStrip } from "../components/landing/LandingBrandsStrip";
 import { LandingCoverageSection } from "../components/landing/LandingCoverageSection";
 import { LandingFooter } from "../components/landing/LandingFooter";
 import { LandingHeroSection } from "../components/landing/LandingHeroSection";
+import { LeadForm } from "../components/landing/LeadForm";
 import { LandingSimplotSection } from "../components/landing/LandingSimplotSection";
 import { LandingStanislausSection } from "../components/landing/LandingStanislausSection";
 import { LandingTestimonialsSection } from "../components/landing/LandingTestimonialsSection";
@@ -34,8 +35,14 @@ export function HorecaLandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
       <main className="flex-1">
-        <LandingHeroSection />
-        <LandingBrandsStrip />
+        <div className="flex flex-col pb-24 lg:max-h-[100dvh] lg:min-h-[100dvh] lg:overflow-hidden lg:pb-0">
+          <LandingHeroSection />
+          <LandingBrandsStrip />
+        </div>
+
+        <section className="border-b border-slate-100 bg-white px-4 py-6 sm:px-6 lg:hidden">
+          <LeadForm compact />
+        </section>
         <LandingStanislausSection />
         <LandingSimplotSection />
         <LandingVenturaFoodsSection />

@@ -2,61 +2,90 @@ import { Link } from "react-router-dom";
 
 import { LANDING_STRIP_BRANDS } from "../../../application/constants/landingAssets";
 
-function BrandLogo({ name, logo, decorative = false }: { name: string; logo: string; decorative?: boolean }) {
+function BrandLogo({
+  name,
+  logo,
+  decorative = false,
+  mobile = false,
+}: {
+  name: string;
+  logo: string;
+  decorative?: boolean;
+  mobile?: boolean;
+}) {
   return (
     <img
       src={logo}
       alt={decorative ? "" : name}
-      className="h-16 w-auto max-w-[140px] object-contain sm:h-20 sm:max-w-[160px] lg:h-[4.5rem] lg:max-w-[180px]"
-      loading="lazy"
+      className={
+        mobile
+          ? "h-8 w-auto max-w-[64px] object-contain sm:h-14 sm:max-w-[140px] lg:h-16 lg:max-w-[150px]"
+          : "h-12 w-auto max-w-[120px] object-contain sm:h-14 sm:max-w-[140px] lg:h-16 lg:max-w-[150px]"
+      }
+      loading="eager"
     />
+  );
+}
+
+function BrandLogoGrid({ mobile = false }: { mobile?: boolean }) {
+  return (
+    <div
+      className={
+        mobile
+          ? "grid w-full grid-cols-5 items-center justify-items-center gap-1.5 sm:hidden"
+          : "hidden w-full max-w-[720px] grid-cols-2 items-center justify-items-center gap-x-6 gap-y-5 sm:grid sm:grid-cols-3 sm:gap-x-8 lg:flex-1 lg:grid-cols-5 lg:gap-x-4 lg:gap-y-4"
+      }
+    >
+      {LANDING_STRIP_BRANDS.map((brand) => {
+        const logo = (
+          <BrandLogo
+            name={brand.name}
+            logo={brand.logo}
+            decorative={Boolean(brand.href)}
+            mobile={mobile}
+          />
+        );
+
+        if (brand.href) {
+          return (
+            <Link
+              key={brand.id}
+              to={brand.href}
+              aria-label={brand.name}
+              className="transition-opacity hover:opacity-80 focus-visible:rounded focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+            >
+              {logo}
+            </Link>
+          );
+        }
+
+        return <div key={brand.id}>{logo}</div>;
+      })}
+    </div>
   );
 }
 
 export function LandingBrandsStrip() {
   return (
-    <section className="-mt-2 border-b border-slate-100 bg-gradient-to-b from-white to-slate-50/60 py-8 sm:py-10">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-8 px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-        <div className="max-w-lg text-center lg:text-left">
-          <h2 className="text-2xl font-bold text-brand-800 sm:text-[1.75rem]">
+    <section className="shrink-0 border-b border-slate-100 bg-gradient-to-b from-white to-slate-50/60 py-3 sm:py-6">
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-3 px-4 sm:gap-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+        <div className="w-full text-center sm:max-w-md lg:max-w-sm lg:text-left">
+          <h2 className="text-base font-bold text-brand-800 sm:text-2xl">
             Marcas líderes. Resultados comprobados.
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mt-1 hidden text-sm leading-relaxed text-slate-600 sm:mt-2 sm:block">
             Trabajamos con marcas reconocidas a nivel internacional para ofrecerte
-            productos de calidad premium, consistencia en cada entrega y la
-            confianza que tu operación necesita.
+            productos de calidad premium y consistencia en cada entrega.
           </p>
         </div>
 
         <div
-          className="hidden h-24 w-px shrink-0 bg-slate-200 lg:block"
+          className="hidden h-16 w-px shrink-0 bg-slate-200 lg:block"
           aria-hidden="true"
         />
 
-        <div className="grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-8 sm:grid-cols-3 sm:gap-x-10 lg:max-w-[640px] lg:flex-1 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10">
-          {LANDING_STRIP_BRANDS.map((brand) => {
-            const logo = <BrandLogo name={brand.name} logo={brand.logo} decorative={Boolean(brand.href)} />;
-
-            if (brand.href) {
-              return (
-                <Link
-                  key={brand.id}
-                  to={brand.href}
-                  aria-label={brand.name}
-                  className="transition-opacity hover:opacity-80 focus-visible:rounded focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-                >
-                  {logo}
-                </Link>
-              );
-            }
-
-            return (
-              <div key={brand.id}>
-                {logo}
-              </div>
-            );
-          })}
-        </div>
+        <BrandLogoGrid mobile />
+        <BrandLogoGrid />
       </div>
     </section>
   );

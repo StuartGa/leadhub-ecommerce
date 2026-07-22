@@ -19,7 +19,7 @@ const inputClass =
 
 const labelClass = "mb-1 block text-xs font-medium text-slate-600";
 
-export function LeadForm() {
+export function LeadForm({ compact = false }: { compact?: boolean }) {
   const { submit, status, error, reset: resetGHL } = useGHLIntegration();
   const [honeypot, setHoneypot] = useState("");
 
@@ -40,10 +40,24 @@ export function LeadForm() {
     await submit(payload, "landing-horeca", honeypot);
   };
 
+  const formShellClass = compact
+    ? "rounded-lg bg-white p-4 shadow-2xl ring-1 ring-black/5 sm:p-5"
+    : "rounded-lg bg-white p-6 shadow-2xl ring-1 ring-black/5 sm:p-8";
+
+  const formTitleClass = compact
+    ? "mb-1 text-center text-sm font-semibold leading-snug text-brand-700 sm:text-base"
+    : "mb-1 text-center text-base font-semibold leading-snug text-brand-700 sm:text-lg";
+
+  const formGapClass = compact ? "mt-3 flex flex-col gap-2.5" : "mt-5 flex flex-col gap-3.5";
+
+  const inputClassName = compact
+    ? "w-full rounded border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none"
+    : inputClass;
+
   if (status === "success") {
     return (
       <div
-        className="rounded-xl bg-white p-6 shadow-xl sm:p-8"
+        className={compact ? "rounded-lg bg-white p-4 shadow-xl sm:p-5" : "rounded-xl bg-white p-6 shadow-xl sm:p-8"}
         aria-live="polite"
       >
         <div className="text-center">
@@ -85,15 +99,15 @@ export function LeadForm() {
   }
 
   return (
-    <div className="rounded-lg bg-white p-6 shadow-2xl ring-1 ring-black/5 sm:p-8">
-      <h2 className="mb-1 text-center text-base font-semibold leading-snug text-brand-700 sm:text-lg">
+    <div className={formShellClass}>
+      <h2 className={formTitleClass}>
         Solicita información y un asesor te contactará
       </h2>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="mt-5 flex flex-col gap-3.5"
+        className={formGapClass}
       >
         <input
           type="text"
@@ -105,6 +119,7 @@ export function LeadForm() {
           aria-hidden="true"
           className="absolute -left-[9999px] h-px w-px opacity-0"
         />
+        <div className={compact ? "grid grid-cols-1 gap-2.5 md:grid-cols-2" : "contents"}>
         <div>
           <label htmlFor="lead-contactName" className={labelClass}>
             Nombre completo <span className="text-red-500">*</span>
@@ -116,7 +131,7 @@ export function LeadForm() {
             autoComplete="name"
             placeholder="Ej: Juan Pérez"
             aria-invalid={errors.contactName ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           />
           {errors.contactName && (
             <p className="mt-1 text-xs text-red-600">
@@ -136,7 +151,7 @@ export function LeadForm() {
             autoComplete="organization"
             placeholder="Ej: Restaurante El Buen Sabor"
             aria-invalid={errors.companyName ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           />
           {errors.companyName && (
             <p className="mt-1 text-xs text-red-600">
@@ -156,7 +171,7 @@ export function LeadForm() {
             autoComplete="email"
             placeholder="correo@empresa.com"
             aria-invalid={errors.email ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           />
           {errors.email && (
             <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
@@ -174,7 +189,7 @@ export function LeadForm() {
             autoComplete="tel"
             placeholder="+52 55 1234 5678"
             aria-invalid={errors.phone ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           />
           {errors.phone && (
             <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>
@@ -190,7 +205,7 @@ export function LeadForm() {
             id="lead-businessType"
             defaultValue=""
             aria-invalid={errors.businessType ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           >
             <option value="" disabled>
               Selecciona una opción
@@ -217,7 +232,7 @@ export function LeadForm() {
             id="lead-productInterest"
             defaultValue=""
             aria-invalid={errors.productInterest ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           >
             <option value="" disabled>
               Selecciona una opción
@@ -244,7 +259,7 @@ export function LeadForm() {
             id="lead-state"
             defaultValue=""
             aria-invalid={errors.state ? "true" : "false"}
-            className={inputClass}
+            className={inputClassName}
           >
             <option value="" disabled>
               Selecciona tu estado
@@ -258,6 +273,7 @@ export function LeadForm() {
           {errors.state && (
             <p className="mt-1 text-xs text-red-600">{errors.state.message}</p>
           )}
+        </div>
         </div>
 
         <div className="flex items-start gap-2.5 pt-1">
@@ -290,7 +306,7 @@ export function LeadForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="mt-1 w-full cursor-pointer rounded-md bg-brand-600 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+          className={`mt-1 w-full cursor-pointer rounded-md bg-brand-600 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60 ${compact ? "py-2.5" : "py-3.5"}`}
         >
           {status === "loading" ? "Enviando…" : "Enviar solicitud"}
         </button>

@@ -35,14 +35,14 @@ export function HorecaLandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
       <main className="flex-1">
-        <div className="flex flex-col pb-24 lg:max-h-[100dvh] lg:min-h-[100dvh] lg:overflow-hidden lg:pb-0">
+        <div className="flex flex-col lg:max-h-[100dvh] lg:min-h-[100dvh] lg:overflow-hidden">
           <LandingHeroSection />
           <LandingBrandsStrip />
+          <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50/60 to-white px-4 pb-6 pt-3 sm:px-6 lg:hidden">
+            <LeadForm compact />
+          </section>
         </div>
 
-        <section className="border-b border-slate-100 bg-white px-4 py-6 sm:px-6 lg:hidden">
-          <LeadForm compact />
-        </section>
         <LandingStanislausSection />
         <LandingSimplotSection />
         <LandingVenturaFoodsSection />

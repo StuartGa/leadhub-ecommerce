@@ -67,7 +67,7 @@ function BrandLogoGrid({ mobile = false }: { mobile?: boolean }) {
 
 export function LandingBrandsStrip() {
   return (
-    <section className="shrink-0 border-b border-slate-100 bg-gradient-to-b from-white to-slate-50/60 py-3 sm:py-6">
+    <section className="shrink-0 bg-gradient-to-b from-white to-slate-50/60 py-3 pb-3 sm:py-6 lg:border-b lg:border-slate-100">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-3 px-4 sm:gap-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
         <div className="w-full text-center sm:max-w-md lg:max-w-sm lg:text-left">
           <h2 className="text-base font-bold text-brand-800 sm:text-2xl">

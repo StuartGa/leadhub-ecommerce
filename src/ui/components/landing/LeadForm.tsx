@@ -117,7 +117,7 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
           tabIndex={-1}
           autoComplete="off"
           aria-hidden="true"
-          className="absolute -left-[9999px] h-px w-px opacity-0"
+          className="hidden"
         />
         <div className={compact ? "grid grid-cols-1 gap-2.5 md:grid-cols-2" : "contents"}>
         <div>

@@ -53,12 +53,12 @@ export function LandingProductCarousel({ products }: { products: LandingFeatured
 
   return (
     <div
-      className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]"
+      className="relative isolate w-full max-w-full overflow-x-clip overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]"
       aria-label="Productos destacados"
       role="region"
     >
       <div
-        className="landing-marquee-track flex w-max gap-4 animate-landing-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] sm:gap-5"
+        className="landing-marquee-track flex w-max max-w-none gap-4 animate-landing-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] sm:gap-5"
         style={{ animationDuration: `${durationSeconds}s` }}
       >
         {loop.map((product, index) => (

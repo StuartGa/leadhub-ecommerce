@@ -33,8 +33,8 @@ export function HorecaLandingPage() {
   });
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
-      <main className="flex-1">
+    <div className="flex flex-col overflow-x-clip overscroll-y-none bg-white text-slate-900 antialiased">
+      <main>
         <div className="flex flex-col lg:max-h-[100dvh] lg:min-h-[100dvh] lg:overflow-hidden">
           <LandingHeroSection />
           <LandingBrandsStrip />

@@ -181,7 +181,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps) {
           tabIndex={-1}
           autoComplete="off"
           aria-hidden="true"
-          className="absolute -left-[9999px] h-px w-px opacity-0"
+          className="hidden"
         />
         {items.length > 0 && (
           <div className="rounded-lg border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">

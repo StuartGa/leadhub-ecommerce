@@ -39,3 +39,18 @@ skills-lock.json
 opencode.json
 scripts/catalog.json
 .vercel
+
+# Local dev previews and design placeholders (not for production)
+.preview/
+.preview-*.png
+public/landing/preview-*.png
+public/landing/hero-pasta.svg
+public/landing/logo-simplot.svg
+public/landing/logo-stanislaus.svg
+public/landing/mexico-map.svg
+public/landing/simplot-fries.jpg
+public/landing/simplot-fries.svg
+public/landing/stanislaus-products.svg
+public/landing/stanislaus-tomatoes.jpg
+public/landing/testimonials-bg.svg
+scripts/capture-horeca-preview.mjs

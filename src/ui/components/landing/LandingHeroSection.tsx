@@ -5,9 +5,10 @@ import { LOGO_COLOR } from "../../../application/constants/assets";
 import { LANDING_ASSETS } from "../../../application/constants/landingAssets";
 import { LeadForm } from "./LeadForm";
 
-function ensureMutedInline(video: HTMLVideoElement) {
+function primeSafariVideo(video: HTMLVideoElement) {
   video.muted = true;
   video.defaultMuted = true;
+  video.playsInline = true;
   video.setAttribute("muted", "");
   video.setAttribute("playsinline", "");
   video.setAttribute("webkit-playsinline", "");
@@ -15,7 +16,6 @@ function ensureMutedInline(video: HTMLVideoElement) {
 
 export function LandingHeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(true);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function LandingHeroSection() {
     const video = videoRef.current;
     if (!video) return;
 
-    ensureMutedInline(video);
+    primeSafariVideo(video);
 
     let interactionListenersAttached = false;
     let playOnInteraction: (() => void) | null = null;
@@ -50,9 +50,12 @@ export function LandingHeroSection() {
     };
 
     const tryPlay = async () => {
-      ensureMutedInline(video);
+      if (!video.paused) return;
+
+      primeSafariVideo(video);
       try {
         await video.play();
+        detachInteractionListeners();
       } catch {
         attachInteractionListeners();
       }
@@ -63,10 +66,7 @@ export function LandingHeroSection() {
       interactionListenersAttached = true;
 
       playOnInteraction = () => {
-        ensureMutedInline(video);
-        void video.play().then(() => {
-          detachInteractionListeners();
-        }).catch(() => {});
+        void tryPlay();
       };
 
       onVisibilityChange = () => {
@@ -91,21 +91,26 @@ export function LandingHeroSection() {
       document.addEventListener("visibilitychange", onVisibilityChange);
     };
 
-    const onPlaying = () => {
-      setVideoPlaying(true);
+    const onCanPlay = () => {
+      void tryPlay();
     };
 
-    tryPlay();
-    video.addEventListener("loadedmetadata", tryPlay);
-    video.addEventListener("loadeddata", tryPlay);
-    video.addEventListener("canplay", tryPlay);
-    video.addEventListener("playing", onPlaying);
+    // Safari often refuses autoplay on elements that are not yet visible in the viewport.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          void tryPlay();
+        }
+      },
+      { threshold: 0.01 },
+    );
+    observer.observe(video);
+
+    video.addEventListener("canplay", onCanPlay);
 
     return () => {
-      video.removeEventListener("loadedmetadata", tryPlay);
-      video.removeEventListener("loadeddata", tryPlay);
-      video.removeEventListener("canplay", tryPlay);
-      video.removeEventListener("playing", onPlaying);
+      observer.disconnect();
+      video.removeEventListener("canplay", onCanPlay);
       detachInteractionListeners();
     };
   }, []);
@@ -140,12 +145,12 @@ export function LandingHeroSection() {
           disablePictureInPicture
           disableRemotePlayback
           controls={false}
+          poster={LANDING_ASSETS.hero}
           aria-hidden="true"
-          className={`hero-bg-video pointer-events-none absolute inset-0 h-full w-full object-cover object-[80%_center] transition-opacity duration-700 lg:object-center ${
-            videoPlaying ? "opacity-100" : "opacity-0"
-          }`}
-          src={LANDING_ASSETS.heroVideo}
-        />
+          className="hero-bg-video pointer-events-none absolute inset-0 h-full w-full object-cover object-[80%_center] lg:object-center"
+        >
+          <source src={LANDING_ASSETS.heroVideo} type="video/mp4" />
+        </video>
       ) : null}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40 lg:from-white lg:via-white/75 lg:to-transparent" />
 

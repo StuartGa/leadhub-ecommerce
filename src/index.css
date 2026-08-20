@@ -84,10 +84,6 @@ body {
   }
 }
 
-.hero-bg-video {
-  object-fit: cover;
-}
-
 .hero-section-bg {
   background-size: cover;
   background-position: 80% center;
@@ -97,15 +93,4 @@ body {
   .hero-section-bg {
     background-position: center;
   }
-}
-
-.hero-bg-video::-webkit-media-controls,
-.hero-bg-video::-webkit-media-controls-enclosure,
-.hero-bg-video::-webkit-media-controls-panel,
-.hero-bg-video::-webkit-media-controls-start-playback-button,
-.hero-bg-video::-webkit-media-controls-overlay-play-button {
-  display: none !important;
-  -webkit-appearance: none;
-  opacity: 0;
-  pointer-events: none;
 }

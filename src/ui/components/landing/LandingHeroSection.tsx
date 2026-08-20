@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { LOGO_COLOR } from "../../../application/constants/assets";
@@ -5,14 +6,31 @@ import { LANDING_ASSETS } from "../../../application/constants/landingAssets";
 import { LeadForm } from "./LeadForm";
 
 export function LandingHeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    void video.play().catch(() => {
+      // Some browsers block autoplay until interaction; poster remains visible.
+    });
+  }, []);
+
   return (
     <section className="relative shrink-0 overflow-hidden pb-1 lg:flex lg:min-h-0 lg:flex-1">
-      <img
-        src={LANDING_ASSETS.hero}
-        alt=""
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={LANDING_ASSETS.hero}
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover object-[80%_center] lg:object-center"
-        fetchPriority="high"
+        src={LANDING_ASSETS.heroVideo}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40 lg:from-white lg:via-white/75 lg:to-transparent" />
 

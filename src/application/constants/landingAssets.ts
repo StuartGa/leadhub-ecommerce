@@ -3,6 +3,7 @@ const BASE = import.meta.env.BASE_URL;
 /** Food template photos (Pexels) — replace with brand assets when available */
 export const LANDING_ASSETS = {
   hero: `${BASE}landing/hero-pasta.jpg`,
+  heroVideo: `${BASE}landing/hero-video.mp4`,
   testimonialsBg: `${BASE}landing/testimonials-tomatoes.jpg`,
 } as const;
 

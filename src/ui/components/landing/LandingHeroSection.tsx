@@ -1,37 +1,152 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { LOGO_COLOR } from "../../../application/constants/assets";
 import { LANDING_ASSETS } from "../../../application/constants/landingAssets";
 import { LeadForm } from "./LeadForm";
 
+function ensureMutedInline(video: HTMLVideoElement) {
+  video.muted = true;
+  video.defaultMuted = true;
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+}
+
 export function LandingHeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoEnabled, setVideoEnabled] = useState(true);
 
   useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reducedMotion) {
+      setVideoEnabled(false);
+      return;
+    }
+
     const video = videoRef.current;
     if (!video) return;
 
-    video.muted = true;
-    void video.play().catch(() => {
-      // Some browsers block autoplay until interaction; poster remains visible.
-    });
+    ensureMutedInline(video);
+
+    let interactionListenersAttached = false;
+    let playOnInteraction: (() => void) | null = null;
+    let onVisibilityChange: (() => void) | null = null;
+
+    const detachInteractionListeners = () => {
+      if (!interactionListenersAttached || !playOnInteraction || !onVisibilityChange) {
+        return;
+      }
+
+      document.removeEventListener("pointerdown", playOnInteraction, true);
+      document.removeEventListener("touchstart", playOnInteraction, true);
+      document.removeEventListener("keydown", playOnInteraction, true);
+      document.removeEventListener("scroll", playOnInteraction, true);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      interactionListenersAttached = false;
+    };
+
+    const tryPlay = async () => {
+      ensureMutedInline(video);
+      try {
+        await video.play();
+      } catch {
+        attachInteractionListeners();
+      }
+    };
+
+    const attachInteractionListeners = () => {
+      if (interactionListenersAttached || !video.paused) return;
+      interactionListenersAttached = true;
+
+      playOnInteraction = () => {
+        ensureMutedInline(video);
+        void video.play().then(() => {
+          detachInteractionListeners();
+        }).catch(() => {});
+      };
+
+      onVisibilityChange = () => {
+        if (document.visibilityState === "visible") {
+          void tryPlay();
+        }
+      };
+
+      document.addEventListener("pointerdown", playOnInteraction, {
+        capture: true,
+        passive: true,
+      });
+      document.addEventListener("touchstart", playOnInteraction, {
+        capture: true,
+        passive: true,
+      });
+      document.addEventListener("keydown", playOnInteraction, { capture: true });
+      document.addEventListener("scroll", playOnInteraction, {
+        capture: true,
+        passive: true,
+      });
+      document.addEventListener("visibilitychange", onVisibilityChange);
+    };
+
+    const onPlaying = () => {
+      setVideoPlaying(true);
+    };
+
+    tryPlay();
+    video.addEventListener("loadedmetadata", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("playing", onPlaying);
+
+    return () => {
+      video.removeEventListener("loadedmetadata", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("playing", onPlaying);
+      detachInteractionListeners();
+    };
   }, []);
 
+  useEffect(() => {
+    if (!videoEnabled) return;
+
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "video";
+    link.href = LANDING_ASSETS.heroVideo;
+    link.type = "video/mp4";
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [videoEnabled]);
+
   return (
-    <section className="relative shrink-0 overflow-hidden pb-1 lg:flex lg:min-h-0 lg:flex-1">
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={LANDING_ASSETS.hero}
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-[80%_center] lg:object-center"
-        src={LANDING_ASSETS.heroVideo}
-      />
+    <section
+      className="hero-section-bg relative shrink-0 overflow-hidden pb-1 lg:flex lg:min-h-0 lg:flex-1"
+      style={{ backgroundImage: `url(${LANDING_ASSETS.hero})` }}
+    >
+      {videoEnabled ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          disableRemotePlayback
+          controls={false}
+          aria-hidden="true"
+          className={`hero-bg-video pointer-events-none absolute inset-0 h-full w-full object-cover object-[80%_center] transition-opacity duration-700 lg:object-center ${
+            videoPlaying ? "opacity-100" : "opacity-0"
+          }`}
+          src={LANDING_ASSETS.heroVideo}
+        />
+      ) : null}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40 lg:from-white lg:via-white/75 lg:to-transparent" />
 
       <div className="relative mx-auto flex w-full max-w-[1200px] flex-col px-4 py-3 sm:px-6 sm:py-4 lg:h-full lg:py-5">

@@ -138,11 +138,11 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-slate-200/10 bg-white/80 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto flex h-24 max-w-[1200px] items-center justify-between px-6">
         <div className="flex h-full items-center gap-4 py-2">
-          <NavLink to="/" className="flex h-full items-center">
+          <NavLink to="/" className="flex h-full items-center shrink-0">
             <img
               src={logoSrc}
               alt="San Patric Foodservice"
-              className="h-12 w-auto"
+              className="h-14 w-auto sm:h-16 md:h-[4.75rem]"
             />
           </NavLink>
         </div>

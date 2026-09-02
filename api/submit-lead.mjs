@@ -92,13 +92,32 @@ function resolveWebhookUrl(source) {
   return process.env.GHL_WEBHOOK_URL;
 }
 
+function parseAllowedOrigins() {
+  const raw = process.env.ALLOWED_ORIGIN?.trim();
+  if (!raw) return [];
+
+  return raw
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+function isOriginAllowed(origin, allowedOrigins) {
+  if (!origin || allowedOrigins.length === 0) return false;
+
+  return allowedOrigins.some((allowed) => origin === allowed);
+}
+
 function setCorsHeaders(res, origin) {
-  const allowed = process.env.ALLOWED_ORIGIN;
-  if (allowed && origin === allowed) {
+  const allowedOrigins = parseAllowedOrigins();
+
+  if (allowedOrigins.length > 0 && isOriginAllowed(origin, allowedOrigins)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
-  } else if (!allowed) {
+    res.setHeader("Vary", "Origin");
+  } else if (allowedOrigins.length === 0) {
     res.setHeader("Access-Control-Allow-Origin", "*");
   }
+
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }

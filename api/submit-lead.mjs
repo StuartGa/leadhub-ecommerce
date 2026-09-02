@@ -181,6 +181,7 @@ export default async function handler(req, res) {
   };
 
   let ghlSent = false;
+  const ghlFailureBlocksRequest = !skipGhl && source !== "landing-horeca";
 
   if (webhookUrl) {
     try {
@@ -192,12 +193,12 @@ export default async function handler(req, res) {
 
       if (response.ok) {
         ghlSent = true;
-      } else if (!skipGhl) {
+      } else if (ghlFailureBlocksRequest) {
         res.status(502).json({ success: false, message: "Upstream error" });
         return;
       }
     } catch {
-      if (!skipGhl) {
+      if (ghlFailureBlocksRequest) {
         res.status(502).json({ success: false, message: "Upstream error" });
         return;
       }

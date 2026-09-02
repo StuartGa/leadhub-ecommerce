@@ -285,11 +285,7 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
             className="mt-0.5 h-4 w-4 rounded border-slate-300 text-brand-500 focus:ring-brand-500"
           />
           <label htmlFor="lead-acceptPrivacy" className="text-xs text-slate-600">
-            Acepto el{" "}
-            <a href="#" className="text-brand-600 underline hover:text-brand-700">
-              aviso de privacidad
-            </a>{" "}
-            y el tratamiento de mis datos personales.{" "}
+            Acepto el aviso de privacidad y el tratamiento de mis datos personales.{" "}
             <span className="text-red-500">*</span>
           </label>
         </div>

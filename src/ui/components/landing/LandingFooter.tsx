@@ -1,10 +1,10 @@
 import { LOGO_WHITE } from "../../../application/constants/assets";
 
-const LEGAL_LINKS = [
-  { label: "Aviso de Privacidad", href: "#" },
-  { label: "Términos y Condiciones", href: "#" },
-  { label: "Política de Cookies", href: "#" },
-  { label: "Aviso Legal", href: "#" },
+const LEGAL_LABELS = [
+  "Aviso de Privacidad",
+  "Términos y Condiciones",
+  "Política de Cookies",
+  "Aviso Legal",
 ] as const;
 
 export function LandingFooter() {
@@ -23,26 +23,21 @@ export function LandingFooter() {
           <p>Proveedor confiable para la industria HORECA.</p>
           <p>Calidad • Rendimiento • Confianza</p>
 
-          <nav
+          <div
             aria-label="Enlaces legales"
             className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-white/75 sm:text-sm"
           >
-            {LEGAL_LINKS.map((link, index) => (
-              <span key={link.label} className="inline-flex items-center gap-2">
+            {LEGAL_LABELS.map((label, index) => (
+              <span key={label} className="inline-flex items-center gap-2">
                 {index > 0 && (
                   <span className="text-white/40" aria-hidden="true">
                     |
                   </span>
                 )}
-                <a
-                  href={link.href}
-                  className="transition-colors hover:text-white"
-                >
-                  {link.label}
-                </a>
+                <span>{label}</span>
               </span>
             ))}
-          </nav>
+          </div>
         </div>
       </div>
     </footer>

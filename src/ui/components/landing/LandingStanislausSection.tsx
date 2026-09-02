@@ -3,7 +3,7 @@ import {
   LANDING_STANISLAUS_PRODUCTS,
 } from "../../../application/constants/landingAssets";
 import { CheckList, IdealForGrid } from "./IdealForGrid";
-import { LandingProductShowcase, LandingSectionCta } from "./LandingProductGrid";
+import { LandingProductShowcase } from "./LandingProductGrid";
 import { STANISLAUS_IDEAL_FOR } from "./idealForData";
 
 const FEATURES = [
@@ -47,8 +47,6 @@ export function LandingStanislausSection() {
         <div className="mt-10 rounded-2xl border border-brand-100/80 bg-white/70 p-4 shadow-sm backdrop-blur-sm sm:mt-12 sm:p-6">
           <LandingProductShowcase products={LANDING_STANISLAUS_PRODUCTS} />
         </div>
-
-        <LandingSectionCta href="/productos?marca=stanislaus" label="Ver más" />
       </div>
 
       <IdealForGrid items={STANISLAUS_IDEAL_FOR} variant="grey" />

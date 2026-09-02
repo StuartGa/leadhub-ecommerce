@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { LOGO_COLOR } from "../../../application/constants/assets";
 import { LANDING_ASSETS } from "../../../application/constants/landingAssets";
 import { LeadForm } from "./LeadForm";
@@ -13,13 +11,13 @@ export function LandingHeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40 lg:from-white lg:via-white/75 lg:to-transparent" />
 
       <div className="relative mx-auto flex w-full max-w-[1200px] flex-col px-4 py-3 sm:px-6 sm:py-4 lg:h-full lg:py-5">
-        <Link to="/" className="inline-block shrink-0">
+        <div className="inline-block shrink-0">
           <img
             src={LOGO_COLOR}
             alt="Alimentos Convenientes san patric"
             className="h-10 w-auto sm:h-14 lg:h-16"
           />
-        </Link>
+        </div>
 
         <div className="mt-2 flex flex-col gap-3 sm:mt-3 lg:mt-4 lg:min-h-0 lg:flex-1 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
           <div className="max-w-xl shrink-0 lg:max-w-[460px] lg:pt-1">

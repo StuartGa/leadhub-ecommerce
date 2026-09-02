@@ -1,6 +1,7 @@
 import { buildQuoteRequestHtml, buildQuoteRequestMeta, resolveQuoteLogoUrl } from "./lib/quote-request-html.mjs";
 import { enrichQuoteItems } from "./lib/enrich-quote-items.mjs";
-import { sendQuoteRequestEmail } from "./lib/send-quote-email.mjs";
+import { buildLandingLeadEmail } from "./lib/landing-lead-html.mjs";
+import { sendLandingLeadEmail, sendQuoteRequestEmail } from "./lib/send-quote-email.mjs";
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 8;
@@ -185,7 +186,25 @@ export default async function handler(req, res) {
   }
 
   let emailSent = false;
-  if (quoteItems?.length) {
+
+  if (source === "landing-horeca") {
+    try {
+      const landingEmail = buildLandingLeadEmail({ payload: sanitized });
+      const emailResult = await sendLandingLeadEmail({
+        subject: landingEmail.subject,
+        html: landingEmail.html,
+        replyTo: sanitized.email,
+      });
+      emailSent = emailResult.sent;
+    } catch {
+      if (ghlSent) {
+        // Lead already reached GHL; email failure should not block success.
+      } else {
+        res.status(502).json({ success: false, message: "Email delivery failed" });
+        return;
+      }
+    }
+  } else if (quoteItems?.length) {
     try {
       const emailResult = await sendQuoteRequestEmail({
         subject: quoteMeta.subject,
@@ -206,9 +225,12 @@ export default async function handler(req, res) {
   if (!ghlSent && !emailSent) {
     res.status(503).json({
       success: false,
-      message: webhookUrl
-        ? "Lead service unavailable"
-        : "Configure GHL_WEBHOOK_URL or submit a quote with products in cart",
+      message:
+        source === "landing-horeca"
+          ? "Configure GHL_LANDING_WEBHOOK_URL or RESEND_API_KEY for landing notifications"
+          : webhookUrl
+            ? "Lead service unavailable"
+            : "Configure GHL_WEBHOOK_URL or submit a quote with products in cart",
     });
     return;
   }

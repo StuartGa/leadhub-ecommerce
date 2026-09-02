@@ -1,22 +1,18 @@
-import { Link } from "react-router-dom";
-
 import { LANDING_STRIP_BRANDS } from "../../../application/constants/landingAssets";
 
 function BrandLogo({
   name,
   logo,
-  decorative = false,
   mobile = false,
 }: {
   name: string;
   logo: string;
-  decorative?: boolean;
   mobile?: boolean;
 }) {
   return (
     <img
       src={logo}
-      alt={decorative ? "" : name}
+      alt={name}
       className={
         mobile
           ? "h-11 w-auto max-w-[84px] object-contain sm:h-16 sm:max-w-[170px] lg:h-[5.5rem] lg:max-w-[200px]"
@@ -36,31 +32,11 @@ function BrandLogoGrid({ mobile = false }: { mobile?: boolean }) {
           : "hidden w-full max-w-[820px] grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 sm:grid sm:grid-cols-3 sm:gap-x-10 lg:flex-1 lg:grid-cols-5 lg:gap-x-6 lg:gap-y-5"
       }
     >
-      {LANDING_STRIP_BRANDS.map((brand) => {
-        const logo = (
-          <BrandLogo
-            name={brand.name}
-            logo={brand.logo}
-            decorative={Boolean(brand.href)}
-            mobile={mobile}
-          />
-        );
-
-        if (brand.href) {
-          return (
-            <Link
-              key={brand.id}
-              to={brand.href}
-              aria-label={brand.name}
-              className="transition-opacity hover:opacity-80 focus-visible:rounded focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-            >
-              {logo}
-            </Link>
-          );
-        }
-
-        return <div key={brand.id}>{logo}</div>;
-      })}
+      {LANDING_STRIP_BRANDS.map((brand) => (
+        <div key={brand.id}>
+          <BrandLogo name={brand.name} logo={brand.logo} mobile={mobile} />
+        </div>
+      ))}
     </div>
   );
 }

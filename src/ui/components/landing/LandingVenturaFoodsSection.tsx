@@ -3,7 +3,7 @@ import {
   LANDING_VENTURA_PRODUCTS,
 } from "../../../application/constants/landingAssets";
 import { CheckList } from "./IdealForGrid";
-import { LandingProductShowcase, LandingSectionCta } from "./LandingProductGrid";
+import { LandingProductShowcase } from "./LandingProductGrid";
 
 const FEATURES = [
   "Aderezos y salsas listos para servir",
@@ -38,8 +38,6 @@ export function LandingVenturaFoodsSection() {
         <div className="mt-10 rounded-2xl border border-slate-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-sm sm:mt-12 sm:p-6">
           <LandingProductShowcase products={LANDING_VENTURA_PRODUCTS} columns={3} />
         </div>
-
-        <LandingSectionCta href="/productos?marca=ventura-foods" label="Ver más" />
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import { lazyWithRetry } from "./application/utils/lazyWithRetry";
 import { usePageTracking } from "./application/hooks/usePageTracking";
@@ -9,6 +9,7 @@ import {
   loadGTM,
   loadMetaPixel,
 } from "./application/services/trackingService";
+import type { TrackingPreferences } from "./domain/types/tracking";
 import { QuoteCartProvider } from "./application/contexts/QuoteCartContext";
 import { CookieConsentBanner } from "./ui/components/tracking/CookieConsentBanner";
 import { FloatingQuoteButton } from "./ui/components/common/FloatingQuoteButton";
@@ -105,6 +106,35 @@ function AppShell() {
   );
 }
 
+function AppChrome({
+  hasConsent,
+  acceptAll,
+  rejectAll,
+  customize,
+}: {
+  hasConsent: boolean;
+  acceptAll: () => void;
+  rejectAll: () => void;
+  customize: (preferences: TrackingPreferences) => void;
+}) {
+  const { pathname } = useLocation();
+  const isHorecaLanding = pathname === "/horeca" || pathname.endsWith("/horeca");
+
+  return (
+    <>
+      {!isHorecaLanding && <FloatingWhatsAppButton />}
+      {!isHorecaLanding && <FloatingQuoteButton />}
+      {!hasConsent && !isHorecaLanding && (
+        <CookieConsentBanner
+          onAcceptAll={acceptAll}
+          onRejectAll={rejectAll}
+          onCustomize={customize}
+        />
+      )}
+    </>
+  );
+}
+
 export function App() {
   const {
     acceptAll,
@@ -134,16 +164,13 @@ export function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <QuoteCartProvider>
         <AppShell />
-        <FloatingWhatsAppButton />
-        <FloatingQuoteButton />
-      </QuoteCartProvider>
-      {!hasConsent && (
-        <CookieConsentBanner
-          onAcceptAll={acceptAll}
-          onRejectAll={rejectAll}
-          onCustomize={customize}
+        <AppChrome
+          hasConsent={hasConsent}
+          acceptAll={acceptAll}
+          rejectAll={rejectAll}
+          customize={customize}
         />
-      )}
+      </QuoteCartProvider>
     </BrowserRouter>
   );
 }

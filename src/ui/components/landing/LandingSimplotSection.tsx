@@ -3,7 +3,7 @@ import {
   LANDING_SIMPLOT_PRODUCTS,
 } from "../../../application/constants/landingAssets";
 import { IdealForGrid } from "./IdealForGrid";
-import { LandingProductShowcase, LandingSectionCta } from "./LandingProductGrid";
+import { LandingProductShowcase } from "./LandingProductGrid";
 import { SIMPLOT_IDEAL_FOR } from "./idealForData";
 
 const FEATURES = [
@@ -90,8 +90,6 @@ export function LandingSimplotSection() {
             </div>
           </div>
         </div>
-
-        <LandingSectionCta href="/productos?marca=simplot" label="Ver más" />
       </div>
 
       <IdealForGrid items={SIMPLOT_IDEAL_FOR} variant="white" />
